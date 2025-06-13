@@ -4,7 +4,7 @@
 
 Welcome to **Product Cult**! This is a fully functional example application generated using [**Hope AI**](https://bit.cloud) and refined by humans. It demonstrates how to compose a modern web application from independent, reusable components. The app itself is a fun platform where users can vote for their favorite next-generation product ideas.
 
-This project serves as a practical guide to showcase component-driven development, modular architecture, and rapid deployment with Hope AI.
+This project serves as a practical guide to showcase AI-driven development, modular architecture, and rapid delivery with Hope AI.
 
 Browse the components on the [Bit Cloud example organization](https://bit.cloud/infinity) for browsing live preview and of the platform components and business capabilities.
 
