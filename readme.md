@@ -57,7 +57,7 @@ Make sure you have [Bit](https://bit.dev/docs/getting-started/installing-bit/ins
 ## Running the App
 
 You can run the full application or view individual components in the Bit workspace.
-This command builds and runs the main `product-cult` application, showing you the final, composed product.
+This command builds and runs the main `product-cult` application, showing you the final, composed product:
 
 ```bash
 bit run product-cult
@@ -74,5 +74,5 @@ bit start
 
 ## 📂 Project Structure
 
-The directory structure is organized by components. This makes the codebase more modular, scalable, and easier to maintain. Enable, add or disable application features in the [app composition file](https://github.com/teambit/product-cult/blob/main/product-hunt-platform/product-hunt/product-hunt.bit-app.ts)
+The directory structure is organized by components. This makes the codebase more modular, scalable, and easier to maintain. Enable, add or disable application features in the [application shell](https://github.com/teambit/product-cult/blob/main/product-hunt-platform/product-hunt/product-hunt.bit-app.ts).
 
