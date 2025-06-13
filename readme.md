@@ -6,6 +6,8 @@ Welcome to **Product Cult**! This is a fully functional example application gene
 
 This project serves as a practical guide to showcase component-driven development, modular architecture, and rapid deployment with Hope AI.
 
+Browse the components on the [Bit Cloud example organization](https://bit.cloud/infinity) for browsing live preview and of the platform components and business capabilities.
+
 ---
 
 ## ✨ Features
@@ -68,8 +70,6 @@ This command launches the Bit development server, where you can see, test, and i
 ```bash
 bit start
 ```
-
----
 
 ## 📂 Project Structure
 
