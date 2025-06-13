@@ -74,5 +74,5 @@ bit start
 
 ## 📂 Project Structure
 
-The directory structure is organized by components, not by file type. This makes the codebase more modular, scalable, and easier to maintain. Enable, add or disable application features in the [app composition file](https://github.com/teambit/product-cult/blob/main/product-hunt-platform/product-hunt/product-hunt.bit-app.ts)
+The directory structure is organized by components. This makes the codebase more modular, scalable, and easier to maintain. Enable, add or disable application features in the [app composition file](https://github.com/teambit/product-cult/blob/main/product-hunt-platform/product-hunt/product-hunt.bit-app.ts)
 
