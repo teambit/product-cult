@@ -25,8 +25,8 @@ Browse the components on the [Bit Cloud example organization](https://bit.cloud/
 
 This project is built with a modern, component-oriented technology stack:
 
-* **Core Platform:** [Harmony](https://bit.dev) - Used Harmony for composing and integrating the application's services and logic.
 * **Monorepo:** [Bit](https://bit.dev) - For creating, versioning, and composing the platform packages.
+* **Core Platform:** [Harmony](https://bit.dev/docs/harmony-intro) - Used Harmony for composing and integrating the application's services and logic.
 * **Frontend:** [React](https://reactjs.org/) - For building interactive and reusable UI components.
 * **Styling:** CSS Modules - For locally scoped and conflict-free component styles.
 * **Backend:** NodeJS backend with GraphQL data fetching. Data persisted to MongoDB. 
