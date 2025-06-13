@@ -2,7 +2,7 @@
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Welcome to **Product Cult**! This is a fully functional example application generated using the **Hope AI** and refine by humans. It demonstrates how to compose a modern web application from independent, reusable components. The app itself is a fun platform where users can vote for their favorite next-generation product ideas.
+Welcome to **Product Cult**! This is a fully functional example application generated using the **Hope AI** and refined by humans. It demonstrates how to compose a modern web application from independent, reusable components. The app itself is a fun platform where users can vote for their favorite next-generation product ideas.
 
 This project serves as a practical guide to showcase component-driven development, modular architecture, and rapid deployment with Hope AI.
 
