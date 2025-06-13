@@ -26,10 +26,11 @@ Browse the components on the [Bit Cloud example organization](https://bit.cloud/
 This project is built with a modern, component-oriented technology stack:
 
 * **Monorepo:** [Bit](https://bit.dev) - For creating, versioning, and composing the platform packages.
-* **Core Platform:** [Harmony](https://bit.dev/docs/harmony-intro) - Used Harmony for composing and integrating the application's services and logic.
+* **Core Platform:** Used [TypeScript](https://www.typescriptlang.org/) and [Harmony](https://bit.dev/docs/harmony-intro) for composing and integrating the application's services and logic.
 * **Frontend:** [React](https://reactjs.org/) - For building interactive and reusable UI components.
 * **Styling:** CSS Modules - For locally scoped and conflict-free component styles.
-* **Backend:** NodeJS backend with GraphQL data fetching. Data persisted to MongoDB. 
+* **Backend:** [NodeJS](https://nodejs.org) backend with [GraphQL](https://graphql.org) data fetching. Data persisted to [MongoDB](https://mongodb.com). 
+* **Code standards:** Unit tests powered by [Vitest](https://vitest.dev). Code consistency and quality enforced by [ESLint](https://eslint.org).
 
 ---
 
@@ -74,3 +75,4 @@ bit start
 ## 📂 Project Structure
 
 This project follows a component-driven architecture. The directory structure is organized by components, not by file type. This makes the codebase more modular, scalable, and easier to maintain.
+
