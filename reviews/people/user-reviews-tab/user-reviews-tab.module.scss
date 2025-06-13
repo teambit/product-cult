@@ -1,0 +1,63 @@
+.userReviewsTabContainer {
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-medium);
+  font-family: var(--typography-font-family);
+  background-color: var(--colors-surface-background);
+}
+
+.loadingState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-large);
+  text-align: center;
+  border-radius: var(--borders-radius-medium);
+  background-color: var(--colors-surface-primary);
+  box-shadow: var(--effects-shadows-xs);
+}
+
+.errorState {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  padding: var(--spacing-large);
+  background-color: var(--colors-status-negative-subtle);
+  border: 1px solid var(--colors-border-default);
+  border-left: 4px solid var(--colors-status-negative-default);
+  border-radius: var(--borders-radius-medium);
+  text-align: center;
+  gap: var(--spacing-small);
+  box-shadow: var(--effects-shadows-small);
+}
+
+.errorTitle {
+  font-size: var(--typography-sizes-heading-h5);
+  color: var(--colors-status-negative-default);
+  font-weight: var(--typography-font-weight-semiBold);
+  margin: 0;
+}
+
+.errorMessage {
+  font-size: var(--typography-sizes-body-default);
+  color: var(--colors-text-secondary);
+  margin: 0;
+  max-width: 400px;
+}
+
+// Responsive adjustments for the container if needed, ReviewList itself is responsive
+@media (min-width: 480px) { // $tablet
+  .userReviewsTabContainer {
+    padding: var(--spacing-large);
+  }
+}
+
+@media (min-width: 1024px) { // $laptop
+  .userReviewsTabContainer {
+    padding: var(--spacing-x-large);
+  }
+}

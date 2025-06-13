@@ -1,0 +1,79 @@
+---
+description: A Launch entity representing a product launch.
+labels: ['launch', 'entity']
+---
+
+A component for a Launch entity, supports serialization and de-serialization of Launch objects and can be used from
+both backend and frontend.
+
+## Get started
+
+Install and use the component in your code:
+
+```ts
+// import { Launch } from './launch.js'; // Example import
+const launch = Launch.from({
+  id: '123',
+  productId: '456',
+  name: 'Awesome Launch',
+  tagline: 'The most innovative product ever!',
+  description: 'This is a detailed description for Awesome Launch. It includes many features and benefits that will surely impress everyone.',
+  launchDate: new Date().toISOString(),
+  status: 'upcoming',
+  submittedBy: '789',
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString()
+});
+```
+
+## Mock data
+
+You can use launch mock data for development and testing purposes using the `mockLaunches` API.
+
+```ts
+// import { mockLaunches } from './launch.mock.js'; // Example import
+const launches = mockLaunches();
+console.log(launches);
+```
+
+## Displaying Launch Information
+
+Displaying launch information on a product page.
+
+```ts
+// import { Launch } from './launch.js'; // Example import
+const launchData = {
+  id: '456',
+  productId: '789',
+  name: 'Incredible Launch',
+  tagline: 'Experience the future today!',
+  description: 'Get ready for an incredible launch that will change the way you think about products.',
+  launchDate: new Date().toISOString(),
+  status: 'live',
+  submittedBy: '101',
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString()
+};
+const launch = Launch.from(launchData);
+console.log(`Launch Name: ${launch.name}, Status: ${launch.status}`);
+```
+
+## Creating a Launch Instance
+
+Creating a new launch instance with specific details.
+
+```ts
+// import { Launch } from './launch.js'; // Example import
+const newLaunch = new Launch(
+    'product-id-example', // productId
+    'My New Launch',
+    'The ultimate product launch!',
+    'Detailed description of the new launch with all the amazing features.',
+    new Date().toISOString(),
+    'upcoming',
+    'user-id-example', // submittedBy
+    new Date().toISOString(),
+    new Date().toISOString(),
+    'custom-launch-id-123' // id (optional)
+);
+console.log(`New Launch ID: ${newLaunch.id}, Name: ${newLaunch.name}`);

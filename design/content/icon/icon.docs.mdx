@@ -1,0 +1,37 @@
+---
+description: A generic Icon component for creating consistent SVG icons.
+labels: ['icon', 'ui', 'svg']
+---
+
+The `Icon` component is a versatile base for rendering SVG icons, handling common properties like size, color, and accessibility.
+Specific icon components should use this as a foundation, providing their SVG paths as children.
+
+## Basic Usage
+
+This example demonstrates how to use the `Icon` component with a custom SVG path.
+
+```jsx
+<Icon>
+  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+</Icon>
+```
+
+## Customizing Size and Color
+
+You can easily customize the size and color of the icon using the `size` and `color` props.
+
+```jsx
+<Icon size={32} color="red">
+  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+</Icon>
+```
+
+## Adding a Title for Accessibility
+
+For better accessibility, you can add a descriptive title to the icon using the `title` prop.
+This will render an SVG `<title>` element and set the appropriate ARIA attributes.
+
+```jsx
+<Icon title="Home">
+  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+</Icon>

@@ -1,0 +1,53 @@
+---
+description: A mock provider for testing and showcasing React components in a simulated environment.
+labels: ['mock', 'provider', 'testing', 'react']
+---
+
+The `MockProvider` component simplifies testing and previewing React components by providing a consistent, controlled environment. It includes routing, theming, and data mocking capabilities, which can be toggled as needed.
+
+## Basic Usage
+
+Wrap your component with `<MockProvider>` to enable the mock environment:
+
+```jsx
+// Ensure MockProvider and MyComponent are correctly imported or defined in your actual code.
+// Example:
+// import { MockProvider } from 'your-mock-provider-package';
+// import { MyComponent } from './my-component.js';
+
+<MockProvider>
+  <MyComponent />
+</MockProvider>
+```
+This sets up the component with a mock context, a router, a theme, and Apollo Client mocking.
+
+## Disabling Theme and Router
+
+You can disable the theme or router individually:
+
+```jsx
+// Ensure MockProvider and MyComponent are correctly imported or defined in your actual code.
+
+<MockProvider noTheme>
+  <MyComponent />
+</MockProvider>
+
+<MockProvider noRouter>
+  <MyComponent />
+</MockProvider>
+```
+`noTheme` removes the `InfinityTheme` wrapper, while `noRouter` disables the `MemoryRouter`.
+
+## Accessing Mock Context
+
+Use the `useIsMock` hook to determine if your component is running in a mock environment:
+
+```jsx
+// Ensure useIsMock is correctly imported or defined in your actual code.
+// Example:
+// import { useIsMock } from 'your-mock-provider-package';
+
+function MyComponent() {
+  const isMock = useIsMock();
+  return <div>Running in mock mode: {isMock ? 'Yes' : 'No'}</div>;
+}

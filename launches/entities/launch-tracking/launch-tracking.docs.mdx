@@ -1,0 +1,75 @@
+---
+description: 'A LaunchTracking entity for tracking a users launch preferences.'
+labels: ['launch-tracking', 'entity']
+---
+
+A component for tracking a user's launch, including notification preferences.
+Supports serialization and de-serialization of LaunchTracking objects for use in both backend and frontend.
+
+## Get started
+
+Install and use the component:
+
+```ts
+const launchTracking = LaunchTracking.from({
+  id: 'launch-tracking-1',
+  userId: 'user-123',
+  launchId: 'launch-456',
+  notificationPreferences: { emailEnabled: true, pushEnabled: false, inAppEnabled: true }
+});
+```
+
+## Mock data
+
+You can use mock data for development and testing purposes using the `mockLaunchTracking` API.
+
+```ts
+const launchTracking = mockLaunchTracking();
+console.log(launchTracking);
+```
+
+You can also create multiple mock LaunchTracking entries.
+
+```ts
+const launchTrackings = mockLaunchTrackings();
+console.log(launchTrackings);
+```
+
+## Usage examples
+
+### Creating a LaunchTracking instance
+
+Demonstrates creating a `LaunchTracking` instance with specific user preferences.
+
+```ts
+const launchTracking = new LaunchTracking(
+  'tracking-id-1',
+  'user-id-1',
+  'launch-id-1',
+  { emailEnabled: true, pushEnabled: false, inAppEnabled: true }
+);
+console.log(launchTracking.toObject());
+```
+
+### Creating a LaunchTracking instance from a plain object
+
+Demonstrates how to create a `LaunchTracking` instance from a plain object.
+
+```ts
+const plainObject = {
+  id: 'tracking-id-2',
+  userId: 'user-id-2',
+  launchId: 'launch-id-2',
+  notificationPreferences: { emailEnabled: false, pushEnabled: true, inAppEnabled: false }
+};
+const launchTracking = LaunchTracking.from(plainObject);
+console.log(launchTracking.toObject());
+```
+
+### Mock with Overrides
+
+Demonstrates how to create a mock `LaunchTracking` instance with overrides.
+
+```ts
+const mock = mockLaunchTracking({ userId: 'custom-user-id', notificationPreferences: { emailEnabled: false } });
+console.log(mock.toObject());

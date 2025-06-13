@@ -1,0 +1,30 @@
+---
+description: A visually appealing and subtle spinner component for indicating loading states.
+labels: ['spinner', 'ui', 'loading']
+---
+
+A spinner component is used to indicate loading states in a user interface. It provides visual feedback to the user that a process is ongoing.
+
+## Component Usage
+
+Use the `Spinner` component to indicate loading states.
+
+```jsx
+<Spinner />
+```
+## Sizes
+The `Spinner` component supports different sizes: `small`, `medium`, `large`, and `x-large`. The default size is `medium`.
+```jsx
+<div style={{ display: 'flex', gap: '16px' }}>
+  <Spinner size="small" />
+  <Spinner size="medium" />
+  <Spinner size="large" />
+  <Spinner size="x-large" />
+</div>
+```
+## Customization
+The `Spinner` component can be customized with different colors, thickness, and aria labels.
+```jsx
+<div>
+  <Spinner color="var(--colors-secondary-default)" thickness={5} ariaLabel="Loading data..." />
+</div>

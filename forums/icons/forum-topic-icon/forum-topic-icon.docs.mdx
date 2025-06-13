@@ -1,0 +1,51 @@
+---
+description: Displays a standard icon representing a forum topic.
+labels: ['icon', 'forum', 'topic']
+---
+
+The `ForumTopicIcon` component displays a standard icon representing a forum topic.
+It utilizes the base Icon component for consistent styling and accessibility.
+
+## Basic Usage
+
+This example shows the default `ForumTopicIcon` component.
+
+```jsx
+<ForumTopicIcon />
+```
+## Sized and Colored Icons
+This example demonstrates how to customize the size and color of the `ForumTopicIcon` component.
+```jsx
+<div>
+  <ForumTopicIcon size={16} title="Small Topic" />
+  <span>16px</span>
+</div>
+<div>
+  <ForumTopicIcon size={32} title="Medium Topic" />
+  <span>32px</span>
+</div>
+<div>
+  <ForumTopicIcon size={48} title="Large Topic" />
+  <span>48px</span>
+</div>
+<div>
+  <ForumTopicIcon color="var(--colors-primary-default)" title="Primary Color Topic" />
+  <span>Primary Color</span>
+</div>
+<div>
+  <ForumTopicIcon color="var(--colors-status-positive-default)" title="Success Topic" />
+  <span>Positive Status Color</span>
+</div>
+<div>
+  <ForumTopicIcon color="#8E44AD" title="Custom Color Topic" />
+  <span>Custom Hex Color (#8E44AD)</span>
+</div>
+```
+## Clickable Icon with Custom Title
+This example shows how to make the `ForumTopicIcon` clickable and set a custom title.
+```jsx
+<ForumTopicIcon 
+  onClick={() => alert('Forum Topic Icon Clicked!')} 
+  title="Start New Discussion" 
+  style={{ cursor: 'var(--interactions-cursor-pointer, pointer)' }} 
+/>

@@ -1,0 +1,50 @@
+.productCard {
+  width: 100%;
+  max-width: 350px; // Sets a maximum width for the card, common for grid layouts.
+  // The Card component itself manages its height based on content.
+  // If used in a CSS Grid, the grid definition can enforce uniform card heights if desired.
+  // Ensures the card itself is a flex container to properly layout its children if overrides are needed.
+  display: flex; 
+  flex-direction: column;
+}
+
+.description {
+  // Styles for the product description paragraph.
+  display: -webkit-box;
+  -webkit-line-clamp: 3; // Limits the text to a maximum of 3 lines.
+  -webkit-box-orient: vertical;
+  overflow: hidden; // Hides any text that overflows the 3-line limit.
+  text-overflow: ellipsis; // Adds an ellipsis (...) to indicate truncated text.
+  color: var(--colors-text-secondary); // Uses a secondary text color for the description.
+  flex-grow: 1; // Allows the description area to expand and fill available vertical space, pushing the footer down.
+                 // This is effective because the parent Card component is a flex container with column direction.
+}
+
+.footerActions {
+  // Styles for the container of action buttons in the card's footer.
+  display: flex;
+  justify-content: flex-end; // Aligns the button(s) to the right side of the footer.
+  width: 100%; // Ensures the action container takes the full width available within the footer's padding.
+}
+
+// Responsive adjustments for tablet screens.
+@media (max-width: 768px) {
+  .productCard {
+    // max-width could be adjusted for tablets if needed, e.g., 320px or a percentage.
+  }
+}
+
+// Responsive adjustments for mobile screens.
+@media (max-width: 480px) {
+  .productCard {
+    max-width: 100%; // Allows the card to take the full width of its container on small screens.
+  }
+
+  .description {
+    -webkit-line-clamp: 2; // Reduces the description to 2 lines on smaller screens for brevity.
+  }
+
+  .footerActions {
+    justify-content: center; // Centers the action button(s) in the footer on mobile for better tap targets and aesthetics.
+  }
+}

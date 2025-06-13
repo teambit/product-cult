@@ -1,0 +1,43 @@
+---
+description: A page for editing existing reviews. It fetches review data and allows users to update their comments and ratings.
+labels: ['page', 'review', 'edit', 'form']
+---
+
+## Usage
+
+The `EditReviewPage` component allows users to modify their existing reviews. It fetches the review data, populates a form, and updates the review when the form is submitted.
+
+## Example: Basic Usage
+
+This example demonstrates how to use the `EditReviewPage` component with mocked data.
+
+```jsx
+<MockProvider noRouter>
+  <MemoryRouter initialEntries={[`/reviews/edit/review-to-edit-123`]}>
+    <Routes>
+      <Route path="/reviews/edit/:reviewId" element={<EditReviewPage />} />
+    </Routes>
+  </MemoryRouter>
+</MockProvider>
+```
+## Example: Loading State
+This example shows the `EditReviewPage` component in a loading state while fetching the review data.
+```jsx
+<MockProvider noRouter>
+  <MemoryRouter initialEntries={[`/reviews/edit/review-to-edit-123`]}>
+    <Routes>
+      <Route path="/reviews/edit/:reviewId" element={<EditReviewPage />} />
+    </Routes>
+  </MemoryRouter>
+</MockProvider>
+```
+## Example: Error State
+This example displays the `EditReviewPage` component in an error state when fetching the review data fails.
+```jsx
+<MockProvider noRouter>
+  <MemoryRouter initialEntries={[`/reviews/edit/review-to-edit-123`]}>
+    <Routes>
+      <Route path="/reviews/edit/:reviewId" element={<EditReviewPage />} />
+    </Routes>
+  </MemoryRouter>
+</MockProvider>

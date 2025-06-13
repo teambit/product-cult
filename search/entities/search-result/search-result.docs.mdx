@@ -1,0 +1,68 @@
+---
+description: A Search Result entity containing information about title, description, URL, image, and content type.
+labels: ['search-result', 'entity']
+---
+
+A component for a Search Result entity, supports serialization and de-serialization of SearchResult objects and can be used from
+both backend and frontend.
+
+## Get started
+
+Install and use the component in your code:
+
+```ts
+const searchResult = SearchResult.from({
+  id: '123',
+  title: 'Example Result',
+  description: 'This is an example search result.',
+  type: 'example',
+  data: { url: 'http://example.com' }
+});
+```
+
+## Usage examples
+
+### Basic Search Result
+
+This example demonstrates creating a basic search result with a title, description, and type.
+
+```ts
+const basicResult = SearchResult.from({
+  id: '1',
+  title: 'Basic Result',
+  description: 'A simple search result example.',
+  type: 'basic',
+  data: {}
+});
+console.log(basicResult.toObject());
+```
+
+### Search Result with Image
+
+This example shows how to include an image URL in the search result.
+
+```ts
+const imageResult = SearchResult.from({
+  id: '2',
+  title: 'Image Result',
+  description: 'A search result with an image.',
+  type: 'image',
+  imageUrl: 'http://example.com/image.jpg',
+  data: {}
+});
+console.log(imageResult.toObject());
+```
+
+### Search Result with Additional Data
+
+This example demonstrates adding additional data to the search result, such as a URL.
+
+```ts
+const dataResult = SearchResult.from({
+  id: '3',
+  title: 'Data Result',
+  description: 'A search result with additional data.',
+  type: 'data',
+  data: { url: 'http://example.com/data' }
+});
+console.log(dataResult.toObject());

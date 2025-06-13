@@ -1,0 +1,121 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-button-medium);
+  font-weight: var(--typography-font-weight-semiBold);
+  height: var(--sizes-button-height-medium);
+  padding: 0 var(--spacing-medium);
+  border-radius: var(--borders-radius-medium);
+  border: var(--borders-default-width) solid transparent;
+  cursor: var(--interactions-cursor-pointer);
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition:
+    background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+    border-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+    color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+    box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+    transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+}
+
+.button:focus-visible {
+  outline: var(--borders-focus-width) var(--borders-focus-style) var(--colors-border-focus);
+  outline-offset: var(--borders-focus-offset);
+}
+
+/* Primary Appearance */
+.button.primary {
+  background-color: var(--colors-primary-default);
+  color: var(--colors-text-inverse) !important;
+  border-color: var(--colors-primary-default);
+  box-shadow: var(--effects-shadows-xs);
+}
+
+.button.primary:hover:not(:disabled):not(.disabled) {
+  background-color: var(--colors-primary-hover);
+  border-color: var(--colors-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--effects-shadows-small);
+}
+
+.button.primary:active:not(:disabled):not(.disabled) {
+  background-color: var(--colors-primary-active);
+  border-color: var(--colors-primary-active);
+  transform: translateY(0px);
+  box-shadow: var(--effects-shadows-xs);
+}
+
+/* Secondary Appearance */
+.button.secondary {
+  background-color: transparent;
+  color: var(--colors-primary-default);
+  border-color: var(--colors-primary-default);
+  box-shadow: none;
+}
+
+.button.secondary:hover:not(:disabled):not(.disabled) {
+  background-color: var(--colors-primary-default);
+  color: var(--colors-text-inverse) !important;
+  border-color: var(--colors-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--effects-shadows-small);
+}
+
+.button.secondary:active:not(:disabled):not(.disabled) {
+  background-color: var(--colors-primary-active);
+  color: var(--colors-text-inverse) !important;
+  border-color: var(--colors-primary-active);
+  transform: translateY(0px);
+  box-shadow: var(--effects-shadows-xs);
+}
+
+/* Tertiary Appearance */
+.button.tertiary {
+  background-color: transparent;
+  color: var(--colors-text-accent);
+  border-color: transparent;
+  padding: 0 var(--spacing-small);
+  min-height: var(--sizes-button-height-medium); /* Ensure consistent clickable area if height needs to adjust */
+  box-shadow: none;
+}
+
+.button.tertiary:hover:not(:disabled):not(.disabled) {
+  background-color: var(--colors-surface-secondary);
+  color: var(--colors-primary-hover);
+}
+
+.button.tertiary:active:not(:disabled):not(.disabled) {
+  background-color: var(--colors-surface-primary);
+  color: var(--colors-primary-active);
+}
+
+/* Disabled State - applies to all appearances */
+.button:disabled,
+.button.disabled {
+  background-color: var(--colors-surface-secondary);
+  color: var(--colors-text-secondary);
+  border-color: var(--colors-border-subtle);
+  cursor: var(--interactions-cursor-disabled);
+  opacity: var(--effects-opacity-disabled);
+  box-shadow: none;
+  transform: none;
+}
+
+/* Ensure disabled secondary keeps transparent bg if that's the intent */
+.button.secondary:disabled,
+.button.secondary.disabled {
+  background-color: transparent;
+  border-color: var(--colors-border-subtle);
+  color: var(--colors-text-secondary);
+}
+
+/* Ensure disabled tertiary keeps transparent bg */
+.button.tertiary:disabled,
+.button.tertiary.disabled {
+  background-color: transparent;
+  color: var(--colors-text-secondary);
+}

@@ -1,0 +1,155 @@
+.searchPage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x-large);
+}
+
+.pageTitle {
+  font-size: var(--typography-sizes-display-medium); 
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-large); 
+  text-align: center;
+  padding-top: var(--spacing-large);
+}
+
+.controlsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  padding: var(--spacing-large);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+
+  @media (min-width: var(--layout-breakpoints-laptop)) {
+    flex-direction: row;
+    align-items: flex-start; 
+  }
+}
+
+.queryInputArea {
+  display: flex;
+  gap: var(--spacing-medium);
+  align-items: center;
+  flex-grow: 1;
+
+  @media (max-width: calc(var(--layout-breakpoints-tablet) - 1px)) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.searchInput {
+  flex-grow: 1;
+  padding: var(--spacing-medium);
+  font-size: var(--typography-sizes-body-large);
+  border: 1px solid var(--colors-border-default);
+  border-radius: var(--borders-radius-medium);
+  background-color: var(--colors-surface-secondary);
+  color: var(--colors-text-primary);
+  transition: border-color var(--interactions-transitions-duration-fast), box-shadow var(--interactions-transitions-duration-fast);
+  min-height: var(--sizes-input-height-large);
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: var(--colors-text-secondary);
+    opacity: 0.7;
+  }
+
+  &:focus {
+    border-color: var(--colors-primary-default);
+    box-shadow: 0 0 0 2px var(--colors-border-focus);
+    outline: none;
+  }
+}
+
+.searchButton {
+  padding: 0 var(--spacing-large); // Use padding for width, height from theme
+  height: var(--sizes-button-height-large);
+  font-size: var(--typography-sizes-button-large);
+  font-weight: var(--typography-font-weight-semi-bold);
+  background-color: var(--colors-primary-default);
+  color: var(--colors-text-inverse) !important;
+  border: none;
+  border-radius: var(--borders-radius-medium);
+  cursor: var(--interactions-cursor-pointer);
+  transition: background-color var(--interactions-transitions-duration-fast);
+  white-space: nowrap;
+  box-sizing: border-box;
+
+  &:hover:not(:disabled) {
+    background-color: var(--colors-primary-hover);
+  }
+
+  &:disabled {
+    background-color: var(--colors-border-subtle);
+    color: var(--colors-text-secondary);
+    cursor: var(--interactions-cursor-disabled);
+  }
+  
+  @media (max-width: calc(var(--layout-breakpoints-tablet) - 1px)) {
+    width: 100%;
+  }
+}
+
+.filtersArea {
+  flex-shrink: 0;
+  @media (min-width: var(--layout-breakpoints-laptop)) {
+     min-width: 300px;
+     max-width: 380px; 
+  }
+  @media (max-width: calc(var(--layout-breakpoints-laptop) - 1px)) {
+    width: 100%;
+  }
+}
+
+.loadingContainer,
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-xx-large) var(--spacing-large);
+  margin-top: var(--spacing-large);
+  border-radius: var(--borders-radius-large);
+  min-height: 300px;
+}
+
+.loadingContainer {
+  gap: var(--spacing-medium);
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-large);
+  p {
+    margin: 0;
+  }
+}
+
+.errorContainer {
+  background-color: var(--colors-status-negative-subtle);
+  border: 1px solid var(--colors-status-negative-default);
+  color: var(--colors-status-negative-default);
+}
+
+.errorMessageTitle {
+  color: var(--colors-status-negative-default) !important;
+  margin-bottom: var(--spacing-small);
+}
+
+.errorMessageText {
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-status-negative-default);
+  margin-bottom: var(--spacing-small);
+}
+
+.errorDetail {
+  font-size: var(--typography-sizes-body-small);
+  color: var(--colors-text-secondary);
+  opacity: 0.8;
+  word-break: break-word;
+}
+
+.resultsContainer {
+  margin-top: var(--spacing-xlarge);
+}

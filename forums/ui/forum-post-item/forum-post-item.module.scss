@@ -1,0 +1,128 @@
+.forumPostItem {
+  background-color: var(--colors-surface-primary);
+  border: 1px solid var(--colors-border-default);
+  border-radius: var(--borders-radius-large);
+  padding: var(--spacing-medium) var(--spacing-large);
+  margin-bottom: var(--spacing-large);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  box-shadow: var(--effects-shadows-medium);
+  transition: box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  box-sizing: border-box;
+}
+
+.forumPostItem:hover {
+  box-shadow: var(--effects-shadows-large);
+}
+
+.header {
+  // Container for author information and any other header elements
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-medium);
+}
+
+.avatar {
+  flex-shrink: 0; // Prevent avatar from shrinking if author name is very long
+}
+
+.avatarPlaceholder {
+  width: var(--sizes-avatar-medium);
+  height: var(--sizes-avatar-medium);
+  border-radius: var(--borders-radius-circle);
+  background-color: var(--colors-surface-secondary);
+  // Optional: add a subtle shimmer or pulse animation for loading state
+  // Example: animation: pulse 1.5s infinite ease-in-out;
+}
+
+// @keyframes pulse {
+//   0%, 100% { opacity: 1; }
+//   50% { opacity: 0.6; }
+// }
+
+.authorMeta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0; // Essential for text-overflow ellipsis to work in flex children
+}
+
+.authorName {
+  font-weight: var(--typography-font-weight-semi-bold);
+  color: var(--colors-text-primary);
+  font-size: var(--typography-sizes-body-large);
+  margin-bottom: var(--spacing-xx-small);
+  line-height: var(--typography-line-height-condensed);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.loadingText {
+  color: var(--colors-text-secondary);
+  font-style: italic;
+}
+
+.errorText {
+  color: var(--colors-status-negative-default);
+  font-style: italic;
+}
+
+.postDate {
+  font-size: var(--typography-sizes-body-small);
+  color: var(--colors-text-secondary);
+  margin-bottom: 0;
+  line-height: var(--typography-line-height-condensed);
+}
+
+.contentSection {
+  // Container for the main post content
+}
+
+.postContent {
+  color: var(--colors-text-primary);
+  font-size: var(--typography-sizes-body-default);
+  line-height: var(--typography-line-height-base);
+  white-space: pre-wrap; // Preserves line breaks and multiple spaces from the content
+  word-break: break-word; // Prevents long unbroken strings from overflowing
+  margin-bottom: 0; // Paragraph component might have its own margin, reset if needed
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .forumPostItem {
+    padding: var(--spacing-medium);
+    gap: var(--spacing-small);
+  }
+
+  .authorInfo {
+    gap: var(--spacing-small);
+  }
+
+  .authorName {
+    font-size: var(--typography-sizes-body-default);
+  }
+
+  .postDate {
+    font-size: var(--typography-sizes-body-x-small);
+  }
+
+  .postContent {
+    font-size: var(--typography-sizes-body-small);
+  }
+}
+
+@media (max-width: 480px) {
+  .authorName {
+    // On very small screens, consider allowing name to wrap if it's too long for ellipsis
+    // white-space: normal;
+  }
+
+  .forumPostItem {
+    padding: var(--spacing-small);
+  }
+}

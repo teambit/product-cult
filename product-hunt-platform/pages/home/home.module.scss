@@ -1,0 +1,269 @@
+.homePage {
+  padding: var(--spacing-large);
+  min-height: calc(100vh - 120px); // Assuming header/footer might take up to 120px
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: var(--colors-surface-background);
+  color: var(--colors-text-primary);
+  width: 100%;
+}
+
+.loadingState,
+.errorState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  font-size: var(--typography-sizes-heading-h4);
+  color: var(--colors-text-secondary);
+  text-align: center;
+}
+
+.heroSection {
+  padding: var(--spacing-xxx-large) var(--spacing-large);
+  text-align: center;
+  border-radius: var(--borders-radius-large);
+  margin-bottom: var(--spacing-xx-large);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  color: var(--colors-text-default) !important; // Ensure text is light by default for hero children
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--effects-gradients-subtle-surface); // Using a gradient for overlay
+    opacity: 0.7; // Adjust opacity for readability
+    z-index: 1;
+  }
+}
+
+.heroContent {
+  color: var(--colors-text-default) !important; // Ensure text is light by default for hero children
+  position: relative;
+  z-index: 2;
+}
+
+.heroTitle {
+  font-size: var(--typography-sizes-display-medium);
+  font-weight: var(--typography-font-weight-bold);
+  margin-bottom: var(--spacing-medium);
+  color: var(--colors-text-default) !important;
+}
+
+.heroSubtitle {
+  font-size: var(--typography-sizes-heading-h4);
+  font-weight: var(--typography-font-weight-regular);
+  margin-bottom: var(--spacing-x-large);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--colors-text-default) !important;
+  opacity: 0.9;
+}
+
+.heroCtaButton {
+  padding: var(--spacing-medium) var(--spacing-x-large);
+  font-size: var(--typography-sizes-button-large);
+  font-weight: var(--typography-font-weight-semi-bold);
+  color: var(--colors-text-inverse) !important;
+  background-color: var(--colors-primary-default);
+  border: none;
+  border-radius: var(--borders-radius-pill); // Pill shape for modern feel
+  cursor: var(--interactions-cursor-pointer);
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out), transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  box-shadow: var(--effects-shadows-primary);
+
+  &:hover {
+    background-color: var(--colors-primary-hover);
+    transform: var(--interactions-hover-effect-translate-y); // Slight lift on hover
+  }
+}
+
+.authenticatedView,
+.unauthenticatedView {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xx-large);
+}
+
+.welcomeHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-large); // Reduced margin as gap is used in parent
+}
+
+.welcomeMessage {
+  font-size: var(--typography-sizes-display-small);
+  color: var(--colors-text-primary);
+  font-weight: var(--typography-font-weight-bold);
+  margin-bottom: var(--spacing-small);
+}
+
+.welcomeSubtitle {
+  font-size: var(--typography-sizes-heading-h5);
+  color: var(--colors-text-secondary);
+  margin-bottom: var(--spacing-large);
+}
+
+.userActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-medium);
+  justify-content: center;
+  // margin-bottom is handled by parent gap
+}
+
+.actionButton,
+.actionLink {
+  padding: var(--spacing-small) var(--spacing-large);
+  font-size: var(--typography-sizes-button-medium);
+  font-weight: var(--typography-font-weight-medium);
+  border-radius: var(--borders-radius-medium);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  min-width: 180px; // Ensure buttons have a decent minimum width
+
+  &:hover {
+    transform: translateY(-2px); // Subtle lift
+    box-shadow: var(--effects-shadows-medium);
+  }
+}
+
+.primaryAction {
+  background-color: var(--colors-primary-default);
+  color: var(--colors-text-default) !important; // Ensure high contrast
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: var(--colors-primary-hover);
+  }
+}
+
+.secondaryAction {
+  background-color: var(--colors-surface-secondary);
+  color: var(--colors-text-primary);
+  border: 1px solid var(--colors-border-default);
+
+  &:hover {
+    background-color: var(--colors-surface-primary);
+    border-color: var(--colors-border-focus);
+  }
+}
+
+.mainContentSection {
+  padding: var(--spacing-x-large);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  text-align: center;
+  box-shadow: var(--effects-shadows-small);
+}
+
+.sectionTitle {
+  font-size: var(--typography-sizes-heading-h2);
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-medium);
+}
+
+.placeholderText {
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+  line-height: var(--typography-line-height-relaxed);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+// Responsive adjustments using CSS Custom Properties for breakpoints
+@media (max-width: var(--layout-breakpoints-laptop)) { // Assuming 1024px
+  .heroSection {
+    padding: var(--spacing-xx-large) var(--spacing-medium);
+  }
+  .heroTitle {
+    font-size: var(--typography-sizes-display-small);
+  }
+  .heroSubtitle {
+    font-size: var(--typography-sizes-heading-h5);
+  }
+  .welcomeMessage {
+    font-size: var(--typography-sizes-heading-h1); // Adjusted for laptop
+  }
+  .welcomeSubtitle {
+    font-size: var(--typography-sizes-heading-h6); // Adjusted for laptop
+  }
+  .sectionTitle {
+    font-size: var(--typography-sizes-heading-h3);
+  }
+  .placeholderText {
+    font-size: var(--typography-sizes-body-default);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-tablet)) { // Assuming 768px for tablet, or 480px as per prompt for smaller tablets/large phones
+  .homePage {
+    padding: var(--spacing-medium);
+  }
+  .heroSection {
+    padding: var(--spacing-x-large) var(--spacing-small);
+    margin-bottom: var(--spacing-large); // Updated from parent gap
+  }
+  .heroTitle {
+    font-size: var(--typography-sizes-heading-h1);
+  }
+  .heroSubtitle {
+    font-size: var(--typography-sizes-body-large);
+    margin-bottom: var(--spacing-large);
+  }
+  .heroCtaButton {
+    padding: var(--spacing-small) var(--spacing-large);
+    font-size: var(--typography-sizes-button-medium);
+  }
+
+  .authenticatedView,
+  .unauthenticatedView {
+    gap: var(--spacing-large); // Reduce gap for smaller screens
+  }
+
+  .welcomeHeader {
+    margin-bottom: var(--spacing-medium); // Updated from parent gap
+  }
+  .welcomeMessage {
+    font-size: var(--typography-sizes-heading-h2);
+  }
+  .welcomeSubtitle {
+    font-size: var(--typography-sizes-body-large);
+  }
+  .userActions {
+    flex-direction: column;
+    align-items: stretch; // Make buttons full width
+  }
+  .actionButton,
+  .actionLink {
+    width: 100%;
+    box-sizing: border-box; // Added to prevent overflow with padding
+    margin-bottom: var(--spacing-small); // Add margin for stacked buttons
+    min-width: unset;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .mainContentSection {
+    padding: var(--spacing-medium);
+  }
+  .sectionTitle {
+    font-size: var(--typography-sizes-heading-h4);
+  }
+}

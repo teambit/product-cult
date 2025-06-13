@@ -1,0 +1,70 @@
+---
+description: 'React hooks for fetching forum data, including listing and retrieving forums.'
+labels: ['hook', 'react', 'forum', 'data fetching']
+---
+
+These hooks provide a convenient way to fetch forum data using GraphQL from the aspect API. They include functionality for listing multiple forums and retrieving a single forum by ID.
+
+## Usage
+
+### Listing Forums
+
+This example demonstrates how to use the `useListForums` hook to fetch a list of forums and display their names.
+
+```tsx
+const ForumList = () => {
+  const { forums, loading, error } = useListForums();
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  return (
+    <ul>
+      {forums?.map((forum) => (
+        <li key={forum.id}>{forum.name}</li>
+      ))}
+    </ul>
+  );
+};
+```
+This example fetches a list of forums using the `useListForums` hook. While the data is loading, it displays "Loading...". If an error occurs, it displays the error message. Once the data is loaded, it renders an unordered list of forum names.
+
+### Retrieving a Single Forum
+
+This example demonstrates how to use the `useGetForum` hook to fetch a single forum by its ID and display its details.
+
+```tsx
+const ForumDetails = ({ forumId }) => {
+  const { forum, loading, error } = useGetForum({ queryOptions: { id: forumId } });
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  if (!forum) return <p>Forum not found</p>;
+  return (
+    <div>
+      <h2>{forum.name}</h2>
+      <p>{forum.description}</p>
+    </div>
+  );
+};
+```
+This example retrieves a specific forum using the `useGetForum` hook, based on the provided `forumId`. It displays a loading message while fetching the data, an error message if something goes wrong, and the forum's name and description once the data is loaded. If the forum is not found, it displays "Forum not found".
+
+### Using Mock Data
+
+Both `useListForums` and `useGetForum` can be used with mock data for testing or development purposes. This example shows how to provide mock data to `useListForums`.
+
+```tsx
+const MockForumList = () => {
+  const mockForums = [
+    { id: '1', name: 'Mock Forum 1', description: 'This is a mock forum' },
+    { id: '2', name: 'Mock Forum 2', description: 'This is another mock forum' },
+  ];
+  const { forums } = useListForums({ mockData: mockForums });
+  return (
+    <ul>
+      {forums?.map((forum) => (
+        <li key={forum.id}>{forum.name}</li>
+      ))}
+    </ul>
+  );
+};
+```
+In this example, `useListForums` is configured to use `mockForums` as its data source. The hook returns the mock data, allowing the component to render the list of forums without making an actual API call. This is useful for testing components in isolation or for displaying placeholder data while the actual data is being fetched.

@@ -1,0 +1,70 @@
+---
+description: A component to display summarized information about a product launch.
+labels: ['card', 'launch', 'ui']
+---
+
+The LaunchCard component displays key information about a product launch, including its name, tagline, image, launch date, and a link to view more details.
+
+## Usage
+
+Here's how to use the LaunchCard component:
+
+```jsx
+<LaunchCard launch={launchData} />
+```
+
+## Upcoming Launch
+
+This example shows an upcoming launch with a countdown:
+
+```jsx
+<LaunchCard
+  launch={{
+    id: 'eco-planner-pro',
+    name: 'EcoPlanner Pro',
+    tagline: 'Sustainable planning for a greener future.',
+    description:
+      'EcoPlanner Pro helps you organize your tasks and projects with a focus on sustainability. Track your carbon footprint, discover eco-friendly alternatives, and contribute to a healthier planet.',
+    launchDate: new Date(new Date().setDate(new Date().getDate() + 5)).toISOString(),
+  }}
+/>
+```
+
+## Launch with Custom Image and Text
+
+This example shows how to customize the image and "View Launch Details" text:
+
+```jsx
+<LaunchCard
+  launch={{
+    id: 'aura-smart-garden',
+    name: 'Aura Smart Garden',
+    tagline: 'Grow fresh herbs and vegetables effortlessly indoors.',
+    description:
+      'Aura Smart Garden uses AI-powered hydroponics to automate watering, lighting, and nutrient delivery. Enjoy fresh produce year-round, right in your kitchen.',
+    launchDate: new Date(new Date().setDate(new Date().getDate() + 10)).toISOString(),
+  }}
+  imageUrl="https://images.unsplash.com/photo-1583312605516-4d11f1acbdd0?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwyfHxwcm9kdWN0JTIwbGF1bmNoJTIwaW5ub3ZhdGlvbnxlbnwxfDJ8fG9yYW5nZXwxNzQ5NTk5MjU4fDA&ixlib=rb-4.1.0"
+  imageAlt="Lush green plants growing in an innovative indoor garden system."
+  viewLaunchText="Explore Aura Garden"
+/>
+```
+
+## Past Launch
+
+This example displays a launch that occurred in the past.
+
+```jsx
+<LaunchCard
+  launch={{
+    id: 'pixelbeat-earbuds',
+    name: 'PixelBeat Earbuds',
+    tagline: 'Immersive sound, iconic design.',
+    description:
+      'PixelBeat Earbuds deliver crystal-clear audio and deep bass in a sleek, comfortable package. Featuring active noise cancellation and long-lasting battery life. These earbuds have already launched and are available for purchase.',
+    launchDate: new Date(new Date().setDate(new Date().getDate() - 7)).toISOString(),
+  }}
+  imageUrl="https://images.unsplash.com/photo-1600375104627-c94c416deefa?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwzfHxwcm9kdWN0JTIwbGF1bmNoJTIwaW5ub3ZhdGlvbnxlbnwxfDJ8fG9yYW5nZXwxNzQ5NTk5MjU4fDA&ixlib=rb-4.1.0"
+  imageAlt="White wireless earbuds in their charging case."
+  viewLaunchText="Check Out PixelBeat"
+/>

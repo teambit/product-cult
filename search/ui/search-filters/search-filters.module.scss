@@ -1,0 +1,58 @@
+.searchFiltersContainer {
+  padding: var(--spacing-large);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  font-family: var(--typography-font-family);
+  box-sizing: border-box;
+  border: 1px solid var(--colors-border-subtle);
+}
+
+.searchFiltersHeader {
+  font-size: var(--typography-sizes-heading-h4);
+  color: var(--colors-text-primary);
+  margin: 0;
+  font-weight: var(--typography-font-weight-semiBold);
+  padding-bottom: var(--spacing-small);
+  border-bottom: 1px solid var(--colors-border-subtle);
+}
+
+.controlsWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-medium);
+  align-items: flex-end; /* Aligns labels, select inputs, and button nicely */
+
+  /* Responsive behavior for tablet and mobile */
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: stretch; /* Make controls take full width when stacked */
+    gap: var(--spacing-large); /* Increase gap for stacked layout */
+  }
+}
+
+.selectListWrapper {
+  flex-grow: 1;
+  min-width: 180px; /* Ensure select lists have enough space */
+
+  @media (max-width: 1024px) {
+    min-width: auto; /* Reset min-width for stacked layout */
+    width: 100%;
+  }
+}
+
+.applyButtonWrapper {
+  flex-shrink: 0; /* Prevent button from shrinking */
+  
+  @media (max-width: 1024px) {
+    /* Optionally make button full width on mobile for better tap target */
+    & > button { /* Targets the Button component directly if it's the child */
+       width: 100%;
+       height: var(--sizes-button-height-large); /* Larger button on mobile */
+       font-size: var(--typography-sizes-button-large);
+    }
+  }
+}

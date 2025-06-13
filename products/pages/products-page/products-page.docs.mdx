@@ -1,0 +1,41 @@
+---
+description: Displays a list of products with optional filtering and custom states.
+labels: ['products', 'page', 'list']
+---
+
+The `ProductsPage` component provides a structured layout for displaying a list of products, with built-in support for custom headers, footers, loading states, and empty states. It leverages the `ProductList` component to render the product items.
+
+## Usage
+
+To use the `ProductsPage` component, you need to provide a title, meta description, and category ID.  Optionally, you can provide an initial list of products, custom header, custom footer, custom empty state, and custom loading state.
+
+```jsx
+<ProductsPage
+  title="Featured Products"
+  metaDescription="Explore our featured product listings."
+  categoryId="featured"
+  initialProducts={mockProducts}
+/>
+```
+## With Custom Header and Footer
+You can customize the header and footer of the `ProductsPage` component by passing in React nodes to the `header` and `footer` props.
+```jsx
+<ProductsPage
+  title="New Arrivals"
+  metaDescription="Check out our latest product arrivals."
+  categoryId="new-arrivals"
+  header={<div>Custom Header</div>}
+  footer={<div>Custom Footer</div>}
+  initialProducts={mockProducts}
+/>
+```
+## Handling Empty State
+When there are no products to display, you can use the `customEmptyState` prop to render a custom component.
+```jsx
+<ProductsPage
+  title="No Products Found"
+  metaDescription="There are no products in this category."
+  categoryId="empty"
+  initialProducts={[]}
+  customEmptyState={<div>No products found.</div>}
+/>

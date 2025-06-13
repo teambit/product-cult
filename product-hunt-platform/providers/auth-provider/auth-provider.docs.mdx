@@ -1,0 +1,56 @@
+---
+description: An authentication provider entity, supports serialization and de-serialization of authentication provider objects.
+labels: ['auth-provider', 'entity']
+---
+
+An AuthProvider component for managing different authentication methods in your application. It supports serialization and de-serialization of AuthProvider objects, making it suitable for both backend and frontend use.
+
+## Get started
+
+Install and use the component in your code:
+
+```ts
+import { AuthProvider } from './auth-provider.js';
+const authProvider = AuthProvider.from({
+  id: '123',
+  providerName: 'google',
+  isEnabled: true,
+});
+```
+
+## Usage examples
+
+### Creating an AuthProvider instance
+
+Use the `AuthProvider.from()` method to create a new instance from a plain object.
+
+```ts
+import { AuthProvider } from './auth-provider.js';
+import type { PlainAuthProvider } from './plain-auth-provider-type.js';
+const plainAuthProvider: PlainAuthProvider = {
+  id: '456',
+  providerName: 'github',
+  isEnabled: false,
+};
+const authProvider = AuthProvider.from(plainAuthProvider);
+```
+
+### Serializing an AuthProvider instance
+
+Use the `toObject()` method to serialize an existing `AuthProvider` instance into a plain JavaScript object.
+
+```ts
+import { AuthProvider } from './auth-provider.js';
+const authProvider = new AuthProvider('789', 'credentials', true);
+const serializedAuthProvider = authProvider.toObject();
+console.log(serializedAuthProvider);
+```
+
+### Updating AuthProvider status
+
+Update the properties of the AuthProvider class to change the authentication status of the auth provider.
+
+```ts
+import { AuthProvider } from './auth-provider.js';
+const authProvider = new AuthProvider('101', 'facebook', false);
+const updatedAuthProvider = new AuthProvider(authProvider.id, authProvider.providerName, true);

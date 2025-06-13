@@ -1,0 +1,37 @@
+.themeToggler {
+  background-color: transparent;
+  border: none;
+  padding: var(--spacing-x-small);
+  cursor: var(--interactions-cursor-pointer);
+  color: var(--colors-text-primary); // Icon color will inherit this by default via currentColor
+  border-radius: var(--borders-radius-circle);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+    transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+    box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  outline: none; // We use box-shadow for focus-visible
+
+  &:hover {
+    background-color: var(--colors-surface-secondary);
+    color: var(--colors-text-accent); // Enhance icon color on hover for more "wow"
+  }
+
+  &:focus-visible {
+    // Using a more prominent focus style that aligns with modern designs
+    box-shadow: 0 0 0 2px var(--colors-surface-background), 0 0 0 4px var(--colors-primary-default);
+  }
+
+  &:active {
+    transform: scale(0.92); // Slightly more pronounced click feedback
+    background-color: var(--colors-surface-primary); // Darker feedback on active
+  }
+}
+
+.icon {
+  display: block; // Ensures icon is centered and behaves predictably
+  // The `stroke` or `fill` of the SVG should be set to `currentColor` to inherit the button's color.
+  // Size is controlled by the `iconSize` prop passed to the icon component.
+}

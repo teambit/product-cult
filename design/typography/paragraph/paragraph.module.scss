@@ -1,0 +1,20 @@
+.paragraph {
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-default);
+  line-height: var(--typography-line-height-base);
+  color: var(--colors-text-primary);
+  margin-top: 0;
+  margin-bottom: var(--spacing-medium); // Default bottom margin for flow
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0; // Paragraphs typically don't have internal padding
+  box-sizing: border-box; // Ensure consistent box model
+}
+
+// Example of how to handle different screen sizes if specific adjustments were needed,
+// though for a base paragraph, typography tokens should be responsive.
+// @media (max-width: var(--layout-breakpoints-tablet)) {
+//   .paragraph {
+//     // font-size: var(--typography-sizes-body-small); // Example adjustment
+//   }
+// }

@@ -1,0 +1,119 @@
+---
+description: A comprehensive products management aspect for the Infinity platform, enabling product submissions, categorization, and search integration.
+labels: ['aspect', 'products', 'management', 'search', 'product-hunt']
+---
+
+The Products aspect provides a robust set of features for managing products within the Infinity platform. It allows users to submit new products, categorize them, and integrates seamlessly with the platform's search functionality. This aspect also includes admin tools for managing products and categories.
+
+## Getting Started
+
+To start using the Products aspect, ensure it's installed and composed into your platform. This typically involves adding it to your platform's aspect list and configuring any necessary dependencies.
+
+## Usage Examples
+
+### Displaying a List of Products
+
+You can display a list of products on a page or within a section of your application. This example demonstrates how to render a simple list of product names.
+
+```jsx
+function ProductList({ products }) {
+  return (
+    <ul>
+      {products.map(product => (
+        <li key={product.id}>{product.name}</li>
+      ))}
+    </ul>
+  );
+}
+
+// Example data (replace with actual data fetching)
+const products = [
+  { id: '1', name: 'Awesome Gadget' },
+  { id: '2', name: 'Stylish Accessory' },
+];
+
+<ProductList products={products} />
+```
+
+### Submitting a New Product
+
+The Products aspect includes a form for submitting new products. This example shows a basic implementation of a product submission form.
+
+```jsx
+function ProductSubmissionForm({ onSubmit }) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const productData = {
+      name: formData.get('name'),
+      description: formData.get('description'),
+      price: parseFloat(formData.get('price')),
+      categoryId: formData.get('categoryId'),
+      imageUrls: [formData.get('imageUrls')],
+    };
+    onSubmit(productData);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" name="name" required />
+      </label>
+      <label>
+        Description:
+        <textarea name="description" required />
+      </label>
+      <label>
+        Price:
+        <input type="number" name="price" step="0.01" required />
+      </label>
+      <label>
+        Category ID:
+        <input type="text" name="categoryId" required />
+      </label>
+      <label>
+        Image URLs:
+        <input type="text" name="imageUrls" required />
+      </label>
+      <button type="submit">Submit Product</button>
+    </form>
+  );
+}
+
+const handleSubmit = (productData) => {
+  console.log('Product Data Submitted:', productData);
+  // Here you would typically call an API to submit the product
+};
+
+<ProductSubmissionForm onSubmit={handleSubmit} />
+```
+
+### Displaying Product Details
+
+To display detailed information about a specific product, you can create a product details page.
+
+```jsx
+function ProductDetails({ product }) {
+  return (
+    <div>
+      <h1>{product.name}</h1>
+      <p>{product.description}</p>
+      <p>Price: ${product.price}</p>
+      {product.imageUrls && product.imageUrls.length > 0 && (
+        <img src={product.imageUrls[0]} alt={product.name} style={{ maxWidth: '300px' }} />
+      )}
+    </div>
+  );
+}
+
+// Example data (replace with actual data fetching)
+const product = {
+  id: '1',
+  name: 'Incredible Widget',
+  description: 'The ultimate widget for all your needs.',
+  price: 49.99,
+  imageUrls: ['https://images.unsplash.com/photo-1586856634076-7cbf90947176?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwxfHxwcm9kdWN0JTIwbWFuYWdlbWVudCUyMEFQSSUyMGludGVncmF0aW9ufGVufDF8MHx8b3JhbmdlfDE3NDk2MDIyMTh8MA&ixlib=rb-4.1.0'],
+};
+
+<ProductDetails product={product} />

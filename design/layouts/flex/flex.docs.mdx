@@ -1,0 +1,35 @@
+---
+description: A flexbox layout component for arranging elements in rows and columns. Accepts `style` prop to allow overriding styles
+labels: ['layout', 'flexbox', 'ui']
+---
+
+The `Flex` component is a versatile layout tool that leverages CSS Flexbox to arrange elements efficiently. It offers control over alignment, direction, and spacing, making it suitable for various layout needs.
+
+## Basic Usage
+
+The `Flex` component arranges its children in a row by default.
+
+```jsx
+<Flex>
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</Flex>
+```
+## Column Layout
+Set the `direction` prop to `column` to arrange items vertically.
+```jsx
+<Flex direction="column">
+  <div>Item A</div>
+  <div>Item B</div>
+  <div>Item C</div>
+</Flex>
+```
+## Alignment and Justification
+Control the alignment of items using `justifyContent` and `alignItems` props.
+```jsx
+<Flex justifyContent="space-between" alignItems="center">
+  <div>Start</div>
+  <div>Center</div>
+  <div>End</div>
+</Flex>

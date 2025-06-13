@@ -1,0 +1,46 @@
+---
+description: A versatile Link component for internal and external navigation, with React Router hooks re-exported for convenience.
+labels: ['link', 'navigation', 'react-router']
+---
+
+The `Link` component facilitates seamless navigation both within your application (using React Router) and to external websites. It also re-exports useful React Router hooks.
+
+## Internal Navigation
+
+Use the `Link` component for navigating between routes within your application. Ensure your application is wrapped with React Router's `BrowserRouter` or `MemoryRouter`.
+
+```jsx
+<MemoryRouter initialEntries={['/']}>
+  <Link href="/products">Go to Products Page</Link>
+</MemoryRouter>
+```
+This creates a link that, when clicked, navigates the user to the `/products` route within your application.
+## External Links
+To create a link that directs users to an external website, set the `external` prop to `true`. This will render a standard HTML `<a>` tag with appropriate attributes.
+```jsx
+<Link href="https://www.producthunt.com" external>
+  Visit Product Hunt
+</Link>
+```
+By default, external links open in a new tab for a better user experience.
+## Custom Styling and Click Handling
+You can customize the appearance of the `Link` component using CSS classes via the `className` prop. Additionally, you can intercept click events using the `onClick` prop to implement custom logic.
+```jsx
+<MemoryRouter initialEntries={['/']}>
+  <Link href="/launches" className="custom-link" onClick={(event) => {
+    event.preventDefault();
+    // eslint-disable-next-line no-alert
+    alert('Navigating to launches!');
+  }}>
+    View Launches
+  </Link>
+</MemoryRouter>
+```
+This example demonstrates how to prevent the default navigation behavior and execute custom JavaScript code when the link is clicked.
+## React Router Hooks
+The `Link` component re-exports the following React Router hooks, making them readily available for use in your components:
+- `useLocation`: Returns the current location object.
+- `useParams`: Returns an object of key/value pairs of URL parameters.
+- `useNavigate`: Returns a function that programmatically navigates the user.
+- `useSearchQuery`: Returns the URL's query parameters.
+These hooks allow you to access and manipulate the application's routing state directly, facilitating dynamic and context-aware navigation experiences.

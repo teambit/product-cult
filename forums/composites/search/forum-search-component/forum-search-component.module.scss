@@ -1,0 +1,60 @@
+.forumSearchComponent {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-medium);
+  padding: var(--spacing-medium) var(--spacing-large);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  width: 100%;
+  max-width: 700px; 
+  margin: 0 auto; 
+  box-sizing: border-box;
+  transition: box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+}
+
+.forumSearchComponent:focus-within {
+  box-shadow: var(--effects-shadows-large), 0 0 0 2px var(--colors-border-focus);
+}
+
+.searchInput {
+  flex-grow: 1;
+  /* TextInput component has its own base styling. Minimal overrides here. */
+  /* Ensure it integrates smoothly with the flex layout. */
+}
+
+.searchButton {
+  display: inline-flex; 
+  align-items: center;
+  gap: var(--spacing-small); /* Space between icon and text */
+  flex-shrink: 0; 
+  font-weight: var(--typography-font-weight-semiBold);
+}
+
+/* Styling for the SVG within SearchIcon if needed, though color is passed by prop */
+.searchIconSvg {
+  /* Specific styles for the SVG if SearchIcon doesn't handle them all via props */
+}
+
+/* Responsive adjustments */
+/* Per instructions, referencing class directly in media queries */
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .forumSearchComponent {
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--spacing-medium);
+    gap: var(--spacing-small);
+  }
+
+  .searchButton {
+    width: 100%; /* Make button full width on smaller screens */
+    justify-content: center; /* Center button content */
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+    .forumSearchComponent {
+        padding: var(--spacing-small);
+        gap: var(--spacing-x-small);
+    }
+}

@@ -1,0 +1,81 @@
+.searchBarContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  background-color: var(--colors-surface-primary);
+  padding: var(--spacing-x-small) var(--spacing-small);
+  border-radius: var(--borders-radius-medium);
+  border: 1px solid var(--colors-border-subtle);
+  width: 100%;
+  max-width: 600px; 
+  box-sizing: border-box;
+  transition: box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+
+  &:focus-within {
+    border-color: var(--colors-border-focus);
+    box-shadow: 0 0 0 var(--borders-focus-offset, 2px) var(--colors-border-focus);
+  }
+}
+
+.searchInput {
+  flex-grow: 1;
+  // TextInput styles are mostly self-contained.
+  // Override specific aspects if needed, e.g., making it blend more seamlessly:
+  background-color: transparent; // Make input background transparent if container has bg
+  border: none; // Remove TextInput's border as container has one
+  padding-left: var(--spacing-x-small); // Adjust padding if default is too much after removing border
+
+  &:focus {
+    box-shadow: none; // Remove TextInput's focus shadow as container handles it
+  }
+}
+
+.searchButton {
+  padding: var(--spacing-x-small); 
+  min-width: auto; 
+  height: var(--sizes-input-height-medium); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchIconSvg {
+  // Ensure icon color matches button text color (typically inverse for primary)
+  // The Button component itself should handle text color, and SVG `fill: currentColor` should work.
+  // Explicitly setting if needed:
+  // fill: var(--colors-text-inverse);
+  width: var(--sizes-icon-medium);
+  height: var(--sizes-icon-medium);
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .searchBarContainer {
+    max-width: 100%;
+    padding: var(--spacing-xx-small) var(--spacing-x-small);
+    gap: var(--spacing-x-small);
+  }
+
+  .searchInput {
+    font-size: var(--typography-sizes-body-small);
+  }
+
+  .searchButton {
+    height: var(--sizes-input-height-small);
+    padding: var(--spacing-xx-small);
+
+    .searchIconSvg {
+      width: var(--sizes-icon-small);
+      height: var(--sizes-icon-small);
+    }
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+    .searchInput {
+        // Potentially hide placeholder on very small screens if space is tight
+        // &::placeholder {
+        //    color: transparent;
+        // }
+    }
+}

@@ -1,0 +1,39 @@
+---
+description: A composite component to display the launches submitted by a specific user.
+labels: ['user', 'launches', 'tab', 'profile']
+---
+
+The `UserLaunchesTab` component is used within a user's profile to showcase the product launches they have submitted. It handles data fetching, loading, error, and empty states.
+
+## Usage
+
+### Displaying User Launches
+
+This example shows how to use the `UserLaunchesTab` component to display a list of launches submitted by a user.  The `userId` prop is used to filter the launches.
+
+```jsx
+<UserLaunchesTab userId="some-user-id" />
+```
+
+### Handling Loading State
+
+The component displays a loading indicator while fetching data.
+
+```jsx
+<UserLaunchesTab userId="loading-user" />
+```
+
+### Handling Error State
+
+If there's an error during data fetching, the component displays an error message.
+
+```jsx
+<UserLaunchesTab userId="error-user" />
+```
+
+### Handling Empty State
+
+If the user has not submitted any launches, the component displays an empty state message, which is managed internally by the `LaunchList` component.
+
+```jsx
+<UserLaunchesTab userId="empty-user" />

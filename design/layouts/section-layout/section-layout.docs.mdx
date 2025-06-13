@@ -1,0 +1,47 @@
+---
+description: A visually striking, adaptable page section component for content presentation.
+labels: ['layout', 'section', 'page']
+---
+
+The `SectionLayout` component is designed to structure content on a page, providing a consistent layout with optional titles, captions, and subtitles.
+
+## Basic Usage
+
+This example demonstrates a basic section with just content.
+
+```jsx
+<SectionLayout>
+  <Paragraph>
+    This is a basic section with content. You can add any content you like here, such as paragraphs, images, or other components.
+  </Paragraph>
+</SectionLayout>
+```
+
+## Section with Title and Subtitle
+
+This example shows how to add a title and subtitle to the section.
+
+```jsx
+<SectionLayout
+  title="Section Title"
+  subtitle="A brief description of the section's content."
+>
+  <Paragraph>
+    This section has a title and subtitle, providing context for the content below.
+  </Paragraph>
+</SectionLayout>
+```
+
+## Custom Title and Styling
+
+This example demonstrates using custom nodes for the title and adding a custom class name for styling.
+
+```jsx
+<SectionLayout
+  title={<Heading level={3}>Custom Title</Heading>}
+  className="custom-section"
+>
+  <Paragraph>
+    This section uses a custom title node and has a custom class name applied for unique styling.
+  </Paragraph>
+</SectionLayout>

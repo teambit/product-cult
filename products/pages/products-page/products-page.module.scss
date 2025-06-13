@@ -1,0 +1,86 @@
+.productsPageContainer {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.productListSection {
+  // This class is applied to the ProductList component via its className prop.
+  // Add any specific page-level styling for the list here, e.g., margins.
+  // ProductList has its own internal styling for the grid and cards.
+  margin-top: var(--spacing-medium);
+  margin-bottom: var(--spacing-large);
+}
+
+.defaultState {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-x-large) var(--spacing-medium); // Responsive padding
+  font-family: var(--typography-font-family);
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-large);
+  text-align: center;
+  min-height: 300px; // Ensure it takes noticeable space
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  border: 1px solid var(--colors-border-subtle);
+  margin: var(--spacing-large) auto; // Centered with margin
+  max-width: 600px; // Constrain width for better text readability
+  box-shadow: var(--effects-shadows-small);
+}
+
+.defaultState .spinner {
+  border: 4px solid var(--colors-surface-secondary); /* Light grey */
+  border-top: 4px solid var(--colors-primary-default); /* Blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--spacing-medium);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.defaultState .iconError,
+.defaultState .iconEmpty {
+  font-size: var(--typography-sizes-display-small); // Larger icon
+  margin-bottom: var(--spacing-medium);
+  display: block;
+}
+
+// Responsive adjustments for default state text
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .defaultState {
+    font-size: var(--typography-sizes-body-medium);
+    min-height: 250px;
+    padding: var(--spacing-large) var(--spacing-small);
+  }
+
+  .defaultState .iconError,
+  .defaultState .iconEmpty {
+    font-size: var(--typography-sizes-heading-h1); // Adjust icon size for mobile
+  }
+
+  .defaultState .spinner {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* A minimum height to ensure the spinner is visible and has some space */
+  min-height: 200px; 
+  box-sizing: border-box;
+}

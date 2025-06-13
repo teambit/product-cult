@@ -1,0 +1,74 @@
+---
+description: Provides API for submitting, viewing, editing, and managing reviews for products. Integrates with products and user profiles, offering moderation capabilities.
+labels: ['reviews', 'product reviews', 'moderation', 'graphql']
+---
+
+The Reviews aspect allows users to submit reviews for products, view existing reviews, and provides moderation tools for managing these reviews. It integrates with products and user profiles to provide a comprehensive review system.
+
+## Usage Examples
+
+### Displaying Product Reviews
+
+To display reviews for a specific product, you can use the `listReviews` query.
+The query accepts `productId` to filter reviews for specific products.
+
+```graphql
+query ListProductReviews {
+  listReviews(options: {
+    productId: "product123"
+  }) {
+    id
+    productId
+    userId
+    rating
+    comment
+    createdAt
+    updatedAt
+    status
+  }
+}
+```
+
+### Submitting a Review
+
+Users can submit a review for a product using the `createReview` mutation. The mutation requires a `productId`, `rating`, and `comment`. Users must be authenticated to submit a review.
+
+```graphql
+mutation CreateNewReview {
+  createReview(options: {
+    productId: "product456"
+    rating: 5
+    comment: "This product is amazing! Highly recommended."
+  }) {
+    id
+    productId
+    userId
+    rating
+    comment
+    createdAt
+    updatedAt
+    status
+  }
+}
+```
+
+### Moderating a Review
+
+Administrators can moderate reviews using the `moderateReview` mutation. This allows them to approve or reject reviews based on content guidelines. The mutation requires the `id` of the review and the desired `status` ('approved' or 'rejected').
+
+```graphql
+mutation ModerateExistingReview {
+  moderateReview(options: {
+    id: "review789"
+    status: "approved"
+  }) {
+    id
+    productId
+    userId
+    rating
+    comment
+    createdAt
+    updatedAt
+    status
+  }
+}

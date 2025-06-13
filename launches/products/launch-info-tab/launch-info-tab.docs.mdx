@@ -1,0 +1,61 @@
+---
+description: A composite component that displays launch-related information for a product, fetched via useLaunches.
+labels: ['launch', 'info', 'tab']
+---
+
+The `LaunchInfoTab` component provides a structured view of a product's launch details, including the name, tagline, description, launch date, and status. It fetches launch data using the `useLaunches` hook and presents the most recent launch information.
+
+## Usage
+
+Use the component to display launch information within a product details page. It handles loading states, errors, and scenarios where no launch data is available.
+
+### Basic Launch Information
+
+This example demonstrates the display of a live launch with its details.
+
+```jsx
+<LaunchInfoTab
+  productId="prod-123"
+  mockLaunchesData={[
+    {
+      id: 'launch-001',
+      productId: 'prod-123',
+      name: 'InnovateHub X - Live Now!',
+      tagline: 'The future of collaborative project management is here.',
+      description:
+        'InnovateHub X revolutionizes how teams work together. With AI-powered task management, seamless integrations, and real-time updates, it\'s the ultimate platform for bringing your ideas to life.',
+      launchDate: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(), // 2 days ago
+      status: 'live',
+      submittedBy: 'user-alpha',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    },
+  ]}
+/>
+```
+### Upcoming Launch
+Shows information about a product launch that is scheduled for the future.
+```jsx
+<LaunchInfoTab
+  productId="prod-456"
+  mockLaunchesData={[
+    {
+      id: 'launch-upcoming-002',
+      productId: 'prod-456',
+      name: 'CodeStream AI - Launching Soon',
+      tagline: 'AI-driven insights for your development workflow.',
+      description:
+        'Get ready for CodeStream AI, a groundbreaking tool that integrates directly into your IDE to provide intelligent code suggestions, automated refactoring, and performance analysis. Prepare to supercharge your coding sessions and reduce development time significantly.',
+      launchDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(), // 7 days from now
+      status: 'upcoming',
+      submittedBy: 'user-beta',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    },
+  ]}
+/>
+```
+### No Launch Information Available
+Displays a message when there is no launch data associated with a product.
+```jsx
+<LaunchInfoTab productId="prod-000" mockLaunchesData={[]} />

@@ -1,0 +1,147 @@
+.selectListContainer {
+  position: relative;
+  font-family: var(--typography-font-family);
+  width: 100%; // Default to full width, can be constrained by parent
+}
+
+.selectListLabel {
+  display: block;
+  font-size: var(--typography-sizes-label-default);
+  font-weight: var(--typography-font-weight-medium);
+  color: var(--colors-text-secondary);
+  margin-bottom: var(--spacing-x-small);
+  cursor: default;
+}
+
+.selectListInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--colors-surface-primary);
+  border: var(--borders-default-width) var(--borders-default-style) var(--colors-border-default);
+  border-radius: var(--borders-radius-medium);
+  padding: var(--spacing-small) var(--spacing-medium);
+  cursor: var(--interactions-cursor-pointer);
+  transition: border-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  min-height: var(--sizes-input-height-medium);
+  box-sizing: border-box;
+
+  &:hover {
+    border-color: var(--colors-border-focus);
+  }
+
+  &.focused {
+    border-color: var(--colors-primary-default);
+    box-shadow: 0 0 0 var(--borders-focus-width) var(--colors-primary-default); // Simplified focus ring
+  }
+
+  &.disabled {
+    background-color: var(--colors-surface-secondary);
+    cursor: var(--interactions-cursor-disabled);
+    opacity: var(--effects-opacity-disabled);
+    border-color: var(--colors-border-subtle);
+  }
+}
+
+.selectListInputDisplay {
+  flex-grow: 1;
+  color: var(--colors-text-primary);
+  font-size: var(--typography-sizes-body-default);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.placeholder {
+  color: var(--colors-text-secondary);
+  font-style: italic;
+}
+
+.selectListArrowIcon {
+  margin-left: var(--spacing-small);
+  color: var(--colors-text-secondary);
+  font-size: var(--sizes-icon-medium); // Ensure icon size is consistent
+  transition: transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  flex-shrink: 0; // Prevent icon from shrinking
+
+  &.open {
+    transform: rotate(180deg);
+  }
+}
+
+.selectListDropdown {
+  position: absolute;
+  top: calc(100% + var(--spacing-x-small));
+  left: 0;
+  right: 0;
+  background-color: var(--colors-surface-primary);
+  border: var(--borders-default-width) var(--borders-default-style) var(--colors-border-default);
+  border-radius: var(--borders-radius-medium);
+  box-shadow: var(--effects-shadows-large);
+  z-index: var(--interactions-z-index-dropdown);
+  overflow-y: auto;
+  list-style: none;
+  padding: var(--spacing-x-small) 0;
+  margin: 0;
+}
+
+.selectListOption {
+  padding: var(--spacing-small) var(--spacing-medium);
+  cursor: var(--interactions-cursor-pointer);
+  font-size: var(--typography-sizes-body-default);
+  color: var(--colors-text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  transition: background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+
+  &:hover,
+  &.highlighted {
+    background-color: var(--colors-surface-secondary);
+    color: var(--colors-text-primary); // Ensure text remains readable
+  }
+
+  &.selected {
+    background-color: var(--colors-primary-default);
+    color: var(--colors-text-inverse) !important; // Ensure inverse text color on primary background
+    font-weight: var(--typography-font-weight-medium);
+  }
+
+  &.selected:hover, // Keep selected style on hover
+  &.selected.highlighted {
+    background-color: var(--colors-primary-hover);
+    color: var(--colors-text-inverse) !important;
+  }
+
+
+  &.disabled {
+    color: var(--colors-text-secondary);
+    cursor: var(--interactions-cursor-disabled);
+    opacity: var(--effects-opacity-disabled);
+    background-color: transparent;
+
+    &:hover {
+      background-color: transparent; // No hover effect for disabled items
+    }
+  }
+}
+
+.optionIcon {
+  font-size: var(--sizes-icon-medium);
+  flex-shrink: 0;
+}
+
+.emptyMessage {
+  padding: var(--spacing-small) var(--spacing-medium);
+  color: var(--colors-text-secondary);
+  font-style: italic;
+  text-align: center;
+}
+
+// Responsive adjustments if needed
+// For example, on smaller screens, you might want the dropdown to open full width if not already
+// @media (max-width: var(--layout-breakpoints-mobile)) {
+//   .selectListDropdown {
+//     // specific styles for mobile
+//   }
+// }

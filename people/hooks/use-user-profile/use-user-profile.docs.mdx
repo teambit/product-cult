@@ -1,0 +1,96 @@
+---
+description: A suite of React Hooks for fetching, listing, and updating user profile data using GraphQL.
+labels: ['hook', 'user profile', 'graphql', 'data fetching', 'data mutation']
+---
+
+These hooks provide a convenient way to interact with user profile data in your React components.
+They handle the complexities of data fetching and mutation, allowing you to focus on building your UI.
+
+## Usage
+
+### Fetching a User Profile
+
+The `useGetUserProfile` hook fetches a single user profile based on the provided `userId`.
+
+```tsx
+const UserProfileComponent = ({ userId }) => {
+  // Assuming useGetUserProfile is available in scope
+  const { userProfile, loading, error } = useGetUserProfile({
+    variables: { userId },
+  });
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  return (
+    <div>
+      <h1>{userProfile?.name}</h1>
+      <p>{userProfile?.bio}</p>
+    </div>
+  );
+};
+```
+
+This example demonstrates how to use the `useGetUserProfile` hook to fetch and display a user's profile.
+The hook returns the `userProfile`, a `loading` state, and an `error` object.
+
+### Listing User Profiles
+
+The `useListUserProfiles` hook fetches a list of user profiles, with options for pagination and search.
+
+```tsx
+const UserList = () => {
+  // Assuming useListUserProfiles is available in scope
+  const { userProfiles, loading, error } = useListUserProfiles({
+    variables: { limit: 10, offset: 0 },
+  });
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  return (
+    <ul>
+      {userProfiles?.map((profile) => (
+        <li key={profile.userId}>{profile.name}</li>
+      ))}
+    </ul>
+  );
+};
+```
+
+This example shows how to use the `useListUserProfiles` hook to display a list of users.
+It includes options for limiting the number of profiles and offsetting the results for pagination.
+
+### Updating a User Profile
+
+The `useUpdateUserProfile` hook provides a mutation function to update a user profile.
+
+```tsx
+const UpdateProfile = () => {
+  // Assuming useUpdateUserProfile is available in scope
+  const [updateUserProfile, { loading, error }] = useUpdateUserProfile();
+
+  const handleUpdate = async () => {
+    try {
+      await updateUserProfile({
+        variables: { displayName: 'New Name', bio: 'Updated bio' },
+      });
+      alert('Profile updated!');
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  return (
+    <div>
+      <button onClick={handleUpdate} disabled={loading}>
+        Update Profile
+      </button>
+      {error && <p>Error: {error.message}</p>}
+    </div>
+  );
+};
+```
+
+This example demonstrates how to use the `useUpdateUserProfile` hook to update a user's profile.
+The hook returns a mutation function and a state object containing the loading and error states.

@@ -1,0 +1,8 @@
+.launchTrackingButton {
+  /* Ensures a minimum width to prevent layout shifts when button text changes between 'Track Launch' and 'Stop Tracking'. */
+  min-width: 140px;
+  /* Centers the text within the button, useful if padding varies slightly with text length. */
+  text-align: center;
+  /* Example of using a theme variable for margin, if needed for spacing from adjacent elements. */
+  /* margin-inline-start: var(--spacing-small); */
+}

@@ -1,0 +1,93 @@
+.dropdownContainer {
+  position: relative;
+  display: inline-block; // Allows it to sit naturally in text flow
+  font-family: var(--typography-font-family);
+}
+
+.placeholderWrapper {
+  cursor: var(--interactions-cursor-pointer);
+  user-select: none; // Prevent text selection on click
+  transition: opacity var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-out);
+}
+
+.placeholderWrapperDisabled {
+  cursor: var(--interactions-cursor-disabled);
+  opacity: var(--effects-opacity-disabled);
+}
+
+.overlay {
+  position: absolute;
+  z-index: var(--interactions-z-index-dropdown);
+  background-color: var(--colors-surface-primary);
+  border: var(--borders-default-width) var(--borders-default-style) var(--colors-border-default);
+  border-radius: var(--borders-radius-medium);
+  box-shadow: var(--effects-shadows-large); // Enhanced shadow for "wow" effect
+  padding: var(--spacing-medium);
+  opacity: 0;
+  visibility: hidden;
+  min-width: 180px; // A sensible default minimum width
+  box-sizing: border-box;
+
+  // Base transition for opacity and visibility
+  transition-property: opacity, visibility, transform;
+  transition-duration: var(--interactions-transitions-duration-medium); // Slightly slower for smoother feel
+  transition-timing-function: var(--interactions-transitions-easing-ease-in-out);
+}
+
+.overlayVisible {
+  opacity: 1;
+  visibility: visible;
+  // Final transform state when visible
+  transform: translateY(0) scale(1);
+}
+
+// Positioning and initial animation states
+// A small gap between placeholder and overlay
+.overlayPositionBottomStart {
+  top: calc(100% + var(--spacing-x-small));
+  left: 0;
+  transform-origin: top left;
+  transform: translateY(-10px) scale(0.95); // Start slightly up and smaller
+}
+
+.overlayPositionBottomEnd {
+  top: calc(100% + var(--spacing-x-small));
+  right: 0;
+  transform-origin: top right;
+  transform: translateY(-10px) scale(0.95);
+}
+
+.overlayPositionTopStart {
+  bottom: calc(100% + var(--spacing-x-small));
+  left: 0;
+  transform-origin: bottom left;
+  transform: translateY(10px) scale(0.95); // Start slightly down and smaller
+}
+
+.overlayPositionTopEnd {
+  bottom: calc(100% + var(--spacing-x-small));
+  right: 0;
+  transform-origin: bottom right;
+  transform: translateY(10px) scale(0.95);
+}
+
+// Responsive considerations: ensure overlay doesn't overflow viewport too much
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .overlay {
+    // On very small screens, consider allowing it to be wider if necessary
+    min-width: calc(100vw - var(--spacing-large) * 2); // Example: Almost full width with some margin
+    max-width: calc(100vw - var(--spacing-medium) * 2);
+    left: 50% !important; // Override specific horizontal alignment
+    right: auto !important; // Override specific horizontal alignment
+    transform: translateX(-50%) translateY(-10px) scale(0.95) !important; // Center it
+  }
+
+  .overlayPositionTopStart,
+  .overlayPositionTopEnd {
+     transform: translateX(-50%) translateY(10px) scale(0.95) !important; // Center it for top positions
+  }
+  
+  .overlayVisible {
+     transform: translateX(-50%) translateY(0) scale(1) !important; // Center it when visible
+  }
+}

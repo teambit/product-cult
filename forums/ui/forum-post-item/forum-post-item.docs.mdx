@@ -1,0 +1,79 @@
+---
+description: Displays a forum post item with author information, content, and creation date.
+labels: ['forum', 'post', 'item']
+---
+
+## Component Usage
+
+The `ForumPostItem` component is used to display individual forum posts. It includes the author's avatar, name, post content, and creation date.
+
+## Basic Example
+
+This example shows a basic usage of the `ForumPostItem` component with mock data for the post and author.
+
+```jsx
+<ForumPostItem
+  post={{
+    id: '1',
+    topicId: '1',
+    content: 'This is the content of the forum post.',
+    userId: '1',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  }}
+  mockAuthorProfile={{
+    userId: '1',
+    name: 'John Doe',
+    bio: 'A forum enthusiast',
+    imageUrl: 'https://example.com/avatar.jpg',
+    createdAt: new Date().toISOString(),
+  }}
+/>
+```
+
+## Long Content Example
+
+This example demonstrates how the component handles long post content. The content will wrap and not overflow.
+
+```jsx
+<ForumPostItem
+  post={{
+    id: '2',
+    topicId: '2',
+    content: `This is a very long forum post content to demonstrate how the component handles text overflow. It should wrap to the next line. This is a very long forum post content to demonstrate how the component handles text overflow. It should wrap to the next line. This is a very long forum post content to demonstrate how the component handles text overflow. It should wrap to the next line.`,
+    userId: '2',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  }}
+  mockAuthorProfile={{
+    userId: '2',
+    name: 'Jane Smith',
+    bio: 'A forum moderator',
+    imageUrl: 'https://example.com/avatar2.jpg',
+    createdAt: new Date().toISOString(),
+  }}
+/>
+```
+
+## No Author Image Example
+
+This example shows how the component renders when the author does not have an image URL. It should display the author initials
+
+```jsx
+<ForumPostItem
+  post={{
+    id: '3',
+    topicId: '3',
+    content: 'This is a forum post with no author image.',
+    userId: '3',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  }}
+  mockAuthorProfile={{
+    userId: '3',
+    name: 'Alex',
+    bio: 'A forum contributor',
+    imageUrl: undefined,
+    createdAt: new Date().toISOString(),
+  }}
+/>

@@ -1,0 +1,138 @@
+.launchInfoTab {
+  padding: var(--spacing-large);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-small);
+  font-family: var(--typography-font-family);
+  color: var(--colors-text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  box-sizing: border-box;
+}
+
+.centeredMessage {
+  align-items: center;
+  justify-content: center;
+  min-height: 200px; // Ensure some height for centered messages
+}
+
+.loadingMessage,
+.errorMessage,
+.noLaunchesMessage {
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-large);
+  text-align: center;
+  margin: 0;
+}
+
+.launchName {
+  font-size: var(--typography-sizes-heading-h3);
+  font-weight: var(--typography-font-weight-semi-bold);
+  color: var(--colors-text-primary);
+  margin: 0;
+  line-height: var(--typography-line-height-heading);
+}
+
+.launchTagline {
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+  font-style: italic;
+  margin: 0;
+  line-height: var(--typography-line-height-base);
+}
+
+.launchDescription {
+  font-size: var(--typography-sizes-body-default);
+  color: var(--colors-text-primary);
+  line-height: var(--typography-line-height-relaxed);
+  margin: 0;
+}
+
+.metaInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+  padding-top: var(--spacing-medium);
+  margin-top: var(--spacing-small);
+  border-top: 1px solid var(--colors-border-subtle);
+}
+
+.metaItem {
+  font-size: var(--typography-sizes-body-default);
+  color: var(--colors-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  margin: 0;
+}
+
+.metaLabel {
+  font-weight: var(--typography-font-weight-medium);
+  color: var(--colors-text-primary);
+}
+
+.statusBadge {
+  padding: var(--spacing-xx-small) var(--spacing-small);
+  border-radius: var(--borders-radius-pill);
+  font-size: var(--typography-sizes-label-small);
+  font-weight: var(--typography-font-weight-bold);
+  line-height: 1; // Ensure consistent height
+  display: inline-block;
+  text-transform: capitalize;
+  border-width: var(--borders-default-width);
+  border-style: var(--borders-default-style);
+}
+
+.statusUpcoming {
+  background-color: var(--colors-status-warning-subtle);
+  color: var(--colors-status-warning-default);
+  border-color: var(--colors-status-warning-default);
+}
+
+.statusLive {
+  background-color: var(--colors-status-positive-subtle);
+  color: var(--colors-status-positive-default);
+  border-color: var(--colors-status-positive-default);
+}
+
+.statusArchived {
+  background-color: var(--colors-surface-secondary);
+  color: var(--colors-text-secondary);
+  border-color: var(--colors-border-default);
+}
+
+.statusDefault {
+  background-color: var(--colors-surface-secondary);
+  color: var(--colors-text-secondary);
+  border-color: var(--colors-border-subtle);
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .launchInfoTab {
+    padding: var(--spacing-medium);
+    gap: var(--spacing-small);
+  }
+
+  .launchName {
+    font-size: var(--typography-sizes-heading-h4);
+  }
+
+  .launchTagline {
+    font-size: var(--typography-sizes-body-default);
+  }
+
+  .launchDescription {
+    font-size: var(--typography-sizes-body-small);
+  }
+
+  .metaInfo {
+    padding-top: var(--spacing-small);
+    margin-top: var(--spacing-x-small);
+  }
+
+  .metaItem {
+    font-size: var(--typography-sizes-body-small);
+  }
+}

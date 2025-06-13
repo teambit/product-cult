@@ -1,0 +1,33 @@
+---
+description: A standard forum SVG icon.
+labels: ['icon', 'forum', 'ui']
+---
+
+The `ForumIcon` component displays a standard icon representing a forum or community. It can be customized with different sizes, titles, and styles.
+
+## Basic Forum Icon
+
+This example demonstrates the basic usage of the `ForumIcon` component with a default title and size.
+
+```jsx
+<ForumIcon />
+```
+
+## Customized Forum Icon
+
+This example showcases how to customize the `ForumIcon` component by setting a custom title and size.
+
+```jsx
+<ForumIcon title="Community Discussions" size={32} />
+```
+
+## Styled Forum Icon
+
+This example demonstrates how to style the `ForumIcon` component by changing its color and adding a click handler.
+
+```jsx
+<ForumIcon
+  color="var(--colors-primary-default)"
+  onClick={() => alert('Forum icon clicked!')}
+  style={{ cursor: 'pointer' }}
+/>

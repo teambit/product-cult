@@ -1,0 +1,68 @@
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--colors-surface-secondary);
+  color: var(--colors-text-primary);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-weight-medium);
+  text-transform: uppercase;
+  user-select: none;
+  vertical-align: middle;
+  box-sizing: border-box;
+
+  // Default size and font-size, corresponds to 'medium'
+  width: var(--sizes-avatar-medium);
+  height: var(--sizes-avatar-medium);
+  font-size: calc(var(--sizes-avatar-medium) * 0.45); // Proportionally scale font size for initials
+}
+
+.avatar.small {
+  width: var(--sizes-avatar-small);
+  height: var(--sizes-avatar-small);
+  font-size: calc(var(--sizes-avatar-small) * 0.45);
+}
+
+.avatar.medium {
+  width: var(--sizes-avatar-medium);
+  height: var(--sizes-avatar-medium);
+  font-size: calc(var(--sizes-avatar-medium) * 0.45);
+}
+
+.avatar.large {
+  width: var(--sizes-avatar-large);
+  height: var(--sizes-avatar-large);
+  font-size: calc(var(--sizes-avatar-large) * 0.45);
+}
+
+.avatar.xlarge { // Maps to 'xlarge' prop value
+  width: var(--sizes-avatar-x-large); // Uses CSS var --sizes-avatar-x-large
+  height: var(--sizes-avatar-x-large);
+  font-size: calc(var(--sizes-avatar-x-large) * 0.45);
+}
+
+.avatar.circle {
+  border-radius: var(--borders-radius-circle);
+}
+
+.avatar.square {
+  border-radius: var(--borders-radius-medium); // Slightly rounded corners for a modern square look
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; // Ensures the image covers the area, cropping if necessary, without distortion
+  display: block; // Removes extra space often found below inline images
+}
+
+.initials {
+  line-height: 1; // Ensures text is vertically centered within its own line box
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}

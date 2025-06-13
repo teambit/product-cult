@@ -1,0 +1,180 @@
+---
+description: A versatile select list component that supports single and multiple selections with customizable rendering and styling.
+labels: ['select', 'list', 'form', 'ui']
+---
+
+The `SelectList` component offers a flexible way to present users with a list of options to select from. It supports both single and multiple selections, custom rendering of options and selected values, and can be easily styled to fit various design requirements.
+
+## Component Usage
+
+Basic usage of the `SelectList` component involves providing an array of options and handling the `onChange` event to manage the selected value(s).
+
+```jsx
+// import React, { useState } from 'react';
+// import { SelectList } from './select-list.js'; // Assuming SelectList is in the same directory or aliased
+// Define SelectListOption type if not globally available or imported from the component
+// type SelectListOption = { value: string; label: string; disabled?: boolean; icon?: React.ComponentType<any>; [key: string]: any; };
+
+
+const options = [
+  { value: '1', label: 'Option 1' },
+  { value: '2', label: 'Option 2' },
+  { value: '3', label: 'Option 3' },
+];
+
+function MyComponent() {
+  const [selectedValue, setSelectedValue] = useState(undefined);
+
+  return (
+    <SelectList
+      id="basicSelect"
+      options={options}
+      value={selectedValue}
+      onChange={(val) => setSelectedValue(val)}
+      placeholder="Choose an option..."
+      label="Basic Select"
+    />
+  );
+}
+```
+
+## Single Select with Product Categories
+
+This example demonstrates a single-select `SelectList` populated with product category options, each including an icon. It showcases how to use the `icon` property of `SelectListOption` to enhance the visual representation of each option.
+
+```jsx
+// import React, { useState } from 'react';
+// import { SelectList } from './select-list.js';
+// Define SelectListOption and CategoryIcon as provided in the prompt or your setup
+
+const CategoryIcon = ({ className }) => (
+  <svg className={className} width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 4H4c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" />
+  </svg>
+);
+
+const productCategories = [
+  { value: 'ai-tools', label: 'AI Tools', icon: CategoryIcon },
+  { value: 'developer-tools', label: 'Developer Tools', icon: CategoryIcon },
+  { value: 'productivity', label: 'Productivity Apps', icon: CategoryIcon },
+  { value: 'design-resources', label: 'Design Resources', icon: CategoryIcon },
+];
+
+function ProductCategorySelect() {
+  const [selectedCategory, setSelectedCategory] = useState(undefined);
+
+  return (
+    <SelectList
+      id="productCategory"
+      options={productCategories}
+      value={selectedCategory}
+      onChange={(val) => setSelectedCategory(val)}
+      placeholder="Choose a category..."
+      label="Product Category"
+    />
+  );
+}
+```
+
+## Multiple Select with Product Tags
+
+This example shows how to enable multiple selections in the `SelectList` by setting the `multiple` prop to `true`. It uses product tags as options and displays the selected tags.
+
+```jsx
+// import React, { useState } from 'react';
+// import { SelectList } from './select-list.js';
+// Define SelectListOption and TagIcon as provided in the prompt or your setup
+
+const TagIcon = ({ className }) => (
+  <svg className={className} width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41s-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z" />
+  </svg>
+);
+
+const productTags = [
+  { value: 'saas', label: 'SaaS', icon: TagIcon },
+  { value: 'opensource', label: 'Open Source', icon: TagIcon },
+  { value: 'api', label: 'API', icon: TagIcon },
+  { value: 'mobile', label: 'Mobile App', icon: TagIcon },
+];
+
+function ProductTagsSelect() {
+  const [selectedTags, setSelectedTags] = useState([]);
+
+  return (
+    <SelectList
+      id="productTags"
+      options={productTags}
+      value={selectedTags}
+      onChange={(val) => setSelectedTags(val)}
+      multiple
+      placeholder="Select tags..."
+      label="Product Tags"
+    />
+  );
+}
+```
+
+## Custom Rendering of Upcoming Launches
+
+This example demonstrates the flexibility of the `SelectList` component by using the `renderOption` and `renderSelectedValue` props to fully customize the rendering of options and the selected value.
+
+```jsx
+// import React, { useState } from 'react';
+// import { SelectList } from './select-list.js';
+// Define SelectListOption and RocketIcon as provided in the prompt or your setup
+
+const RocketIcon = ({ className }) => (
+  <svg className={className} width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 14.24l-2.47-2.47C13.39 11.39 13 10.7 13 10c0-1.66 1.34-3 3-3s3 1.34 3 3c0 .7-.39 1.39-.76 1.76l2.47 2.47c.78.78.78 2.05 0 2.83s-2.05.78-2.83 0zM9.5 15c-2.49 0-4.5-2.01-4.5-4.5S7.01 6 9.5 6s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-7C8.12 8 7 9.12 7 10.5S8.12 13 9.5 13s2.5-1.12 2.5-2.5S10.88 8 9.5 8zM4 20h10c1.1 0 2-.9 2-2v-1.5c0-.83-.67-1.5-1.5-1.5S13 15.67 13 16.5V18H4v2z" />
+  </svg>
+);
+
+const upcomingLaunches = [
+  { value: 'launch-alpha', label: 'Project Alpha Launch', date: '2024-08-15', type: 'New Product' },
+  { value: 'launch-beta', label: 'Service Beta Release', date: '2024-09-01', type: 'Update' },
+  { value: 'launch-gamma', label: 'Platform Gamma Access', date: '2024-09-20', type: 'Early Access' },
+];
+
+function UpcomingLaunchesSelect() {
+  const [selectedLaunch, setSelectedLaunch] = useState(undefined);
+
+  const renderLaunchOption = (option, isSelected, isHighlighted) => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%' }}>
+      <RocketIcon style={{ fontSize: '1em', color: isSelected || isHighlighted ? 'white' : 'currentColor' }} />
+      <div style={{ flexGrow: 1 }}>
+        <div style={{ fontWeight: 'bold' }}>{option.label}</div>
+        <div style={{ fontSize: '0.8em', opacity: 0.8 }}>
+          {option.type} - {option.date}
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderSelectedLaunch = (selectedValue, options, placeholder) => {
+    if (!selectedValue) {
+      return <span style={{fontStyle: 'italic', opacity: 0.6}}>{placeholder}</span>;
+    }
+    const selectedOption = options.find(opt => opt.value === selectedValue);
+    if (!selectedOption) return placeholder;
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <RocketIcon style={{ fontSize: '0.8em', color: 'currentColor' }} />
+        <span>{selectedOption.label} ({selectedOption.type})</span>
+      </div>
+    );
+  };
+
+  return (
+    <SelectList
+      id="upcomingLaunches"
+      options={upcomingLaunches}
+      value={selectedLaunch}
+      onChange={(val) => setSelectedLaunch(val)}
+      placeholder="Select a launch..."
+      label="Featured Launch"
+      renderOption={renderLaunchOption}
+      renderSelectedValue={renderSelectedLaunch}
+    />
+  );
+}

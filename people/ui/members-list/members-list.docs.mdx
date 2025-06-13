@@ -1,0 +1,74 @@
+---
+description: A responsive members list component that displays user cards in a visually appealing grid layout.
+labels: ['members', 'list', 'ui']
+---
+
+The `MembersList` component displays a collection of user profiles in a responsive grid layout, using the `UserCard` component for each member. It adapts to different screen sizes, ensuring a consistent and user-friendly experience across devices.
+
+## Basic Usage
+
+This example demonstrates how to render a `MembersList` with a predefined array of user profiles.
+
+```jsx
+const mockMembersData = [
+  {
+    userId: 'user-1',
+    name: 'Elena Rodriguez',
+    bio: 'Passionate product manager driving innovation in SaaS.',
+    imageUrl: 'https://example.com/elena.jpg',
+    company: 'Innovate Solutions',
+    location: 'Austin, TX',
+    createdAt: '2023-01-01T00:00:00.000Z', // createdAt is a required field for UserProfile
+  },
+  {
+    userId: 'user-2',
+    name: 'Ben Carter',
+    bio: 'Full-stack developer with a keen eye for UI/UX.',
+    imageUrl: 'https://example.com/ben.jpg',
+    company: 'Tech Crafters',
+    location: 'London, UK',
+    createdAt: '2023-01-02T00:00:00.000Z', // createdAt is a required field for UserProfile
+  },
+];
+
+// IMPORTANT: The 'members' prop expects an array of UserProfile class instances.
+// The data objects shown above (mockMembersData) would typically be transformed into UserProfile instances,
+// e.g., using `UserProfile.from(data)` or by fetching UserProfile instances directly.
+// For the purpose of this example, assume `mockMembers` holds actual UserProfile instances.
+// Example: const mockMembers = mockMembersData.map(data => UserProfile.from(data));
+
+// <MembersList members={mockMembers} />
+// To keep the example concise, we'll illustrate with the data structure:
+<MembersList members={mockMembersData.map(data => ({...data, /* imagine this is a UserProfile instance */}))} />
+```
+
+## Empty Members List
+
+When no members are provided, the `MembersList` renders an empty container.
+
+```jsx
+<MembersList members={[]} />
+```
+
+## Members List with One Member
+
+This example shows a `MembersList` populated with a single user profile.
+
+```jsx
+const singleMemberData = [
+  {
+    userId: 'user-5',
+    name: 'Sophia Loren',
+    bio: 'Lead engineer focused on scalable backend systems.',
+    imageUrl: 'https://example.com/sophia.jpg',
+    company: 'Core Systems Ltd.',
+    location: 'Paris, FR',
+    createdAt: '2023-01-05T00:00:00.000Z', // createdAt is a required field for UserProfile
+  },
+];
+
+// Again, ensure these are UserProfile instances in a real application.
+// const singleMember = singleMemberData.map(data => UserProfile.from(data));
+// <MembersList members={singleMember} />
+
+<MembersList members={singleMemberData.map(data => ({...data, /* imagine this is a UserProfile instance */}))} />

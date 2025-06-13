@@ -1,0 +1,58 @@
+---
+description: A component to display individual reviews with author information, rating, and comments.
+labels: ['review', 'card', 'feedback']
+---
+
+## Component Overview
+
+The `ReviewCard` component provides a structured and visually appealing way to display user reviews. It includes the author's avatar, name, review date, rating (in stars), and the review comment itself.
+
+## Basic Usage
+
+Here's a simple example of how to use the `ReviewCard` component with a mock review object:
+
+```jsx
+const review = {
+  id: 'review-123',
+  productId: 'product-456',
+  userId: 'user-789',
+  rating: 4,
+  comment: 'This product is great! I really enjoyed using it.',
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+  status: 'approved',
+};
+<ReviewCard review={review} />
+```
+In this example, the `ReviewCard` will display the review content along with the author information (if available) and a star rating.
+## Displaying a Review with a Long Comment
+The component handles long comments gracefully by wrapping the text.
+```jsx
+const reviewWithLongComment = {
+  id: 'review-456',
+  productId: 'product-789',
+  userId: 'user-101',
+  rating: 5,
+  comment: 'This is a really long comment to test how the review card handles text wrapping. I want to make sure the text does not overflow and that it looks good on different screen sizes. Overall, I am very happy with this product, and I would recommend it to others.',
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+  status: 'approved',
+};
+<ReviewCard review={reviewWithLongComment} />
+```
+## Handling Different Ratings
+The `ReviewCard` component visually represents the rating using star symbols.
+```jsx
+const lowRatingReview = {
+  id: 'review-789',
+  productId: 'product-123',
+  userId: 'user-456',
+  rating: 1,
+  comment: 'This product did not meet my expectations.',
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+  status: 'approved',
+};
+<ReviewCard review={lowRatingReview} />
+```
+This example demonstrates how a low rating is displayed using a single filled star and four empty stars.

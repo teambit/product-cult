@@ -1,0 +1,40 @@
+---
+description: Displays a list of reviews for a specific product.
+labels: ['product reviews', 'page', 'reviews']
+---
+
+The `ProductReviewsPage` component displays a list of reviews for a given product. It fetches the reviews based on the `productId` prop and renders them using the `ReviewList` component.
+
+## Usage
+
+To use the `ProductReviewsPage` component, you need to provide a `productId`. Optionally, you can pass `mockReviews` for testing or storybook purposes.
+
+```jsx
+<ProductReviewsPage productId="prod-123" />
+```
+## Example with Sample Reviews
+This example shows the `ProductReviewsPage` with a list of mock reviews. This is useful for testing and development purposes.
+```jsx
+const sampleReviews = [
+  {
+    id: 'rev-001',
+    productId: 'prod-airpods-case-001',
+    userId: 'user-reviewer-alice-123',
+    rating: 5,
+    comment: 'Absolutely fantastic product!',
+    createdAt: new Date('2024-07-22T10:30:00.000Z').toISOString(),
+    updatedAt: new Date('2024-07-22T11:00:00.000Z').toISOString(),
+    status: 'approved',
+  },
+];
+<ProductReviewsPage productId="prod-airpods-case-001" mockReviews={sampleReviews} />
+```
+## Example with No Reviews
+This example shows the `ProductReviewsPage` when there are no reviews for a product. This demonstrates the component's ability to handle empty review lists gracefully.
+```jsx
+<ProductReviewsPage productId="prod-newly-launched-002" mockReviews={[]} />
+```
+## Example with Loading State
+This example demonstrates the `ProductReviewsPage`'s behavior while attempting to fetch data.  Without providing `mockReviews`, the component initiates an internal data fetch, showcasing the loading state.
+```jsx
+<ProductReviewsPage productId="prod-live-data-fetch-003" />

@@ -1,0 +1,24 @@
+.manageReviewsLink {
+  // Enhances the base Link component for this specific "Manage Reviews" action.
+  // Makes the link more prominent.
+  font-weight: var(--typography-font-weight-semi-bold);
+  font-size: var(--typography-sizes-body-default); // Or consider --typography-sizes-body-large for more emphasis
+  
+  // Ensures consistency with base link padding, adjust if a larger click area is needed.
+  // padding: var(--spacing-xx-small) 0;
+
+  &:hover {
+    // Uses the theme's primary hover color for text.
+    color: var(--colors-primary-hover);
+    // Adds an underline on hover for a clear visual cue, differing from base link if it doesn't have it.
+    text-decoration: underline;
+  }
+
+  // Focus-visible state is typically inherited from the base Link component. 
+  // If custom focus styling is needed for this specific link, it can be added here.
+  // Example:
+  // &:focus-visible {
+  //   outline: 2px solid var(--colors-border-focus);
+  //   outline-offset: 2px;
+  // }
+}

@@ -1,0 +1,161 @@
+.launchesPage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large); /* Consistent gap between major elements */
+}
+
+.pageHeader {
+  text-align: center;
+  padding: var(--spacing-medium) 0 var(--spacing-large);
+  margin-bottom: var(--spacing-large);
+  background: var(--effects-gradients-subtle-surface);
+  border-bottom: 1px solid var(--colors-border-subtle);
+}
+
+.pageTitle {
+  font-size: var(--typography-sizes-display-medium);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-small);
+  font-family: var(--typography-font-family);
+  letter-spacing: var(--typography-letter-spacing-tight);
+}
+
+.pageSubtitle {
+  font-size: var(--typography-sizes-heading-h5);
+  color: var(--colors-text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: var(--typography-line-height-relaxed);
+  font-family: var(--typography-font-family);
+}
+
+.section {
+  width: 100%;
+  padding: 0 var(--spacing-medium); /* Add some horizontal padding for sections */
+  box-sizing: border-box;
+  margin-bottom: var(--spacing-xx-large); /* Space between sections */
+}
+
+.sectionTitle {
+  font-size: var(--typography-sizes-heading-h2);
+  font-weight: var(--typography-font-weight-semi-bold);
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-large);
+  padding-bottom: var(--spacing-medium);
+  border-bottom: 2px solid var(--colors-primary-default);
+  display: inline-block;
+  font-family: var(--typography-font-family);
+}
+
+.upcomingSection {
+  /* Specific styles for upcoming, if any */
+}
+
+.pastSection {
+  /* Specific styles for past, if any */
+}
+
+.launchListContainer {
+  /* If any specific wrapper styles are needed for LaunchList instances */
+}
+
+.emptyStateContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-xx-large) var(--spacing-large);
+  background-color: var(--colors-surface-secondary);
+  border-radius: var(--borders-radius-large);
+  margin: var(--spacing-xx-large) auto; /* More margin for page-level empty state */
+  max-width: 600px;
+  box-shadow: var(--effects-shadows-medium);
+  border: 1px solid var(--colors-border-default);
+}
+
+.emptyStateIcon {
+  font-size: 48px; /* Larger icon */
+  margin-bottom: var(--spacing-medium);
+  display: block;
+  color: var(--colors-primary-default);
+}
+
+.emptyStateText {
+  font-size: var(--typography-sizes-heading-h3);
+  font-weight: var(--typography-font-weight-medium);
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-small);
+  font-family: var(--typography-font-family);
+}
+
+.emptyStateSubtext {
+  font-size: var(--typography-sizes-body-default);
+  color: var(--colors-text-secondary);
+  line-height: var(--typography-line-height-base);
+  max-width: 450px;
+  margin: 0 auto;
+  font-family: var(--typography-font-family);
+}
+
+/* Responsive adjustments */
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .pageTitle {
+    font-size: var(--typography-sizes-display-small);
+  }
+  .pageSubtitle {
+    font-size: var(--typography-sizes-heading-h6);
+    padding: 0 var(--spacing-small);
+  }
+  .sectionTitle {
+    font-size: var(--typography-sizes-heading-h3);
+  }
+  .section {
+    padding: 0 var(--spacing-small);
+    margin-bottom: var(--spacing-x-large);
+  }
+  .emptyStateContainer {
+    padding: var(--spacing-large) var(--spacing-medium);
+    margin: var(--spacing-large) auto;
+  }
+  .emptyStateText {
+    font-size: var(--typography-sizes-heading-h4);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .pageHeader {
+    padding: var(--spacing-small) 0 var(--spacing-medium);
+    margin-bottom: var(--spacing-medium);
+  }
+   .pageTitle {
+    font-size: var(--typography-sizes-heading-h1); /* Further adjust for mobile */
+  }
+  .pageSubtitle {
+    font-size: var(--typography-sizes-body-large); /* Further adjust for mobile */
+  }
+  .sectionTitle {
+    font-size: var(--typography-sizes-heading-h4); /* Further adjust for mobile */
+    margin-bottom: var(--spacing-medium);
+    padding-bottom: var(--spacing-x-small);
+  }
+   .emptyStateIcon {
+    font-size: 40px;
+  }
+  .emptyStateText {
+    font-size: var(--typography-sizes-heading-h5);
+  }
+  .emptyStateSubtext {
+    font-size: var(--typography-sizes-body-small);
+  }
+}
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* A minimum height to ensure the spinner is visible and has some space */
+  min-height: 200px; 
+  box-sizing: border-box;
+}

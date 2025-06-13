@@ -1,0 +1,41 @@
+---
+description: Displays a list of product categories as links, arranged horizontally using Flexbox.
+labels: ['product-category', 'list', 'navigation']
+---
+
+The `ProductCategoryList` component is used to display a list of product categories. It supports custom styling, handling of empty states, and integration with data fetching hooks.
+
+## Basic Usage
+
+This example demonstrates how to use the `ProductCategoryList` component with a predefined list of categories.
+
+```jsx
+<ProductCategoryList
+  categories={[
+    { id: '1', name: 'Category 1', description: 'Description 1' },
+    { id: '2', name: 'Category 2', description: 'Description 2' },
+    { id: '3', name: 'Category 3', description: 'Description 3' },
+  ]}
+/>
+```
+## Custom Styling and Interactivity
+This example shows how to customize the appearance and behavior of the `ProductCategoryList` component. It includes custom styles, a base path for links, and an `onClick` handler.
+```jsx
+<ProductCategoryList
+  categories={[
+    { id: '4', name: 'Category A', description: 'Description A' },
+    { id: '5', name: 'Category B', description: 'Description B' },
+  ]}
+  basePath="/discover/tags?tag="
+  onCategoryClick={(category) => alert(`Clicked category: ${category.name}`)}
+  className="custom-list-styling"
+  style={{ border: '1px solid red', padding: '10px' }}
+/>
+```
+## Handling Empty State
+This example demonstrates how to handle the empty state of the `ProductCategoryList` component by providing a custom message.
+```jsx
+<ProductCategoryList
+  categories={[]}
+  noCategoriesMessage="No categories available."
+/>

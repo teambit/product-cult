@@ -1,0 +1,52 @@
+---
+description: A responsive header component for the Product Hunt platform.
+labels: ['header', 'navigation', 'responsive']
+---
+
+A responsive header component for the Product Hunt platform. Display a logo, navigation items, and accept a list of call to action components.
+
+## Basic Header
+
+This example demonstrates the basic usage of the `Header` component with navigation links and action buttons.
+
+```jsx
+<Header 
+  navLinks={[
+    { label: 'Products', href: '/products' },
+    { label: 'Launches', href: '/launches' },
+  ]}
+  actions={[() => <button>Login</button>, () => <button>Sign Up</button>]}
+/>
+```
+
+## Customized Header
+
+This example shows how to customize the `Header` component with a different logo name, slogan, navigation links, a search bar in the center, and custom action buttons.
+
+```jsx
+<Header
+  logoName="InnovateHub"
+  logoSlogan="Discover Tomorrow's Tech"
+  navLinks={[
+    { label: 'Innovations', href: '/innovations' },
+    { label: 'Daily Digest', href: '/digest' },
+  ]}
+  actions={[() => <button>Submit Product</button>]}
+>
+  <input type="search" placeholder="Search products..." />
+</Header>
+```
+
+## Header with User Actions
+
+This example demonstrates a header with a user profile badge, a primary call to action, and a minimal set of navigation links.
+
+```jsx
+<Header
+  logoName="PH"
+  logoSlogan="Next Big Thing"
+  navLinks={[
+    { label: 'Explore', href: '/explore' },
+  ]}
+  actions={[() => <div>User</div>, () => <button>Submit</button>]}
+/>

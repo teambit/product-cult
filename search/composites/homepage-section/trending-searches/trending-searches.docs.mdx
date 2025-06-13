@@ -1,0 +1,44 @@
+---
+description: A component that displays a list of trending search terms as links.
+labels: ['trending searches', 'search', 'navigation']
+---
+
+## Usage
+
+The `TrendingSearches` component displays a list of trending search terms, linking to search results for each term.
+
+## Basic Trending Searches
+
+This example shows the component with its default title and a predefined list of trending search terms.
+
+```jsx
+<TrendingSearches />
+```
+
+## Custom Trending Searches
+
+This example demonstrates how to customize the component with a custom title, subtitle, and list of trending items.
+
+```jsx
+const trendingItems = [
+  { term: 'Next-Gen Gaming Consoles' },
+  { term: 'Virtual Reality Experiences' },
+  { term: 'Smart Home Automation' },
+];
+<TrendingSearches
+  title="Hot Topics This Week"
+  subtitle="Discover what the Product Hunt community is buzzing about."
+  items={trendingItems}
+/>
+```
+
+## Empty Trending Searches
+
+This example illustrates the component's appearance when there are no trending items to display.
+
+```jsx
+<TrendingSearches
+  title="Trending Now"
+  subtitle="Explore popular search terms. Currently, there are no trending items available."
+  items={[]}
+/>

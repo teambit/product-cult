@@ -1,0 +1,45 @@
+.userProductsTabContainer {
+  width: 100%;
+  padding: var(--spacing-medium) 0; /* Vertical padding; horizontal likely handled by parent tab system */
+  box-sizing: border-box;
+}
+
+.stateContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px; /* Ensure some visual space for messages */
+  padding: var(--spacing-large);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.defaultMessage {
+  font-family: var(--typography-font-family);
+  color: var(--colors-text-secondary); /* Use secondary text color for less emphasis */
+  font-size: var(--typography-sizes-body-large);
+  line-height: var(--typography-line-height-base);
+}
+
+/* Responsive adjustments */
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .userProductsTabContainer {
+    padding: var(--spacing-small) 0;
+  }
+
+  .stateContainer {
+    padding: var(--spacing-medium);
+    min-height: 150px;
+  }
+
+  .defaultMessage {
+    font-size: var(--typography-sizes-body-medium);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .defaultMessage {
+    font-size: var(--typography-sizes-body-default);
+  }
+}

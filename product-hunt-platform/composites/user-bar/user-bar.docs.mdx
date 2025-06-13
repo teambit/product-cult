@@ -1,0 +1,62 @@
+---
+description: A user bar component that displays user authentication status and actions.
+labels: ['user', 'authentication', 'header']
+---
+
+The `UserBar` component displays user authentication status and provides relevant actions. It renders user avatar and a dropdown menu for logged-in users, otherwise displays "Get started" button and "Login" link for logged-out users.
+
+## Component Usage
+
+Here are some examples of how to use the `UserBar` component:
+
+### Logged-Out User Bar
+When the user is not logged in, the component displays a "Get started" button and a "Login" link.
+
+```jsx
+<UserBar />
+```
+### Logged-In User Bar
+When the user is logged in, the component displays the user's avatar, which opens a dropdown menu with user-specific actions like "My Profile", "Account Settings", and a "Logout" button.
+```jsx
+const menuItems = [
+  {
+    name: 'profile',
+    label: 'My Profile',
+    href: '/profile/me',
+  },
+  {
+    name: 'settings',
+    label: 'Account Settings',
+    href: '/settings/account',
+  },
+];
+<UserBar menuItems={menuItems} />
+```
+### Admin User Bar
+This example demonstrates how to conditionally render menu items based on user roles. In this case, an admin user will see additional menu items like "Admin Dashboard" and "Content Moderation".
+```jsx
+const adminMenuItems = [
+  {
+    name: 'profile',
+    label: 'My Profile',
+    href: '/profile/me',
+  },
+  {
+    name: 'admin-dashboard',
+    label: 'Admin Dashboard',
+    href: '/admin/dashboard',
+    allowedRoles: ['admin'],
+  },
+  {
+    name: 'content-moderation',
+    label: 'Content Moderation',
+    href: '/admin/moderation',
+    allowedRoles: ['admin', 'moderator'],
+  },
+  {
+    name: 'settings',
+    label: 'Account Settings',
+    href: '/settings/account',
+  },
+];
+<UserBar menuItems={adminMenuItems} />

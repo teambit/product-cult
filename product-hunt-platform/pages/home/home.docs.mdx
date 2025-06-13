@@ -1,0 +1,47 @@
+---
+description: The Home component for the Product Hunt platform, rendering content based on authentication status.
+labels: ['home', 'product-hunt', 'platform']
+---
+
+The `Home` component serves as the main entry point for users, displaying different content based on whether they are authenticated. It includes hero sections, call-to-action buttons, and personalized greetings.
+
+## Usage
+
+### Basic Unauthenticated View
+
+Displays a hero section with a title, subtitle, and a call-to-action for unauthenticated users.
+```jsx
+<Home
+  heroTitleUnauthenticated="Discover Tomorrow’s Tech, Today."
+  heroSubtitleUnauthenticated="Join Product Hunt to find and share the latest innovations in tech."
+  heroCtaTextUnauthenticated="Explore Products"
+  heroCtaLinkUnauthenticated="/products"
+/>
+```
+
+### Authenticated User View
+
+Presents a personalized welcome message and action buttons for users who are logged in.
+```jsx
+<Home
+  greetingAuthenticatedFormat="Welcome back, {username}!"
+  subtitleAuthenticated="Ready to discover or share the next big thing? Let’s get started."
+  submitProductCtaText="Share Your Innovation"
+  submitProductCtaLink="/submit-product"
+  exploreProductsCtaText="Discover New Products"
+  exploreProductsCtaLink="/products"
+/>
+```
+
+### Loading State
+
+Shows a loading message while the authentication status is being determined.
+```jsx
+<Home />
+```
+
+### Error State
+
+Displays an error message if there's an issue fetching the authentication status.
+```jsx
+<Home />

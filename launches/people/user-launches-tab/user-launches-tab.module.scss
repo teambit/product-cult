@@ -1,0 +1,51 @@
+.userLaunchesTabContainer {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.loadingState,
+.errorState {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xx-large) var(--spacing-large);
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+  min-height: 300px;
+  text-align: center;
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  border: 1px solid var(--colors-border-subtle);
+  box-shadow: var(--effects-shadows-medium);
+}
+
+.errorState {
+  color: var(--colors-status-negative-default);
+  background-color: var(--colors-status-negative-subtle);
+  border-color: var(--colors-status-negative-default);
+
+  p {
+    font-weight: var(--typography-font-weight-medium);
+  }
+}
+
+.loadingSpinner {
+  border: 4px solid var(--colors-border-subtle);
+  border-top: 4px solid var(--colors-primary-default);
+  border-radius: var(--borders-radius-circle);
+  width: var(--sizes-icon-large);
+  height: var(--sizes-icon-large);
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--spacing-medium);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,48 @@
+.productCategoryFilter {
+  font-family: var(--typography-font-family);
+  width: 100%;
+  // A common width for filter dropdowns, adjust as needed for layout context
+  max-width: 320px;
+  box-sizing: border-box; // Ensures padding/border don't expand element beyond max-width
+  position: relative; // Establishes a positioning context if needed for future enhancements like tooltips
+}
+
+// Styles for the custom error display, used when SelectList isn't rendered due to an error
+.errorContainer {
+  padding: var(--spacing-small);
+  border: var(--borders-default-width) var(--borders-default-style) var(--colors-border-subtle);
+  border-radius: var(--borders-radius-medium);
+  background-color: var(--colors-surface-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+}
+
+// Label style used when displaying the label outside of SelectList (e.g., in the error state container)
+.filterLabel {
+  display: block;
+  font-size: var(--typography-sizes-label-default);
+  font-weight: var(--typography-font-weight-medium);
+  color: var(--colors-text-secondary);
+  // No margin-bottom here, gap in .errorContainer handles spacing
+}
+
+// Styling for the error message content box
+.errorMessageContent {
+  color: var(--colors-status-negative-default);
+  font-size: var(--typography-sizes-body-default);
+  padding: var(--spacing-small) var(--spacing-medium);
+  background-color: var(--colors-status-negative-subtle);
+  border-radius: var(--borders-radius-small);
+  border: 1px solid var(--colors-status-negative-default);
+  text-align: center; // Centers the error text
+  line-height: var(--typography-line-height-base);
+}
+
+// Custom class for the SelectList component instance, if specific overrides are needed
+.selectListCustom {
+  // Example: Ensure it takes full width of its container if not by default.
+  // However, SelectList's default style is usually width: 100% within its container.
+  // This class is a placeholder for any specific adjustments.
+  // width: 100%;
+}

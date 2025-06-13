@@ -1,0 +1,48 @@
+---
+description: A link component that directs users to their reviews management page.
+labels: ['link', 'user', 'reviews']
+---
+
+The `ManageReviewsLink` component provides a styled link that navigates users to a page where they can manage their reviews. It's designed for user profiles, dashboards, or similar contexts.
+
+## Usage
+
+This component is a straightforward way to guide users to their reviews section with a clear call to action.
+
+## Examples
+
+### Default Link
+
+This example shows the default `ManageReviewsLink` with its standard text and styling.
+
+```jsx
+<ManageReviewsLink href="/user/reviews" />
+```
+### Custom Text
+You can customize the link text to better suit the context or provide more specific instructions.
+```jsx
+<ManageReviewsLink href="/user/feedback">
+  View and Edit My Product Feedback
+</ManageReviewsLink>
+```
+### Styled Link
+Additional styles can be applied using the `className` or `style` props.
+```jsx
+<ManageReviewsLink
+  href="/user/reviews-dashboard"
+  className="custom-reviews-link"
+>
+  Go to My Reviews Dashboard
+</ManageReviewsLink>
+```
+```jsx
+<ManageReviewsLink
+  href="/user/archived-reviews"
+  style={{
+    marginTop: 'var(--spacing-medium)',
+    fontSize: 'var(--typography-sizes-body-small)',
+    color: 'var(--colors-status-info-default)',
+  }}
+>
+  View Archived Reviews (inline style)
+</ManageReviewsLink>

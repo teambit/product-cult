@@ -1,0 +1,92 @@
+.sectionLayout {
+  padding: var(--spacing-xxx-large) var(--layout-container-padding);
+  width: 100%;
+  box-sizing: border-box;
+  border-top: var(--borders-default-width) solid var(--colors-border-subtle);
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Center header and content containers by default
+}
+
+.sectionLayout:first-child {
+  // Remove top border if it's the first section on a page to avoid double borders with a page header
+  border-top: none;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Center title, subtitle, caption within the header
+  text-align: center;
+  margin-bottom: var(--spacing-xx-large); // Space between header block and content block
+  width: 100%;
+  max-width: 800px; // Limit width of header text for readability
+  gap: var(--spacing-small); // Consistent gap between caption, title, subtitle
+}
+
+.caption {
+  color: var(--colors-text-accent);
+  font-size: var(--typography-sizes-label-default);
+  font-weight: var(--typography-font-weight-semi-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--typography-letter-spacing-wide);
+  line-height: var(--typography-line-height-base);
+  // Margin is handled by the parent's gap property
+}
+
+.title {
+  // This class applies to the Heading component if `title` is a string.
+  // Specific margins or styles for the title element itself can go here if needed,
+  // but `Heading` component already has its own styles and margin.
+  // Gap in parent container handles spacing.
+  color: var(--colors-text-primary); // Ensuring default Heading color is used if not overridden
+}
+
+.subtitle {
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-large);
+  line-height: var(--typography-line-height-relaxed);
+  // max-width is effectively handled by headerContainer's max-width
+  // Margin is handled by the parent's gap property
+}
+
+.contentContainer {
+  width: 100%;
+  max-width: var(--layout-max-page-width); // Ensure content adheres to page width limits
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; // Default for children to take full width of content container
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .sectionLayout {
+    padding-top: var(--spacing-xx-large);
+    padding-bottom: var(--spacing-xx-large);
+    padding-left: var(--spacing-large);
+    padding-right: var(--spacing-large);
+  }
+
+  .headerContainer {
+    margin-bottom: var(--spacing-x-large);
+    gap: var(--spacing-x-small);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .sectionLayout {
+    padding-top: var(--spacing-x-large);
+    padding-bottom: var(--spacing-x-large);
+    padding-left: var(--spacing-medium);
+    padding-right: var(--spacing-medium);
+  }
+
+  .headerContainer {
+    margin-bottom: var(--spacing-large);
+    max-width: 100%; // Allow header text to use more space on mobile
+  }
+
+  .subtitle {
+    font-size: var(--typography-sizes-body-default); // Adjust subtitle size for mobile
+  }
+}

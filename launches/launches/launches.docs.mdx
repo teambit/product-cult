@@ -1,0 +1,55 @@
+---
+description: API for managing and showcasing upcoming and past product launches.
+labels: ['launches', 'product hunt', 'api']
+---
+
+The Launches aspect provides an API for managing and showcasing upcoming and past product launches. It allows users to submit product launches and track launch events. The API can be integrated with products and user profiles.
+
+## Examples
+
+### Displaying a List of Upcoming Launches
+
+This example demonstrates how to display a list of upcoming product launches on a homepage or a dedicated launches page. It utilizes the `listLaunches` query to fetch launches with the status set to "upcoming".
+
+```graphql
+query {
+  listLaunches(options: { status: "upcoming" }) {
+    id
+    name
+    tagline
+    launchDate
+  }
+}
+```
+### Submitting a New Launch
+Here's how a user can submit a new product launch using the `createLaunch` mutation. The mutation requires the product ID, name, tagline, description, and launch date. The `submittedBy` field is automatically populated with the user's ID.
+```graphql
+mutation {
+  createLaunch(options: {
+    productId: "product-123"
+    name: "Awesome Product Launch"
+    tagline: "The next big thing!"
+    description: "A revolutionary product that will change the world."
+    launchDate: "2024-03-15T12:00:00Z"
+  }) {
+    id
+    name
+    tagline
+    launchDate
+  }
+}
+```
+### Tracking Launches for a Product
+This example shows how to retrieve the launches associated with a specific product using the `listLaunches` query with a `productId` filter.
+```graphql
+query {
+  listLaunches(options: {
+    productId: "product-123"
+  }) {
+    id
+    name
+    tagline
+    launchDate
+    status
+  }
+}

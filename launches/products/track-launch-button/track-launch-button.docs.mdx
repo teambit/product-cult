@@ -1,0 +1,70 @@
+---
+description: A button that allows users to track or untrack product launches.
+labels: ['button', 'product', 'tracking']
+---
+
+The `TrackLaunchButton` component enables users to track and receive updates about product launches on the platform. It provides a straightforward way to toggle tracking status and manage notification preferences.
+
+## Usage Examples
+
+### Basic Usage
+The following example shows how to use the `TrackLaunchButton` with minimal configuration. It allows a user to track a product launch using default settings.
+
+```jsx
+<TrackLaunchButton
+  launch={{
+    id: 'launch-123',
+    productId: 'product-456',
+    name: 'Awesome Product Launch',
+    tagline: 'The future is here!',
+    description: 'A new product that will change the world.',
+    launchDate: new Date().toISOString(),
+    status: 'upcoming',
+    submittedBy: 'user-789',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  }}
+  userId="user-1"
+/>
+```
+### Initially Tracked
+This example demonstrates the `TrackLaunchButton` in a scenario where the user is already tracking the launch. The button will render in the "tracked" state.
+```jsx
+<TrackLaunchButton
+  launch={{
+    id: 'launch-456',
+    productId: 'product-789',
+    name: 'Incredible Product Launch',
+    tagline: 'Prepare to be amazed!',
+    description: 'Another product that will also change the world.',
+    launchDate: new Date().toISOString(),
+    status: 'upcoming',
+    submittedBy: 'user-123',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  }}
+  userId="user-2"
+  initialTracked={true}
+/>
+```
+### With Custom Callback
+This example shows how to use the `onTrackChange` callback to handle tracking status changes. The callback can be used to update a database or perform other actions.
+```jsx
+<TrackLaunchButton
+  launch={{
+    id: 'launch-789',
+    productId: 'product-012',
+    name: 'Amazing Product Launch',
+    tagline: 'You will love this!',
+    description: 'Yet another product that will probably change the world.',
+    launchDate: new Date().toISOString(),
+    status: 'upcoming',
+    submittedBy: 'user-456',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  }}
+  userId="user-3"
+  onTrackChange={(tracked, launchId, userId, preferences) => {
+    console.log('Tracked:', tracked, 'Launch ID:', launchId, 'User ID:', userId, 'Preferences:', preferences);
+  }}
+/>

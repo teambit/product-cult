@@ -1,0 +1,40 @@
+---
+description: A responsive page layout component with content area and inner navigation.
+labels: ['layout', 'page', 'responsive']
+---
+
+The `PageLayout` component provides a consistent structure for pages within an application, including slots for a header, main content, and footer. It leverages `react-helmet` for managing page titles and meta descriptions, enhancing SEO.
+
+## Basic Usage
+
+This example demonstrates the basic usage of the `PageLayout` component with a header, content, and footer.
+
+```jsx
+<PageLayout
+  header={<div>Header Content</div>}
+  footer={<div>Footer Content</div>}
+  title="My Page Title"
+  metaDescription="Description of my page"
+>
+  <div>Main Content</div>
+</PageLayout>
+```
+## Custom Title and Meta Description
+This example shows how to customize the page title and meta description using the `title` and `metaDescription` props.
+```jsx
+<PageLayout
+  title="Custom Page Title"
+  metaDescription="Custom description for this page."
+>
+  <div>Main Content</div>
+</PageLayout>
+```
+## Content Only
+This example demonstrates using the `PageLayout` component with only the content area, omitting the header and footer.
+```jsx
+<PageLayout
+  title="Content Only Page"
+  metaDescription="Page focusing solely on content."
+>
+  <div>Main Content</div>
+</PageLayout>

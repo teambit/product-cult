@@ -1,0 +1,130 @@
+.createLaunchPage {
+  padding: var(--spacing-large) var(--layout-container-padding);
+  max-width: var(--layout-max-page-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  min-height: calc(100vh - 128px); // Example: Adjust if header/footer heights are known
+  background-color: var(--colors-surface-background);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-medium);
+}
+
+.pageTitle {
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-display-small);
+  color: var(--colors-text-primary);
+  font-weight: var(--typography-font-weight-bold);
+  margin-bottom: var(--spacing-small);
+}
+
+.pageSubtitle {
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-large) auto;
+}
+
+.form {
+  background-color: var(--colors-surface-primary);
+  padding: var(--spacing-large);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  width: 100%;
+  max-width: 700px; // Limit form width for better readability
+  margin: 0 auto; // Center the form
+  box-sizing: border-box; // Ensure padding doesn't cause overflow with width: 100%
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x-small);
+}
+
+.label {
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-label-default);
+  color: var(--colors-text-primary);
+  font-weight: var(--typography-font-weight-medium);
+}
+
+.descriptionInput {
+  // This attempts to make the TextInput visually larger for descriptions.
+  // It won't make it a true multi-line textarea if TextInput renders an <input>.
+  min-height: 120px; 
+  // TextInput component styles usually manage padding and internal line height.
+  // If TextInput were a true textarea, we might set `resize: vertical;`
+}
+
+.submitButton {
+  margin-top: var(--spacing-medium);
+  width: 100%; // Make button full width of form container
+  max-width: 250px; // But cap its max width
+  align-self: center; // Center it if form is wider
+}
+
+.submissionMessage {
+  padding: var(--spacing-small) var(--spacing-medium);
+  border-radius: var(--borders-radius-medium);
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-default);
+  text-align: center;
+  margin-top: var(--spacing-small);
+  border-width: var(--borders-default-width);
+  border-style: var(--borders-default-style);
+}
+
+.successMessage {
+  background-color: var(--colors-status-positive-subtle);
+  color: var(--colors-status-positive-default);
+  border-color: var(--colors-status-positive-default);
+}
+
+.errorMessage {
+  background-color: var(--colors-status-negative-subtle);
+  color: var(--colors-status-negative-default);
+  border-color: var(--colors-status-negative-default);
+}
+
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .createLaunchPage {
+    padding: var(--spacing-medium);
+  }
+  .pageTitle {
+    font-size: var(--typography-sizes-heading-h1);
+  }
+  .pageSubtitle {
+    font-size: var(--typography-sizes-body-default);
+  }
+  .form {
+    padding: var(--spacing-medium);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .createLaunchPage {
+    padding: var(--spacing-small);
+  }
+   .pageTitle {
+    font-size: var(--typography-sizes-heading-h2);
+  }
+  .pageSubtitle {
+    font-size: var(--typography-sizes-body-small);
+  }
+  .form {
+    padding: var(--spacing-small);
+    gap: var(--spacing-small);
+  }
+  .submitButton {
+    max-width: 100%;
+  }
+}

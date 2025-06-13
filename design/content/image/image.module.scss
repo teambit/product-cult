@@ -1,0 +1,7 @@
+.image {
+  display: block; /* Removes extra space below the image */
+  max-width: 100%; /* Ensures the image is responsive and does not overflow its container */
+  height: auto; /* Maintains aspect ratio when scaling based on width */
+  border-radius: var(--borders-radius-medium); /* Adds a subtle rounding for visual appeal */
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}

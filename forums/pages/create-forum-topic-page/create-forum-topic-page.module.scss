@@ -1,0 +1,78 @@
+.createForumTopicPage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  background-color: var(--colors-surface-primary);
+  padding: var(--spacing-large);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  max-width: 700px; // Max width for the form container
+  margin: 0 auto; // Center the form on the page
+  width: 100%; // Ensure it takes up available space up to max-width
+  box-sizing: border-box; // Prevent padding from adding to width
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x-small);
+}
+
+.label {
+  font-size: var(--typography-sizes-label-default);
+  font-weight: var(--typography-font-weight-medium);
+  color: var(--colors-text-secondary);
+}
+
+.contentInput {
+  min-height: 150px; // Make the TextInput taller for content
+  // Assuming TextInput internally renders an input or textarea that can be styled this way
+  // If TextInput renders a specific structure, deeper selectors might be needed,
+  // but sticking to className for direct styling as per guidelines.
+  // This might also require the TextInput to allow its internal input to grow.
+}
+
+.errorMessage,
+.loadingMessage,
+.infoMessage {
+  padding: var(--spacing-medium);
+  border-radius: var(--borders-radius-medium);
+  font-size: var(--typography-sizes-body-default);
+  text-align: center;
+}
+
+.errorMessage {
+  background-color: var(--colors-status-negative-subtle);
+  color: var(--colors-status-negative-default);
+  border: 1px solid var(--colors-status-negative-default);
+}
+
+.loadingMessage {
+  color: var(--colors-text-secondary);
+}
+
+.infoMessage {
+  background-color: var(--colors-status-info-subtle);
+  color: var(--colors-status-info-default);
+  border: 1px solid var(--colors-status-info-default);
+}
+
+.submitButtonContainer {
+  display: flex;
+  justify-content: flex-end; // Aligns button to the right
+  margin-top: var(--spacing-medium);
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .form {
+    padding: var(--spacing-medium);
+  }
+}

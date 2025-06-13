@@ -1,0 +1,66 @@
+---
+description: A component that protects routes, redirecting unauthenticated users.
+labels: ['route', 'authentication', 'security']
+---
+
+The `ProtectedRoute` component is a wrapper that checks user authentication status.
+It renders its children only if the user is authenticated. If not, it redirects the user to a specified route.
+
+## Usage
+
+Wrap routes that require authentication with `<ProtectedRoute>`.
+
+```jsx
+<Routes>
+  <Route path="/" element={<PublicPage />} />
+  <Route path="/dashboard" element={
+    <ProtectedRoute redirectTo="/login">
+      <Dashboard />
+    </ProtectedRoute>
+  } />
+  <Route path="/login" element={<LoginPage />} />
+</Routes>
+```
+## Examples
+### Authenticated User Access
+This example demonstrates how an authenticated user can access protected content. The `useAuth` hook is mocked to return a mock user, simulating an authenticated state.
+```jsx
+<MockProvider>
+  <Routes>
+    <Route path="/" element={<div>Public Home Page</div>} />
+    <Route path="/dashboard" element={
+      <ProtectedRoute redirectTo="/login">
+        <div>Dashboard Content</div>
+      </ProtectedRoute>
+    } />
+  </Routes>
+</MockProvider>
+```
+### Unauthenticated User Redirection
+This example demonstrates how an unauthenticated user is redirected to a login page when trying to access protected content. The `useAuth` hook is mocked to return `null` for the user, simulating an unauthenticated state.
+```jsx
+<MockProvider>
+  <Routes>
+    <Route path="/" element={<div>Public Home Page</div>} />
+    <Route path="/profile" element={
+      <ProtectedRoute redirectTo="/login">
+        <div>Protected Profile Content</div>
+      </ProtectedRoute>
+    } />
+    <Route path="/login" element={<div>Login Page</div>} />
+  </Routes>
+</MockProvider>
+```
+### Loading State
+This example demonstrates the loading state of the `ProtectedRoute`. When the authentication status is being checked, a spinner is displayed. The `useAuth` hook is mocked to return `true` for the `loading` state.
+```jsx
+<MockProvider>
+  <Routes>
+    <Route path="/" element={<div>Public Home Page</div>} />
+    <Route path="/settings" element={
+      <ProtectedRoute redirectTo="/login">
+        <div>Protected Settings Content</div>
+      </ProtectedRoute>
+    } />
+  </Routes>
+</MockProvider>

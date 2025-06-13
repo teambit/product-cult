@@ -1,0 +1,70 @@
+---
+description: Provides API for forum management, including creating, updating, and deleting forums, topics, and posts.
+labels: ['forums', 'api', 'management']
+---
+
+The Forums aspect enables forum management, including creating, updating, and deleting forums, topics, and posts. It integrates forum content with search and provides content moderation APIs.
+
+## Usage Examples
+
+### Displaying a List of Forum Topics
+
+This example shows how to display a list of forum topics on a page.
+
+```jsx
+function ForumTopicList({ topics }) {
+  return (
+    <ul>
+      {topics.map(topic => (
+        <li key={topic.id}>
+          {topic.title} - {topic.content}
+        </li>
+      ))}
+    </ul>
+  );
+}
+<ForumTopicList topics={[
+  { id: '1', title: 'General Discussion', content: 'Discuss general topics here.' },
+  { id: '2', title: 'Tech News', content: 'Latest tech news and trends.' }
+]} />
+```
+### Creating a New Forum Topic
+This example shows how to create a new forum topic using a simple form.
+```jsx
+function CreateForumTopicForm({ onSubmit }) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const title = event.target.title.value;
+    const content = event.target.content.value;
+    onSubmit({ title, content });
+  };
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Title:
+        <input type="text" name="title" />
+      </label>
+      
+      <label>
+        Content:
+        <textarea name="content" />
+      </label>
+      
+      <button type="submit">Create Topic</button>
+    </form>
+  );
+}
+<CreateForumTopicForm onSubmit={(topic) => console.log('Creating topic:', topic)} />
+```
+### Displaying Forum Details
+This example shows how to display the details of a specific forum.
+```jsx
+function ForumDetails({ forum }) {
+  return (
+    <div>
+      <h2>{forum.name}</h2>
+      <p>{forum.description}</p>
+    </div>
+  );
+}
+<ForumDetails forum={{ name: 'General Discussion', description: 'A place for general discussions.' }} />

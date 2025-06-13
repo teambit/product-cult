@@ -1,0 +1,90 @@
+.searchResultsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--spacing-large); // Consistent gap between cards
+  grid-template-columns: 1fr; // Mobile first: 1 column
+  box-sizing: border-box;
+}
+
+.searchResultItem {
+  // Each item takes full width of its grid cell
+  display: flex; // Ensures card within stretches if needed
+  flex-direction: column;
+}
+
+.searchResultCard {
+  width: 100%; // Ensure card takes full width of the list item
+  height: 100%; // Make cards in a row have the same height if grid rows auto-adjust
+  display: flex;
+  flex-direction: column;
+
+  // Overriding Card's internal body padding if needed, or ensure content flows well
+  // The Card component has its own padding, so this might not be necessary
+  // Example: > :global(.cardBody) { padding: var(--spacing-medium); }
+}
+
+.resultTitleLink {
+  text-decoration: none; // Remove underline from link
+  color: inherit; // Inherit color from Heading or card's text color
+  display: block; // Make the link take full width for easier clicking
+  margin-bottom: var(--spacing-small); // Space between title and description
+
+  &:hover {
+    .resultTitle {
+      color: var(--colors-text-accent); // Change title color on hover for visual feedback
+    }
+  }
+}
+
+.resultTitle {
+  // Heading component styles will apply, this is for overrides or specific context
+  // Ensure it uses theme variables for font size, weight etc.
+  // Margin bottom might be handled by Heading component itself or by .resultTitleLink
+  margin-bottom: 0; // Reset heading's own margin if Link wrapper handles spacing
+}
+
+.resultDescription {
+  // Paragraph component styles will apply
+  // Ensure it uses theme variables for font size, line height etc.
+  flex-grow: 1; // Allow description to take remaining space, useful for card height consistency
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-default);
+  line-height: var(--typography-line-height-base);
+}
+
+.emptyState {
+  padding: var(--spacing-large);
+  text-align: center;
+  color: var(--colors-text-secondary);
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-large);
+  min-height: 200px; // Give some space for the message
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--colors-surface-secondary);
+  border-radius: var(--borders-radius-large);
+}
+
+
+// Responsive adjustments for different screen sizes
+// Using CSS variables for breakpoints for consistency with InfinityTheme
+
+// Tablet and larger
+@media (min-width: var(--layout-breakpoints-tablet)) {
+  .searchResultsList {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); // Responsive columns
+    gap: var(--spacing-medium);
+  }
+}
+
+// Laptop and larger - could refine minmax or change repeat count if needed
+@media (min-width: var(--layout-breakpoints-laptop)) {
+  .searchResultsList {
+    // Example: could go to 3 columns more explicitly if auto-fill isn't desired behavior
+    // grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-large); // Slightly larger gap on larger screens
+  }
+}

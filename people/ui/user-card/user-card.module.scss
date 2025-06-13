@@ -1,0 +1,136 @@
+.userCardRoot {
+  // This class is on the Card component itself.
+  // Use it for sizing in a grid, e.g., width, height.
+  // Card component handles its internal background, border, shadow, and base padding.
+  width: 100%; // Ensure it takes full width of its grid cell or list item
+  max-width: 320px; // Max width for a standard card look in grids
+  min-height: 280px; // Minimum height to maintain some consistency
+  display: flex; // Ensure contentLayout can take full height if needed
+  flex-direction: column; // Ensure contentLayout can take full height
+}
+
+.contentLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-medium);
+  padding: var(--spacing-medium); // Add some internal padding if Card's default isn't enough or for specific layout needs
+  width: 100%;
+  flex-grow: 1; // Allow content to fill the card
+  justify-content: center; // Vertically center content if card has fixed height and content is smaller
+  box-sizing: border-box; // Ensure padding doesn't cause overflow with width: 100%
+}
+
+.clickableElement {
+  cursor: var(--interactions-cursor-pointer);
+  transition: transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              opacity var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+
+  &:focus {
+    outline: none; // Remove default browser outline
+  }
+
+  &:focus-visible {
+    outline: var(--borders-focus-width) var(--borders-focus-style) var(--colors-border-focus);
+    outline-offset: var(--borders-focus-offset);
+  }
+}
+
+.avatarWrapper {
+  &.clickableElement {
+    border-radius: var(--borders-radius-circle); // Match avatar shape for focus outline
+    &:hover {
+      transform: scale(1.05);
+      .avatar { // Assuming Avatar component itself doesn't have complex nested structure for hover target
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+.avatar {
+  // Avatar component handles its own sizing.
+  // Add a subtle shadow to the avatar for depth
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.nameWrapper {
+  &.clickableElement {
+    border-radius: var(--borders-radius-small); // For focus outline on the text block
+    padding: var(--spacing-xx-small) var(--spacing-x-small); // Add padding for better focus visibility
+    margin: calc(var(--spacing-xx-small) * -1) calc(var(--spacing-x-small) * -1); // Negative margin to compensate padding for layout
+
+    &:hover {
+      .userName {
+        color: var(--colors-text-accent);
+        transform: scale(1.02);
+      }
+    }
+     &:focus-visible {
+       .userName {
+         color: var(--colors-text-accent);
+       }
+     }
+  }
+}
+
+.userName {
+  color: var(--colors-text-primary);
+  margin-top: 0;
+  margin-bottom: 0;
+  word-break: break-word; // Allow long names to wrap
+  transition: color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  font-weight: var(--typography-font-weight-semi-bold); // Ensure name is prominent
+}
+
+.userDescription {
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-medium);
+  line-height: var(--typography-line-height-base);
+  margin-top: 0;
+  margin-bottom: 0;
+
+  // Multi-line clamp for bio
+  display: -webkit-box;
+  -webkit-line-clamp: 3; // Show up to 3 lines
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // Fallback for non-webkit browsers (approximate height)
+  max-height: calc(3 * var(--typography-line-height-base) * 1em); // Assuming 1em is close to font-size
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .userCardRoot {
+    max-width: 280px;
+    min-height: 250px;
+  }
+  .contentLayout {
+    padding: var(--spacing-small);
+    gap: var(--spacing-small);
+  }
+
+  .userName {
+    // Font size for name will be handled by Heading component's responsive levels
+  }
+
+  .userDescription {
+    font-size: var(--typography-sizes-body-small);
+    -webkit-line-clamp: 2;
+    max-height: calc(2 * var(--typography-line-height-base) * 1em);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .userCardRoot {
+    // Allow full width on mobile if it's the only item in a row
+    max-width: none;
+    min-height: auto; // Adjust min-height if needed for mobile
+  }
+   .contentLayout {
+     gap: var(--spacing-x-small);
+   }
+}

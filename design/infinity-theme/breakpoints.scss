@@ -1,0 +1,17 @@
+// Preset breakpoints
+// 
+// Use `(min-width: xxx)` to keep a consistent mobile-first experience (and not `max-width`).
+//
+// 
+// ## example
+// ```scss
+// .content @media screen and (min-width: $mobile) {
+//   display: flex;
+// } 
+// ```
+$mobile: 0px;
+$tablet: 480px;
+$laptop: 1024px;
+$desktop: 1280px;
+$retina: 1440px;
+$hd: 1920px;

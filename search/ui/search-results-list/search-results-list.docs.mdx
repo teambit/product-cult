@@ -1,0 +1,52 @@
+---
+description: A component to display a list of search results with title, description, and image.
+labels: ['search', 'list', 'ui']
+---
+
+The `SearchResultsList` component is used to display a list of search results. It supports displaying a title, description, and image for each result.
+
+## Basic Usage
+
+This example shows how to use the `SearchResultsList` component with a basic list of search results.
+
+```jsx
+<SearchResultsList
+  results={[
+    {
+      id: '1',
+      title: 'Test Product',
+      description: 'A test product description.',
+      type: 'product',
+      data: { url: '/test-product' },
+    },
+  ]}
+/>
+```
+
+## Empty State
+
+This example demonstrates how the `SearchResultsList` component renders when no results are provided. It displays a message indicating that no results were found.
+
+```jsx
+<SearchResultsList results={[]} />
+```
+
+## With Images
+
+This example showcases the `SearchResultsList` component displaying search results with images. The image is displayed alongside the title and description for each result.
+
+```jsx
+<SearchResultsList
+  results={[
+    {
+      id: 'prod-img-001',
+      title: 'Ergonomic Smart Desk',
+      description:
+        'A smart desk that adjusts to your posture and reminds you to take breaks. Features wireless charging and integrated cable management.',
+      imageUrl:
+        'https://images.unsplash.com/photo-1550259114-ad7188f0a967?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwzfHxwcm9kdWN0JTIwaW5ub3ZhdGlvbnxlbnwxfDJ8fG9yYW5nZXwxNzQ5NTk4NjE5fDA&ixlib=rb-4.1.0',
+      type: 'product',
+      data: { category: 'Office Furniture', url: '/products/prod-img-001' },
+    },
+  ]}
+/>

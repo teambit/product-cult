@@ -1,0 +1,32 @@
+---
+description: A user-friendly 404 error page.
+labels: ['404', 'error', 'page', 'navigation']
+---
+
+The `NotFoundPage` component provides a visually appealing and informative way to handle 404 errors in your application. It displays an image, a clear message, and a link back to the homepage or another specified route.
+
+## Basic Usage
+
+This example shows the default `NotFoundPage` component with its standard image, title, message, and link.
+
+```jsx
+<NotFoundPage />
+```
+## Customized Message
+You can customize the title, message, and link text to better suit your application's branding and user experience.
+```jsx
+<NotFoundPage
+  titleText="Oops! Lost in Space?"
+  messageText="The page you're looking for seems to have vanished. Let's get you back on track."
+  linkText="Return to Base"
+/>
+```
+## Custom Image and Route
+This example demonstrates how to use a custom image and change the route the user is directed to when clicking the link.
+```jsx
+<NotFoundPage
+  imageUrl="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&w=400"
+  imageAltText="A dog looking lost"
+  homePageRoute="/products"
+  linkText="Explore Products"
+/>

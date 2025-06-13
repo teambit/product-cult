@@ -1,0 +1,43 @@
+---
+description: A versatile and visually engaging card component that serves as a flexible container for various content types.
+labels: ['card', 'ui', 'container']
+---
+
+## Component Usage
+
+The `Card` component is a flexible container for displaying various types of content, such as product listings, article summaries, or user profiles. It supports a variety of customization options, including headers, footers, images, and different visual styles.
+
+## Basic Card
+
+A simple card with a title and some content.
+
+```jsx
+<Card title="Basic Card">
+  <p>This is a basic card example.</p>
+</Card>
+```
+
+## Card with Header, Image, and Footer
+
+This example demonstrates a more complex card with a header, an image, and a footer.
+
+```jsx
+<Card
+  title="Product Card"
+  image="https://images.unsplash.com/photo-1548504769-900b70ed122e?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMHRlY2hub2xvZ3l8ZW58MXwyfHxvcmFuZ2V8MTc0OTU5Nzk2NXww&ixlib=rb-4.1.0"
+  imageAlt="Abstract representation of data analytics"
+  header={<h4>New Launch!</h4>}
+  footer={<div>View Product</div>}
+>
+  <p>Track your SaaS metrics with beautiful dashboards and actionable insights.</p>
+</Card>
+```
+
+## Interactive Card
+
+This example shows how to make a card interactive, changing its appearance on hover.
+
+```jsx
+<Card title="Interactive Card" interactive>
+  <p>This card is interactive. Hover over it to see the effect.</p>
+</Card>

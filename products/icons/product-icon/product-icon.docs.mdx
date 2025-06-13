@@ -1,0 +1,35 @@
+---
+description: ProductIcon displays a standard icon representing a product. It leverages the base Icon component for rendering the SVG, providing a specific product-related visual. This component is designed to be easily integrated and customized through props.
+labels: ['icon', 'product', 'ui']
+---
+
+## Basic Product Icon
+
+This example shows the default Product Icon.
+
+```jsx
+<ProductIcon />
+```
+
+## Sized Product Icons
+
+This example shows how to use the `size` prop to change the size of the Product Icon.
+
+```jsx
+<div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+  <ProductIcon size={16} />
+  <ProductIcon size={32} />
+  <ProductIcon size={48} />
+</div>
+```
+
+## Colored Product Icons
+
+This example shows how to use the `color` prop to change the color of the Product Icon.
+
+```jsx
+<div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+  <ProductIcon color="var(--colors-primary-default)" />
+  <ProductIcon color="green" />
+  <ProductIcon color="#BF55EC" />
+</div>

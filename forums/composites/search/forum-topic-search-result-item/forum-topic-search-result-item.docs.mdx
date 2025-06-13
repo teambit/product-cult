@@ -1,0 +1,55 @@
+---
+description: A component that displays a forum topic search result item, including the title and a short excerpt.
+labels: ['forum', 'search', 'item']
+---
+
+The `ForumTopicSearchResultItem` component is used to display individual forum topics within search results. It provides a concise preview of the topic, including its title and a brief description, and links directly to the full forum topic page.
+
+## Basic Usage
+
+This example shows the basic implementation of the `ForumTopicSearchResultItem` component with a mock `SearchResult` object.
+
+```jsx
+<ForumTopicSearchResultItem
+  searchResult={{
+    id: 'topic-123',
+    title: 'Getting Started with Infinity Design System',
+    description: 'A comprehensive guide for developers and designers on how to integrate and utilize the Infinity Design System in your projects. Covers setup, component usage, and theming.',
+    type: 'forum-topic',
+    data: { originalUrl: '/forums/topic-123' },
+  }}
+/>
+```
+
+## Displaying Longer Text
+
+This example demonstrates how the component handles longer descriptions by truncating the text with an ellipsis.
+
+```jsx
+<ForumTopicSearchResultItem
+  searchResult={{
+    id: 'topic-456',
+    title: 'Advanced Discussion: The Future of Decentralized Social Networks and Community Platforms on Web3',
+    description: 'This forum topic explores the cutting-edge developments in decentralized social media. We delve into technical challenges, scalability solutions, governance models, user adoption strategies, and the potential impact on digital communication and content ownership. Join the conversation to share your insights and learn from experts in the field.',
+    type: 'forum-topic',
+    data: { originalUrl: '/forums/topic-456' },
+  }}
+/>
+```
+
+## Custom Styling
+
+This example shows how to apply custom styles to the `ForumTopicSearchResultItem` component using the `className` and `style` props.
+
+```jsx
+<ForumTopicSearchResultItem
+  searchResult={{
+    id: 'topic-789',
+    title: 'Feedback Request: New Product Hunt Forum UI',
+    description: 'We are excited to preview the upcoming changes to our forum interface! This topic is dedicated to gathering your feedback on the new design, navigation, and features. Please share your thoughts and suggestions.',
+    type: 'forum-topic',
+    data: { originalUrl: '/forums/topic-789' },
+  }}
+  className="custom-forum-topic-item"
+  style={{ backgroundColor: 'var(--colors-surface-secondary)' }}
+/>

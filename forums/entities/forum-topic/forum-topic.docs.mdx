@@ -1,0 +1,61 @@
+---
+description: Represents a topic within a forum.
+labels: ['forum', 'topic', 'entity']
+---
+
+A component for a ForumTopic entity, supporting serialization and de-serialization of ForumTopic objects and can be used from both backend and frontend.
+
+## Get started
+
+Install and use the component in your code:
+
+```ts
+// Assuming ForumTopic is imported or available in scope from your project
+const forumTopic = ForumTopic.from({
+  forumId: 'forum-123',
+  title: 'New Topic',
+  content: 'This is the content of the new topic.',
+  userId: 'user-456',
+});
+```
+
+## Creating a Forum Topic
+
+You can create a new forum topic using the `ForumTopic.from` method. This allows you to easily instantiate a forum topic with the required properties.
+
+```ts
+// Assuming ForumTopic is imported or available in scope from your project
+const newTopic = ForumTopic.from({
+  forumId: 'tech-forum',
+  title: 'Discussing new technologies',
+  content: 'What are the latest trends in AI and Machine Learning?',
+  userId: 'innovator77',
+});
+console.log(newTopic.title);
+```
+
+## Displaying Forum Topic Information
+
+Here's how you can display the information from a `ForumTopic` instance. This example shows how to access the title, content, and author's user ID.
+
+```ts
+// Assuming ForumTopic is imported or available in scope from your project
+const topic = ForumTopic.from({
+  forumId: 'general',
+  title: 'Introduction to the forum',
+  content: 'Welcome to our new forum! Feel free to introduce yourself.',
+  userId: 'admin',
+});
+console.log(`Title: ${topic.title}`);
+console.log(`Content: ${topic.content}`);
+console.log(`Author ID: ${topic.userId}`);
+```
+
+## Mock data
+
+You can use mock data for development and testing purposes using the `mockForumTopics` API.
+
+```ts
+// Assuming mockForumTopics is imported or available in scope from your project
+const forumTopics = mockForumTopics();
+console.log(forumTopics);

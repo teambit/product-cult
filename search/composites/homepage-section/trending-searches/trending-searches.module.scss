@@ -1,0 +1,89 @@
+.trendingSearchesSection {
+  // SectionLayout provides base padding and structure.
+  // Customizations here can override or enhance its appearance if needed for this specific section.
+  // For example, a unique background or border treatment could be applied.
+  // By default, it will inherit the standard SectionLayout styling.
+}
+
+.itemsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-medium);
+  justify-content: center; // Center the tags if they don't fill the full width
+  align-items: center;
+  padding: var(--spacing-medium) 0; // Add some vertical padding around the link tags
+  width: 100%; // Ensure the container takes up available width within SectionLayout's content area
+  box-sizing: border-box; // Prevent overflow when padding is applied with width: 100%
+}
+
+.trendingItemLink {
+  display: inline-block;
+  padding: var(--spacing-small) var(--spacing-medium);
+  background-color: var(--colors-surface-primary);
+  color: var(--colors-text-accent);
+  border-radius: var(--borders-radius-pill); // Pill shape for a modern tag look
+  text-decoration: none;
+  font-size: var(--typography-sizes-body-default);
+  font-weight: var(--typography-font-weight-medium);
+  border: 1px solid var(--colors-border-subtle);
+  box-shadow: var(--effects-shadows-xs);
+  transition:
+    transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+    box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+    background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+    color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+
+  &:hover {
+    transform: translateY(-2px) scale(1.03); // Subtle lift and scale for "wow" effect
+    box-shadow: var(--effects-shadows-primary); // Use primary shadow for emphasis
+    background-color: var(--colors-primary-default);
+    color: var(--colors-text-inverse) !important; // Ensure text contrast on primary background
+    border-color: transparent; // Hide border when primary background is used
+  }
+
+  &:active {
+    transform: translateY(0) scale(1); // Reset transform on active state
+    box-shadow: var(--effects-shadows-xs);
+    background-color: var(--colors-primary-active);
+    color: var(--colors-text-inverse) !important;
+  }
+
+  &:focus-visible {
+    outline: var(--borders-focus-width) var(--borders-focus-style) var(--colors-border-focus);
+    outline-offset: var(--borders-focus-offset);
+    box-shadow: var(--effects-shadows-small); // Add shadow on focus for better visibility
+    border-color: var(--colors-border-focus);
+  }
+}
+
+.noItemsMessage {
+  text-align: center;
+  color: var(--colors-text-secondary);
+  font-style: italic;
+  padding: var(--spacing-large) 0;
+  font-size: var(--typography-sizes-body-default);
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .itemsContainer {
+    gap: var(--spacing-small); // Slightly reduce gap for smaller screens
+  }
+
+  .trendingItemLink {
+    padding: var(--spacing-x-small) var(--spacing-small); // Adjust padding for smaller tags
+    font-size: var(--typography-sizes-body-small); // Smaller font size for tags
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .itemsContainer {
+    justify-content: flex-start; // Align to start on mobile if items wrap, for better readability
+  }
+
+  .trendingItemLink {
+    // Ensure tags don't get too small but are still touch-friendly
+    padding: var(--spacing-x-small) var(--spacing-small);
+    font-size: var(--typography-sizes-body-x-small);
+  }
+}

@@ -1,0 +1,55 @@
+---
+description: A component to display a list of forums with names, descriptions, and links to forum pages.
+labels: ['forum', 'list', 'ui']
+---
+
+The `ForumList` component displays a list of forums. Each forum item includes its name, description, and a link to the forum's page. It supports displaying images and handles loading and empty states.
+
+## Basic Usage
+
+This example shows a basic `ForumList` component with mock data.
+
+```jsx
+<ForumList mockForumsData={[
+  {
+    id: 'forum-1',
+    name: 'General Discussion',
+    description: 'Discuss anything and everything.',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 'forum-2',
+    name: 'Product Feedback',
+    description: 'Share your feedback on our products.',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+]} />
+```
+## Forum List with Images
+This example demonstrates the `ForumList` component displaying a list of forums with associated images.
+```jsx
+<ForumList mockForumsData={[
+  {
+    id: 'forum-1',
+    name: 'Tech Innovations',
+    description: 'Explore the latest technology breakthroughs.',
+    imageUrl: 'https://source.unsplash.com/random/400x200?technology',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 'forum-2',
+    name: 'Startup Hub',
+    description: 'Connect with fellow founders and share your journey.',
+    imageUrl: 'https://source.unsplash.com/random/400x200?startup',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+]} />
+```
+## Empty State
+This example shows the `ForumList` component when there are no forums to display.
+```jsx
+<ForumList mockForumsData={[]} />

@@ -1,0 +1,43 @@
+---
+description: A styled text input component for consistent user interface.
+labels: ['text-input', 'form', 'ui']
+---
+
+The `TextInput` component renders a styled input field, ensuring a consistent look and feel across your application. It supports various input types and integrates seamlessly with the Infinity theme.
+
+## Basic Text Input
+
+A simple text input example with a placeholder and value controlled by a state.
+
+```jsx
+<TextInput
+  id="username"
+  placeholder="Enter your username"
+  value="johndoe"
+  onChange={(value) => console.log('Username changed to:', value)}
+  name="username"
+/>
+```
+## Password Input
+An example showcasing a password input field, obscuring the entered text for security.
+```jsx
+<TextInput
+  id="password"
+  type="password"
+  placeholder="Enter your password"
+  value="secret"
+  onChange={(value) => console.log('Password changed to:', value)}
+  name="password"
+/>
+```
+## Custom Styled Input
+Demonstrates how to apply custom styles to the input field using the `className` prop.
+```jsx
+<TextInput
+  id="search"
+  placeholder="Search..."
+  value="initial value"
+  onChange={(value) => console.log('Search term:', value)}
+  name="search"
+  className="custom-input-class"
+/>

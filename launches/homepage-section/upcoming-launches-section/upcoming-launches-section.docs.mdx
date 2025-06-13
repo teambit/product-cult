@@ -1,0 +1,98 @@
+---
+description: A section to display upcoming product launches.
+labels: ['section', 'launches', 'upcoming']
+---
+
+The `UpcomingLaunchesSection` component displays a list of upcoming product launches, with options for a title, subtitle, and a "View All" link.
+It uses the `LaunchList` component to render the launches.
+
+## Usage
+
+### Basic Usage
+
+This example demonstrates the basic usage of the `UpcomingLaunchesSection` component with a list of upcoming launches.
+
+```jsx
+const mockLaunches = [
+  {
+    id: '1',
+    productId: 'prod-1',
+    name: 'Test Launch 1',
+    tagline: 'Test Tagline 1',
+    description: 'Test Description 1',
+    launchDate: new Date().toISOString(),
+    status: 'upcoming',
+    submittedBy: 'user-1',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: '2',
+    productId: 'prod-2',
+    name: 'Test Launch 2',
+    tagline: 'Test Tagline 2',
+    description: 'Test Description 2',
+    launchDate: new Date().toISOString(),
+    status: 'upcoming',
+    submittedBy: 'user-2',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+];
+<UpcomingLaunchesSection launches={mockLaunches} />
+```
+
+### Empty State
+
+This example shows how the `UpcomingLaunchesSection` component renders an empty state when no launches are provided.
+It also demonstrates the usage of custom titles, subtitles, and captions.
+
+```jsx
+<UpcomingLaunchesSection
+  launches={[]}
+  title="What's Next?"
+  subtitle="Keep an eye on this space for groundbreaking products about to launch."
+  caption="Future Forward"
+/>
+```
+
+### With View All Link
+
+This example shows how to add a "View All" link to the `UpcomingLaunchesSection` component.
+It also demonstrates how to customize the link text and other section properties.
+
+```jsx
+const mockLaunches = [
+  {
+    id: '1',
+    productId: 'prod-1',
+    name: 'Test Launch 1',
+    tagline: 'Test Tagline 1',
+    description: 'Test Description 1',
+    launchDate: new Date().toISOString(),
+    status: 'upcoming',
+    submittedBy: 'user-1',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: '2',
+    productId: 'prod-2',
+    name: 'Test Launch 2',
+    tagline: 'Test Tagline 2',
+    description: 'Test Description 2',
+    launchDate: new Date().toISOString(),
+    status: 'upcoming',
+    submittedBy: 'user-2',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+];
+<UpcomingLaunchesSection
+  launches={mockLaunches}
+  viewAllLink="/launches/upcoming"
+  viewAllText="See All Future Innovations"
+  title="On The Horizon"
+  subtitle="A curated list of the most exciting products launching soon. Get ready to be amazed!"
+  caption="Innovate. Inspire. Ignite."
+/>

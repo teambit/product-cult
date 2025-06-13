@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+.infinityTheme {
+  /** Use a font family here to apply a default font on theme children. */
+  font-family: var(--typography-font-family);
+
+  /** Use the theme background color to apply for all components in your tree. */
+  background-color: var(--colors-surface-background);
+  color: var(--colors-text-primary);
+
+  /** Ensure smooth font rendering. */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /** Default text selection styles for better visibility. */
+  ::selection {
+    background-color: var(--colors-primary-default);
+    color: var(--colors-text-inverse);
+  }
+}
+
+/** Global reset for body margin, applied when the theme is used at the root. */
+:global(body) {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:global(*, *::before, *::after) {
+  box-sizing: inherit;
+}

@@ -1,0 +1,82 @@
+---
+description: A UserProfile entity containing information about a user profile.
+labels: ['user-profile', 'entity']
+---
+
+A component for a UserProfile entity, supports serialization and de-serialization of UserProfile objects and can be used from
+both backend and frontend.
+
+## Get started
+
+Install and use the component in your code:
+
+```ts
+const userProfile = UserProfile.from({
+  userId: '123',
+  name: 'John Doe',
+  bio: 'Software Engineer',
+  createdAt: new Date().toISOString(),
+});
+```
+
+## Mock data
+
+You can use user profile mock data for development and testing purposes using the `mockUserProfiles` API.
+
+```ts
+const userProfiles = mockUserProfiles();
+console.log(userProfiles);
+```
+
+## Usage examples
+
+### Creating a User Profile
+
+This example demonstrates how to create a new `UserProfile` instance using the `UserProfile.from()` method.
+
+```ts
+const profileData = {
+  userId: 'user123',
+  name: 'Jane Smith',
+  bio: 'Web Developer',
+  createdAt: new Date('2024-01-01').toISOString(),
+  location: 'New York',
+  socialMediaLinks: {
+    twitter: 'https://twitter.com/janesmith',
+    linkedin: 'https://linkedin.com/in/janesmith'
+  }
+};
+const userProfile = UserProfile.from(profileData);
+console.log(userProfile);
+```
+
+### Serializing a User Profile to an Object
+
+This example demonstrates how to serialize a `UserProfile` instance back into a plain JavaScript object using the `toObject()` method. This is useful for storing the profile data in a database or sending it over a network.
+
+```ts
+const profileData = {
+  userId: 'user456',
+  name: 'Alice Johnson',
+  bio: 'UI/UX Designer',
+  createdAt: new Date('2024-02-15').toISOString(),
+  location: 'San Francisco',
+  socialMediaLinks: {
+    dribbble: 'https://dribbble.com/alicejohnson'
+  }
+};
+const userProfile = UserProfile.from(profileData);
+const profileObject = userProfile.toObject();
+console.log(profileObject);
+```
+
+### Creating a Mock User Profile
+
+This example shows how to create a mock `UserProfile` using the `createMockUserProfile()` function. You can override specific properties to customize the mock profile.
+
+```ts
+const mockProfile = createMockUserProfile({
+  name: 'Custom Mock User',
+  bio: 'This is a custom mock bio.'
+});
+console.log(mockProfile);

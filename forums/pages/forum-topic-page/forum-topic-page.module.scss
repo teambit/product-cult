@@ -1,0 +1,238 @@
+.forumTopicPage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x-large);
+  font-family: var(--typography-font-family);
+  color: var(--colors-text-primary);
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-x-large);
+    font-family: var(--typography-font-family);
+    color: var(--colors-text-primary);
+  }
+}
+
+.stateMessageContainer {
+  padding: var(--spacing-large);
+  text-align: center;
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-medium);
+  margin: var(--spacing-large) 0;
+  box-shadow: var(--effects-shadows-small);
+}
+
+.loadingMessage {
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+}
+
+.errorMessage {
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-status-negative-default);
+}
+
+.notFoundMessage,
+.noPostsMessage {
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+}
+
+.topicHeader {
+  padding: var(--spacing-large);
+  background-color: var(--colors-surface-secondary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  border-left: 5px solid var(--colors-primary-default);
+}
+
+.topicTitle {
+  margin-bottom: var(--spacing-medium);
+  font-size: var(--typography-sizes-heading-h1);
+  color: var(--colors-text-primary);
+  line-height: var(--typography-line-height-heading);
+}
+
+.topicContent {
+  font-size: var(--typography-sizes-body-large);
+  line-height: var(--typography-line-height-relaxed);
+  color: var(--colors-text-primary);
+  white-space: pre-wrap; /* To preserve formatting from topic content */
+  word-break: break-word;
+}
+
+.postsSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+}
+
+.postsHeading {
+  font-size: var(--typography-sizes-heading-h2);
+  color: var(--colors-text-primary);
+  padding-bottom: var(--spacing-small);
+  border-bottom: 1px solid var(--colors-border-subtle);
+  margin-bottom: var(--spacing-medium);
+}
+
+.postsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+}
+
+.postListItem {
+  /* Individual post item styling is handled by ForumPostItem, this is for layout */
+}
+
+.newPostSection {
+  padding: var(--spacing-large);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-small);
+  margin-top: var(--spacing-large);
+}
+
+.newPostHeading {
+  font-size: var(--typography-sizes-heading-h3);
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-medium);
+}
+
+.newPostForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+}
+
+.postTextarea {
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-default);
+  color: var(--colors-text-primary);
+  background-color: var(--colors-surface-secondary); // Slightly different from primary surface for depth
+  border: var(--borders-default-width) var(--borders-default-style) var(--colors-border-default);
+  border-radius: var(--borders-radius-medium);
+  padding: var(--spacing-small) var(--spacing-medium);
+  width: 100%;
+  box-sizing: border-box;
+  transition-property: border-color, box-shadow;
+  transition-duration: var(--interactions-transitions-duration-fast);
+  transition-timing-function: var(--interactions-transitions-easing-ease-in-out);
+  resize: vertical;
+  min-height: 100px;
+
+  &::placeholder {
+    color: var(--colors-text-secondary);
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--colors-border-focus);
+    box-shadow: 0 0 0 var(--borders-focus-offset, 2px) var(--colors-border-focus);
+  }
+
+  &:disabled {
+    background-color: var(--colors-surface-secondary);
+    color: var(--colors-text-secondary);
+    border-color: var(--colors-border-subtle);
+    cursor: var(--interactions-cursor-disabled);
+    opacity: var(--effects-opacity-disabled);
+  }
+}
+
+.newPostForm > button {
+  align-self: flex-start; // Position button to the left
+}
+
+.loginPromptSection {
+  text-align: center;
+  padding: var(--spacing-large);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-medium);
+  box-shadow: var(--effects-shadows-small);
+  margin-top: var(--spacing-large);
+
+  p {
+    font-size: var(--typography-sizes-body-large);
+    color: var(--colors-text-secondary);
+    margin: 0;
+  }
+}
+
+.authLinkButton {
+  // Tertiary buttons are often text-like, ensure they stand out if needed
+  // For example, to make them more link-like:
+  // text-decoration: underline;
+  // color: var(--colors-text-accent);
+  // padding: 0 var(--spacing-xx-small) !important; // Override default padding if too large
+}
+
+
+/* Responsive adjustments */
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .topicHeader,
+  .newPostSection,
+  .loginPromptSection,
+  .stateMessageContainer {
+    padding: var(--spacing-medium);
+  }
+
+  .topicTitle {
+    font-size: var(--typography-sizes-heading-h2);
+  }
+
+  .topicContent {
+    font-size: var(--typography-sizes-body-default);
+  }
+
+  .postsHeading {
+    font-size: var(--typography-sizes-heading-h3);
+  }
+
+  .newPostHeading {
+    font-size: var(--typography-sizes-heading-h4);
+  }
+
+   .postTextarea {
+    min-height: 80px;
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .forumTopicPage {
+    gap: var(--spacing-large);
+  }
+
+  .topicHeader,
+  .newPostSection,
+  .loginPromptSection,
+  .stateMessageContainer {
+    padding: var(--spacing-small);
+    border-left-width: 3px;
+  }
+  
+  .topicTitle {
+    font-size: var(--typography-sizes-heading-h3);
+  }
+
+  .postsHeading {
+    font-size: var(--typography-sizes-heading-h4);
+  }
+
+  .newPostHeading {
+    font-size: var(--typography-sizes-heading-h5);
+  }
+
+  .loginPromptSection p,
+  .errorMessage,
+  .loadingMessage,
+  .notFoundMessage,
+  .noPostsMessage {
+    font-size: var(--typography-sizes-body-default);
+  }
+}

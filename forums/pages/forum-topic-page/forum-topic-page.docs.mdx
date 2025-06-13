@@ -1,0 +1,74 @@
+---
+description: Displays a specific forum topic and its associated posts, with an option for users to add new posts.
+labels: ['forum', 'topic', 'page']
+---
+
+## Usage
+
+The `ForumTopicPage` component fetches and displays a forum topic along with its posts. It also provides a form for logged-in users to submit new posts.
+
+## Examples
+
+### Populated Forum Topic
+
+This example demonstrates how the `ForumTopicPage` component renders a topic with existing posts. It showcases the topic title, content, and a list of posts.
+
+```jsx
+<ForumTopicPage
+  topicId="topic-ai-discussion"
+  mockTopic={{
+    id: 'topic-ai-discussion',
+    forumId: 'forum-tech-innovations',
+    title: 'The Future of AI: Trends and Predictions for 2025',
+    content: 'Artificial Intelligence is evolving at an unprecedented pace. What are the key trends you foresee dominating by 2025?',
+    userId: 'user-alpha-001',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  }}
+  mockPosts={[
+    {
+      id: 'post-1',
+      topicId: 'topic-ai-discussion',
+      userId: 'user-beta-002',
+      content: "Great topic! I believe we'll see a huge leap in personalized education driven by AI tutors.",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    },
+    {
+      id: 'post-2',
+      topicId: 'topic-ai-discussion',
+      userId: 'user-gamma-003',
+      content: "I'm particularly interested in AI's role in drug discovery and development.",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    },
+  ]}
+/>
+```
+
+### Forum Topic With No Posts
+
+This example demonstrates the component's behavior when displaying a topic that has no associated posts. It renders a message indicating that the user can be the first to contribute.
+
+```jsx
+<ForumTopicPage
+  topicId="topic-empty-discussion"
+  mockTopic={{
+    id: 'topic-empty-discussion',
+    forumId: 'forum-community-ideas',
+    title: 'New Forum Section: Share Your Project Ideas!',
+    content: "This is a brand new topic for community members to share and discuss their exciting project ideas.",
+    userId: 'user-delta-004',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  }}
+  mockPosts={[]}
+/>
+```
+
+### Error Loading Topic
+
+This example shows how the component handles errors when fetching the topic data. It displays an error message to the user.
+
+```jsx
+<ForumTopicPage topicId="non-existent-topic-id" />

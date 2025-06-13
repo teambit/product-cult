@@ -1,0 +1,131 @@
+.launchCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  // The Card component itself provides background, border, shadow.
+  // We can enhance or override if needed.
+  // Example: Add a subtle gradient overlay or specific border highlight for "wow" effect
+  // position: relative; // For potential pseudo-elements if needed for advanced styling
+
+  // Ensure the Card's image styling is respected.
+  // If Card component's image prop doesn't allow object-fit: cover by default,
+  // we might need to target its internal image wrapper.
+  // However, the Card's image is expected to be well-styled.
+}
+
+// Styling for elements placed within the Card's body (children)
+.launchName {
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-x-small); // Adjust spacing as needed
+  line-height: var(--typography-line-height-heading);
+}
+
+.launchTagline {
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-medium);
+  margin-bottom: var(--spacing-medium);
+  font-style: italic;
+}
+
+.countdownContainer {
+  margin-top: var(--spacing-small);
+  margin-bottom: var(--spacing-medium);
+  // The LaunchCountdown component is self-contained with padding and background.
+  // This container is mainly for positioning it within the card flow.
+}
+
+.launchDescription {
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-default);
+  line-height: var(--typography-line-height-base);
+  margin-bottom: var(--spacing-large);
+
+  // Text truncation for longer descriptions
+  display: -webkit-box;
+  -webkit-line-clamp: 3; // Limit to 3 lines
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // Fallback for browsers not supporting -webkit-line-clamp (approximate height)
+  max-height: calc(var(--typography-line-height-base) * 3 + var(--spacing-x-small)); // Approx 3 lines + some breathing room
+  min-height: calc(var(--typography-line-height-base) * 1); // Ensure it takes at least one line of space
+}
+
+.linkContainer {
+  margin-top: auto; // Pushes the link to the bottom if the card has a fixed height or flex-grow body
+  padding-top: var(--spacing-small); // Space above the link
+  text-align: right; // Align link to the right, common for CTAs
+}
+
+.detailsLink {
+  // Style the link to be more prominent, like a button or a clear CTA
+  display: inline-block;
+  padding: var(--spacing-small) var(--spacing-medium);
+  background-color: var(--colors-primary-default);
+  color: var(--colors-text-inverse) !important; // Ensure text visibility
+  text-decoration: none;
+  border-radius: var(--borders-radius-medium);
+  font-weight: var(--typography-font-weight-semiBold);
+  transition: background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+
+  &:hover {
+    background-color: var(--colors-primary-hover);
+    transform: translateY(-2px); // Subtle lift effect
+    color: var(--colors-text-inverse) !important;
+  }
+
+  &:active {
+    background-color: var(--colors-primary-active);
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: var(--borders-focus-width) var(--borders-focus-style) var(--colors-border-focus);
+    outline-offset: var(--borders-focus-offset);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-tablet)) { // approx 768px
+  .launchName {
+    font-size: var(--typography-sizes-heading-h4); // Slightly smaller heading
+  }
+
+  .launchTagline {
+    font-size: var(--typography-sizes-body-small);
+    margin-bottom: var(--spacing-small);
+  }
+
+  .launchDescription {
+    font-size: var(--typography-sizes-body-small);
+    -webkit-line-clamp: 2; // Shorter description on smaller screens
+    max-height: calc(var(--typography-line-height-base) * 2 + var(--spacing-x-small));
+    margin-bottom: var(--spacing-medium);
+  }
+
+  .detailsLink {
+    padding: var(--spacing-x-small) var(--spacing-small);
+    font-size: var(--typography-sizes-button-small);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) { // approx 480px
+  .launchCard {
+    gap: var(--spacing-small); // Reduce gap for very small screens
+  }
+  .launchName {
+    font-size: var(--typography-sizes-heading-h5);
+  }
+  .countdownContainer {
+    // LaunchCountdown component itself should be responsive.
+    // We might reduce its scale or simplify if needed via its own props or specific styling.
+  }
+  .linkContainer {
+    text-align: center; // Center link on mobile for better tap area / visibility
+  }
+  .detailsLink {
+    width: 100%; // Full width button on small mobile
+    box-sizing: border-box;
+  }
+}

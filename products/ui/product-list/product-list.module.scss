@@ -1,0 +1,73 @@
+.productListContainer {
+  width: 100%;
+  padding-top: var(--spacing-medium);
+  padding-bottom: var(--spacing-medium);
+  box-sizing: border-box;
+}
+
+.productListGrid {
+  width: 100%;
+  box-sizing: border-box;
+  // Default alignment is center, which is good for most cases.
+  // On mobile, this might change to flex-start if cards are full-width.
+}
+
+.productCardItem {
+  // ProductCard has an internal max-width (e.g., 350px).
+  // This item style ensures it behaves well within the flex grid.
+  flex-grow: 0; // Prevent cards from growing beyond their content/max-width.
+  flex-shrink: 1; // Allow cards to shrink if space is limited.
+  // A min-width can ensure cards don't get too narrow before wrapping.
+  min-width: 280px; 
+  // Ensure the card can take up to its natural max-width or the column width.
+  width: 100%; 
+  max-width: 350px; // Consistent with ProductCard's typical max-width for grid layouts.
+  box-sizing: border-box;
+}
+
+.stateContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px; 
+  font-family: var(--typography-font-family);
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-large);
+  text-align: center;
+  padding-left: var(--spacing-medium);
+  padding-right: var(--spacing-medium);
+}
+
+// Responsive adjustments
+
+// Tablet and larger mobiles
+@media (max-width: 768px) {
+  .productListGrid {
+    gap: var(--spacing-medium); // Slightly reduce gap for smaller screens.
+    padding-left: var(--spacing-small); // Add some edge padding
+    padding-right: var(--spacing-small);
+  }
+  .productCardItem {
+    // On tablets, allow two cards side-by-side if ProductCard's max-width permits.
+    // max-width might be slightly adjusted if needed, e.g., calc(50% - var(--spacing-medium) / 2)
+    // but relying on natural flex wrapping with ProductCard's max-width is often simpler.
+  }
+}
+
+// Mobile screens
+@media (max-width: 480px) {
+  .productListGrid {
+    justify-content: flex-start; // Align single column of cards to the start.
+    padding-left: var(--spacing-small);
+    padding-right: var(--spacing-small);
+  }
+  .productCardItem {
+    min-width: 100%; // Ensure cards take full width of the container.
+    max-width: 100%; // Override any more constrained max-width for full mobile width.
+    margin-left: 0; // Reset any potential auto margins if justifyContent was center
+    margin-right: 0;
+  }
+  .stateContainer {
+    font-size: var(--typography-sizes-body-default); // Adjust text size for smaller screens
+  }
+}

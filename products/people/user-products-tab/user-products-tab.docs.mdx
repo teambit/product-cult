@@ -1,0 +1,51 @@
+---
+description: A composite component to display products submitted by a specific user.
+labels: ['user', 'products', 'tab']
+---
+
+The `UserProductsTab` component fetches and displays a list of products submitted by a particular user. It handles loading, empty, and error states gracefully, providing a consistent user experience.
+
+## Basic Usage
+
+The most basic use case involves passing the `userId` prop to the component. This tells the component which user's products to fetch and display.
+
+```jsx
+<UserProductsTab userId="user-123" />
+```
+## Custom Empty State
+When a user has not submitted any products, you can display a custom message using the `customProductListEmptyState` prop. This allows you to provide more context or instructions to the user.
+```jsx
+<UserProductsTab
+  userId="user-789"
+  customProductListEmptyState={
+    <div>
+      <h4>No Products Found</h4>
+      <p>This user hasn't submitted any products yet.</p>
+    </div>
+  }
+/>
+```
+## Custom Loading Message
+While the products are being fetched, you can display a custom loading message using the `loadingMessage` prop.
+```jsx
+<UserProductsTab
+  userId="user-123"
+  loadingMessage={
+    <div>
+      <p>Loading products...</p>
+    </div>
+  }
+/>
+```
+## Custom Error Message
+In case of an error during fetching, display a custom error message using the `errorMessage` prop. This is useful for providing user-friendly feedback and guidance.
+```jsx
+<UserProductsTab
+  userId="user-123"
+  errorMessage={
+    <div>
+      <h4>Error</h4>
+      <p>Failed to load products. Please try again later.</p>
+    </div>
+  }
+/>

@@ -1,0 +1,43 @@
+---
+description: An admin page for editing an existing product launch.
+labels: ['form', 'admin', 'launch']
+---
+
+## EditLaunch Component
+
+The `EditLaunch` component provides an interface for administrators to modify existing product launch details. It fetches the launch information based on the `launchId` obtained from the URL parameters.
+
+## Usage
+
+The component is designed to be used within an admin panel or a protected route, ensuring that only authorized users can access and modify launch data. It includes form validation and handles the submission process to update the launch details.
+
+## Examples
+
+### Editing an Existing Launch
+
+This example demonstrates how to use the `EditLaunch` component to modify the details of an existing product launch. It assumes that the component is rendered within a `MemoryRouter` context with a route that includes the `launchId` parameter.
+
+```jsx
+<MemoryRouter initialEntries={['/launches/launch-demo-123/edit']}>
+  <Routes>
+    <Route path="/launches/:launchId/edit" element={<EditLaunch />} />
+  </Routes>
+</MemoryRouter>
+```
+### Handling Missing Launch ID
+This example shows the component's behavior when the `launchId` is missing from the URL. In this scenario, the component displays an error message indicating that the launch ID is required to edit a launch.
+```jsx
+<MemoryRouter initialEntries={['/launches/edit']}>
+  <Routes>
+    <Route path="/launches/edit" element={<EditLaunch />} />
+  </Routes>
+</MemoryRouter>
+```
+### Submitting the Form
+When the form is submitted, the `EditLaunch` component triggers an update mutation. It shows "Updating..." while the mutation is in progress, and "Update Launch" otherwise
+```jsx
+<MemoryRouter initialEntries={['/launches/launch-demo-123/edit']}>
+  <Routes>
+    <Route path="/launches/:launchId/edit" element={<EditLaunch />} />
+  </Routes>
+</MemoryRouter>

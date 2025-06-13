@@ -1,0 +1,90 @@
+---
+description: A component to search forum topics, navigating users to a search results page.
+labels: ['forum', 'search', 'navigation']
+---
+
+The `ForumSearchComponent` provides a search input and button that allows users to search for forum topics. Upon submission, it navigates the user to a dedicated search results page, pre-filtered to display forum-related content.
+
+## Basic Usage
+
+This example showcases the basic implementation of the `ForumSearchComponent`.
+
+```jsx
+<ForumSearchComponent />
+```
+
+## Custom Styling
+
+You can apply custom styles to the `ForumSearchComponent` to match your application's theme.
+
+```jsx
+<div style={{ backgroundColor: 'var(--colors-surface-secondary)', padding: 'var(--spacing-large)', borderRadius: 'var(--borders-radius-large)' }}>
+  <ForumSearchComponent className="custom-search-style" style={{ border: '1px solid var(--colors-primary-default)' }} />
+</div>
+```
+
+## Integration within a Layout
+
+Here's how to integrate the `ForumSearchComponent` within a simple layout using `react-router-dom` for navigation. It navigates to a mock search page to show the search term.
+(Note: For the example below to be runnable, ensure `react-router-dom` components like `Routes`, `Route`, `Link`, and hooks like `useLocation` are correctly imported and set up in your project.)
+
+```jsx
+// Example assumes react-router-dom is installed and its components are available.
+// import { Routes, Route, Link, useLocation } from 'react-router-dom';
+
+const MockSearchResultsDisplay = () => {
+  const location = useLocation(); // Provided by react-router-dom
+  const queryParams = new URLSearchParams(location.search);
+  const q = queryParams.get('q');
+  const type = queryParams.get('type');
+
+  if (location.pathname === '/search' && q) {
+    return (
+      <div>
+        <h4>Mock Search Navigation Target</h4>
+        <p>Navigated to: <strong>{location.pathname}</strong></p>
+        <p>Search Query (q): <strong>{q}</strong></p>
+        <p>Content Type (type): <strong>{type}</strong></p>
+        <Link to="/"> {/* Provided by react-router-dom */}
+          &larr; Back to Search Form
+        </Link>
+      </div>
+    );
+  }
+  return (
+    <div>
+      <em>Enter a search term above and click "Search Forums" to see navigation details here.</em>
+      <p>Current Path: {location.pathname}</p>
+    </div>
+  );
+};
+
+const SearchPageLayout = ({ children }) => (
+  <div>
+    <h2>Forum Topic Search</h2>
+    {children}
+    <MockSearchResultsDisplay />
+  </div>
+);
+
+const App = () => (
+  // Routes and Route are provided by react-router-dom
+  <Routes>
+    <Route path="/" element={<SearchPageLayout><ForumSearchComponent /></SearchPageLayout>} />
+    <Route path="/search" element={<SearchPageLayout>Search Results</SearchPageLayout>} />
+  </Routes>
+);
+
+// To render this example, you'd typically wrap <App /> in a <BrowserRouter>
+// e.g.
+// ReactDOM.render(
+//   <BrowserRouter>
+//     <App />
+//   </BrowserRouter>,
+//   document.getElementById('root')
+// );
+
+// For a self-contained Bit composition or MDX preview, ensure a Router is present.
+// If this example is part of a larger app structure, <App/> would be rendered within that structure.
+// In this MDX, we might just show the component that uses ForumSearchComponent:
+<App />

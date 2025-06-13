@@ -1,0 +1,129 @@
+---
+description: A theme component providing design tokens for typography, colors, spacing, and sizes, with light and dark mode support and layout tokens for consistent page styling.
+labels: ['react', 'design', 'theme', 'tokens']
+---
+
+## Get started
+
+To use the Infinity theme in your app, install the infinity theme and apply it on your component tree.
+Themes are usually applied on the root of your component tree.
+
+```bash
+$ bit install infinity-theme
+```
+
+Alternatively, use PNPM or NPM:
+
+```bash
+$ npm install infinity-theme
+```
+
+```tsx
+// Example: src/App.tsx (or your main application file)
+// import { InfinityTheme } from 'infinity-theme'; // Assuming 'infinity-theme' is your package name
+// import { Homepage } from './Homepage.js'; // Your application's homepage component
+
+export function MyApp() {
+  return (
+    // <InfinityTheme>
+    //   <Homepage />
+    // </InfinityTheme>
+    <div>Placeholder for MyApp with InfinityTheme</div>
+  );
+}
+```
+
+## Light Theme Showcase
+
+Demonstrates the default light theme with sample UI elements and token display.
+
+```tsx
+// import { InfinityTheme } from 'infinity-theme'; // Removed import for MDX
+
+const SampleUiContentLightTheme = () => ( // Renamed to avoid conflict
+  <div style={{
+    padding: 'var(--spacing-medium)',
+    fontFamily: 'var(--typography-font-family)',
+    border: `1px solid var(--colors-border-default)`,
+    borderRadius: 'var(--borders-radius-large)',
+    marginBottom: 'var(--spacing-large)',
+    backgroundColor: 'var(--colors-surface-secondary)'
+  }}>
+    <h2 style={{
+      fontSize: 'var(--typography-sizes-heading-h2)',
+      color: 'var(--colors-text-primary)',
+      marginBottom: 'var(--spacing-small)',
+      fontFamily: 'inherit'
+    }}>Light Theme in Action</h2>
+  </div>
+);
+
+export const LightThemeExample = () => {
+  return (
+    // <InfinityTheme initialTheme="light">
+      <div style={{ padding: 'var(--spacing-large)' }}>
+        <SampleUiContentLightTheme />
+      </div>
+    // </InfinityTheme>
+  );
+};
+```
+
+## Dark Theme Showcase
+
+Demonstrates the dark theme with sample UI elements and token display.
+
+```tsx
+// import { InfinityTheme } from 'infinity-theme'; // Removed import for MDX
+
+const SampleUiContentDarkTheme = () => ( // Renamed to avoid conflict
+  <div style={{
+    padding: 'var(--spacing-medium)',
+    fontFamily: 'var(--typography-font-family)',
+    border: `1px solid var(--colors-border-default)`,
+    borderRadius: 'var(--borders-radius-large)',
+    marginBottom: 'var(--spacing-large)',
+    backgroundColor: 'var(--colors-surface-secondary)'
+  }}>
+    <h2 style={{
+      fontSize: 'var(--typography-sizes-heading-h2)',
+      color: 'var(--colors-text-primary)',
+      marginBottom: 'var(--spacing-small)',
+      fontFamily: 'inherit'
+    }}>Dark Theme in Action</h2>
+  </div>
+);
+
+export const DarkThemeExample = () => {
+  return (
+    // <InfinityTheme initialTheme="dark">
+      <div style={{ padding: 'var(--spacing-large)' }}>
+        <SampleUiContentDarkTheme />
+      </div>
+    // </InfinityTheme>
+  );
+};
+```
+
+## Interactive Theme and Overrides
+
+Demonstrates interactive theme switching and overriding specific theme tokens.
+
+```tsx
+// import { InfinityTheme } from 'infinity-theme'; // Removed import for MDX
+// import { useInfinityThemeController } from './infinity-theme-controller.js'; // Removed import for MDX
+
+export const InteractiveThemeExample = () => {
+  // const { themeMode, toggleTheme } = useInfinityThemeController(); // Cannot be used directly in MDX like this
+  const themeMode = 'light'; // Placeholder for MDX
+  const toggleTheme = () => alert('Toggle Theme clicked'); // Placeholder for MDX
+
+  return (
+    // <InfinityTheme>
+      <div>
+        <p>Current Theme: {themeMode}</p>
+        <button onClick={toggleTheme}>Toggle Theme</button>
+      </div>
+    // </InfinityTheme>
+  );
+};

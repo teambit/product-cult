@@ -1,0 +1,34 @@
+---
+description: A component to display a list of product cards in a grid layout.
+labels: ['product-list', 'ui', 'list']
+---
+
+## Component Usage
+
+The `ProductList` component displays a list of product cards in a grid layout. It accepts an array of `Product` objects as props.
+It supports displaying a loading state, an empty state, and an error state.
+
+## Examples
+
+### Populated Product List
+
+This example demonstrates the `ProductList` component with a list of mock products.
+
+```jsx
+<MockProvider>
+  <ProductList initialProducts={mockProducts} categoryId="all-tech" />
+</MockProvider>
+```
+### Empty Product List with Custom Message
+This example shows how to use the `emptyState` prop to display a custom message when there are no products to display.
+```jsx
+<MockProvider>
+  <ProductList initialProducts={[]} categoryId="rare-items" emptyState={<CustomEmptyState />} />
+</MockProvider>
+```
+### Product List with Custom Loading State
+This example demonstrates how to use the `loadingState` prop to display a custom loading indicator while products are being fetched.
+```jsx
+<MockProvider>
+  <ProductList categoryId="newly-launched" loadingState={<CustomLoadingState />} />
+</MockProvider>

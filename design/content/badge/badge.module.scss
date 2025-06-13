@@ -1,0 +1,193 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-weight-medium);
+  border-width: var(--borders-default-width);
+  border-style: solid;
+  border-color: transparent; // Default to transparent, overridden by variants
+  transition: background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              border-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  text-decoration: none;
+  white-space: nowrap;
+
+  .label {
+    line-height: 1; // Ensures consistent vertical alignment
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor; // For SVG icons
+    }
+  }
+
+  // Sizes
+  &.small {
+    padding: var(--spacing-xx-small) var(--spacing-x-small);
+    font-size: var(--typography-sizes-body-x-small);
+    border-radius: var(--borders-radius-small);
+    .icon {
+      width: var(--sizes-icon-small);
+      height: var(--sizes-icon-small);
+      margin-right: var(--spacing-xx-small);
+    }
+    // If no icon, padding might need adjustment, or rely on consistent spacing values
+    &:not(:has(.icon)) { // If icon is not present, slightly adjust horizontal padding
+      // padding: var(--spacing-xx-small) calc(var(--spacing-x-small) * 1.2);
+    }
+  }
+
+  &.medium {
+    padding: var(--spacing-x-small) var(--spacing-small);
+    font-size: var(--typography-sizes-body-small);
+    border-radius: var(--borders-radius-medium);
+    .icon {
+      width: var(--sizes-icon-medium);
+      height: var(--sizes-icon-medium);
+      margin-right: var(--spacing-x-small);
+    }
+     &:not(:has(.icon)) {
+      // padding: var(--spacing-x-small) calc(var(--spacing-small) * 1.2);
+    }
+  }
+
+  &.large {
+    padding: var(--spacing-small) var(--spacing-medium);
+    font-size: var(--typography-sizes-body-default);
+    border-radius: var(--borders-radius-medium); // Large badges often share medium radius
+    .icon {
+      width: var(--sizes-icon-large);
+      height: var(--sizes-icon-large);
+      margin-right: var(--spacing-small);
+    }
+     &:not(:has(.icon)) {
+      // padding: var(--spacing-small) calc(var(--spacing-medium) * 1.2);
+    }
+  }
+
+  // Filled Variant
+  &.filled {
+    &.primary {
+      background-color: var(--colors-primary-default);
+      color: var(--colors-text-inverse) !important;
+    }
+    &.secondary {
+      background-color: var(--colors-secondary-default);
+      color: var(--colors-text-inverse) !important;
+    }
+    &.success {
+      background-color: var(--colors-status-positive-default);
+      color: var(--colors-text-inverse) !important;
+    }
+    &.warning {
+      background-color: var(--colors-status-warning-default);
+      color: var(--colors-text-primary); // Often dark text on yellow/orange
+    }
+    &.danger {
+      background-color: var(--colors-status-negative-default);
+      color: var(--colors-text-inverse) !important;
+    }
+    &.info {
+      background-color: var(--colors-status-info-default);
+      color: var(--colors-text-inverse) !important;
+    }
+    &.neutral {
+      background-color: var(--colors-surface-secondary);
+      color: var(--colors-text-primary);
+    }
+  }
+
+  // Outlined Variant
+  &.outlined {
+    background-color: transparent;
+    border-style: solid; // Ensure border is solid for outlined
+    // border-width is already set at .badge level
+    
+    &.primary {
+      border-color: var(--colors-primary-default);
+      color: var(--colors-primary-default);
+    }
+    &.secondary {
+      border-color: var(--colors-secondary-default);
+      color: var(--colors-secondary-default);
+    }
+    &.success {
+      border-color: var(--colors-status-positive-default);
+      color: var(--colors-status-positive-default);
+    }
+    &.warning {
+      border-color: var(--colors-status-warning-default);
+      color: var(--colors-status-warning-default);
+    }
+    &.danger {
+      border-color: var(--colors-status-negative-default);
+      color: var(--colors-status-negative-default);
+    }
+    &.info {
+      border-color: var(--colors-status-info-default);
+      color: var(--colors-status-info-default);
+    }
+    &.neutral {
+      border-color: var(--colors-border-default);
+      color: var(--colors-text-secondary);
+    }
+  }
+
+  // Ghost Variant
+  &.ghost {
+    background-color: transparent;
+    border-color: transparent; // Ensure no border from base styles for ghost
+
+    &.primary {
+      color: var(--colors-primary-default);
+      &:hover {
+        background-color: var(--colors-surface-primary); // Subtle hover
+      }
+    }
+    &.secondary {
+      color: var(--colors-secondary-default);
+      &:hover {
+        background-color: var(--colors-surface-primary); // Subtle hover
+      }
+    }
+    &.success {
+      color: var(--colors-status-positive-default);
+      &:hover {
+        background-color: var(--colors-status-positive-subtle);
+      }
+    }
+    &.warning {
+      color: var(--colors-status-warning-default);
+      &:hover {
+        background-color: var(--colors-status-warning-subtle);
+      }
+    }
+    &.danger {
+      color: var(--colors-status-negative-default);
+      &:hover {
+        background-color: var(--colors-status-negative-subtle);
+      }
+    }
+    &.info {
+      color: var(--colors-status-info-default);
+      &:hover {
+        background-color: var(--colors-status-info-subtle);
+      }
+    }
+    &.neutral {
+      color: var(--colors-text-secondary);
+      &:hover {
+        background-color: var(--colors-surface-secondary); // or surface-primary for lighter hover
+      }
+    }
+  }
+}

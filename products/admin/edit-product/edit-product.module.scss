@@ -1,0 +1,133 @@
+.editProductPage {
+  width: 100%;
+  padding: var(--spacing-large);
+  box-sizing: border-box;
+  background-color: var(--colors-surface-background); // Ensure page background
+  min-height: calc(100vh - 128px); // Example: Adjust if header/footer height is known
+}
+
+.editProductForm {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: var(--colors-surface-primary);
+  padding: var(--spacing-x-large);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  border: 1px solid var(--colors-border-subtle);
+}
+
+.pageTitle {
+  font-size: var(--typography-sizes-heading-h2);
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-medium);
+  text-align: center;
+  font-weight: var(--typography-font-weight-bold);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x-small);
+}
+
+.label {
+  font-size: var(--typography-sizes-label-default);
+  color: var(--colors-text-secondary);
+  font-weight: var(--typography-font-weight-medium);
+  padding-left: var(--spacing-xx-small); // Slight indent for visual hierarchy
+}
+
+.submitButton {
+  margin-top: var(--spacing-medium);
+  align-self: flex-start;
+  min-width: 150px; // Ensure button has a decent minimum width
+}
+
+.errorMessage {
+  background-color: var(--colors-status-negative-subtle);
+  color: var(--colors-status-negative-default);
+  padding: var(--spacing-medium);
+  border-radius: var(--borders-radius-medium);
+  border: 1px solid var(--colors-status-negative-default);
+  margin-bottom: var(--spacing-medium);
+  font-size: var(--typography-sizes-body-default);
+  text-align: left;
+}
+
+.successMessage {
+  background-color: var(--colors-status-positive-subtle);
+  color: var(--colors-status-positive-default);
+  padding: var(--spacing-medium);
+  border-radius: var(--borders-radius-medium);
+  border: 1px solid var(--colors-status-positive-default);
+  margin-bottom: var(--spacing-medium);
+  font-size: var(--typography-sizes-body-default);
+  text-align: left;
+}
+
+.loadingContainer,
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px; 
+  font-size: var(--typography-sizes-heading-h5);
+  color: var(--colors-text-secondary);
+  text-align: center;
+  padding: var(--spacing-large);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-small);
+  margin: var(--spacing-large) auto;
+  max-width: 600px;
+}
+
+.errorContainer {
+  color: var(--colors-status-negative-default);
+  border: 1px solid var(--colors-status-negative-subtle);
+}
+
+.inlineMessage {
+  font-size: var(--typography-sizes-body-small);
+  color: var(--colors-text-secondary);
+  margin-top: var(--spacing-x-small);
+  padding-left: var(--spacing-xx-small);
+}
+
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .editProductForm {
+    padding: var(--spacing-large);
+  }
+  .pageTitle {
+    font-size: var(--typography-sizes-heading-h3);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .editProductPage {
+    padding: var(--spacing-medium);
+  }
+  .editProductForm {
+    padding: var(--spacing-medium);
+    gap: var(--spacing-medium);
+  }
+  .pageTitle {
+    font-size: var(--typography-sizes-heading-h4);
+  }
+  .submitButton {
+    width: 100%; 
+    height: var(--sizes-button-height-large);
+    font-size: var(--typography-sizes-button-large);
+  }
+  .loadingContainer,
+  .errorContainer {
+    margin-left: var(--spacing-medium);
+    margin-right: var(--spacing-medium);
+  }
+}

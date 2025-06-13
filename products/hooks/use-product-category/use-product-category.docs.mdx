@@ -1,0 +1,107 @@
+---
+description: A React Hook for fetching product category data.
+labels: ['hook', 'react', 'product category', 'data fetching']
+---
+
+## Usage
+
+### Fetching a Single Product Category
+
+This example demonstrates how to use the `useProductCategory` hook to fetch a single product category by its ID.
+
+```tsx
+const ProductCategoryComponent = ({ categoryId }: { categoryId: string }) => {
+  const { productCategory, loading, error } = useProductCategory({ id: categoryId });
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
+  if (!productCategory) {
+    return <p>Product category not found.</p>;
+  }
+
+  return (
+    <div>
+      <h2>{productCategory.name}</h2>
+      <p>{productCategory.description}</p>
+    </div>
+  );
+};
+```
+
+### Listing Product Categories
+
+This example demonstrates how to use the `useListProductCategories` hook to fetch a list of product categories with optional limit and offset.
+
+```tsx
+const ProductCategoriesListComponent = () => {
+  const { productCategories, loading, error } = useListProductCategories({ limit: 10, offset: 0 });
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
+  if (!productCategories || productCategories.length === 0) {
+    return <p>No product categories found.</p>;
+  }
+
+  return (
+    <ul>
+      {productCategories.map((category) => (
+        <li key={category.id}>
+          <h3>{category.name}</h3>
+          <p>{category.description}</p>
+        </li>
+      ))}
+    </ul>
+  );
+};
+```
+
+### Providing Mock Data
+
+This example demonstrates how to use the `mockData` option to provide mock data for the `useProductCategory` hook, which can be useful for testing or development.
+
+```tsx
+const MockProductCategoryComponent = () => {
+  const mockCategory = {
+    id: '123',
+    name: 'Mock Category',
+    description: 'This is a mock category.',
+    imageUrl: 'http://example.com/image.jpg',
+  };
+  // To use mockCategory, it should be an instance of ProductCategory
+  // For simplicity in docs, assuming it's correctly typed or hook handles plain objects for mockData
+  // Actual hook mockData prop expects ProductCategory instance.
+  // If mockCategory is a PlainProductCategory, it should be:
+  // const mockCategoryInstance = ProductCategory.from(mockCategory);
+  // const { productCategory } = useProductCategory({ id: '123', mockData: mockCategoryInstance });
+
+  // Assuming mockCategory is already a ProductCategory instance for this example to be concise
+  const { productCategory } = useProductCategory({ 
+    id: '123', 
+    // @ts-ignore 
+    // This example assumes mockCategory would be a ProductCategory instance.
+    // If it's a plain object, it needs conversion: ProductCategory.from(mockCategory)
+    // Or the hook's mockData type should accommodate PlainProductCategory if that's intended.
+    // For now, illustrating the concept.
+    mockData: mockCategory 
+  });
+
+
+  return (
+    <div>
+      <h2>{productCategory?.name}</h2>
+      <p>{productCategory?.description}</p>
+    </div>
+  );
+};

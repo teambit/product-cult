@@ -1,0 +1,34 @@
+---
+description: A visually engaging component that displays a countdown timer to a specific launch date.
+labels: ['countdown', 'timer', 'launch', 'ui']
+---
+
+The `LaunchCountdown` component displays a countdown timer to a specific launch date. It updates every second and shows a message once the launch time is reached.
+
+## Basic Usage
+
+This example shows the basic usage of the `LaunchCountdown` component, counting down to a specified launch date.
+
+```jsx
+<LaunchCountdown
+  launchDate={new Date(new Date().getTime() + 60000).toISOString()}
+  title="Upcoming Launch"
+/>
+```
+## Custom Messages
+Customize the title and launched message to fit your application's theme.
+```jsx
+<LaunchCountdown
+  launchDate={new Date(new Date().getTime() + 30000).toISOString()}
+  title="New Product Release"
+  launchedMessage="Product is now live!"
+/>
+```
+## Launched State
+When the launch date has passed, the component displays a custom "launched" message.
+```jsx
+<LaunchCountdown
+  launchDate={new Date(new Date().getTime() - 1000).toISOString()}
+  title="Past Launch"
+  launchedMessage="Already Launched!"
+/>

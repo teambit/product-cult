@@ -1,0 +1,66 @@
+.logoContainer {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  text-decoration: none; // Overrides default link underline
+  cursor: var(--interactions-cursor-pointer);
+  padding: var(--spacing-xx-small); // Add some padding for better clickability and visual balance
+  border-radius: var(--borders-radius-medium); // Consistent rounding
+  transition: background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+
+  &:hover {
+    background-color: var(--colors-surface-secondary); // Subtle hover effect
+  }
+
+  &:focus-visible {
+    outline: var(--borders-focus-width) var(--borders-focus-style) var(--colors-border-focus);
+    outline-offset: var(--borders-focus-offset);
+  }
+}
+
+.logoImage {
+  display: block; // Prevents extra space below SVG
+  flex-shrink: 0; // Prevents SVG from shrinking if container is too small
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: var(--typography-line-height-condensed); // Tighter line height for multi-line text
+  // overflow: hidden; // Prevents text from breaking layout if too long, consider truncation if needed
+}
+
+.name {
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-large);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--colors-text-primary); // Ensures name color overrides link's default accent color
+  white-space: nowrap; // Prevent name from wrapping
+}
+
+.slogan {
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-x-small);
+  font-weight: var(--typography-font-weight-regular);
+  color: var(--colors-text-secondary); // Ensures slogan color overrides link's default accent color
+  white-space: nowrap; // Prevent slogan from wrapping
+  margin-top: 2px; // Small separation from the name
+}
+
+// Responsive adjustments
+@media (max-width: 480px) { // Corresponds to --layout-breakpoints-mobile or $tablet
+  .name {
+    font-size: var(--typography-sizes-body-medium); // Slightly smaller name on mobile
+  }
+
+  .slogan {
+    font-size: var(--typography-sizes-body-x-small); // Keep slogan small or optionally hide
+    // For very small screens, one might consider hiding the slogan:
+    // display: none;
+  }
+
+  .logoContainer {
+    gap: var(--spacing-x-small); // Reduce gap on smaller screens
+  }
+}

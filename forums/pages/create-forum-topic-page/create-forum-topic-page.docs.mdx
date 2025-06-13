@@ -1,0 +1,40 @@
+---
+description: A form for creating a new forum topic, with fields for title, content, and forum selection.
+labels: ['form', 'forum', 'topic', 'create']
+---
+
+The `CreateForumTopicPage` component allows authenticated users to create new topics in a selected forum. It includes a form with fields for topic title, content, and forum selection.
+
+## Basic Usage
+
+This example demonstrates the basic usage of the `CreateForumTopicPage` component. It renders a form that allows users to enter a title and content for their topic, and select a forum from a list.
+
+```jsx
+<CreateForumTopicPage
+  onTopicCreated={(topicId) => {
+    // eslint-disable-next-line no-alert
+    alert(`Topic created with ID: ${topicId}`);
+  }}
+/>
+```
+## Handling Topic Creation
+The `onTopicCreated` prop allows you to handle the successful creation of a topic. In this example, we display an alert with the ID of the newly created topic.
+```jsx
+<CreateForumTopicPage
+  onTopicCreated={(topicId) => {
+    // eslint-disable-next-line no-alert
+    alert(`Topic created successfully! ID: ${topicId}`);
+    // You can also navigate to the new topic page here
+  }}
+/>
+```
+## Custom Styling
+You can customize the appearance of the `CreateForumTopicPage` component by applying custom CSS classes.
+```jsx
+<CreateForumTopicPage
+  className="my-custom-class"
+  onTopicCreated={(topicId) => {
+    // eslint-disable-next-line no-alert
+    alert(`Topic created successfully! ID: ${topicId}`);
+  }}
+/>

@@ -1,0 +1,62 @@
+---
+description: Forums are spaces for discussions around specific topics.
+labels: ['forum', 'entity']
+---
+
+A component for a Forum entity, supporting serialization and de-serialization of Forum objects.
+
+## Get started
+
+Install and use the component:
+
+```ts
+// import { Forum } from './forum.js'; // Removed as per "Delete docs import statements" rule
+// Assuming Forum is available in the scope or imported elsewhere in a real project context.
+const now = new Date().toISOString();
+const forum = Forum.from({
+  id: '123',
+  name: 'General Discussion',
+  description: 'A place to discuss general topics.',
+  createdAt: now,
+  updatedAt: now,
+});
+```
+
+## Mock data
+
+Use mock data for development and testing purposes with the `mockForums` API.
+
+```ts
+// import { mockForums } from './forum.mock.js'; // Removed as per "Delete docs import statements" rule
+// Assuming mockForums is available in the scope or imported elsewhere in a real project context.
+const forums = mockForums();
+console.log(forums);
+```
+
+## Creating a Forum
+
+Demonstrates how to create a Forum instance.
+
+```ts
+// import { Forum } from './forum.js'; // Removed as per "Delete docs import statements" rule
+// Assuming Forum is available in the scope or imported elsewhere in a real project context.
+const now = new Date().toISOString();
+const forum = new Forum(
+  'Community Lounge',
+  'A relaxed space for casual conversations.',
+  now,
+  now,
+);
+console.log(forum.toObject());
+```
+
+## Using mockForums with Overrides
+
+Shows how to override properties of mock forums.
+
+```ts
+// import { mockForums } from './forum.mock.js'; // Removed as per "Delete docs import statements" rule
+// Assuming mockForums is available in the scope or imported elsewhere in a real project context.
+const now = new Date().toISOString();
+const forums = mockForums([{ name: 'Custom Forum', description: 'Custom description', createdAt: now, updatedAt: now }]);
+console.log(forums[0].toObject());

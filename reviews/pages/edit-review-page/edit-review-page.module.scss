@@ -1,0 +1,150 @@
+.editReviewPageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  padding: var(--spacing-large) 0; // PageLayout handles horizontal padding at its contentSlot
+  max-width: 700px; 
+  margin: 0 auto; 
+}
+
+.centeredContent {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: calc(100vh - 200px); // Example: full viewport height minus typical header/footer
+  padding: var(--spacing-large); // Padding for centered content
+}
+
+.pageTitle {
+  font-size: var(--typography-sizes-heading-h2);
+  color: var(--colors-text-primary);
+  font-weight: var(--typography-font-weight-bold);
+  margin-bottom: var(--spacing-medium); 
+  text-align: center;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  padding: var(--spacing-large);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  border: 1px solid var(--colors-border-subtle);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x-small);
+}
+
+.label {
+  font-size: var(--typography-sizes-label-default);
+  color: var(--colors-text-secondary);
+  font-weight: var(--typography-font-weight-medium);
+}
+
+.inputField {
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-default);
+  color: var(--colors-text-primary);
+  background-color: var(--colors-surface-primary); 
+  border: var(--borders-default-width) var(--borders-default-style) var(--colors-border-default);
+  border-radius: var(--borders-radius-medium);
+  padding: var(--spacing-small) var(--spacing-medium);
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+
+  &:focus {
+    outline: none;
+    border-color: var(--colors-border-focus);
+    box-shadow: 0 0 0 var(--borders-focus-offset, 2px) var(--colors-border-focus);
+  }
+
+  &:disabled {
+    background-color: var(--colors-surface-secondary);
+    color: var(--colors-text-secondary);
+    cursor: var(--interactions-cursor-disabled);
+    opacity: var(--effects-opacity-disabled);
+  }
+}
+
+.textInputOverride {
+  /* If TextInput needs specific height for multi-line feel, uncomment and adjust */
+  /* min-height: 120px; */
+  /* For actual textarea behavior, one would typically use a <textarea> element or a dedicated component */
+}
+
+.loadingMessage {
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+  text-align: center;
+  padding: var(--spacing-x-large);
+}
+
+.errorState { 
+  .pageTitle {
+    color: var(--colors-status-negative-default);
+  }
+  .errorMessage { 
+    font-size: var(--typography-sizes-body-default);
+    line-height: var(--typography-line-height-relaxed);
+    background-color: transparent;
+    padding: 0;
+    color: var(--colors-text-secondary); 
+    text-align: center;
+  }
+  & > button { 
+    margin-top: var(--spacing-medium);
+    align-self: center;
+  }
+}
+
+.errorFeedbackContainer { 
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x-small);
+  margin-top: var(--spacing-small);
+}
+
+.errorMessageItem { 
+  color: var(--colors-status-negative-default);
+  background-color: var(--colors-status-negative-subtle);
+  padding: var(--spacing-small) var(--spacing-medium);
+  border-radius: var(--borders-radius-medium);
+  font-size: var(--typography-sizes-body-small);
+  text-align: left; 
+  border-left: 3px solid var(--colors-status-negative-default);
+}
+
+
+.actionsContainer {
+  display: flex;
+  gap: var(--spacing-medium);
+  justify-content: flex-end; 
+  margin-top: var(--spacing-medium);
+  flex-wrap: wrap; // Allow buttons to wrap on smaller screens before full stacking
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .editReviewPageContainer {
+    padding: var(--spacing-medium) var(--spacing-small); // Add horizontal padding for mobile consistency
+  }
+  .formContainer {
+    padding: var(--spacing-medium);
+  }
+  .pageTitle {
+    font-size: var(--typography-sizes-heading-h3);
+  }
+  .actionsContainer {
+    flex-direction: column; 
+    gap: var(--spacing-small);
+    & > button { 
+        width: 100%;
+    }
+  }
+}

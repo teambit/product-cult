@@ -1,0 +1,81 @@
+---
+description: A composite component for displaying a tab with the user's reviews.
+labels: ['user', 'reviews', 'tab']
+---
+
+## Component Overview
+The `UserReviewsTab` component is designed to display a list of reviews submitted by a specific user. It fetches reviews and displays them in a grid layout.
+
+## Basic Usage
+Here's a basic example of how to use the `UserReviewsTab` component:
+
+```jsx
+<UserReviewsTab userId="user-jane-doe" />
+```
+In this example, the component will fetch and display reviews for the user with the ID `user-jane-doe`.
+## Displaying Mock Reviews
+You can use the `mockReviews` prop to display a list of reviews from a mock data. This is useful for testing and development.
+```jsx
+const mockReviews = [
+  {
+    id: 'review-j-001',
+    productId: 'product-alpha-123',
+    userId: 'user-jane-doe',
+    rating: 5,
+    comment: "Absolutely love this product!",
+    createdAt: new Date('2024-07-15T10:30:00.000Z').toISOString(),
+    updatedAt: new Date('2024-07-15T11:00:00.000Z').toISOString(),
+    status: 'approved',
+  },
+  {
+    id: 'review-j-002',
+    productId: 'product-beta-456',
+    userId: 'user-jane-doe',
+    rating: 4,
+    comment: "Great tool, very effective for project management!",
+    createdAt: new Date('2024-07-01T16:20:00.000Z').toISOString(),
+    updatedAt: new Date('2024-07-01T16:20:00.000Z').toISOString(),
+    status: 'approved',
+  }
+];
+<UserReviewsTab userId="user-jane-doe" mockReviews={mockReviews} />
+```
+This will display the two mock reviews for `user-jane-doe`.
+## Setting a Reviews Limit
+You can limit the number of reviews displayed by using the `reviewsLimit` prop:
+```jsx
+const mockReviews = [
+  {
+    id: 'review-j-001',
+    productId: 'product-alpha-123',
+    userId: 'user-jane-doe',
+    rating: 5,
+    comment: "Absolutely love this product!",
+    createdAt: new Date('2024-07-15T10:30:00.000Z').toISOString(),
+    updatedAt: new Date('2024-07-15T11:00:00.000Z').toISOString(),
+    status: 'approved',
+  },
+  {
+    id: 'review-j-002',
+    productId: 'product-beta-456',
+    userId: 'user-jane-doe',
+    rating: 4,
+    comment: "Great tool, very effective for project management!",
+    createdAt: new Date('2024-07-01T16:20:00.000Z').toISOString(),
+    updatedAt: new Date('2024-07-01T16:20:00.000Z').toISOString(),
+    status: 'approved',
+  },
+  {
+    id: 'review-j-003',
+    productId: 'product-gamma-789',
+    userId: 'user-jane-doe',
+    rating: 5,
+    comment: "A game-changer for our team!",
+    createdAt: new Date('2024-06-20T09:00:00.000Z').toISOString(),
+    updatedAt: new Date('2024-06-20T09:00:00.000Z').toISOString(),
+    status: 'approved',
+  }
+];
+<UserReviewsTab userId="user-jane-doe" mockReviews={mockReviews} reviewsLimit={2} />
+```
+This will display a maximum of 2 reviews, even if more reviews are available in the `mockReviews` prop.

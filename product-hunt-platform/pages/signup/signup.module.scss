@@ -1,0 +1,86 @@
+.signupContainer {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--colors-surface-background);
+  padding: var(--spacing-large);
+  box-sizing: border-box;
+  display: flex; // Added to ensure Flex props work as expected at root if not directly on Flex component
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingContainer {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--colors-surface-background);
+  color: var(--colors-text-primary);
+  font-family: var(--typography-font-family);
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--colors-surface-primary);
+  padding: var(--spacing-x-large);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.title {
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-large);
+  text-align: center;
+  font-family: var(--typography-font-family); // Ensure heading font is applied
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.formFields {
+  gap: var(--spacing-medium);
+  margin-bottom: var(--spacing-large);
+}
+
+.errorText {
+  color: var(--colors-status-negative-default);
+  font-size: var(--typography-sizes-body-small);
+  font-family: var(--typography-font-family);
+  margin-bottom: var(--spacing-medium);
+  text-align: center;
+  width: 100%;
+}
+
+.submitButton {
+  width: 100%;
+  font-size: var(--typography-sizes-button-medium);
+}
+
+@media (max-width: 480px) {
+  .formWrapper {
+    padding: var(--spacing-large);
+    margin-left: var(--spacing-small);
+    margin-right: var(--spacing-small);
+    max-width: calc(100% - var(--spacing-medium)); // Ensure it fits with some margin
+  }
+
+  .title {
+    font-size: var(--typography-sizes-heading-h2);
+    margin-bottom: var(--spacing-medium);
+  }
+
+  .formFields {
+    gap: var(--spacing-small);
+    margin-bottom: var(--spacing-medium);
+  }
+}

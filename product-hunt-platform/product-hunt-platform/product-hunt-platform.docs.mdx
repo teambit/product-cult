@@ -1,0 +1,74 @@
+---
+description: A platform aspect for building a Product Hunt-like application with features like user authentication, product listings, and community engagement.
+labels: ['platform', 'product hunt', 'authentication', 'products', 'community']
+---
+
+## Overview
+
+The Product Hunt Platform Aspect provides a foundation for creating a community-driven platform similar to Product Hunt. It offers user authentication, product submission, and community interaction features, allowing developers to build engaging platforms for showcasing and discovering new products.
+
+## Features
+
+*   User Authentication: Secure signup, login, and logout functionality using email and password.
+*   Product Listings: Allows users to submit and showcase new products.
+*   Community Interaction: Enables users to interact through comments, upvotes, and discussions.
+*   Customizable Theme: Integrates with a customizable theme to match your brand.
+*   Protected Routes: Secure specific routes requiring user authentication.
+*   Admin Dashboard: Provides an admin interface for managing users and content.
+
+## Examples
+
+### Basic Usage
+
+This example demonstrates how to register a header link and a user bar menu item to the platform.
+
+```tsx
+function registerPlatformItems(productHuntPlatform: ProductHuntPlatformBrowser) {
+  productHuntPlatform.registerHeaderLink([
+    { name: 'my-custom-link', label: 'Custom Link', href: '/custom-link' }
+  ]);
+  productHuntPlatform.registerUserBarMenuItem([
+    { name: 'logout', label: 'Logout', href: '/logout' }
+  ]);
+}
+```
+
+### Registering a Homepage Section
+
+This example showcases how to register a custom homepage section to display featured products or announcements.
+
+```tsx
+interface Props {
+  title: string;
+}
+
+function MyCustomSection({ title }: Props) {
+  return (
+    <div>
+      <h1>{title}</h1>
+      <p>This is a custom section on the homepage.</p>
+    </div>
+  );
+}
+
+function registerHomepageSection(productHuntPlatform: ProductHuntPlatformBrowser) {
+  productHuntPlatform.registerHomepageSection([
+    {
+      name: 'custom-section',
+      component: (props: Props) => <MyCustomSection {...props} title="Welcome!" />,
+      weight: 10,
+    }
+  ]);
+}
+```
+
+### Customizing the Theme
+
+This example explains how to customize the platform's theme using the Symphony Platform.
+
+```tsx
+function registerTheme(symphonyPlatform: SymphonyPlatformBrowser) {
+  symphonyPlatform.registerTheme((props) => {
+    return <MyCustomTheme {...props} />;
+  });
+}

@@ -1,0 +1,152 @@
+.manageReviewsPageContainer {
+  background-color: var(--colors-surface-background);
+  color: var(--colors-text-primary);
+  font-family: var(--typography-font-family);
+}
+
+.contentWrapper {
+  padding: var(--spacing-large) var(--layout-container-padding, var(--spacing-large));
+  width: 100%;
+  max-width: var(--layout-max-page-width, 1200px);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.pageHeader {
+  margin-bottom: var(--spacing-x-large);
+  padding-bottom: var(--spacing-medium);
+  border-bottom: 1px solid var(--colors-border-subtle);
+}
+
+.mainTitle {
+  font-size: var(--typography-sizes-display-small);
+  color: var(--colors-text-primary);
+  font-weight: var(--typography-font-weight-bold);
+  margin: 0 0 var(--spacing-x-small) 0;
+  line-height: var(--typography-line-height-heading);
+}
+
+.pageSubtitle {
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+  margin: 0;
+  font-weight: var(--typography-font-weight-light);
+}
+
+.loadingStateContainer,
+.errorStateContainer,
+.emptyStateContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xx-large) var(--spacing-medium);
+  text-align: center;
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  min-height: 300px;
+  margin-top: var(--spacing-large);
+  border: 1px dashed var(--colors-border-subtle);
+  box-shadow: var(--effects-shadows-xs);
+}
+
+.spinnerPlaceholder {
+  width: var(--sizes-icon-large);
+  height: var(--sizes-icon-large);
+  border-radius: var(--borders-radius-circle);
+  border: 4px solid var(--colors-border-subtle);
+  border-top-color: var(--colors-primary-default);
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--spacing-medium);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.errorStateContainer {
+  color: var(--colors-status-negative-default);
+  background-color: var(--colors-status-negative-subtle);
+  border-color: var(--colors-status-negative-default);
+  font-weight: var(--typography-font-weight-medium);
+}
+
+.emptyStateIcon {
+  /* Basic placeholder for an icon; replace with actual SVG or font icon */
+  display: block;
+  width: var(--sizes-icon-x-large);
+  height: var(--sizes-icon-x-large);
+  background-color: var(--colors-surface-secondary); /* Placeholder color */
+  border-radius: var(--borders-radius-circle);
+  margin-bottom: var(--spacing-medium);
+  opacity: var(--effects-opacity-faint);
+  /* Example: content: ' M '; using a character */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--typography-sizes-heading-h2);
+  color: var(--colors-text-secondary);
+}
+
+.emptyStateText {
+  font-size: var(--typography-sizes-heading-h5);
+  color: var(--colors-text-primary);
+  font-weight: var(--typography-font-weight-medium);
+  margin-bottom: var(--spacing-small);
+}
+
+.emptyStateSubtext {
+  font-size: var(--typography-sizes-body-default);
+  color: var(--colors-text-secondary);
+  max-width: 450px;
+}
+
+.reviewListSection {
+  margin-top: var(--spacing-large);
+}
+
+.visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .contentWrapper {
+    padding: var(--spacing-medium);
+  }
+  .mainTitle {
+    font-size: var(--typography-sizes-heading-h1);
+  }
+  .pageSubtitle {
+    font-size: var(--typography-sizes-body-default);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .contentWrapper {
+    padding: var(--spacing-small);
+  }
+  .mainTitle {
+    font-size: var(--typography-sizes-heading-h2);
+  }
+  .pageHeader {
+    margin-bottom: var(--spacing-large);
+  }
+  .loadingStateContainer,
+  .errorStateContainer,
+  .emptyStateContainer {
+    padding: var(--spacing-large) var(--spacing-small);
+    min-height: 200px;
+  }
+}

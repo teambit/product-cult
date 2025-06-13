@@ -1,0 +1,17 @@
+.productIcon {
+  // This class is applied to the root SVG element of the ProductIcon component.
+  // It can be used for any ProductIcon-specific styling overrides or additions
+  // if they cannot be achieved through props passed to the base Icon component.
+
+  // By default, core icon styling (e.g., display, vertical-align, flex-shrink)
+  // is handled by the base Icon component's styles. This class provides a
+  // hook for more specific visual adjustments if necessary.
+
+  // Example:
+  // Adding a subtle hover effect specific to product icons:
+  // transition: transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-out);
+
+  // &:hover {
+  //   transform: scale(var(--interactions-hover-effect-scale));
+  // }
+}

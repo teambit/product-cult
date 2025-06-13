@@ -1,0 +1,11 @@
+.icon {
+  display: inline-block; /* Ensures the icon behaves like an inline element but can have width/height */
+  vertical-align: middle; /* Aligns the icon nicely with adjacent text or elements */
+  flex-shrink: 0; /* Prevents the icon from shrinking when placed inside a flex container */
+  box-sizing: border-box; /* Prevents layout overflow if padding or border are added */
+
+  /* The 'fill' color is controlled by the 'color' prop in the component, defaulting to 'currentColor'.
+  This allows the icon to inherit text color by default, making it easy to integrate.
+  No specific color rules are needed here unless for advanced state-specific styling not covered by props. */
+  /* No specific color rules are needed here unless for advanced state-specific styling not covered by props. */
+}

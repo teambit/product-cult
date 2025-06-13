@@ -1,0 +1,25 @@
+---
+description: Displays a list of launch cards in a grid layout. Accepts an array of Launch objects as props.
+labels: ['launch', 'list', 'ui']
+---
+
+## Basic Usage
+
+The `LaunchList` component renders a grid of `LaunchCard` components based on the provided `launches` prop.
+
+```jsx
+<LaunchList launches={[/* launch objects */]} />
+```
+## Empty State
+When the `launches` array is empty or `null`, the component renders a friendly "No launches to display" message.
+```jsx
+<LaunchList launches={[]} />
+```
+## Custom Styling
+You can apply custom styles to the `LaunchList` component using the `className` and `style` props.
+```jsx
+<LaunchList
+  launches={[/* launch objects */]}
+  className="my-custom-list"
+  style={{ backgroundColor: 'var(--colors-background-secondary)' }}
+/>

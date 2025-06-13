@@ -1,0 +1,177 @@
+.submitLaunchPage {
+  // PageLayout handles overall page background and structure
+}
+
+.pageHeaderImageContainer {
+  width: 100%;
+  max-height: 350px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--spacing-large);
+  background: var(--effects-gradients-subtle-surface); // Subtle gradient background
+  border-bottom: var(--borders-default-width) var(--borders-default-style) var(--colors-border-subtle);
+  box-sizing: border-box; // Added to ensure border doesn't cause overflow with width: 100%
+}
+
+.headerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9; // Slightly muted to blend with potential overlays or text
+}
+
+.formContainer {
+  background-color: var(--colors-surface-primary);
+  padding: var(--spacing-x-large) var(--spacing-xx-large);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-large); // Enhanced shadow for depth
+  max-width: 760px;
+  margin: 0 auto var(--spacing-xx-large) auto;
+  position: relative;
+  z-index: var(--interactions-z-index-base);
+  box-sizing: border-box; // Added for robust layout with padding and max-width
+}
+
+.pageTitle {
+  font-size: var(--typography-sizes-display-small);
+  color: var(--colors-text-primary);
+  font-weight: var(--typography-font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--spacing-medium);
+  letter-spacing: var(--typography-letter-spacing-tight);
+}
+
+.pageSubtitle {
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+  text-align: center;
+  margin-bottom: var(--spacing-x-large);
+  line-height: var(--typography-line-height-relaxed);
+  max-width: 600px; // Constrain subtitle width for readability
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.launchForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small); // Increased gap for better separation
+}
+
+.label {
+  font-size: var(--typography-sizes-label-default);
+  color: var(--colors-text-primary); // Slightly darker for better contrast
+  font-weight: var(--typography-font-weight-semiBold);
+}
+
+.descriptionInput {
+  min-height: 150px; // Taller for better multiline text experience illusion
+  padding-top: var(--spacing-small); // Align text better if it's just a tall input
+  padding-bottom: var(--spacing-small);
+  // Note: This is still an <input>. For true multiline, a <textarea> is needed.
+}
+
+.submitButton {
+  margin-top: var(--spacing-large); // More space before the submit button
+  width: 100%;
+  height: var(--sizes-button-height-large);
+  font-size: var(--typography-sizes-button-large);
+  font-weight: var(--typography-font-weight-bold);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.submissionMessage {
+  padding: var(--spacing-medium);
+  border-radius: var(--borders-radius-medium);
+  margin-top: var(--spacing-medium);
+  text-align: center;
+  font-size: var(--typography-sizes-body-default);
+  border-width: var(--borders-default-width);
+  border-style: var(--borders-default-style);
+  font-weight: var(--typography-font-weight-medium);
+}
+
+.successMessage {
+  background-color: var(--colors-status-positive-subtle);
+  color: var(--colors-text-primary); // Use primary text for better readability on subtle bg
+  border-color: var(--colors-status-positive-default);
+}
+
+.errorMessage {
+  background-color: var(--colors-status-negative-subtle);
+  color: var(--colors-text-primary); // Use primary text for better readability on subtle bg
+  border-color: var(--colors-status-negative-default);
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-laptop)) {
+  .formContainer {
+    padding: var(--spacing-large) var(--spacing-x-large);
+    max-width: 680px;
+  }
+  .pageTitle {
+    font-size: var(--typography-sizes-heading-h1);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .pageHeaderImageContainer {
+    max-height: 250px;
+    margin-bottom: var(--spacing-medium);
+  }
+  .formContainer {
+    padding: var(--spacing-large);
+    margin: var(--spacing-medium);
+    max-width: 100%; // Allow full width within margins
+    box-shadow: var(--effects-shadows-medium);
+  }
+
+  .pageTitle {
+    font-size: var(--typography-sizes-heading-h2);
+  }
+
+  .pageSubtitle {
+    font-size: var(--typography-sizes-body-default);
+    margin-bottom: var(--spacing-large);
+  }
+  .launchForm {
+    gap: var(--spacing-medium);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .pageHeaderImageContainer {
+    max-height: 200px;
+  }
+  .formContainer {
+    padding: var(--spacing-medium);
+    margin: var(--spacing-small);
+    border-radius: var(--borders-radius-medium);
+    box-shadow: var(--effects-shadows-small);
+  }
+
+  .pageTitle {
+    font-size: var(--typography-sizes-heading-h3);
+  }
+
+  .pageSubtitle {
+    font-size: var(--typography-sizes-body-medium);
+    margin-bottom: var(--spacing-medium);
+  }
+  .label {
+    font-size: var(--typography-sizes-label-small);
+  }
+  .submitButton {
+    height: var(--sizes-button-height-medium);
+    font-size: var(--typography-sizes-button-medium);
+  }
+}

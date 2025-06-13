@@ -1,0 +1,78 @@
+---
+description: A Product entity with details such as name, description, price, images, category, variants, and submitter.
+labels: ['product', 'entity']
+---
+
+A component for a Product entity, supporting serialization and deserialization of Product objects for both backend and frontend use.
+
+## Get started
+
+Install and use the component in your code:
+
+```ts
+// Assuming Product class is available in the scope
+const product = Product.from({
+  id: '123',
+  name: 'Example Product',
+  description: 'This is an example product',
+  price: 25.00,
+  imageUrls: [],
+  videoUrls: [],
+  categoryId: '456',
+  variants: [],
+  submitterUserId: '789',
+});
+```
+
+## Mock data
+
+You can use product mock data for development and testing purposes using the `mockProducts` and `mockProductVariants` APIs.
+
+```ts
+// Assuming mockProducts is available in the scope
+const products = mockProducts();
+console.log(products);
+```
+
+## Product with Variants
+
+Demonstrates creating a `Product` instance with associated `ProductVariant` objects.
+
+```ts
+// Assuming Product and ProductVariant classes are available in the scope
+const product = Product.from({
+    id: '456',
+    name: 'T-Shirt',
+    description: 'A comfortable cotton T-shirt',
+    price: 19.99,
+    imageUrls: ['url1', 'url2'],
+    videoUrls: [],
+    categoryId: '789',
+    variants: [
+      { name: 'Small', sku: 'TS-S', price: 19.99, imageUrls: [] },
+      { name: 'Large', sku: 'TS-L', price: 22.99, imageUrls: [] }
+    ],
+    submitterUserId: '101'
+});
+console.log(product.variants);
+```
+
+## Creating a Product from a plain object
+
+Shows how to instantiate a `Product` using the `from` method, passing in a plain JavaScript object.
+
+```ts
+// Assuming Product class is available in the scope
+const plainProduct = {
+  id: '789',
+  name: 'Sample Gadget',
+  description: 'A cool gadget for everyday use',
+  price: 49.99,
+  imageUrls: ['image_url'],
+  videoUrls: [],
+  categoryId: '123',
+  variants: [],
+  submitterUserId: '456'
+};
+const product = Product.from(plainProduct);
+console.log(product.name);

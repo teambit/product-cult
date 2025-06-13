@@ -1,0 +1,31 @@
+---
+description: A Review Icon component to display star ratings or reviews.
+labels: ['icon', 'review', 'star']
+---
+
+## ReviewIcon Component
+
+The `ReviewIcon` component is used to display a star icon, typically used for representing reviews or ratings. It supports customization of size and color.
+
+## Basic Usage
+
+A simple example of using the `ReviewIcon` with default settings.
+
+```tsx
+<ReviewIcon title="Review Icon" />
+```
+
+## Customizing Size and Color
+
+This example demonstrates how to customize the size and color of the `ReviewIcon`.
+
+```tsx
+<ReviewIcon size={32} color="var(--colors-primary-default)" title="Customized Review Icon" />
+```
+
+## Clickable ReviewIcon
+
+You can make the `ReviewIcon` clickable by adding an `onClick` handler.
+
+```tsx
+<ReviewIcon onClick={() => alert('Review icon clicked!')} title="Clickable Review Icon" style={{ cursor: 'pointer' }} />

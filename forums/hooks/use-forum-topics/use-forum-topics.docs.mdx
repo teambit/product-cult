@@ -1,0 +1,106 @@
+---
+description: A React Hook for fetching forum topic data. Exposes independent hooks for listing and retrieving forum topics.
+labels: ['hook', 'react', 'forum', 'topics']
+---
+
+A React Hook for fetching forum topic data. It exposes independent hooks for listing and retrieving forum topics. It uses GraphQL to fetch forum topic data from the aspect API and accepts forum ID and pagination parameters.
+
+## Usage
+
+### Listing Forum Topics
+
+This example demonstrates how to use the `useListForumTopics` hook to list forum topics for a specific forum.
+
+```tsx
+const ForumTopicsList = () => {
+  const { topics, loading, error } = useListForumTopics({ forumId: '123' });
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  return (
+    <ul>
+      {topics?.map((topic) => (
+        <li key={topic.id}>{topic.title}</li>
+      ))}
+    </ul>
+  );
+};
+```
+
+In this example, `useListForumTopics` fetches topics for `forumId: '123'`. The component displays a loading message while `loading` is true, an error message if there's an `error`, and a list of topic titles when the data is successfully fetched.
+
+### Retrieving a Single Forum Topic
+
+This example demonstrates how to use the `useGetForumTopic` hook to retrieve a single forum topic by its ID.
+
+```tsx
+const ForumTopicDetails = () => {
+  const { topic, loading, error } = useGetForumTopic({ id: '456' });
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  if (!topic) return <p>Topic not found</p>;
+  return (
+    <div>
+      <h2>{topic.title}</h2>
+      <p>{topic.content}</p>
+    </div>
+  );
+};
+```
+
+Here, `useGetForumTopic` fetches the topic with `id: '456'`. The component displays a loading message, an error message, or the topic's title and content if the data is available. If the topic is not found, a "Topic not found" message is shown.
+
+### Using Mock Data
+
+This example demonstrates how to use the hooks with mock data for testing or development purposes.
+
+```tsx
+const MockForumTopics = () => {
+  // This import would typically be from your actual entity definitions
+  // For the purpose of this example, we define a structure.
+  // Actual usage might involve importing ForumTopic type and from() method
+  // from '@infinity/forums.entities.forum-topic' if it's available in the runtime environment
+  // of this MDX example (which is often not the case for simple MDX).
+  // The following is a placeholder for how mock data might be structured.
+  
+  class ForumTopicExample {
+    id: string;
+    forumId: string;
+    title: string;
+    content: string;
+    userId: string;
+
+    constructor(data: any) {
+      this.id = data.id;
+      this.forumId = data.forumId;
+      this.title = data.title;
+      this.content = data.content;
+      this.userId = data.userId;
+    }
+
+    static from(data: any) {
+      return new ForumTopicExample(data);
+    }
+  }
+
+
+  const mockTopics: ForumTopicExample[] = [
+    ForumTopicExample.from({ id: '1', forumId: '1', title: 'Mock Topic 1', content: 'Mock Content 1', userId: 'user1' }),
+    ForumTopicExample.from({ id: '2', forumId: '1', title: 'Mock Topic 2', content: 'Mock Content 2', userId: 'user2' }),
+  ];
+
+  const { topics, loading, error } = useListForumTopics({ forumId: '1', mockData: mockTopics as any }); // Use 'as any' if ForumTopicExample is not strictly ForumTopic
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  return (
+    <ul>
+      {topics?.map((topic) => (
+        <li key={topic.id}>{topic.title}</li>
+      ))}
+    </ul>
+  );
+};
+```
+
+In this case, `useListForumTopics` is provided with `mockData`, so it uses the mock data instead of making a network request. This can be useful for local development or testing scenarios. Note: the `ForumTopic` object is created manually for the purpose of this example.

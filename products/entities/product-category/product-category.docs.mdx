@@ -1,0 +1,70 @@
+---
+description: Represents a product category within the platform.
+labels: ['product-category', 'entity']
+---
+
+A component for a ProductCategory entity, supports serialization and de-serialization of ProductCategory objects and can be used from
+both backend and frontend.
+
+## Get started
+
+Install and use the component in your code:
+
+```ts
+const productCategory = ProductCategory.from({
+  id: uuidv4(),
+  name: 'Electronics',
+  description: 'Smartphones, laptops, and accessories.'
+});
+```
+
+## Mock data
+
+You can use product category mock data for development and testing purposes using the `mockProductCategory` API.
+
+```ts
+const productCategory = mockProductCategory();
+console.log(productCategory);
+```
+
+## Usage examples
+
+### Creating a product category
+
+This example shows how to create a new product category instance using the `ProductCategory.from` method.
+
+```ts
+const category = ProductCategory.from({
+  id: uuidv4(),
+  name: 'Books',
+  description: 'A collection of books.',
+  imageUrl: 'https://example.com/books.jpg'
+});
+console.log(category.toObject());
+```
+
+### Displaying product category details
+
+Demonstrates how to access and display the properties of a `ProductCategory` object.
+
+```ts
+const category = ProductCategory.from({
+  id: uuidv4(),
+  name: 'Clothing',
+  description: 'Apparel for all occasions.',
+  imageUrl: 'https://example.com/clothing.jpg'
+});
+console.log(`Category Name: ${category.name}`);
+console.log(`Description: ${category.description}`);
+console.log(`Image URL: ${category.imageUrl}`);
+```
+
+### Using mock product categories
+
+This example showcases how to use the `mockProductCategories` function to generate an array of mock product categories for testing or development.
+
+```ts
+const categories = mockProductCategories();
+categories.forEach(category => {
+  console.log(category.name);
+});

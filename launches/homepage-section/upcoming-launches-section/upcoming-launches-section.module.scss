@@ -1,0 +1,86 @@
+.upcomingLaunchesSection {
+  // Uses SectionLayout's default padding and border
+  // Add specific styles for this section if needed
+  background-color: var(--colors-surface-background); // Ensure consistent background
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xx-large) var(--spacing-large);
+  text-align: center;
+  min-height: 200px; // Ensure it has some visual presence
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  margin-bottom: var(--spacing-large); // Space before potential "View All" link
+  box-shadow: var(--effects-shadows-small);
+}
+
+.emptyStateText {
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+  font-family: var(--typography-font-family);
+  margin: 0;
+}
+
+.viewAllContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-x-large); // Space above the link/button
+  width: 100%;
+}
+
+.viewAllLink {
+  display: inline-block;
+  padding: var(--spacing-medium) var(--spacing-x-large);
+  background-color: var(--colors-primary-default);
+  color: var(--colors-text-inverse) !important; // Ensure text is inverse on primary background
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-button-medium);
+  font-weight: var(--typography-font-weight-semi-bold);
+  text-decoration: none;
+  border-radius: var(--borders-radius-medium);
+  transition: background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  cursor: var(--interactions-cursor-pointer);
+  box-shadow: var(--effects-shadows-primary);
+}
+
+.viewAllLink:hover {
+  background-color: var(--colors-primary-hover);
+  transform: translateY(-2px); // Subtle lift effect
+}
+
+.viewAllLink:active {
+  background-color: var(--colors-primary-active);
+  transform: translateY(0);
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .emptyState {
+    padding: var(--spacing-x-large) var(--spacing-medium);
+    min-height: 150px;
+  }
+
+  .emptyStateText {
+    font-size: var(--typography-sizes-body-default);
+  }
+
+  .viewAllLink {
+    padding: var(--spacing-small) var(--spacing-large);
+    font-size: var(--typography-sizes-button-small);
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* A minimum height to ensure the spinner is visible and has some space */
+  min-height: 200px; 
+  box-sizing: border-box;
+}

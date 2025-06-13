@@ -1,0 +1,31 @@
+---
+description: A homepage section component that displays a list of featured products.
+labels: ['product', 'ui', 'section']
+---
+
+The `FeaturedProducts` component displays a curated list of products based on a specified category. It's ideal for highlighting specific items on a homepage or landing page.
+
+## Basic Usage
+
+This example demonstrates the basic usage of the `FeaturedProducts` component, fetching and displaying products from a specified category.
+
+```jsx
+<FeaturedProducts categoryId="featured" />
+```
+## Custom Title and Limit
+You can customize the title of the section and limit the number of products displayed.
+```jsx
+<FeaturedProducts title="Our Top Picks" categoryId="top-picks" limit={3} />
+```
+## Custom State Components
+The component allows you to define custom components for different loading states, such as when no products are found or when an error occurs.
+```jsx
+const CustomLoading = () => <p>Loading products...</p>;
+const CustomEmpty = () => <p>No products found.</p>;
+const CustomError = () => <p>Error loading products.</p>;
+<FeaturedProducts
+  categoryId="special"
+  loadingState={<CustomLoading />}
+  emptyState={<CustomEmpty />}
+  errorState={<CustomError />}
+/>

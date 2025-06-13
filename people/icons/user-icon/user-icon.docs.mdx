@@ -1,0 +1,27 @@
+---
+description: A standard user icon component for avatars or profile indicators.
+labels: ['icon', 'user', 'avatar']
+---
+
+The `UserIcon` component provides a simple, consistent way to display a user icon in your application. It's based on a standard user silhouette and can be easily customized with different sizes and colors.
+
+## Basic User Icon
+
+This example shows the default `UserIcon` component.
+
+```tsx
+<UserIcon />
+```
+## Customized User Icon
+You can customize the size and color of the `UserIcon` using the `size` and `color` props.
+```tsx
+<UserIcon size={32} color="var(--colors-primary-default)" />
+```
+## Interactive User Icon
+The `UserIcon` can be made interactive by adding an `onClick` handler and a `title` for accessibility.
+```tsx
+<UserIcon
+  onClick={() => alert('User profile clicked!')}
+  title="View User Profile"
+  style={{ cursor: 'pointer' }}
+/>

@@ -1,0 +1,50 @@
+---
+description: A flexible and accessible dropdown component that renders interactive content within a visually distinct overlay.
+labels: ['dropdown', 'ui', 'interactive']
+---
+
+## Component Usage
+
+The `Dropdown` component is used to display a hidden content overlay when triggered by a placeholder element. It's highly customizable, allowing you to define the content, position, and behavior of the dropdown.
+
+### Basic Dropdown
+
+This example demonstrates a basic dropdown with a button as the placeholder and a simple list of links as the content.
+
+```jsx
+<Dropdown
+  placeholder={<button>Open Menu</button>}
+>
+  <div>
+    <a href="#">Option 1</a>
+    <a href="#">Option 2</a>
+    <a href="#">Option 3</a>
+  </div>
+</Dropdown>
+```
+### Positioning the Dropdown
+You can control the position of the dropdown using the `openPosition` prop. The available options are `bottom-start`, `bottom-end`, `top-start`, and `top-end`.
+```jsx
+<Dropdown
+  placeholder={<button>Open Options</button>}
+  openPosition="top-end"
+>
+  <div>
+    <a href="#">Edit Profile</a>
+    <a href="#">Settings</a>
+    <a href="#">Logout</a>
+  </div>
+</Dropdown>
+```
+### Handling Events and Initial State
+This example shows how to handle click events on the placeholder and set the initial open state of the dropdown.
+```jsx
+<Dropdown
+  placeholder={<button>Toggle Dropdown</button>}
+  onClick={() => console.log('Placeholder Clicked!')}
+  initialIsOpen={true}
+>
+  <div>
+    <p>Dropdown Content</p>
+  </div>
+</Dropdown>

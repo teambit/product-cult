@@ -1,0 +1,128 @@
+.productReviewsPage {
+  // Root container for the page, leveraging PageLayout's structure
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  width: 100%;
+}
+
+.pageHeader {
+  font-size: var(--typography-sizes-heading-h1);
+  color: var(--colors-text-primary);
+  font-weight: var(--typography-font-weight-bold);
+  margin: 0 0 var(--spacing-medium) 0; // No top margin, rely on PageLayout's padding
+  padding-bottom: var(--spacing-small);
+  border-bottom: var(--borders-default-width) var(--borders-default-style) var(--colors-border-subtle);
+  line-height: var(--typography-line-height-heading);
+}
+
+.loadingContainer,
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-xx-large) var(--spacing-medium);
+  border-radius: var(--borders-radius-large);
+  background-color: var(--colors-surface-primary);
+  min-height: 300px; // Ensure it occupies some space
+  border: 1px solid var(--colors-border-subtle);
+  box-shadow: var(--effects-shadows-small);
+}
+
+.loadingMessage {
+  font-size: var(--typography-sizes-heading-h5);
+  color: var(--colors-text-primary);
+  margin-top: var(--spacing-medium);
+  font-weight: var(--typography-font-weight-medium);
+}
+
+.spinner {
+  width: var(--sizes-icon-large);
+  height: var(--sizes-icon-large);
+  border: 4px solid var(--colors-surface-secondary); // Light border for the track
+  border-top-color: var(--colors-primary-default); // Active spinner color
+  border-radius: var(--borders-radius-circle);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.errorContainer {
+  background-color: var(--colors-status-negative-subtle);
+  border-color: var(--colors-status-negative-default);
+}
+
+.errorIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--sizes-icon-x-large);
+  height: var(--sizes-icon-x-large);
+  background-color: var(--colors-status-negative-default);
+  color: var(--colors-text-inverse);
+  font-size: var(--typography-sizes-heading-h3);
+  font-weight: var(--typography-font-weight-bold);
+  border-radius: var(--borders-radius-circle);
+  margin-bottom: var(--spacing-medium);
+}
+
+.errorMessage {
+  font-size: var(--typography-sizes-heading-h4);
+  color: var(--colors-text-primary); // Primary text color is fine on subtle error background
+  font-weight: var(--typography-font-weight-semi-bold);
+  margin-bottom: var(--spacing-small);
+}
+
+.errorSubMessage {
+  font-size: var(--typography-sizes-body-default);
+  color: var(--colors-text-secondary);
+  max-width: 500px; // Prevent sub-message from being too wide
+}
+
+/* Responsive adjustments */
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .pageHeader {
+    font-size: var(--typography-sizes-heading-h2);
+  }
+
+  .contentWrapper {
+    gap: var(--spacing-medium);
+  }
+
+  .loadingContainer,
+  .errorContainer {
+    padding: var(--spacing-x-large) var(--spacing-small);
+    min-height: 250px;
+  }
+
+  .errorMessage {
+    font-size: var(--typography-sizes-heading-h5);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .pageHeader {
+    font-size: var(--typography-sizes-heading-h3);
+    margin-bottom: var(--spacing-small);
+  }
+
+  .spinner {
+    width: calc(var(--sizes-icon-large) * 0.8);
+    height: calc(var(--sizes-icon-large) * 0.8);
+  }
+
+  .errorIcon {
+    width: calc(var(--sizes-icon-x-large) * 0.8);
+    height: calc(var(--sizes-icon-x-large) * 0.8);
+    font-size: var(--typography-sizes-heading-h4);
+  }
+}

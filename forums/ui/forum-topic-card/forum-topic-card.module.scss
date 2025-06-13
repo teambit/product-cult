@@ -1,0 +1,145 @@
+.forumTopicCardLink {
+  text-decoration: none;
+  display: block;
+  transition: transform 0.2s var(--interactions-transitions-easing-ease-in-out), box-shadow 0.2s var(--interactions-transitions-easing-ease-in-out);
+  border-radius: var(--borders-radius-large); /* Match card's border radius for consistent shadow */
+}
+
+.forumTopicCardLink:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--effects-shadows-large); /* Enhanced shadow on hover */
+}
+
+.cardInner {
+  height: 100%; /* Ensure cards in a grid have consistent height */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: var(--spacing-medium);
+  box-sizing: border-box;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  min-width: 0; /* Prevents overflow with long author names */
+  flex-shrink: 1; /* Allow shrinking if date needs space */
+}
+
+.avatar {
+  flex-shrink: 0;
+}
+
+.avatarPlaceholder {
+  background-color: var(--colors-surface-secondary);
+  border-radius: var(--borders-radius-circle);
+  width: var(--sizes-avatar-small);
+  height: var(--sizes-avatar-small);
+  flex-shrink: 0;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.authorName {
+  font-size: var(--typography-sizes-body-small);
+  font-weight: var(--typography-font-weight-medium);
+  color: var(--colors-text-secondary);
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.authorNamePlaceholder {
+  composes: authorName; /* Inherits base styles from authorName */
+  background-color: var(--colors-surface-secondary);
+  border-radius: var(--borders-radius-small);
+  width: 100px; 
+  height: calc(var(--typography-sizes-body-small) * var(--typography-line-height-base));
+  display: inline-block;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.title {
+  margin-bottom: var(--spacing-small);
+  color: var(--colors-text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Calculate min-height based on visualLevel 4's font-size if different */
+  min-height: calc(var(--typography-sizes-heading-h4) * var(--typography-line-height-heading) * 2); 
+  line-height: var(--typography-line-height-heading);
+}
+
+.excerpt {
+  font-size: var(--typography-sizes-body-default);
+  color: var(--colors-text-secondary);
+  margin-bottom: 0;
+  line-height: var(--typography-line-height-base);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: calc(var(--typography-sizes-body-default) * var(--typography-line-height-base) * 3);
+  flex-grow: 1; /* Allow excerpt to take available space if card height is fixed */
+}
+
+.date {
+  font-size: var(--typography-sizes-body-x-small);
+  color: var(--colors-text-secondary);
+  margin-bottom: 0;
+  white-space: nowrap;
+  flex-shrink: 0; /* Prevent date from shrinking or wrapping */
+}
+
+@keyframes pulse {
+  0% {
+    opacity: var(--effects-opacity-faint);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: var(--effects-opacity-faint);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .headerContent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-x-small);
+  }
+
+  .authorInfo {
+    width: 100%; /* Author info takes full width before date */
+  }
+
+  .title {
+    font-size: var(--typography-sizes-heading-h5); /* Adjust title size for mobile */
+    -webkit-line-clamp: 2;
+    min-height: calc(var(--typography-sizes-heading-h5) * var(--typography-line-height-heading) * 2);
+  }
+
+  .excerpt {
+    font-size: var(--typography-sizes-body-small); /* Adjust excerpt size for mobile */
+    -webkit-line-clamp: 2; /* Show fewer lines on mobile */
+    min-height: calc(var(--typography-sizes-body-small) * var(--typography-line-height-base) * 2);
+  }
+
+  .date {
+    align-self: flex-end; /* Position date to the right when header is a column */
+    margin-top: var(--spacing-xx-small);
+  }
+}

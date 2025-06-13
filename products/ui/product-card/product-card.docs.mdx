@@ -1,0 +1,59 @@
+---
+description: A card component for displaying product information, including image, title, description, and a link to the product details page.
+labels: ['card', 'product', 'ui']
+---
+
+The `ProductCard` component provides a visually appealing way to showcase product information. It includes an image, title, description, and a "View Details" button that links to the product's detail page. It's designed to be responsive and can be easily integrated into various layouts.
+
+## Basic Product Display
+
+This example shows a basic usage of the `ProductCard` component with essential product information.
+
+```jsx
+<ProductCard
+  product={{
+    id: 'ph-innovatesphere-ai',
+    name: 'InnovateSphere AI Assistant',
+    description: 'Revolutionize your workflow with our cutting-edge AI assistant. Boost productivity and creativity seamlessly.',
+    price: 49.99,
+    imageUrls: ['https://images.unsplash.com/photo-1615378989441-d0e0eee9979b?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwxfHxpbm5vdmF0aXZlJTIwcHJvZHVjdCUyMGRlc2lnbnxlbnwxfDB8fG9yYW5nZXwxNzQ5NTk5MjU5fDA&ixlib=rb-4.1.0'],
+    categoryId: 'ai-tools',
+    submitterUserId: 'user-alpha',
+  }}
+/>
+```
+
+## Product with Long Description
+
+This example demonstrates how the `ProductCard` component handles a product with a longer description. The description is truncated with an ellipsis after a certain number of lines.
+
+```jsx
+<ProductCard
+  product={{
+    id: 'ph-quantumleap-design',
+    name: 'QuantumLeap Design Suite',
+    description: 'QuantumLeap Design Suite is the ultimate toolkit for next-generation digital artists and designers. It features a revolutionary vector engine, AI-powered image enhancement, collaborative cloud workspaces, and an extensive library of assets. Create breathtaking visuals faster than ever before. This description is intentionally long to demonstrate how the card handles text overflow and truncation.',
+    price: 129.00,
+    imageUrls: ['https://images.unsplash.com/photo-1654588301119-7e23237ace60?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwyfHxpbm5vdmF0aXZlJTIwcHJvZHVjdCUyMGRlc2lnbnxlbnwxfDB8fG9yYW5nZXwxNzQ5NTk5MjU5fDA&ixlib=rb-4.1.0'],
+    categoryId: 'design-software',
+    submitterUserId: 'user-beta',
+  }}
+/>
+```
+
+## Product Using Default Image
+
+This example illustrates the scenario where a product does not have an associated image URL. In this case, the `ProductCard` component displays a default placeholder image.
+
+```jsx
+<ProductCard
+  product={{
+    id: 'ph-novasmart-hub',
+    name: 'NovaSmart Home Hub',
+    description: 'Control your entire smart home ecosystem with the intuitive NovaSmart Hub. Simple setup, powerful automation, and future-proof connectivity.',
+    price: 79.50,
+    imageUrls: [],
+    categoryId: 'smart-home',
+    submitterUserId: 'user-gamma',
+  }}
+/>

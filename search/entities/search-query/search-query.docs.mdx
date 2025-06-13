@@ -1,0 +1,48 @@
+---
+description: A SearchQuery entity for managing search parameters including keywords, filters, sorting, and pagination.
+labels: ['search', 'entity', 'query']
+---
+
+A component for managing search query parameters. It supports keywords, content type filters, sorting options, and pagination settings.
+
+## Get started
+
+Install and use the component in your code:
+
+```ts
+const searchQuery = new SearchQuery('example keywords', ['product', 'article'], 'relevance', 'desc', 1, 20);
+console.log(searchQuery.toObject());
+```
+
+## Basic Search Query
+
+Create a simple search query with keywords.
+
+```ts
+const query = new SearchQuery('Bit components');
+console.log(query.toObject());
+```
+
+## Search with Filters and Pagination
+
+Create a search query with content type filters and pagination.
+
+```ts
+const query = new SearchQuery(
+  'design',
+  ['product', 'component'],
+  'name',
+  'asc',
+  2,
+  15
+);
+console.log(query.toObject());
+```
+
+## Mock Data
+
+You can use mock search query data for development and testing purposes using the `mockSearchQuery` API.
+
+```ts
+const mock = mockSearchQuery({ keywords: 'test' });
+console.log(mock.toObject());

@@ -1,0 +1,26 @@
+---
+description: An admin page for creating a new product launch.
+labels: ['form', 'admin', 'launch']
+---
+
+The `CreateLaunchPage` component provides a form for submitting new product launches to the platform. It includes fields for the launch name, tagline, description, product ID, and launch date.
+
+## Basic Usage
+
+Here's a basic example of how to use the `CreateLaunchPage` component:
+
+```jsx
+<CreateLaunchPage />
+```
+This will render a form with the necessary fields for creating a new launch.
+## Custom Styling
+You can customize the styling of the `CreateLaunchPage` component by passing a `className` prop:
+```jsx
+<CreateLaunchPage className="custom-class" />
+```
+You can also pass inline styles using the `style` prop:
+```jsx
+<CreateLaunchPage style={{ backgroundColor: 'var(--colors-background-secondary)' }} />
+```
+## Handling Form Submission
+The `CreateLaunchPage` component handles form submission internally, using the `useCreateLaunch` hook to send the data to the server.  On successful submission, a success message is displayed, and the user is redirected to the newly created launch page. Error messages are displayed for unsuccessful submissions.

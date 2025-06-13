@@ -1,0 +1,65 @@
+---
+description: Provides API for registering and searching content types using keywords or hashtags.
+labels: ['search', 'api', 'content']
+---
+
+The Search aspect enables registering and searching content types using keywords or hashtags. It supports filtering, sorting, and integrates with other aspects to provide comprehensive search functionality. Includes default search types for products, news, and forum posts.
+
+## Usage Examples
+
+### Integrating the Search Bar into the App Layout Header
+
+To include a search bar in your application's header, register it as an app layout header component. This example assumes you have a `SearchBar` component that you want to integrate.
+
+```tsx
+// import { SearchBar } from '@infinity/search.composites.app-layout-header.search-bar';
+// import { productHuntPlatform } from '@infinity/product-hunt-platform'; // Assuming productHuntPlatform is an instance
+
+const appLayoutHeaders = [
+  {
+    name: 'search-bar-header',
+    component: () => <SearchBar />, // SearchBar component needs to be defined/imported elsewhere
+  },
+];
+// productHuntPlatform.registerAppLayoutHeader(appLayoutHeaders);
+```
+
+This code snippet demonstrates how to register a search bar component to be displayed in the app layout header. Ensure the `SearchBar` component is implemented to handle user input and search queries.
+
+### Adding Trending Searches to the Homepage
+
+Display trending searches on your homepage to help users discover popular content. This example uses a `TrendingSearches` component.
+
+```tsx
+// import { TrendingSearches } from '@infinity/search.composites.homepage-section.trending-searches';
+// import { productHuntPlatform } from '@infinity/product-hunt-platform'; // Assuming productHuntPlatform is an instance
+
+const homepageSections = [
+  {
+    name: 'trending-searches-homepage',
+    component: () => <TrendingSearches />, // TrendingSearches component needs to be defined/imported elsewhere
+    weight: 10, // Adjust weight to control display order
+  },
+];
+// productHuntPlatform.registerHomepageSection(homepageSections);
+```
+
+Here, a trending searches component is registered as a homepage section, with a specified weight to influence its position on the page.
+
+### Registering a Custom Search Type
+
+To register a custom search type, such as "tutorials," use the `registerSearchType` method. This allows your aspect to contribute searchable content.
+
+```ts
+// import { SearchNode } from './search.node.runtime.js'; // This refers to the class, an instance is needed.
+
+// const searchNode = new SearchNode(); // Incorrect: Get an instance of SearchNode from the platform/aspect context
+const registerSearchTypeOptions = {
+  name: 'tutorial',
+  label: 'Tutorials',
+  description: 'Search for tutorials on the platform.',
+};
+// searchNode.registerSearchType(registerSearchTypeOptions);
+```
+
+This example demonstrates how to register a new search type, providing a name, label, and description for the new content category. Ensure that the `SearchNode` instance is correctly obtained from your application context.

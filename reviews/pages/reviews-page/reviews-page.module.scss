@@ -1,0 +1,74 @@
+.reviewsPage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.loadingState,
+.errorState {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  padding: var(--spacing-x-large);
+  font-family: var(--typography-font-family);
+  text-align: center;
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  margin: var(--spacing-large) 0; // Give some space if it's the only content
+}
+
+.loadingState {
+  color: var(--colors-text-primary);
+  font-size: var(--typography-sizes-heading-h4);
+  font-weight: var(--typography-font-weight-medium);
+}
+
+.errorState {
+  color: var(--colors-status-negative-default);
+  font-size: var(--typography-sizes-heading-h5);
+  font-weight: var(--typography-font-weight-medium);
+
+  p {
+    margin: 0 0 var(--spacing-small) 0;
+  }
+}
+
+.errorMessage {
+  font-size: var(--typography-sizes-body-small);
+  color: var(--colors-text-secondary);
+  background-color: var(--colors-surface-secondary);
+  padding: var(--spacing-small) var(--spacing-medium);
+  border-radius: var(--borders-radius-small);
+  margin-top: var(--spacing-small) !important;
+  margin-bottom: var(--spacing-medium) !important;
+  max-width: 80%;
+  word-break: break-word;
+}
+
+// Simple spinner animation
+.spinner {
+  width: var(--sizes-icon-large);
+  height: var(--sizes-icon-large);
+  border: 4px solid var(--colors-surface-secondary);
+  border-top-color: var(--colors-primary-default);
+  border-radius: var(--borders-radius-circle);
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--spacing-medium);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.reviewListResults {
+  // If ReviewList needs specific container styling when used here
+  // For example, to ensure it takes up appropriate width or has margins
+  width: 100%;
+}

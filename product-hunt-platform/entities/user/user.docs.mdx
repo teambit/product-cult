@@ -1,0 +1,72 @@
+---
+description: A User entity representing a user in the Product Hunt platform.
+labels: ['user', 'entity']
+---
+
+A component for a User entity, representing a user in the Product Hunt platform. It supports serialization and de-serialization of User objects and can be used from both backend and frontend.
+
+## Get started
+
+Install and use the component in your code:
+
+```ts
+// Assuming User is imported, e.g.:
+// import { User } from '@your-bit-scope/your-component-collection.user';
+const user = User.from({
+  userId: 'some-uuid',
+  email: 'test@example.com',
+  username: 'testuser'
+});
+```
+
+## Mock data
+
+You can use `mockUser` for development and testing purposes.
+
+```ts
+// Assuming mockUser is imported, e.g.:
+// import { mockUser } from '@your-bit-scope/your-component-collection.user';
+const user = mockUser({ username: 'override' });
+console.log(user);
+```
+
+## Example: Creating a User
+
+Demonstrates how to create a `User` instance using the `User.from()` method.
+
+```ts
+// Assuming User is imported
+const plainUser = {
+  userId: 'test-id',
+  email: 'test@example.com',
+  username: 'testuser',
+};
+const user = User.from(plainUser);
+console.log(user.username); // Output: testuser
+```
+
+## Example: Serializing a User to an Object
+
+Shows how to serialize a `User` instance back into a plain object using `toObject()`.
+
+```ts
+// Assuming User is imported
+const user = User.from({
+  userId: 'test-id',
+  email: 'test@example.com',
+  username: 'testuser',
+});
+const userObject = user.toObject();
+console.log(userObject.email); // Output: test@example.com
+```
+
+## Example: Using mockUsers
+
+Shows how to use `mockUsers` to generate an array of users.
+
+```ts
+// Assuming mockUsers is imported
+const users = mockUsers();
+users.forEach(user => {
+  console.log(user.username);
+});

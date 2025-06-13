@@ -1,0 +1,119 @@
+---
+description: A React hook for managing user authentication state.
+labels: ['hook', 'react', 'authentication']
+---
+
+A React Hook for managing authentication state. It provides methods for user login, signup, and logout.
+
+## Usage
+
+### Basic Usage
+
+This example demonstrates how to use the `useAuth` hook to manage user login and logout. The `login` function takes a user object with `email` and `password` properties. The `logout` function clears the user state.
+It also shows how to display the user name after logging in.
+
+```tsx
+const AuthComponent = () => {
+  const { user, login, logout } = useAuth();
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const handleLogin = async () => {
+    try {
+      await login({ email: email, password: password });
+    } catch (error) {
+      console.error('Login failed:', error);
+    }
+  };
+  const handleLogout = async () => {
+    logout();
+  };
+  return (
+    <div>
+      {user ? (
+        <div>
+          <p>Welcome, {user.username}!</p>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      ) : (
+        <div>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button onClick={handleLogin}>Login</button>
+        </div>
+      )}
+    </div>
+  );
+};
+```
+
+### User Signup
+
+This example shows how to use the signup method. The signup function takes user info and sets the user's details in the state.
+
+```tsx
+const SignupComponent = () => {
+  const { signup } = useAuth();
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [name, setName] = React.useState('');
+  const handleSignup = async () => {
+    try {
+      await signup({ email: email, password: password, name: name });
+    } catch (error) {
+      console.error('Signup failed:', error);
+    }
+  };
+  return (
+    <div>
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <button onClick={handleSignup}>Signup</button>
+    </div>
+  );
+};
+```
+
+### Conditional Rendering
+
+This example shows how to logout and render components conditionally. If the user is logged in, it shows a logout button; otherwise, it shows that the user is not logged in.
+
+```tsx
+const ConditionalComponent = () => {
+  const { user, logout } = useAuth();
+  const handleLogout = async () => {
+    logout();
+  };
+  return (
+    <div>
+      {user ? (
+        <button onClick={handleLogout}>Logout</button>
+      ) : <p>Not logged in.</p>}
+    </div>
+  );
+};

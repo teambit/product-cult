@@ -1,0 +1,68 @@
+---
+description: A set of React Hooks for fetching forum post data, including listing and retrieving posts.
+labels: ['hook', 'forum', 'data fetching']
+---
+
+## Usage
+
+### Listing Forum Posts
+
+The `useListForumPosts` hook fetches a list of forum posts for a specific topic. It supports pagination.
+
+```tsx
+const ForumPostsList = ({ topicId, offset, limit }) => {
+  const { posts, loading, error } = useListForumPosts({ topicId, offset, limit });
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  return (
+    <ul>
+      {posts?.map((post) => (
+        <li key={post.id}>{post.content}</li>
+      ))}
+    </ul>
+  );
+};
+```
+In this example, `useListForumPosts` is used to fetch and display a list of forum posts for a given `topicId`. The `offset` and `limit` parameters are used for pagination.
+ 
+### Retrieving a Single Forum Post
+The `useForumPost` hook fetches a single forum post by its ID.
+```tsx
+const ForumPostDetails = ({ postId }) => {
+  const { post, loading, error } = useForumPost({ id: postId });
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  if (!post) return <p>Post not found</p>;
+  return (
+    <div>
+      <h3>{post.content}</h3>
+      <p>Created At: {post.createdAt}</p>
+    </div>
+  );
+};
+```
+This example demonstrates how to use `useForumPost` to retrieve and display the details of a specific forum post, using its unique `postId`.
+ 
+### Refreshing Forum Post Data
+Both `useListForumPosts` and `useForumPost` provide a `refetch` function to manually refresh the data.
+```tsx
+const ForumPostsContainer = ({ topicId }) => {
+  const { posts, loading, error, refetch } = useListForumPosts({ topicId });
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  const handleRefresh = async () => {
+    await refetch();
+  };
+  return (
+    <div>
+      <ul>
+        {posts?.map((post) => (
+          <li key={post.id}>{post.content}</li>
+        ))}
+      </ul>
+      <button onClick={handleRefresh}>Refresh</button>
+    </div>
+  );
+};
+```
+In this example, a refresh button is included, which triggers the `refetch` function to update the list of forum posts.

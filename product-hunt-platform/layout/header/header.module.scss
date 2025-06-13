@@ -1,0 +1,133 @@
+.headerRoot {
+  padding: var(--spacing-small) var(--spacing-large);
+  border-bottom: var(--borders-default-width) var(--borders-default-style) var(--colors-border-subtle);
+  height: 64px;
+  background-color: var(--colors-surface-background);
+  box-sizing: border-box;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: var(--interactions-z-index-sticky);
+  transition: padding var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              height var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+}
+
+.leftSection {
+  /* Flex properties are controlled by the Flex component */
+  flex-shrink: 0; /* Prevent logo and nav from shrinking too much */
+}
+
+.navLinksContainer {
+  flex-wrap: nowrap; /* Prevent nav links from wrapping by default, manage overflow via hiding on small screens */
+  overflow: hidden; /* Hide overflowing links if nowrap leads to overflow */
+}
+
+.navLink {
+  font-size: var(--typography-sizes-body-default);
+  font-weight: var(--typography-font-weight-medium);
+  color: var(--colors-text-secondary);
+  padding: var(--spacing-x-small) var(--spacing-small);
+  border-radius: var(--borders-radius-medium);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-x-small);
+  transition: color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+
+  &:hover {
+    color: var(--colors-text-primary);
+    background-color: var(--colors-surface-secondary);
+  }
+}
+
+.navLinkIcon {
+  // Style for icons within nav links if provided
+}
+
+.centerSection {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 var(--spacing-medium);
+  overflow: hidden; /* Prevent wide children from breaking layout */
+  text-overflow: ellipsis; /* Example for handling overflow */
+  white-space: nowrap; /* Example for handling overflow */
+}
+
+.rightSection {
+  /* Flex properties are controlled by the Flex component */
+  flex-shrink: 0; /* Prevent actions from shrinking too much */
+}
+
+.actionItem {
+  /* Wrapper for individual action components */
+}
+
+/* Responsive adjustments */
+
+/* Laptop and larger tablets */
+@media (max-width: 1024px) {
+  .headerRoot {
+    padding: var(--spacing-small) var(--spacing-medium);
+    height: 60px;
+    gap: var(--spacing-small); /* Reduce main gap for header root items */
+  }
+
+  .leftSection {
+     gap: var(--spacing-medium); /* Reduce gap between logo and nav */
+  }
+
+  .navLinksContainer {
+    gap: var(--spacing-x-small);
+  }
+
+  .navLink {
+    font-size: var(--typography-sizes-body-small);
+    padding: var(--spacing-xx-small) var(--spacing-x-small);
+  }
+
+  .rightSection {
+    gap: var(--spacing-small); /* Reduce gap for actions */
+  }
+}
+
+/* Smaller tablets */
+@media (max-width: 768px) {
+  .navLinksContainer {
+    /* On smaller tablets, non-essential nav links could be hidden.
+       A more robust solution would involve a burger menu.
+       Here, we demonstrate hiding for simplicity. */
+    display: none; 
+  }
+
+  .centerSection {
+    /* Hide children on smaller tablets to save space */
+    display: none;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .headerRoot {
+    padding: var(--spacing-x-small) var(--spacing-small);
+    height: 56px;
+  }
+
+  .leftSection {
+    /* Logo itself might have responsive behavior, or a smaller fixed size is used. */
+    /* The navLinksContainer is already hidden at 768px */
+    gap: var(--spacing-small);
+  }
+  
+  /* Slogan might be hidden here if Logo allows via prop or if its internal CSS is responsive.
+     Since we can't style Logo internals directly via this SCSS, this is illustrative.
+     Example: .productHuntLogoSlogan { display: none; } if that class existed and was targetable.
+     A JS solution would be to pass `slogan={undefined}` based on window width.
+  */
+
+  .rightSection {
+    gap: var(--spacing-x-small);
+  }
+}

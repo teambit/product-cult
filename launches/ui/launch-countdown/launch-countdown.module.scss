@@ -1,0 +1,144 @@
+.launchCountdown {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-large);
+  border-radius: var(--borders-radius-large);
+  background-color: var(--colors-surface-primary);
+  font-family: var(--typography-font-family);
+  color: var(--colors-text-primary);
+  text-align: center;
+  box-shadow: var(--effects-shadows-medium);
+  width: 100%;
+  max-width: 600px; 
+  margin: 0 auto;
+}
+
+.title {
+  font-size: var(--typography-sizes-heading-h3);
+  font-weight: var(--typography-font-weight-semiBold);
+  color: var(--colors-text-primary);
+  margin-top: 0;
+  margin-bottom: var(--spacing-medium);
+  line-height: var(--typography-line-height-heading);
+}
+
+.timerWrapper {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: var(--spacing-small);
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.timeSegment {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+  padding: var(--spacing-small) var(--spacing-x-small);
+  background: var(--effects-gradients-subtle-surface);
+  border-radius: var(--borders-radius-medium);
+  box-shadow: var(--effects-shadows-inset);
+}
+
+.digit {
+  font-size: var(--typography-sizes-display-small);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--colors-text-accent);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-xx-small);
+  transition: color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+}
+
+.label {
+  font-size: var(--typography-sizes-body-small);
+  font-weight: var(--typography-font-weight-regular);
+  color: var(--colors-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--typography-letter-spacing-wide);
+}
+
+.separator {
+  font-size: var(--typography-sizes-heading-h2);
+  font-weight: var(--typography-font-weight-light);
+  color: var(--colors-text-secondary);
+  padding: 0 var(--spacing-x-small);
+  align-self: center;
+  line-height: var(--typography-sizes-display-small); /* Aligns with the digits */
+}
+
+.launchCountdown.launchedState .launchedMessage {
+  font-size: var(--typography-sizes-heading-h2);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--colors-status-positive-default);
+  padding: var(--spacing-medium) 0;
+  animation: pulseLaunched 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseLaunched {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments using theme variables for breakpoints */
+@media (max-width: var(--layout-breakpoints-tablet)) { /* Example: 768px */
+  .launchCountdown {
+    padding: var(--spacing-medium);
+  }
+  .title {
+    font-size: var(--typography-sizes-heading-h4);
+  }
+  .timerWrapper {
+    gap: var(--spacing-x-small);
+  }
+  .timeSegment {
+    min-width: 60px;
+    padding: var(--spacing-x-small);
+  }
+  .digit {
+    font-size: var(--typography-sizes-heading-h1);
+  }
+  .label {
+    font-size: var(--typography-sizes-body-x-small);
+  }
+  .separator {
+    font-size: var(--typography-sizes-heading-h3);
+    line-height: var(--typography-sizes-heading-h1); /* Align with digits */
+  }
+  .launchCountdown.launchedState .launchedMessage {
+     font-size: var(--typography-sizes-heading-h3);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) { /* Example: 480px */
+  .timerWrapper {
+    gap: var(--spacing-xx-small);
+  }
+  .timeSegment {
+    min-width: 55px; /* Further reduce for small mobile screens */
+    padding: var(--spacing-x-small) var(--spacing-xx-small);
+  }
+  .digit {
+    font-size: var(--typography-sizes-heading-h2);
+  }
+  /* Label size from tablet is likely fine, or could be further reduced if needed */
+  .separator {
+    font-size: var(--typography-sizes-heading-h4);
+    line-height: var(--typography-sizes-heading-h2); /* Align with digits */
+  }
+}

@@ -1,0 +1,114 @@
+.messageContainer {
+  padding: var(--spacing-large);
+  text-align: center;
+  color: var(--colors-text-secondary);
+  font-family: var(--typography-font-family);
+}
+
+.forumListContainer {
+  display: grid;
+  gap: var(--spacing-large);
+  grid-template-columns: 1fr; // Mobile first: 1 column
+  padding: var(--spacing-medium); // Overall padding for the list container
+  box-sizing: border-box;
+}
+
+.forumItemLink {
+  text-decoration: none;
+  color: inherit; // Ensures text color inside is not overridden by link's default accent
+  display: block; // Makes the link behave like a block for layout purposes
+  border-radius: var(--borders-radius-large);
+  transition: transform var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-ease-out),
+              box-shadow var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-ease-in-out);
+
+  &:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--effects-shadows-x-large);
+  }
+
+  &:focus-visible {
+    outline: var(--borders-focus-width) var(--borders-focus-style) var(--colors-border-focus);
+    outline-offset: var(--borders-focus-offset);
+    box-shadow: var(--effects-shadows-primary); // Add a subtle glow on focus
+  }
+}
+
+.forumItemCard {
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  overflow: hidden; // Ensures image corners are rounded if image is first child
+  display: flex;
+  flex-direction: column;
+  height: 100%; // Make cards in a row equal height if grid auto-rows allows
+  border: var(--borders-default-width) var(--borders-default-style) var(--colors-border-subtle);
+  box-sizing: border-box;
+}
+
+.forumImage {
+  width: 100%;
+  height: 150px; // Fixed height for images for consistency
+  object-fit: cover;
+  border-bottom: var(--borders-default-width) var(--borders-default-style) var(--colors-border-subtle);
+}
+
+.forumContent {
+  padding: var(--spacing-medium);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; // Allows content to fill space, useful if cards have different text lengths
+}
+
+.forumName {
+  color: var(--colors-text-primary);
+  font-size: var(--typography-sizes-heading-h4); // Adjusted for card context
+  margin-bottom: var(--spacing-small);
+  line-height: var(--typography-line-height-condensed);
+}
+
+.forumDescription {
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-small);
+  line-height: var(--typography-line-height-base);
+  margin-bottom: 0;
+  flex-grow: 1; // Pushes actions/footer to bottom if any
+
+  // For text truncation
+  display: -webkit-box;
+  -webkit-line-clamp: 3; // Show up to 3 lines
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: calc(var(--typography-line-height-base) * var(--typography-sizes-body-small) * 3); // Reserve space for 3 lines
+}
+
+
+// Tablet and larger screens
+@media (min-width: var(--layout-breakpoints-tablet)) {
+  .forumListContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-large);
+  }
+}
+
+// Laptop screens
+@media (min-width: var(--layout-breakpoints-laptop)) {
+  .forumListContainer {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-x-large);
+  }
+  .forumImage {
+    height: 180px;
+  }
+}
+
+// Desktop screens
+@media (min-width: var(--layout-breakpoints-desktop)) {
+  .forumListContainer {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); // More dynamic column count
+    gap: var(--spacing-x-large);
+  }
+  .forumImage {
+    height: 200px;
+  }
+}

@@ -1,0 +1,58 @@
+---
+description: A React development environment tailored for building components and applications for the Infinity platform.
+labels: ['env', 'react', 'infinity', 'development']
+---
+
+A configurable environment that streamlines React development within the Infinity ecosystem. It provides tools, configurations, and theming necessary for building reusable and consistent components.
+
+Features include:
+- Ready-to-use configurations for React, TypeScript, ESLint, Prettier, and testing with Vitest.
+- Integration with the Infinity design system via the `InfinityTheme` provider.
+- Streamlined component previews and testing.
+
+## Using the Infinity Environment
+
+To leverage the Infinity environment, configure your workspace and components as follows:
+
+### Workspace Configuration
+
+Update your `workspace.jsonc` file to include the Infinity environment:
+
+```json
+{
+  "teambit.generator/generator": {
+    "envs": [
+      "my-org.design/infinity-env"
+    ]
+  }
+}
+```
+### Applying to a Component
+Apply the Infinity environment to a specific component using the `bit env set` command:
+```shell
+bit env set ui/button my-org.design/infinity-env
+```
+This command configures the `ui/button` component to use the settings and dependencies defined in the Infinity environment.
+### Theming Example
+The `InfinityEnvProvider` automatically wraps component previews with the `InfinityTheme`, ensuring visual consistency. Here's how you might define a simple component:
+```jsx
+function MyComponent({ text }) {
+  return (
+    <div>
+      {text}
+    </div>
+  );
+}
+```
+In a composition file, you can then render this component, and it will automatically be themed:
+```jsx
+/* MyComponent.composition.tsx */
+function MyComponentComposition() {
+  return <MyComponent text="Hello from Infinity!" />;
+}
+export default MyComponentComposition;
+```
+### Customizing Configurations
+While the Infinity environment provides a solid foundation, you can further customize it by:
+- Overriding configuration files like `tsconfig.json`, `eslint.config.js`, and `prettier.config.js`.
+- Modifying the `preview/mounter.tsx` file to add additional context providers.

@@ -1,0 +1,34 @@
+.link {
+  color: var(--colors-text-accent);
+  text-decoration: none;
+  cursor: var(--interactions-cursor-pointer);
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-default);
+  font-weight: var(--typography-font-weight-medium);
+  padding: var(--spacing-xx-small) 0; // Minimal vertical padding for better click area without altering inline flow much
+  border-radius: var(--borders-radius-small); // Slight rounding for focus outline consistency
+  transition: color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              opacity var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              outline-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+
+  &:hover {
+    color: var(--colors-primary-default);
+    text-decoration: none; // Explicitly no underline on hover, could be added if desired
+  }
+
+  &:active {
+    color: var(--colors-primary-active);
+    opacity: var(--effects-opacity-hover); // Slight dimming on active state
+  }
+
+  &:focus {
+    // Fallback for browsers not supporting :focus-visible
+    outline: var(--borders-focus-width) var(--borders-focus-style) var(--colors-border-focus);
+    outline-offset: var(--borders-focus-offset);
+  }
+
+  &:focus-visible {
+    outline: var(--borders-focus-width) var(--borders-focus-style) var(--colors-border-focus);
+    outline-offset: var(--borders-focus-offset);
+  }
+}

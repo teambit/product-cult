@@ -1,0 +1,34 @@
+---
+description: A button that navigates users to the review submission page for a specific product.
+labels: ['button', 'product', 'review']
+---
+
+## Basic AddReviewButton
+
+This is the default "Add Review" button, rendered with the primary appearance.
+Clicking navigates to the review page for the specified product.
+
+```jsx
+<AddReviewButton productId="innovate-ai-101" />
+```
+
+## Secondary AddReviewButton with Custom Text
+
+This example demonstrates the button with a secondary appearance and custom text.
+It allows for a different visual style and a customized call to action.
+
+```jsx
+<AddReviewButton
+  productId="gadget-pro-x"
+  buttonText="Rate This Gadget"
+  buttonAppearance="secondary"
+/>
+```
+
+## Disabled AddReviewButton
+
+The button is automatically disabled if the `productId` prop is not provided.
+This prevents navigation to an invalid review page.
+
+```jsx
+<AddReviewButton productId="" buttonText="Review Unavailable" />

@@ -1,0 +1,132 @@
+---
+description: 'React hooks for fetching, listing, creating, updating, and deleting launch data using GraphQL.'
+labels: ['hook', 'react', 'graphql', 'launch']
+---
+
+These hooks provide a convenient way to interact with launch data in a React application, abstracting the complexities of GraphQL queries and mutations.
+
+## Usage
+
+### Fetching a Single Launch
+
+The `useGetLaunch` hook fetches a single launch by its ID.
+
+```tsx
+// import { useGetLaunch } from './use-launches.js'; // Assuming the hook is exported from this path
+
+const LaunchDetails = ({ launchId }) => {
+  // const { data, loading, error } = useGetLaunch({ id: launchId }); // Example usage
+
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error: {error.message}</p>;
+  // if (!data?.getLaunch) return <p>No launch data found.</p>;
+
+  return (
+    <div>
+      {/* <h1>{data.getLaunch.name}</h1> */}
+      {/* <p>{data.getLaunch.description}</p> */}
+      <p>Example usage of useGetLaunch hook would go here.</p>
+    </div>
+  );
+};
+```
+
+This example demonstrates how to use the `useGetLaunch` hook to display the details of a specific launch. The `launchId` prop is used to fetch the launch data.
+
+### Listing Launches
+
+The `useListLaunches` hook fetches a list of launches, with optional filtering and pagination.
+
+```tsx
+// import { useListLaunches } from './use-launches.js'; // Assuming the hook is exported from this path
+
+const LaunchList = () => {
+  // const { data, loading, error } = useListLaunches({ limit: 10 }); // Example usage
+
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error: {error.message}</p>;
+
+  return (
+    <ul>
+      {/* {data?.listLaunches?.map((launch) => (
+        <li key={launch.id}>{launch.name}</li>
+      ))} */}
+      <li>Example list item from useListLaunches hook.</li>
+    </ul>
+  );
+};
+```
+
+This example shows how to use the `useListLaunches` hook to display a list of launches. The `limit` option is used to limit the number of launches returned.
+
+### Creating a Launch
+
+The `useCreateLaunch` hook is used to create a new launch.
+
+```tsx
+// import { useCreateLaunch } from './use-launches.js'; // Assuming the hook is exported from this path
+// import { useState } from 'react'; // For managing form state if needed locally
+
+const CreateLaunchForm = () => {
+  // const [createLaunch, { loading, error }] = useCreateLaunch(); // Example usage
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // const formData = new FormData(event.target as HTMLFormElement);
+    // const launchData = {
+    //   productId: formData.get('productId') as string,
+    //   name: formData.get('name') as string,
+    //   tagline: formData.get('tagline') as string,
+    //   description: formData.get('description') as string,
+    //   launchDate: formData.get('launchDate') as string, // Ensure this is in ISO 8601 format if required by backend
+    // };
+
+    try {
+      // const result = await createLaunch({ variables: launchData });
+      // if (result.data?.createLaunch) {
+      //   alert('Launch created successfully!');
+      //   (event.target as HTMLFormElement).reset();
+      // } else if (result.errors) {
+      //    alert(`Error creating launch: ${result.errors.map(e => e.message).join(', ')}`);
+      // }
+      alert('Simulated launch creation!');
+    } catch (err) {
+      // console.error('Failed to create launch:', err);
+      // alert(`Failed to create launch. ${err.message}`);
+      alert('Simulated error in launch creation.');
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="productId">Product ID:</label>
+        <input type="text" id="productId" name="productId" placeholder="Product ID" required />
+      </div>
+      <div>
+        <label htmlFor="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Name" required />
+      </div>
+      <div>
+        <label htmlFor="tagline">Tagline:</label>
+        <input type="text" id="tagline" name="tagline" placeholder="Tagline" required />
+      </div>
+      <div>
+        <label htmlFor="description">Description:</label>
+        <textarea id="description" name="description" placeholder="Description" required />
+      </div>
+      <div>
+        <label htmlFor="launchDate">Launch Date:</label>
+        <input type="date" id="launchDate" name="launchDate" required />
+      </div>
+      <button type="submit" /*disabled={loading}*/>
+        {/* {loading ? 'Creating...' : 'Create Launch'} */}
+        Create Launch
+      </button>
+      {/* {error && <p style={{ color: 'red' }}>Error creating launch: {error.message}</p>} */}
+    </form>
+  );
+};
+```
+
+This example demonstrates how to use the `useCreateLaunch` hook to create a new launch. It shows a form that collects the launch data and then calls the `createLaunch` function.

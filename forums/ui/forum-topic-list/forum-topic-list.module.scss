@@ -1,0 +1,99 @@
+.forumTopicList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  font-family: var(--typography-font-family);
+}
+
+.topicItem {
+  background-color: var(--colors-surface-primary);
+  padding: var(--spacing-medium);
+  border-radius: var(--borders-radius-large);
+  border: 1px solid var(--colors-border-subtle);
+  box-shadow: var(--effects-shadows-small);
+  transition: box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+}
+
+.topicItem:hover {
+  box-shadow: var(--effects-shadows-medium);
+}
+
+.topicHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+}
+
+.topicTitle {
+  /* Heading component handles its own styles, this class is for potential overrides if needed */
+  margin-bottom: var(--spacing-x-small) !important; /* Override default Heading margin if too large */
+}
+
+.topicLink {
+  text-decoration: none;
+  color: var(--colors-text-primary); /* Ensure link color matches heading */
+}
+
+.topicLink:hover .topicTitle {
+  color: var(--colors-text-accent);
+}
+
+
+.metaInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x-small);
+  margin-top: var(--spacing-x-small);
+}
+
+.authorName {
+  font-size: var(--typography-sizes-body-small);
+  color: var(--colors-text-secondary);
+  font-weight: var(--typography-font-weight-medium);
+  margin-bottom: 0 !important; /* Override Paragraph default margin */
+}
+
+.creationDate {
+  font-size: var(--typography-sizes-body-x-small);
+  color: var(--colors-text-secondary);
+  margin-bottom: 0 !important; /* Override Paragraph default margin */
+}
+
+.loadingState,
+.errorState,
+.emptyState {
+  padding: var(--spacing-large);
+  text-align: center;
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-large);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-medium);
+}
+
+/* Responsive adjustments */
+@media (min-width: 480px) { /* tablet */
+  .topicItem {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .topicContent {
+    flex-grow: 1;
+  }
+
+  .metaInfo {
+    margin-top: 0;
+    align-items: flex-end;
+    text-align: right; /* Align text to the right for meta info on larger screens */
+  }
+}

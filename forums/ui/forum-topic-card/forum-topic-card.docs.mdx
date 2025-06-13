@@ -1,0 +1,67 @@
+---
+description: Displays a summary of a forum topic, including its title, author, a short excerpt, and creation date.
+labels: ['card', 'forum', 'topic']
+---
+
+## Component usage
+
+The `ForumTopicCard` component is used to display a brief overview of a forum topic. It includes the topic's title, author, a snippet of the content, and the date it was created.
+
+```jsx
+<ForumTopicCard topic={topic} mockAuthorProfile={author} />
+```
+## Basic Example
+This example demonstrates the basic usage of the `ForumTopicCard` component with mock data for both the topic and the author. This is useful for displaying a simple, static card.
+```jsx
+const mockAuthor = {
+  userId: 'user-alice-001',
+  name: 'Alice Coder',
+  imageUrl: 'https://example.com/alice.jpg',
+  bio: 'Full-stack developer',
+  createdAt: new Date().toISOString(),
+};
+const mockTopic = {
+  forumId: 'ph-forum-general',
+  title: 'Seeking Advice: Best Practices for Scaling a Node.js Application',
+  content: 'Our Node.js application is experiencing rapid growth, and we need to ensure it can handle the increasing load.',
+  userId: mockAuthor.userId,
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+  id: 'topic-123',
+};
+<ForumTopicCard topic={mockTopic} mockAuthorProfile={mockAuthor} />
+```
+## Long Text Handling
+This example shows how the `ForumTopicCard` handles long titles and content excerpts. The component automatically truncates the text and adds an ellipsis to ensure the card remains visually appealing.
+```jsx
+const longAuthor = {
+  userId: 'user-bob-002',
+  name: 'Robert The Innovator P. Longname Jr. Esq.',
+  imageUrl: 'https://example.com/bob.jpg',
+  bio: 'Serial entrepreneur and product visionary.',
+  createdAt: new Date().toISOString(),
+};
+const longTopic = {
+  forumId: 'ph-forum-strategy',
+  title: 'A Comprehensive Long-Winded Title Discussing the Future of Decentralized Autonomous Organizations (DAOs)',
+  content: 'This is an exceptionally detailed and lengthy piece of content designed to test the excerpt generation. We are exploring how DAOs might reshape traditional governance...',
+  userId: longAuthor.userId,
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+  id: 'topic-456',
+};
+<ForumTopicCard topic={longTopic} mockAuthorProfile={longAuthor} />
+```
+## Author Loading and Unknown States
+This example demonstrates the card's behavior when author information is not immediately available. It simulates a loading state and an "Author unknown" state when the user profile cannot be fetched.
+```jsx
+const topicWithUnknownAuthor = {
+  forumId: 'ph-forum-discussion',
+  title: 'Open Discussion: What Excites You Most About AI in 2025?',
+  content: 'Let\'s have an open discussion about the future of AI. What specific advancements, applications, or ethical considerations are on your mind as we look towards 2025?',
+  userId: 'user-charlie-unmocked-003', // This ID won't have a mockAuthorProfile passed
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+  id: 'topic-789',
+};
+<ForumTopicCard topic={topicWithUnknownAuthor} />

@@ -1,0 +1,129 @@
+.userBar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-medium);
+  font-family: var(--typography-font-family);
+}
+
+.loggedInContainer {
+  display: flex;
+  align-items: center;
+}
+
+.avatarPlaceholder {
+  cursor: var(--interactions-cursor-pointer);
+  transition: transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: var(--effects-shadows-primary);
+  }
+}
+
+.dropdownMenu {
+  padding: var(--spacing-x-small) 0; // Reduce Dropdown's default overlay padding slightly
+  min-width: 220px; // Ensure enough space for menu items
+  background-color: var(--colors-surface-primary); // Explicit background for the menu
+}
+
+.dropdownMenuOverlay {
+  // This class is applied to the Dropdown's overlay element.
+  // Add specific overlay styles here if needed, e.g., z-index, custom backdrop.
+}
+
+.menuList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuItemLink,
+.logoutButton {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--spacing-small) var(--spacing-medium);
+  text-decoration: none;
+  color: var(--colors-text-primary);
+  font-size: var(--typography-sizes-body-default);
+  font-weight: var(--typography-font-weight-medium);
+  border-radius: var(--borders-radius-small);
+  transition: background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  cursor: var(--interactions-cursor-pointer);
+  background-color: transparent;
+  border: none; // For button reset
+  text-align: left; // For button text
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: var(--colors-surface-secondary);
+    color: var(--colors-text-accent);
+  }
+}
+
+.logoutButton {
+  // Specific styles to make the Button component behave like a menu link.
+  // The Button component itself has styling for 'tertiary' appearance.
+  // These overrides ensure it matches other link-based menu items.
+  justify-content: flex-start; // Align text to left as Button defaults to center.
+  // Ensure padding and font settings match .menuItemLink if Button's defaults differ significantly.
+  // Note: using !important should be a last resort, prefer more specific selectors or Button API if possible.
+  // For this case, we assume the Button's tertiary styling is close, and these are fine-tunings.
+  color: var(--colors-text-primary) !important; // Override tertiary button color to match menu items
+
+  &:hover:not(:disabled) {
+    color: var(--colors-text-accent) !important; // Match hover color
+    background-color: var(--colors-surface-secondary) !important; // Match hover background
+  }
+}
+
+.menuItemIcon {
+  margin-right: var(--spacing-medium);
+  color: var(--colors-text-secondary); // Default icon color
+  display: flex;
+  align-items: center;
+  font-size: var(--sizes-icon-medium); // Consistent icon size
+}
+
+.loggedOutActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+}
+
+.getStartedButton {
+  // Customizations for the "Get started" button if needed beyond primary appearance
+}
+
+.loginLink {
+  // Customizations for the "Login" link (Button with tertiary appearance) if needed
+  // Example: to match specific header link styles.
+  // color: var(--colors-text-accent);
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .loggedOutActions {
+    gap: var(--spacing-x-small);
+  }
+
+  .getStartedButton,
+  .loginLink {
+    // Potentially reduce padding or font size on very small screens
+    // For example:
+    // padding: var(--spacing-x-small) var(--spacing-small);
+    // font-size: var(--typography-sizes-button-small);
+  }
+
+  .dropdownMenu {
+    min-width: 180px; // Slightly smaller min-width on mobile
+  }
+
+  .menuItemLink,
+  .logoutButton {
+    padding: var(--spacing-x-small) var(--spacing-small); // Reduce padding for items on mobile
+  }
+}

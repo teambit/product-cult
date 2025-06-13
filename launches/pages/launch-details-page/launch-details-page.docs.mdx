@@ -1,0 +1,45 @@
+---
+description: Displays detailed information about a specific product launch.
+labels: ['launch', 'details', 'product']
+---
+
+The `LaunchDetailsPage` component fetches launch data and displays details such as name, tagline, description, launch date, and a countdown timer.
+
+## Usage
+
+To use the `LaunchDetailsPage` component, you need to provide a `launchId` via the URL parameters. The component then fetches the launch data and displays it.
+
+```jsx
+<LaunchDetailsPage />
+```
+## Upcoming Launch Example
+This example demonstrates the `LaunchDetailsPage` component displaying details for an upcoming launch. It includes a countdown timer and a tracking button.
+```jsx
+<MockProvider>
+  <Routes>
+    <Route path="/launch/:launchId" element={<LaunchDetailsPage mockLaunchData={upcomingLaunchData} />} />
+  </Routes>
+  <Navigate to={`/launch/${upcomingLaunchData.id}`} replace />
+</MockProvider>
+```
+## Past Launch Example
+This example showcases the `LaunchDetailsPage` component displaying details for a past launch. It indicates that the launch is already live.
+```jsx
+<MockProvider>
+  <Routes>
+    <Route path="/launch/:launchId" element={<LaunchDetailsPage mockLaunchData={alreadyLaunchedData} />} />
+  </Routes>
+  <Navigate to={`/launch/${alreadyLaunchedData.id}`} replace />
+</MockProvider>
+```
+## Error State Example
+This example shows the `LaunchDetailsPage` component in an error state when no `launchId` is provided. It displays an error message indicating that the launch was not found.
+```jsx
+<MockProvider>
+  <Routes>
+    {/* This route configuration ensures `launchId` from `useParams` will be undefined */}
+    <Route path="/some/other/path/without/id" element={<LaunchDetailsPage />} />
+  </Routes>
+  {/* Navigate to the path where LaunchDetailsPage is rendered without a launchId in params and no mock data */}
+  <Navigate to="/some/other/path/without/id" replace />
+</MockProvider>

@@ -1,0 +1,101 @@
+.userCompactCardRoot {
+  display: block;
+  width: 100%; // Occupy available width, suitable for panel columns
+  box-sizing: border-box;
+  cursor: default; // Default cursor, changes to pointer if clickable
+
+  &.clickable {
+    cursor: var(--interactions-cursor-pointer);
+
+    // Add focus styles for accessibility when clickable
+    &:focus-visible {
+      outline: var(--borders-focus-width) var(--borders-focus-style) var(--colors-border-focus);
+      outline-offset: var(--borders-focus-offset);
+      // Match Card's border-radius for a cohesive focus outline
+      border-radius: var(--borders-radius-large); 
+    }
+  }
+}
+
+// Class applied to the Card component from @infinity/design.content.card
+.cardInner {
+  // The Card component handles its own styling (background, shadow, border-radius, padding, etc.)
+  // We leverage its 'interactive' prop for visual feedback on hover/focus.
+  width: 100%; // Ensure the Card itself takes full width of the root container
+}
+
+.contentWrapper {
+  display: flex;
+  align-items: center; // Vertically center avatar with the text block
+  gap: var(--spacing-medium);
+  // Padding is handled by the Card component's internal structure (e.g., .cardBody).
+  // This ensures consistency with other Card usages.
+  width: 100%; // Ensure content wrapper spans the full width of the Card's body
+}
+
+.avatarContainer {
+  flex-shrink: 0; // Prevent avatar from shrinking if user name/bio is long
+}
+
+.avatar {
+  // This class is passed to the Avatar component.
+  // The Avatar component itself handles its size, shape, and image/initials display.
+  // Additional "wow" effects like subtle glow or border transitions on hover could be added here
+  // if not sufficiently covered by the Card's 'interactive' styles.
+  // For now, relying on Card's interactivity.
+}
+
+.userInfo {
+  flex-grow: 1; // Allow the user information block to take up remaining space
+  min-width: 0; // Essential for text-overflow: ellipsis to work correctly within a flex item
+  text-align: left; // Standard text alignment for user info
+}
+
+.name {
+  // This class is passed to the Heading component.
+  font-weight: var(--typography-font-weight-semi-bold); // Make the name prominent
+  color: var(--colors-text-primary);
+  margin-top: 0; // Reset any default margin from the Heading component
+  margin-bottom: var(--spacing-xx-small); // Minimal space between name and description
+  
+  // Ensure dynamic sizing for long names using ellipsis
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: var(--typography-line-height-heading);
+}
+
+.description {
+  // This class is passed to the Paragraph component.
+  color: var(--colors-text-secondary); // Subtle text color for description
+  font-size: var(--typography-sizes-body-small);
+  line-height: var(--typography-line-height-condensed);
+  margin-top: 0; // Reset any default margin
+  margin-bottom: 0; // No bottom margin as it's the last textual element
+
+  // Enhance subtlety for long descriptions with multi-line ellipsis (up to 2 lines)
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // For non-WebKit browsers, text might simply wrap or be cut off if it exceeds available space.
+  // A max-height fallback is complex with dynamic font sizes from CSS vars.
+}
+
+// Responsive design: Adjustments for smaller screens like mobile
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .contentWrapper {
+    gap: var(--spacing-small); // Reduce gap between avatar and text on smaller screens
+  }
+
+  .name {
+    // Use a slightly smaller heading size for better fit on mobile devices
+    font-size: var(--typography-sizes-heading-h5); 
+  }
+
+  .description {
+    font-size: var(--typography-sizes-body-x-small); // Make description text even smaller
+    // -webkit-line-clamp remains 2, ensuring consistent line count despite smaller text.
+  }
+}

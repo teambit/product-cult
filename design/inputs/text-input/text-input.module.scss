@@ -1,0 +1,39 @@
+.textInput {
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-default);
+  color: var(--colors-text-primary);
+  background-color: var(--colors-surface-primary);
+  border-width: var(--borders-default-width);
+  border-style: var(--borders-default-style);
+  border-color: var(--colors-border-default);
+  border-radius: var(--borders-radius-medium);
+  padding: var(--spacing-small) var(--spacing-medium);
+  width: 100%;
+  box-sizing: border-box;
+  transition-property: border-color, box-shadow;
+  transition-duration: var(--interactions-transitions-duration-fast);
+  transition-timing-function: var(--interactions-transitions-easing-ease-in-out);
+
+  &::placeholder {
+    color: var(--colors-text-secondary);
+    opacity: 1; // Ensure placeholder is consistently visible
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--colors-border-focus);
+    // Using 2px as a fallback if --borders-focus-offset is not defined or 0
+    box-shadow: 0 0 0 var(--borders-focus-offset, 2px) var(--colors-border-focus);
+  }
+
+  // Consider adding styles for disabled state if applicable
+  //
+  // &:disabled {
+  //   background-color: var(--colors-surface-secondary);
+  //   color: var(--colors-text-secondary);
+  //   border-color: var(--colors-border-subtle);
+  //   cursor: var(--interactions-cursor-disabled);
+  //   opacity: var(--effects-opacity-disabled);
+  // }
+  //
+}

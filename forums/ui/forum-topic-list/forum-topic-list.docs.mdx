@@ -1,0 +1,96 @@
+---
+description: Display a list of forum topics with their titles, authors, and creation dates. Link to the forum topic page.
+labels: ['forum', 'list', 'topic']
+---
+
+## Component Usage
+
+The `ForumTopicList` component displays a list of forum topics for a specific forum. Each topic includes the title, author information, and creation date, with a link to the full topic page.
+
+## Basic Example
+
+This example demonstrates the basic usage of the `ForumTopicList` component, displaying a list of forum topics.
+
+```jsx
+<ForumTopicList forumId="general-discussion" mockTopics={[
+  {
+    id: 'topic-1',
+    forumId: 'general-discussion',
+    title: 'First topic',
+    content: 'Content of first topic',
+    userId: 'user-1',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 'topic-2',
+    forumId: 'general-discussion',
+    title: 'Second topic',
+    content: 'Content of second topic',
+    userId: 'user-2',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+]} />
+```
+
+## Forum Topic List with Many Topics
+
+This example demonstrates displaying a list of forum topics with scroll.
+
+```jsx
+<ForumTopicList forumId="product-feedback" mockTopics={[
+    {
+      id: 'topic-1',
+      forumId: 'product-feedback',
+      title: 'First topic',
+      content: 'Content of first topic',
+      userId: 'user-1',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    },
+    {
+      id: 'topic-2',
+      forumId: 'product-feedback',
+      title: 'Second topic',
+      content: 'Content of second topic',
+      userId: 'user-2',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    },
+    {
+        id: 'topic-3',
+        forumId: 'product-feedback',
+        title: 'Third topic',
+        content: 'Content of third topic',
+        userId: 'user-3',
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      },
+      {
+        id: 'topic-4',
+        forumId: 'product-feedback',
+        title: 'Fourth topic',
+        content: 'Content of fourth topic',
+        userId: 'user-4',
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      },
+      {
+        id: 'topic-5',
+        forumId: 'product-feedback',
+        title: 'Fifth topic',
+        content: 'Content of fifth topic',
+        userId: 'user-5',
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      },
+  ]} limit={5} />
+```
+
+## Empty Forum Topic List
+
+This example demonstrates displaying an empty state.
+
+```jsx
+<ForumTopicList forumId="announcements" mockTopics={[]} />

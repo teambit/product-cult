@@ -1,0 +1,7 @@
+.userIcon {
+  /* No specific styles are needed by default as the base Icon component handles most styling. */
+  /* This class selector is provided for potential future overrides or specific styling needs */
+  /* that are unique to the UserIcon and cannot be achieved through props. */
+  /* Example: if UserIcon needed a specific border or background not typical for all icons. */
+  /* display: inline-flex; */ /* Already handled by base Icon or not strictly needed here */
+}

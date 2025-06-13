@@ -1,0 +1,98 @@
+.createProductPage {
+  width: 100%;
+  padding-top: var(--spacing-x-large);
+  padding-bottom: var(--spacing-x-large);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--spacing-x-large);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  border: 1px solid var(--colors-border-subtle);
+}
+
+.title {
+  font-size: var(--typography-sizes-heading-h2);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--colors-text-primary);
+  text-align: center;
+  margin-bottom: var(--spacing-medium);
+  font-family: var(--typography-font-family);
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x-small);
+}
+
+.label {
+  font-size: var(--typography-sizes-label-default);
+  color: var(--colors-text-secondary);
+  font-weight: var(--typography-font-weight-medium);
+  font-family: var(--typography-font-family);
+}
+
+.submitButton {
+  margin-top: var(--spacing-medium);
+  height: var(--sizes-button-height-large);
+  font-size: var(--typography-sizes-button-large);
+}
+
+.errorMessage,
+.successMessage {
+  padding: var(--spacing-medium);
+  border-radius: var(--borders-radius-medium);
+  text-align: center;
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-default);
+  margin-bottom: var(--spacing-small);
+}
+
+.errorMessage {
+  color: var(--colors-status-negative-default);
+  background-color: var(--colors-status-negative-subtle);
+  border: 1px solid var(--colors-status-negative-default);
+}
+
+.successMessage {
+  color: var(--colors-status-positive-default);
+  background-color: var(--colors-status-positive-subtle);
+  border: 1px solid var(--colors-status-positive-default);
+}
+
+/* Responsive adjustments */
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .form {
+    padding: var(--spacing-large);
+    margin-left: var(--spacing-medium);
+    margin-right: var(--spacing-medium);
+  }
+
+  .title {
+    font-size: var(--typography-sizes-heading-h3);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .form {
+    padding: var(--spacing-medium);
+    margin-left: var(--spacing-small);
+    margin-right: var(--spacing-small);
+  }
+
+  .title {
+    font-size: var(--typography-sizes-heading-h4);
+  }
+
+  .submitButton {
+    height: var(--sizes-button-height-medium);
+    font-size: var(--typography-sizes-button-medium);
+  }
+}

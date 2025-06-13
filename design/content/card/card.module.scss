@@ -1,0 +1,107 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-small);
+  overflow: hidden; // Ensures image corners and content conform to border-radius
+  font-family: var(--typography-font-family);
+  transition:
+    transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+    box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+    border-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  box-sizing: border-box;
+  color: var(--colors-text-primary); // Default text color for the card
+}
+
+.primary {
+  background-color: var(--colors-surface-primary);
+  border: var(--borders-default-width) var(--borders-default-style) var(--colors-border-default);
+}
+
+.secondary {
+  background-color: var(--colors-surface-secondary);
+  border: var(--borders-default-width) var(--borders-default-style) var(--colors-border-subtle);
+}
+
+.ghost {
+  background-color: transparent;
+  border: var(--borders-default-width) var(--borders-default-style) transparent; // Keep layout consistent
+  box-shadow: none;
+}
+
+.interactive {
+  &:hover {
+    cursor: var(--interactions-cursor-pointer);
+    transform: scale(1.02); // Using static value as --interactions-hover-effect-scale is not in the provided list
+    box-shadow: var(--effects-shadows-medium);
+  }
+
+  // Specific border color changes on hover for variants
+  &.primary:hover,
+  &.secondary:hover {
+    border-color: var(--colors-border-focus);
+  }
+
+  &.ghost:hover {
+    // For ghost variant, add a subtle border on hover to indicate interactivity
+    border-color: var(--colors-border-subtle);
+  }
+}
+
+.cardImageContainer {
+  width: 100%;
+  line-height: 0; // Removes potential space below the image if it's treated as inline-block by default
+}
+
+.cardImage {
+  width: 100%;
+  height: auto; // Maintain aspect ratio by default
+  max-height: 250px; // Prevents image from becoming excessively tall
+  object-fit: cover; // Ensures the image covers the container, cropping if necessary
+  display: block; // Ensures image behaves as a block element
+}
+
+.cardHeader {
+  padding: var(--spacing-medium);
+  border-bottom: var(--borders-default-width) var(--borders-default-style) var(--colors-border-subtle);
+  // Text color within header defaults to card's primary text color
+}
+
+.cardBody {
+  padding: var(--spacing-medium);
+  flex-grow: 1; // Allows the body to expand and push footer down if card height is constrained
+  color: var(--colors-text-secondary); // Content text can be secondary for softer contrast
+}
+
+.cardTitle {
+  font-size: var(--typography-sizes-heading-h3);
+  font-weight: var(--typography-font-weight-semi-bold);
+  color: var(--colors-text-primary); // Title text should be primary for emphasis
+  margin-top: 0;
+  margin-bottom: var(--spacing-small);
+  font-family: inherit; // Ensure font consistency
+}
+
+.cardFooter {
+  padding: var(--spacing-medium);
+  border-top: var(--borders-default-width) var(--borders-default-style) var(--colors-border-subtle);
+  color: var(--colors-text-secondary); // Footer text can be secondary
+}
+
+// Responsive adjustments for smaller screens
+@media (max-width: 480px) { // Corresponds to $tablet breakpoint or smaller
+  .cardHeader,
+  .cardBody,
+  .cardFooter {
+    padding: var(--spacing-small); // Reduce padding on smaller screens
+  }
+
+  .cardTitle {
+    font-size: var(--typography-sizes-heading-h4); // Use a slightly smaller heading size for titles
+    margin-bottom: var(--spacing-x-small);
+  }
+
+  .cardImage {
+    max-height: 180px; // Reduce max image height on smaller screens
+  }
+}

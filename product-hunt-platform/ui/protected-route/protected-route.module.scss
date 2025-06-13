@@ -1,0 +1,9 @@
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* A minimum height to ensure the spinner is visible and has some space */
+  min-height: 200px; 
+  box-sizing: border-box;
+}

@@ -1,0 +1,36 @@
+---
+description: A versatile and accessible button component that prioritizes user experience and visual consistency.
+labels: ['button', 'ui', 'navigation']
+---
+
+The Button component can render as a standard HTML button or as a link (anchor tag) with button styling if an `href` is provided.
+Supports multiple visual appearances (primary, secondary, tertiary) and a disabled state.
+
+## Button Appearances
+
+The Button component supports different appearances to convey the importance or context of the action.
+
+```jsx
+<Button appearance="primary">Primary</Button>
+<Button appearance="secondary">Secondary</Button>
+<Button appearance="tertiary">Tertiary</Button>
+```
+
+## Button as a Link
+
+When the `href` prop is provided, the Button component renders as a link, allowing navigation to other pages or resources.
+
+```jsx
+<Button href="/products" appearance="primary">
+  View Products
+</Button>
+```
+
+## Disabled Button
+
+The `disabled` prop disables the Button component, preventing user interaction and visually indicating its inactive state.
+
+```jsx
+<Button disabled appearance="primary">
+  Add to cart
+</Button>

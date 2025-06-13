@@ -1,0 +1,130 @@
+.submitProductPageLayout {
+  // PageLayout already handles background and general page structure
+  // This class is for any overrides or specific layout needs of the PageLayout itself for this page
+}
+
+.submitProductPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-large) 0; 
+  width: 100%;
+  max-width: 700px; 
+  margin: 0 auto; 
+  box-sizing: border-box;
+}
+
+.pageTitle {
+  font-size: var(--typography-sizes-display-small);
+  color: var(--colors-text-primary);
+  font-weight: var(--typography-font-weight-bold);
+  margin-bottom: var(--spacing-small);
+  text-align: center;
+}
+
+.pageSubtitle {
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+  margin-bottom: var(--spacing-x-large);
+  text-align: center;
+  max-width: 600px;
+  line-height: var(--typography-line-height-relaxed);
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  background-color: var(--colors-surface-primary);
+  padding: var(--spacing-x-large);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  border: 1px solid var(--colors-border-subtle);
+  box-sizing: border-box; // Added to prevent overflow with padding/border
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x-small);
+}
+
+.label {
+  font-size: var(--typography-sizes-label-default);
+  color: var(--colors-text-primary);
+  font-weight: var(--typography-font-weight-medium);
+}
+
+.textInput {
+  width: 100%; 
+}
+
+.inputHint {
+    font-size: var(--typography-sizes-body-x-small);
+    color: var(--colors-text-secondary);
+    margin-top: var(--spacing-xx-small);
+}
+
+.errorMessage {
+  color: var(--colors-status-negative-default);
+  background-color: var(--colors-status-negative-subtle);
+  padding: var(--spacing-small);
+  border-radius: var(--borders-radius-medium);
+  font-size: var(--typography-sizes-body-small);
+  text-align: center;
+  border: 1px solid var(--colors-status-negative-default);
+}
+
+.successMessage {
+  color: var(--colors-status-positive-default);
+  background-color: var(--colors-status-positive-subtle);
+  padding: var(--spacing-small);
+  border-radius: var(--borders-radius-medium);
+  font-size: var(--typography-sizes-body-small);
+  text-align: center;
+  border: 1px solid var(--colors-status-positive-default);
+}
+
+.submitButtonContainer {
+  display: flex;
+  justify-content: center; 
+  margin-top: var(--spacing-medium);
+}
+
+.submitButton {
+  min-width: 200px; 
+  padding-left: var(--spacing-large);
+  padding-right: var(--spacing-large);
+}
+
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .submitProductPage {
+    padding: var(--spacing-medium) var(--spacing-small);
+  }
+  .pageTitle {
+    font-size: var(--typography-sizes-heading-h1);
+  }
+  .pageSubtitle {
+    font-size: var(--typography-sizes-body-default);
+    margin-bottom: var(--spacing-large);
+  }
+  .form {
+    padding: var(--spacing-large);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .pageTitle {
+    font-size: var(--typography-sizes-heading-h2);
+  }
+   .form {
+    padding: var(--spacing-medium);
+    gap: var(--spacing-medium);
+  }
+  .submitButton {
+    width: 100%; 
+  }
+}

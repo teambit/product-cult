@@ -1,0 +1,21 @@
+.trackLaunchButtonWrapper {
+  display: inline-flex; // Allows the wrapper to size according to its content
+  align-items: center; // Vertically aligns the button if the wrapper has a specific height
+  position: relative; // Establishes a positioning context for potential advanced styling (e.g., badges, tooltips)
+  //
+  //  Theming variables can be used here for consistent spacing if needed, for example:
+  //  margin: var(--spacing-small);
+  //  padding: var(--spacing-x-small);
+  //
+  transition: transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-out);
+}
+
+//
+// If subtle "wow" effects are desired on the wrapper itself, they can be added here.
+// For example, a slight lift or shadow change on hover:
+//
+// .trackLaunchButtonWrapper:hover {
+//   transform: translateY(-1px);
+//   box-shadow: var(--effects-shadows-xs);
+// }
+//

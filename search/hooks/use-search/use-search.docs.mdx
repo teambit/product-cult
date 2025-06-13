@@ -1,0 +1,65 @@
+---
+description: A React Hook for fetching search results based on a search query.
+labels: ['hook', 'search', 'apollo']
+---
+
+A React Hook to fetch search results based on a search query. Exposes independent hooks for fetching and listing search results.
+
+## Usage
+
+### Basic Search
+
+This example demonstrates how to use the `useSearch` hook to perform a basic search.
+It takes a query and displays the search results.
+
+```tsx
+const SearchComponent = () => {
+  const { results, loading, error } = useSearch({ query: 'example' });
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  return (
+    <ul>
+      {results.map((result) => (
+        <li key={result.id}>{result.title} - {result.description}</li>
+      ))}
+    </ul>
+  );
+};
+```
+### Advanced Search with Options
+This example shows how to use the `useSearch` hook with advanced options such as `limit`, `offset`, and `searchType`.
+```tsx
+const AdvancedSearchComponent = () => {
+  const searchOptions = {
+    query: 'product',
+    limit: 10,
+    offset: 0,
+    searchType: 'product',
+  };
+  const { results, loading, error } = useSearch(searchOptions);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  return (
+    <ul>
+      {results.map((result) => (
+        <li key={result.id}>{result.title} - {result.description}</li>
+      ))}
+    </ul>
+  );
+};
+```
+### Listing Search Types
+This example demonstrates how to use the `useListSearchTypes` hook to fetch and display available search types.
+```tsx
+const SearchTypesComponent = () => {
+  const { searchTypes, loading, error } = useListSearchTypes();
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  return (
+    <ul>
+      {searchTypes.map((type) => (
+        <li key={type.name}>{type.label} - {type.description}</li>
+      ))}
+    </ul>
+  );
+};

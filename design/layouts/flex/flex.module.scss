@@ -1,0 +1,7 @@
+.flex {
+  box-sizing: border-box;
+  // Base styling for the flex container.
+  // Specific flex properties (direction, justify, align, etc.)
+  // are applied inline via the style prop in the component.
+  // The 'display: flex' or 'display: inline-flex' is set by the component's 'display' prop.
+}

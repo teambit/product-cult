@@ -1,0 +1,44 @@
+---
+description: Displays a list of forums with search functionality.
+labels: ['forums', 'page', 'list']
+---
+
+The `ForumsPage` component displays a list of forums, allows users to search for specific forums, and provides feedback on loading states or empty search results.
+It uses `PageLayout` for consistent page structure.
+
+## Basic Usage
+The component fetches and displays a list of forums. If no forums are found, it displays a message indicating that no forums are available.
+When `mockForumsData` is provided, data fetching is skipped, and the provided mock data is used. Search functionality will then work client-side on this mock data.
+
+```jsx
+// Note: In practice, provide an array of Forum instances.
+// See compositions for examples of creating Forum instances.
+// The data below shows the minimal structure required for each forum object if you were constructing them.
+// For actual use with mockForumsData, pass actual Forum instances.
+const exampleMockForums = [
+  // new Forum('General Discussion', 'A place for general chat.', 'iso-date', 'iso-date', undefined, 'forum-1'),
+  // new Forum('Product Feedback', 'Share your thoughts on our products.', 'iso-date', 'iso-date', undefined, 'forum-2')
+];
+
+// To represent the data structure for documentation:
+const plainForumExamples = [
+    { id: 'forum-gen', name: 'General Discussion', description: 'A place for general chat.', createdAt: '2023-01-01T00:00:00Z', updatedAt: '2023-01-01T00:00:00Z', imageUrl: undefined },
+    { id: 'forum-feed', name: 'Product Feedback', description: 'Share your thoughts on our products.', createdAt: '2023-01-01T00:00:00Z', updatedAt: '2023-01-01T00:00:00Z', imageUrl: undefined }
+];
+
+
+<ForumsPage mockForumsData={exampleMockForums /* or actual Forum instances */} />
+```
+## With Search Functionality
+Users can search for forums by typing in the search bar. The list of forums is dynamically updated based on the search term. If `mockForumsData` is used, searching is performed client-side. Otherwise, search is typically handled by the backend via the `useListForums` hook.
+```jsx
+// Using the same plainForumExamples structure for illustration.
+// Pass actual Forum instances for mockForumsData.
+<ForumsPage mockForumsData={exampleMockForums /* or actual Forum instances */} />
+```
+## Custom Title
+The page title can be customized using the `pageTitle` prop. This allows for more specific and context-aware titles depending on where the component is used.
+```jsx
+// Using the same plainForumExamples structure for illustration.
+// Pass actual Forum instances for mockForumsData.
+<ForumsPage pageTitle="Community Forums" mockForumsData={exampleMockForums /* or actual Forum instances */} />

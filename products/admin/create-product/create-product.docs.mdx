@@ -1,0 +1,41 @@
+---
+description: An admin page for creating new products, featuring a form with fields for product name, description, image URL, and category. It uses the useProducts hook to handle product creation.
+labels: ['form', 'admin', 'product', 'create']
+---
+
+## Component Overview
+The `CreateProductPage` component provides an interface for administrators to create new product listings. It includes input fields for essential product details and leverages the `useProducts` hook to manage the product creation process.
+
+## Basic Usage
+Here's a basic example demonstrating how to use the `CreateProductPage` component:
+
+```jsx
+<CreateProductPage />
+```
+This will render the component with all the necessary form fields for creating a new product.
+## Styled Create Product Page
+This example demonstrates applying custom styles and classes to the `CreateProductPage`.
+```jsx
+<CreateProductPage
+  className="custom-create-product-page-style"
+  style={{ marginTop: 'var(--spacing-large)' }}
+/>
+```
+```css
+.custom-create-product-page-style {
+  border: 2px dashed var(--colors-primary-default);
+  padding: var(--spacing-medium);
+  background-color: var(--colors-surface-secondary);
+}
+.custom-create-product-page-style .form {
+  box-shadow: var(--effects-shadows-x-large);
+}
+```
+This configuration allows the `CreateProductPage` to inherit styling from the specified CSS classes and inline styles, allowing for flexible customization of its appearance.
+## Handling Category Loading and Error States
+This example illustrates how the component handles loading and error states when fetching product categories.
+If categories load successfully (even an empty list), the relevant state will be shown.
+```jsx
+<CreateProductPage />
+```
+The product categories dropdown will show "Loading categories..." if the `useListProductCategories` hook is in a loading state, or an error if it encounters an issue.

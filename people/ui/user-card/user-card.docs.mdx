@@ -1,0 +1,46 @@
+---
+description: A visually engaging user card component designed for lists and grids, featuring an interactive avatar and dynamic user information.
+labels: ['user card', 'profile', 'card', 'ui']
+---
+
+## Basic User Card
+
+A simple implementation of the `UserCard` component, displaying a user's avatar, name, and bio.
+
+```jsx
+<UserCard
+  userProfile={{
+    userId: 'user-1',
+    name: 'Alex Johnson',
+    bio: 'Founder of InnovateHub. Passionate about AI and product development.',
+    imageUrl: 'https://images.unsplash.com/photo-1521119989659-a83eee488004?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwxfDF8fGJsdWV8MTc0OTU5ODYyMXww&ixlib=rb-4.1.0',
+  }}
+/>
+```
+## Interactive User Card
+This example demonstrates the interactive capabilities of the `UserCard`, with handlers for avatar and name clicks.
+```jsx
+<UserCard
+  userProfile={{
+    userId: 'user-interactive-1',
+    name: 'Chris Takahashi',
+    bio: 'Early adopter & tech enthusiast. Always on the lookout for the next big thing in SaaS.',
+    imageUrl: 'https://images.unsplash.com/photo-1660314272113-bcd96af88a86?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwzfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwxfDF8fGJsdWV8MTc0OTU5ODYyMXww&ixlib=rb-4.1.0',
+  }}
+  onAvatarClick={(userId) => alert(`Avatar clicked for user: ${userId}`)}
+  onNameClick={(userId) => alert(`Name clicked for user: ${userId}`)}
+/>
+```
+## Compact User Card Variations
+Showcases different sizes and configurations of the `UserCard`, including a card without a bio and a smaller avatar size.
+```jsx
+<UserCard
+  userProfile={{
+    userId: 'user-compact-1',
+    name: 'Maria Garcia',
+    bio: '',
+    imageUrl: 'https://images.unsplash.com/photo-1651793058237-e81b8e2a0304?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHw0fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwxfDF8fGJsdWV8MTc0OTU5ODYyMXww&ixlib=rb-4.1.0',
+  }}
+  avatarSize="medium"
+  nameHeadingLevel={4}
+/>

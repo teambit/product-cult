@@ -1,0 +1,118 @@
+.reviewCard {
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  padding: var(--spacing-medium);
+  box-shadow: var(--effects-shadows-medium);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  font-family: var(--typography-font-family);
+  color: var(--colors-text-primary);
+  transition: transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-out),
+              box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-out);
+  border: 1px solid var(--colors-border-subtle);
+  box-sizing: border-box; // Added to ensure padding/border are included in width/height
+}
+
+.reviewCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--effects-shadows-large);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-medium);
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  flex-grow: 1;
+  min-width: 0; // Prevents text overflow issues in flex children
+}
+
+.authorDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0; // Prevents text overflow issues in flex children
+}
+
+.authorName {
+  font-weight: var(--typography-font-weight-semi-bold);
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-xx-small);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reviewDate {
+  font-size: var(--typography-sizes-body-x-small);
+  color: var(--colors-text-secondary);
+  line-height: var(--typography-line-height-condensed);
+}
+
+.rating {
+  font-size: var(--typography-sizes-body-large); // Made stars larger for visual impact
+  color: var(--colors-status-warning-default); // Use warning color for stars, common practice
+  white-space: nowrap;
+  line-height: 1; // Ensure stars align well if text is beside them
+  padding-top: var(--spacing-xx-small); // Align better with author name
+}
+
+.comment {
+  color: var(--colors-text-primary);
+  font-size: var(--typography-sizes-body-default);
+  line-height: var(--typography-line-height-relaxed);
+  word-wrap: break-word; // Ensure long words without spaces break
+  overflow-wrap: break-word; // Standard property for word breaking
+}
+
+.loadingText {
+  font-size: var(--typography-sizes-body-small);
+  color: var(--colors-text-secondary);
+  font-style: italic;
+}
+
+.avatarPlaceholder {
+  width: var(--sizes-avatar-medium);
+  height: var(--sizes-avatar-medium);
+  border-radius: var(--borders-radius-circle);
+  background-color: var(--colors-surface-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .reviewCard {
+    padding: var(--spacing-small);
+    gap: var(--spacing-small);
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch; // Make rating full width on mobile
+    gap: var(--spacing-x-small);
+  }
+
+  .rating {
+    font-size: var(--typography-sizes-body-medium); // Slightly smaller stars on mobile
+    text-align: left; // Align rating to left below author info
+    padding-top: 0;
+    padding-left: calc(var(--sizes-avatar-medium) + var(--spacing-small)); // Indent to align with text next to avatar
+  }
+
+  .comment {
+    font-size: var(--typography-sizes-body-small);
+  }
+
+  .authorName {
+    // Allow more space for name on mobile if needed
+  }
+}

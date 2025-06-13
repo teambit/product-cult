@@ -1,0 +1,80 @@
+.forumTopicSearchResultItem {
+  display: block;
+  padding: var(--spacing-medium);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-small);
+  text-decoration: none;
+  transition: transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  cursor: var(--interactions-cursor-pointer);
+  border: var(--borders-default-width) var(--borders-default-style) var(--colors-border-subtle); // Subtle border for definition
+  box-sizing: border-box; // Ensure padding and border don't cause overflow
+}
+
+.forumTopicSearchResultItem:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--effects-shadows-medium);
+  border-color: var(--colors-primary-default); // Highlight border on hover
+}
+
+.forumTopicSearchResultItem:active {
+  transform: translateY(-1px);
+  box-shadow: var(--effects-shadows-xs);
+}
+
+.title {
+  color: var(--colors-text-primary); 
+  margin-top: 0;
+  margin-bottom: var(--spacing-small);
+  font-weight: var(--typography-font-weight-semi-bold); // Ensure title is prominent
+}
+
+.description {
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-default);
+  line-height: var(--typography-line-height-base);
+  margin-bottom: 0;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-box-orient: vertical;
+
+  @supports not (-webkit-line-clamp: 1) {
+    max-height: calc(var(--typography-line-height-base) * 1em * 3); // Fallback, 1em refers to current font-size
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .forumTopicSearchResultItem {
+    padding: var(--spacing-small);
+  }
+
+  .title {
+    margin-bottom: var(--spacing-x-small);
+    /* Visual level of Heading component should ideally adapt via theme or props if needed */
+  }
+
+  .description {
+    -webkit-line-clamp: 2;
+    font-size: var(--typography-sizes-body-small);
+    @supports not (-webkit-line-clamp: 1) {
+      max-height: calc(var(--typography-line-height-base) * 1em * 2);
+    }
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .description {
+    font-size: var(--typography-sizes-body-x-small);
+    -webkit-line-clamp: 2;
+    @supports not (-webkit-line-clamp: 1) {
+      max-height: calc(var(--typography-line-height-base) * 1em * 2);
+    }
+  }
+}

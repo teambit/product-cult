@@ -1,0 +1,88 @@
+.forumsPage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  font-family: var(--typography-font-family);
+  color: var(--colors-text-primary);
+  width: 100%;
+}
+
+.searchBarContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px; // Limit search bar width for better aesthetics
+  margin-bottom: var(--spacing-medium); // Add some space below search bar
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-medium);
+  padding: var(--spacing-x-small) var(--spacing-small);
+  box-shadow: var(--effects-shadows-small);
+  border: 1px solid var(--colors-border-subtle);
+  transition: box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  box-sizing: border-box;
+}
+
+.searchBarContainer:focus-within {
+  box-shadow: var(--effects-shadows-primary);
+  border-color: var(--colors-primary-default);
+}
+
+.searchInput {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: var(--typography-sizes-body-default);
+  padding: var(--spacing-small);
+  background-color: transparent;
+  color: var(--colors-text-primary);
+  font-family: var(--typography-font-family);
+  box-sizing: border-box;
+}
+
+.searchInput::placeholder {
+  color: var(--colors-text-secondary);
+  opacity: var(--effects-opacity-faint);
+}
+
+.searchIcon {
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-heading-h5); // Equivalent to ~20px
+  margin-right: var(--spacing-x-small);
+}
+
+.messageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-x-large);
+  text-align: center;
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+  min-height: 200px; // Ensure some space for the message
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+}
+
+.loadingSpinner {
+  border: 4px solid var(--colors-surface-secondary); // Light grey
+  border-top: 4px solid var(--colors-primary-default); // Blue
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: var(--spacing-large) auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.forumListWrapper {
+  width: 100%;
+}

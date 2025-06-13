@@ -1,0 +1,36 @@
+---
+description: A component to display a list of product reviews in grid or list layout.
+labels: ['review', 'list', 'ui']
+---
+
+The `ReviewList` component displays a list of product reviews, providing options for grid and list layouts. It's designed to be responsive and adaptable to different screen sizes.
+
+## Grid Layout Example
+
+This example demonstrates the `ReviewList` component rendering reviews in a grid layout. The grid adapts to different screen sizes, displaying reviews in multiple columns on larger screens.
+
+```jsx
+<ReviewList reviews={[
+  { id: '1', productId: 'prod-1', userId: 'user-1', rating: 5, comment: 'Great product!', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(), status: 'approved' },
+  { id: '2', productId: 'prod-2', userId: 'user-2', rating: 4, comment: 'Good product.', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(), status: 'approved' },
+  { id: '3', productId: 'prod-3', userId: 'user-3', rating: 3, comment: 'Average product.', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(), status: 'approved' },
+]} layout="grid" />
+```
+
+## List Layout Example
+
+This example showcases the `ReviewList` component displaying reviews in a list layout. The reviews are arranged in a single column, making it suitable for mobile views or scenarios where a more linear presentation is preferred.
+
+```jsx
+<ReviewList reviews={[
+  { id: '1', productId: 'prod-1', userId: 'user-1', rating: 5, comment: 'Excellent service!', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(), status: 'approved' },
+  { id: '2', productId: 'prod-2', userId: 'user-2', rating: 4, comment: 'Very helpful team.', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(), status: 'approved' },
+]} layout="list" />
+```
+
+## Empty State Example
+
+This example shows how the `ReviewList` component handles the scenario where there are no reviews to display. It renders a placeholder message indicating that no reviews are currently available.
+
+```jsx
+<ReviewList reviews={[]} />

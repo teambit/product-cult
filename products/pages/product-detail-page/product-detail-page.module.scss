@@ -1,0 +1,108 @@
+.productDetailPageWrapper {
+  // This class is applied to the PageLayout component.
+  // PageLayout handles its own background, overall structure, and content padding.
+}
+
+.productDetailContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  width: 100%; // Ensures it utilizes available width within PageLayout's content area.
+
+  @media (min-width: var(--layout-breakpoints-laptop)) {
+    flex-direction: row;
+    gap: var(--spacing-x-large);
+  }
+}
+
+.gallery {
+  flex: 1 1 40%; // Flex basis 40%, allows growing and shrinking.
+  max-width: 600px; // Maximum width for the image container.
+  width: 100%; // Full width on smaller screens before row layout.
+
+  .productImage {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3; // Consistent aspect ratio for visual appeal.
+    object-fit: cover; // Ensures image covers the area, may crop.
+    border-radius: var(--borders-radius-large);
+    box-shadow: var(--effects-shadows-medium);
+    background-color: var(--colors-surface-secondary); // Placeholder background while image loads.
+  }
+}
+
+.details {
+  flex: 1 1 60%; // Flex basis 60%.
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium); // Spacing between detail elements.
+  padding-top: var(--spacing-small); // Slight padding on top when stacked on mobile.
+
+  @media (min-width: var(--layout-breakpoints-laptop)) {
+    padding-top: 0; // Reset padding for row layout.
+  }
+
+  .productName {
+    // Styling primarily comes from the Heading component.
+    // This class can be used for contextual margin overrides if necessary.
+    // For example: margin-bottom: var(--spacing-x-small);
+  }
+
+  .productPrice {
+    font-size: var(--typography-sizes-heading-h3); // Prominent price display.
+    font-weight: var(--typography-font-weight-bold);
+    color: var(--colors-primary-default); // Use primary color for emphasis.
+    margin-bottom: var(--spacing-small); // Space below the price.
+  }
+
+  .productDescription {
+    // Styling primarily comes from the Paragraph component.
+    line-height: var(--typography-line-height-relaxed); // Enhanced readability for longer text.
+    color: var(--colors-text-secondary);
+  }
+
+  .actionsContainer {
+    margin-top: var(--spacing-medium); // Space above the action button(s).
+    display: flex; // Allows for multiple actions side-by-side in the future.
+    gap: var(--spacing-medium);
+  }
+
+  .addToCartButton {
+    // Styling primarily comes from the Button component.
+    // This class can be used for alignment or width constraints if needed.
+    // For example: align-self: flex-start;
+  }
+}
+
+.loadingState,
+.errorState,
+.notFoundState {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 40vh; // Ensures the state message is clearly visible and takes up space.
+  width: 100%;
+  padding: var(--spacing-large); // Ample padding around the message.
+  box-sizing: border-box; // Prevents padding from expanding total width beyond 100%.
+}
+
+.loadingState > p,
+.errorState > p,
+.notFoundState > p {
+  // Styling for the Paragraph component when used inside these states.
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+}
+
+
+// Responsive adjustments for smaller screens.
+@media (max-width: calc(var(--layout-breakpoints-laptop) - 1px)) {
+  .gallery {
+    max-width: 100%; // Gallery takes full width.
+  }
+  .details {
+    max-width: 100%; // Details section takes full width.
+  }
+}

@@ -1,0 +1,42 @@
+.spinner {
+  display: inline-block;
+  box-sizing: border-box;
+  border-style: solid;
+  /* Default color, overridden by inline style if 'color' prop is provided */
+  /* One side is transparent to create the spinning effect */
+  border-color: var(--colors-primary-default) var(--colors-primary-default) var(--colors-primary-default) transparent;
+  border-radius: var(--borders-radius-circle); /* Typically 50% for a circle */
+  animation: spin 0.75s linear infinite;
+  vertical-align: middle; /* Ensures it aligns well with text or other inline elements */
+}
+
+/* Size variations */
+.small {
+  width: 16px;
+  height: 16px;
+}
+
+.medium {
+  width: 24px;
+  height: 24px;
+}
+
+.large {
+  width: 32px;
+  height: 32px;
+}
+
+.xLarge {
+  width: 48px;
+  height: 48px;
+}
+
+/* Spin animation keyframes */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

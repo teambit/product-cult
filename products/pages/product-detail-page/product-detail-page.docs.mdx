@@ -1,0 +1,27 @@
+---
+description: Displays detailed information about a specific product. It fetches product data using its ID and shows its image, name, description, price, and an option to add it to the cart.
+labels: ['product', 'detail', 'page']
+---
+
+## Displays Product Successfully
+
+This example demonstrates the successful rendering of a product's details, including its image, name, description, and price. It also includes an "Add to Cart" button.
+
+```jsx
+<MockProvider>
+  <ProductDetailPage productId="prod-123" mockProductData={mockProduct1} />
+</MockProvider>
+```
+## Displays Product With Long Description
+This example shows how the component handles products with long descriptions, ensuring the layout remains readable and user-friendly.
+```jsx
+<MockProvider>
+  <ProductDetailPage productId="prod-789-long" mockProductData={mockProductLongDescription} />
+</MockProvider>
+```
+## Displays Product Not Found
+This example illustrates the scenario where a product with the specified ID is not found. It displays a "Product not found" message to the user.
+```jsx
+<MockProvider>
+  <ProductDetailPage productId="non-existent-id" mockProductData={undefined} />
+</MockProvider>

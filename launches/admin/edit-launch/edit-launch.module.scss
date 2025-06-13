@@ -1,0 +1,111 @@
+.editLaunchPageContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-large) var(--spacing-medium);
+  font-family: var(--typography-font-family);
+  color: var(--colors-text-primary);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pageTitle {
+  font-size: var(--typography-sizes-heading-h2);
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-x-large);
+  font-weight: var(--typography-font-weight-bold);
+  text-align: center;
+}
+
+.form {
+  background-color: var(--colors-surface-primary);
+  padding: var(--spacing-x-large);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  width: 100%;
+  max-width: 700px; // Max width for the form itself
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  border: 1px solid var(--colors-border-subtle);
+  box-sizing: border-box; // Added to prevent overflow with padding and width 100%
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x-small);
+}
+
+.label {
+  font-size: var(--typography-sizes-label-default);
+  color: var(--colors-text-secondary);
+  font-weight: var(--typography-font-weight-medium);
+  margin-bottom: var(--spacing-xx-small);
+}
+
+.textInput {
+  // TextInput component's own styles will apply.
+  // We can add margin or width adjustments if needed for layout.
+  // Example: width: 100%; is usually default for TextInput from example
+}
+
+.submitButton {
+  margin-top: var(--spacing-medium);
+  min-width: 180px; // Give button a decent minimum width
+  align-self: flex-start; // Align button to the left
+}
+
+.loading,
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-size: var(--typography-sizes-body-large);
+  padding: var(--spacing-large);
+  text-align: center;
+  width: 100%;
+}
+
+.loading {
+  color: var(--colors-text-secondary);
+  // Consider adding a visual spinner if one was available
+}
+
+.error {
+  color: var(--colors-status-negative-default);
+  background-color: var(--colors-status-negative-subtle);
+  border: 1px solid var(--colors-status-negative-default);
+  border-radius: var(--borders-radius-medium);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .form {
+    padding: var(--spacing-large);
+  }
+
+  .pageTitle {
+    font-size: var(--typography-sizes-heading-h3);
+    margin-bottom: var(--spacing-large);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .editLaunchPageContent {
+    padding: var(--spacing-medium) var(--spacing-small);
+  }
+  .form {
+    padding: var(--spacing-medium);
+  }
+  .pageTitle {
+    font-size: var(--typography-sizes-heading-h4);
+  }
+  .submitButton {
+    width: 100%; // Full width button on mobile
+    align-self: center;
+  }
+}

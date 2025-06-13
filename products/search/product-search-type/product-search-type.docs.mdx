@@ -1,0 +1,43 @@
+---
+description: Registers the product content type with the search aspect.
+labels: ['search', 'product', 'type']
+---
+
+This component registers the "products" search type, enabling product-specific search functionality within the application. It includes a configuration entry (`productSearchTypeEntry`) and a UI component (`ProductSearchSpecificUI`) that is rendered when the "products" search type is active.
+
+## Basic Usage
+
+This example shows how to use the `ProductSearchType` component to register the product content type with the search aspect.
+To make `ProductSearchType` and `productSearchTypeEntry` available, you would typically import them from `'./product-search-type.js'`.
+
+```js
+// Example of registering the search type (assuming productSearchTypeEntry is imported):
+// import { SearchBrowser } from '@infinity/search.search';
+// SearchBrowser.registerSearchTypeComponent(productSearchTypeEntry);
+
+// Example of rendering the ProductSearchType component (assuming ProductSearchType is imported):
+<ProductSearchType />
+```
+
+## Standalone Product Search UI
+
+This example demonstrates the `ProductSearchSpecificUI` component in isolation, which is the UI rendered when the "products" search type is active.
+The `productSearchTypeEntry` (which you would import from `'./product-search-type.js'`) provides access to this UI component.
+
+```js
+// Assuming productSearchTypeEntry is imported and available
+const SpecificUIComponent = productSearchTypeEntry.component;
+
+<SpecificUIComponent />
+```
+
+## Customizing the Product Search UI
+
+The `ProductSearchSpecificUI` component can be customized with CSS classes and styles.
+Again, you would access `productSearchTypeEntry.component` after importing `productSearchTypeEntry`.
+
+```js
+// Assuming productSearchTypeEntry is imported and available
+const SpecificUIComponent = productSearchTypeEntry.component;
+
+<SpecificUIComponent className="custom-class" style={{ backgroundColor: 'var(--colors-surface-secondary)' }} />

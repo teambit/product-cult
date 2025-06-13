@@ -1,0 +1,66 @@
+---
+description: A button component that allows users to track and get notifications about a specific launch.
+labels: ['button', 'tracking', 'launch', 'notification']
+---
+
+## Component usage
+
+The `LaunchTrackingButton` component allows users to track a specific launch and receive notifications.
+It toggles between "Track Launch" and "Stop Tracking" states.
+
+### Default Untracked State
+This shows the `LaunchTrackingButton` in its default state (not tracked).
+Clicking it will toggle its appearance.
+
+```jsx
+<MockProvider>
+  <LaunchTrackingButton
+    launchId="launch-alpha-123"
+    userId="user-visitor-001"
+  />
+</MockProvider>
+```
+### Initially Tracked State
+This button is initialized as 'tracked'.
+Clicking it will change its state to 'untracked'.
+```jsx
+<MockProvider>
+  <LaunchTrackingButton
+    launchId="launch-omega-456"
+    userId="user-follower-002"
+    initialTracked={true}
+  />
+</MockProvider>
+```
+### Button with onTrackChange Callback
+Clicking this button will trigger an alert and log to the console, demonstrating the `onTrackChange` callback with custom notification preferences.
+```jsx
+const handleTrackChange = (
+  tracked: boolean,
+  launchId: string,
+  userId: string,
+  preferences: NotificationPreferences
+) => {
+  // eslint-disable-next-line no-alert
+  alert(
+    `Launch Tracking Update:
+    Launch ID: ${launchId}
+    User ID: ${userId}
+    Now Tracked: ${tracked}
+    Notification Prefs: Email ${preferences.emailEnabled}, Push ${preferences.pushEnabled}, In-App ${preferences.inAppEnabled}`
+  );
+  console.log('TrackChange Callback Fired:', { tracked, launchId, userId, preferences });
+};
+const customNotificationPreferences = {
+  emailEnabled: false,
+  pushEnabled: true,
+  inAppEnabled: true,
+};
+<MockProvider>
+  <LaunchTrackingButton
+    launchId="launch-gamma-789"
+    userId="user-interactive-003"
+    initialNotificationPreferences={customNotificationPreferences}
+    onTrackChange={handleTrackChange}
+  />
+</MockProvider>

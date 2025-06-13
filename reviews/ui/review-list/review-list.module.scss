@@ -1,0 +1,96 @@
+.reviewListContainer {
+  box-sizing: border-box;
+}
+
+.gridLayout {
+  display: grid;
+  gap: var(--spacing-large);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); // Mobile-first: 1 column, stretches
+
+  // Tablet: 2 columns or more if space allows
+  @media (min-width: 600px) { // Adjusted breakpoint for better 2-column layout
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+  
+  // Laptop: 2-3 columns
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  }
+
+  // Desktop and larger: 3-4 columns
+   @media (min-width: 1280px) {
+    gap: var(--spacing-x-large); // Slightly larger gap on bigger screens
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  }
+}
+
+.listLayout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+}
+
+// Styles for individual list items, ensuring they behave well within grid/flex
+.reviewListItem {
+  box-sizing: border-box;
+  display: flex; // Ensures ReviewCard inside stretches if needed
+  flex-direction: column; // Aligns with ReviewCard's typical structure
+}
+
+// Class passed to ReviewCard component
+.reviewCardElement {
+  box-sizing: border-box; // Added to prevent overflow if padding/border are applied to ReviewCard
+  width: 100%; // Ensures the card takes full width of its parent list item
+  height: 100%; // Allows card to fill height if list item has fixed height (not typical here)
+  display: flex; // Ensures internal card content can utilize flex if needed
+  flex-direction: column; // Common for card layouts
+}
+
+// Enhanced Empty State Styling
+.emptyStateContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xx-large) var(--spacing-medium); // Generous padding
+  text-align: center;
+  background-color: var(--colors-surface-primary); // Slightly off-main background
+  border-radius: var(--borders-radius-large);
+  min-height: 300px;
+  border: 1px dashed var(--colors-border-subtle);
+  box-shadow: var(--effects-shadows-xs);
+  margin: var(--spacing-medium) 0; // Provide some margin if used inline
+  box-sizing: border-box;
+}
+
+.emptyStateContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-medium);
+}
+
+.emptyStateIconPlaceholder {
+  // Basic placeholder for an icon; replace with actual SVG or font icon
+  display: block;
+  width: var(--sizes-icon-x-large);
+  height: var(--sizes-icon-x-large);
+  background-color: var(--colors-surface-secondary);
+  border-radius: var(--borders-radius-circle);
+  opacity: var(--effects-opacity-faint);
+  // In a real scenario, this would be an <svg> or <i> tag with an icon
+  // Example: content: '📝'; font-size: var(--typography-sizes-display-small);
+}
+
+.emptyStateText {
+  font-size: var(--typography-sizes-heading-h5);
+  color: var(--colors-text-primary);
+  font-weight: var(--typography-font-weight-medium);
+  font-family: var(--typography-font-family);
+}
+
+.emptyStateSubtext {
+  font-size: var(--typography-sizes-body-default);
+  color: var(--colors-text-secondary);
+  font-family: var(--typography-font-family);
+  max-width: 400px; // Keep subtext from getting too wide
+}

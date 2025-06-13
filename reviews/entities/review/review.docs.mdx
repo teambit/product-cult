@@ -1,0 +1,91 @@
+---
+description: A product review entity with details like product ID, user ID, rating, comment, and timestamp.
+labels: ['review', 'entity']
+---
+
+A component for a product Review entity, supports serialization and de-serialization of Review objects and can be used from
+both backend and frontend.
+
+## Get started
+
+Install and use the component in your code:
+
+```ts
+// const { Review } = require('@bit/review'); // Or your configured path
+// Assuming Review is available or imported as shown in your project's setup.
+const review = Review.from({
+  id: 'review-123',
+  productId: 'product-456',
+  userId: 'user-789',
+  rating: 4,
+  comment: 'I really enjoyed this product!',
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+  status: 'approved'
+});
+```
+
+## Mock data
+
+You can use review mock data for development and testing purposes using the `mockReview` and `mockReviews` APIs.
+
+```ts
+// Assuming mockReview and mockReviews are available or imported.
+const review = mockReview();
+console.log(review);
+const reviews = mockReviews();
+console.log(reviews);
+```
+
+## Usage examples
+
+### Creating a Review Object
+
+This example demonstrates how to create a new `Review` object using the `Review.from()` method.
+
+```ts
+// Assuming Review is available or imported.
+const reviewData = {
+  id: 'review-456',
+  productId: 'product-789',
+  userId: 'user-101',
+  rating: 5,
+  comment: 'The best product ever!',
+  createdAt: '2024-01-01T12:00:00.000Z',
+  updatedAt: '2024-01-02T12:00:00.000Z',
+  status: 'approved'
+};
+const review = Review.from(reviewData);
+console.log(review.toObject());
+```
+
+### Using Mock Reviews
+
+This example shows how to use `mockReview` to generate a mock review for testing or development.
+
+```ts
+// Assuming mockReview is available or imported.
+const mock = mockReview({ comment: 'Custom comment for testing.' });
+console.log(mock.toObject());
+```
+
+### Displaying a Review
+
+This example shows how to display a review.
+The Review component receives review data as props and renders the details.
+
+```tsx
+// Assuming you have a Review display component (e.g., in React)
+// and mockReview is available or imported.
+const review = mockReview();
+
+const ReviewComponent = ({ review }) => (
+  <div>
+    <h3>Review for Product: {review.productId}</h3>
+    <p>Rating: {review.rating}</p>
+    <p>{review.comment}</p>
+  </div>
+);
+
+// Example usage of the display component:
+// <ReviewComponent review={review} />;

@@ -1,0 +1,79 @@
+---
+description: A suite of React hooks for fetching, creating, updating, and deleting reviews using GraphQL.
+labels: ['hook', 'react', 'review', 'graphql']
+---
+
+This collection of React hooks provides a comprehensive solution for managing review data in your application. It includes hooks for listing, retrieving, creating, updating, and deleting reviews, all powered by GraphQL.
+
+## Usage
+
+### Listing Reviews
+
+The `useListReviews` hook fetches a list of reviews based on provided options.
+
+```tsx
+const ReviewList = () => {
+  const { reviews, loading, error } = useListReviews({ options: { productId: 'someProductId' } });
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  return (
+    <ul>
+      {reviews?.map(review => (
+        <li key={review.id}>{review.comment} - Rating: {review.rating}</li>
+      ))}
+    </ul>
+  );
+};
+```
+
+This example demonstrates how to use the `useListReviews` hook to display a list of reviews for a specific product.
+
+### Creating a Review
+
+The `useCreateReview` hook allows you to create a new review.
+
+```tsx
+const CreateReviewForm = () => {
+  const [createReview, { loading, error }] = useCreateReview();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const productId = formData.get('productId');
+    const rating = parseInt(formData.get('rating'));
+    const comment = formData.get('comment');
+    await createReview({ productId, rating, comment });
+  };
+  return (
+    <form onSubmit={handleSubmit}>
+      {/* Form inputs for productId, rating, and comment */}
+      <button type="submit" disabled={loading}>
+        Submit Review
+      </button>
+      {error && <p>Error: {error.message}</p>}
+    </form>
+  );
+};
+```
+
+This example showcases how to use the `useCreateReview` hook within a form to submit a new review.
+
+### Deleting a Review
+
+The `useDeleteReview` hook enables you to delete an existing review.
+
+```tsx
+const DeleteReviewButton = ({ reviewId }) => {
+  const [deleteReview, { loading, error }] = useDeleteReview();
+  const handleDelete = async () => {
+    await deleteReview({ id: reviewId });
+  };
+  return (
+    <button onClick={handleDelete} disabled={loading}>
+      Delete Review
+      {error && <p>Error: {error.message}</p>}
+    </button>
+  );
+};
+```
+
+This example illustrates how to implement a button that, when clicked, deletes a specific review using the `useDeleteReview` hook.

@@ -1,0 +1,44 @@
+---
+description: Displays a user's profile information with customizable tabs.
+labels: ['user profile', 'page', 'profile']
+---
+
+The `UserProfilePage` component displays a user's profile, including their basic information and optional tabs for additional content.
+It fetches user data using a hook and allows users to view their own profile or the profiles of others.
+
+## Basic Usage
+
+A basic example of displaying a user profile. This will fetch and display the user's name, bio, and other details.
+
+```jsx
+<UserProfilePage userId="user123" />
+```
+
+## User Profile with Tabs
+
+This example shows how to add custom tabs to the user profile page. Each tab can display different types of content, such as the user's products or activity.
+
+```jsx
+const tabs = [
+  {
+    name: 'products',
+    label: 'Products',
+    component: () => <div>Products Content</div>,
+  },
+  {
+    name: 'activity',
+    label: 'Activity',
+    component: () => <div>Activity Content</div>,
+  },
+];
+
+<UserProfilePage userId="user456" tabs={tabs} />
+```
+
+## Displaying Own User Profile
+
+When the `userId` prop is not provided, the component attempts to display the profile of the currently authenticated user.
+This is useful for creating a "My Profile" page where users can view their own information.
+
+```jsx
+<UserProfilePage />

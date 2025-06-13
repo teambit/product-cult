@@ -1,0 +1,248 @@
+.launchDetailsPage {
+  // PageLayout handles overall background and font. This is for page-specific root styling if needed.
+  box-sizing: border-box;
+}
+
+.heroSection {
+  width: 100%;
+  height: 350px;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--colors-text-inverse);
+  box-shadow: var(--effects-shadows-inset); // Subtle inner shadow for depth
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)); // Enhances text contrast
+  z-index: 1;
+}
+
+.heroOverlay {
+  position: relative;
+  z-index: 2;
+  padding: var(--spacing-large);
+  max-width: 900px; // Constrain text width within hero
+}
+
+.launchNameHero {
+  font-size: var(--typography-sizes-display-large);
+  font-weight: var(--typography-font-weight-extra-bold);
+  color: var(--colors-text-inverse) !important;
+  margin-bottom: var(--spacing-medium);
+  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5); // Stronger shadow for readability
+  line-height: var(--typography-line-height-condensed);
+}
+
+.taglineHero {
+  font-size: var(--typography-sizes-heading-h3);
+  font-weight: var(--typography-font-weight-light);
+  color: var(--colors-text-inverse) !important;
+  opacity: 0.9;
+  margin-bottom: 0;
+  line-height: var(--typography-line-height-base);
+}
+
+.mainContent {
+  padding-top: var(--spacing-xx-large); // Space below hero
+  padding-bottom: var(--spacing-xx-large);
+  // PageLayout's contentSlot handles max-width and horizontal centering for .mainContent
+}
+
+.interactiveSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-large);
+  margin-bottom: var(--spacing-xx-large);
+  padding: var(--spacing-large) var(--spacing-medium);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-large); // Prominent shadow for interactive elements
+}
+
+.countdownTimer {
+  width: 100%;
+  max-width: 650px; // Good max width for countdown visibility
+}
+
+.trackingButton {
+  // LaunchTrackingButton has its own styles. These are for layout.
+  // Example: making it wider if needed
+  // min-width: 220px;
+  // padding: var(--spacing-small) var(--spacing-large);
+  // font-size: var(--typography-sizes-button-large);
+}
+
+.aboutSection,
+.detailsSection {
+  margin-bottom: var(--spacing-xx-large);
+  padding: var(--spacing-large);
+  background-color: var(--colors-surface-secondary);
+  border-radius: var(--borders-radius-medium);
+  box-shadow: var(--effects-shadows-medium);
+}
+
+.sectionTitle {
+  font-size: var(--typography-sizes-heading-h2);
+  font-weight: var(--typography-font-weight-semi-bold);
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-large); // Increased margin for better separation
+  padding-bottom: var(--spacing-medium); // Increased padding
+  border-bottom: 2px solid var(--colors-primary-default); // Use primary color for accent
+  display: inline-block; // To make border only as wide as text
+}
+
+.description {
+  font-size: var(--typography-sizes-body-large);
+  line-height: var(--typography-line-height-relaxed);
+  color: var(--colors-text-secondary);
+  white-space: pre-wrap; // Preserve line breaks from description content
+  margin-bottom: var(--spacing-medium); // Ensure space below description text
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); // Slightly larger minmax
+  gap: var(--spacing-large);
+}
+
+.detailItem {
+  padding: var(--spacing-medium);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-medium);
+  border: 1px solid var(--colors-border-subtle);
+  transition: transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-out),
+              box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-out);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x-small);
+}
+
+.detailItem:hover {
+  transform: translateY(-4px) scale(1.02); // Enhanced hover effect
+  box-shadow: var(--effects-shadows-primary); // Use primary shadow on hover
+}
+
+.detailLabel {
+  font-size: var(--typography-sizes-label-default);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--colors-text-accent);
+  margin-bottom: var(--spacing-xx-small);
+  text-transform: uppercase;
+  letter-spacing: var(--typography-letter-spacing-wide);
+}
+
+.detailValue {
+  font-size: var(--typography-sizes-body-default);
+  color: var(--colors-text-primary);
+  word-break: break-word; // Prevent long strings from breaking layout
+  line-height: var(--typography-line-height-base);
+}
+
+.loadingState,
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh; // Ensure it takes up a good portion of the viewport
+  text-align: center;
+  padding: var(--spacing-x-large);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  margin: var(--spacing-large);
+}
+
+.loadingState h2,
+.errorState h1 {
+  margin-bottom: var(--spacing-medium);
+  color: var(--colors-text-primary);
+}
+
+.loadingState p,
+.errorState p {
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+  max-width: 600px;
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-laptop)) { // Approx 1024px
+  .launchNameHero {
+    font-size: var(--typography-sizes-display-medium);
+  }
+  .taglineHero {
+    font-size: var(--typography-sizes-heading-h4);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-tablet)) { // Approx 768px
+  .heroSection {
+    height: 300px;
+  }
+  .launchNameHero {
+    font-size: var(--typography-sizes-display-small);
+  }
+  .taglineHero {
+    font-size: var(--typography-sizes-heading-h5);
+  }
+  .mainContent {
+    padding-top: var(--spacing-large);
+  }
+  .interactiveSection,
+  .aboutSection,
+  .detailsSection {
+    padding: var(--spacing-medium);
+    margin-bottom: var(--spacing-large);
+  }
+  .detailsGrid {
+    grid-template-columns: 1fr; // Stack items on smaller tablets/mobile
+    gap: var(--spacing-medium);
+  }
+  .sectionTitle {
+    font-size: var(--typography-sizes-heading-h3);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) { // Approx 480px
+  .heroSection {
+    height: 250px;
+  }
+  .launchNameHero {
+    font-size: var(--typography-sizes-heading-h1);
+  }
+  .taglineHero {
+    font-size: var(--typography-sizes-heading-h6);
+  }
+  .interactiveSection {
+    padding: var(--spacing-small);
+  }
+  .sectionTitle {
+    font-size: var(--typography-sizes-heading-h4);
+    margin-bottom: var(--spacing-medium);
+    padding-bottom: var(--spacing-x-small);
+  }
+  .description {
+    font-size: var(--typography-sizes-body-default);
+  }
+  .detailItem {
+    padding: var(--spacing-small);
+  }
+  .detailLabel {
+    font-size: var(--typography-sizes-label-small);
+  }
+  .detailValue {
+    font-size: var(--typography-sizes-body-small);
+  }
+}

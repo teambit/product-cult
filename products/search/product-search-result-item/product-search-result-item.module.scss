@@ -1,0 +1,137 @@
+.productSearchResultItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-medium);
+  padding: var(--spacing-medium);
+  background-color: var(--colors-surface-primary);
+  border: 1px solid var(--colors-border-default);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-small);
+  transition: transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              border-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  text-decoration: none;
+  color: inherit; // Inherit text color from parent, Link component might override.
+  cursor: var(--interactions-cursor-pointer);
+  box-sizing: border-box; // Added to ensure padding and border don't cause overflow if width is constrained
+
+  &:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: var(--effects-shadows-medium);
+    border-color: var(--colors-primary-default);
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(1);
+    box-shadow: var(--effects-shadows-xs);
+  }
+}
+
+.imageContainer {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: var(--borders-radius-medium);
+  overflow: hidden;
+  background-color: var(--colors-surface-secondary); // Fallback bg for transparent images or while loading
+  position: relative; // For potential absolute positioning of image overlay/badge in future
+}
+
+.image {
+  // The Image component itself usually handles responsiveness well.
+  // This class is for specific overrides if the default Image component's styles are not sufficient.
+  // Ensuring object-fit from props is applied correctly by the Image component.
+  display: block; // Removes any extra space if Image is inline-block by default
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box; // Added as a safeguard if the Image component or other styles add padding/border
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; // Align content to the top of the flex container
+  min-width: 0; // Prevents flex item overflow issues with long text
+}
+
+.title {
+  // Heading component provides base styling; this class adjusts margin or specific overrides.
+  margin-bottom: var(--spacing-x-small);
+  color: var(--colors-text-primary); // Ensure title color is primary text color
+  font-weight: var(--typography-font-weight-semi-bold); // Slightly bolder for emphasis
+  line-height: var(--typography-line-height-condensed);
+
+  // For single-line truncation if desired, though multi-line is often better for titles.
+  // white-space: nowrap;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+
+  // Multi-line ellipsis for title (e.g., 2 lines)
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: calc(var(--typography-line-height-condensed) * 2 * var(--typography-sizes-heading-h4)); // Approx based on visualLevel H4
+}
+
+.description {
+  // Paragraph component provides base styling.
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-small);
+  line-height: var(--typography-line-height-base);
+  margin-bottom: 0; // Remove default bottom margin from Paragraph if not needed here
+
+  // Multi-line ellipsis for description
+  display: -webkit-box;
+  -webkit-line-clamp: 3; // Show up to 3 lines of description
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: calc(var(--typography-line-height-base) * 3 * var(--typography-sizes-body-small)); // Approximate height
+}
+
+// Responsive adjustments
+@media (max-width: 768px) { // Using a common tablet breakpoint
+  .productSearchResultItem {
+    gap: var(--spacing-small);
+    padding: var(--spacing-small);
+  }
+  .imageContainer {
+    width: 80px;
+    height: 80px;
+  }
+
+  .title {
+    -webkit-line-clamp: 2;
+     max-height: calc(var(--typography-line-height-condensed) * 2 * var(--typography-sizes-heading-h4));
+  }
+
+  .description {
+    -webkit-line-clamp: 2; // Fewer lines for description on smaller screens
+    max-height: calc(var(--typography-line-height-base) * 2 * var(--typography-sizes-body-small));
+  }
+}
+
+@media (max-width: 480px) { // Mobile breakpoint
+  .productSearchResultItem {
+    flex-direction: column;
+    align-items: stretch; // Make items full width in column layout
+  }
+
+  .imageContainer {
+    width: 100%; // Full width image
+    height: 160px; // Or use aspect ratio with padding-bottom
+    margin-bottom: var(--spacing-small); // Space between image and text content
+  }
+
+  .title {
+     // Font size for H4 visualLevel should be responsive from theme, or adjust here if needed
+    -webkit-line-clamp: 2;
+  }
+
+  .description {
+    -webkit-line-clamp: 2;
+  }
+}

@@ -1,0 +1,79 @@
+.loginPageContainer {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--colors-surface-background);
+  padding: var(--spacing-large);
+  box-sizing: border-box;
+}
+
+.loadingContainer {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--colors-surface-background);
+  color: var(--colors-text-primary);
+}
+
+.loginForm {
+  background-color: var(--colors-surface-primary);
+  padding: var(--spacing-x-large);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  width: 100%;
+  max-width: 420px; // Increased max-width for a slightly wider form
+  box-sizing: border-box;
+}
+
+.formTitle {
+  text-align: center;
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-medium); // Reduced bottom margin for tighter layout
+}
+
+.inputField {
+  width: 100%;
+}
+
+.submitButton {
+  width: 100%;
+  margin-top: var(--spacing-small); // Added small margin-top for separation
+  height: var(--sizes-button-height-large); // Using large button height for prominence
+  font-size: var(--typography-sizes-button-large); // Using large button font size
+}
+
+.errorMessage {
+  color: var(--colors-status-negative-default);
+  font-size: var(--typography-sizes-body-small);
+  text-align: center;
+  margin-top: var(--spacing-x-small);
+  margin-bottom: var(--spacing-small);
+  min-height: calc(var(--typography-sizes-body-small) * var(--typography-line-height-base)); // Reserve space
+}
+
+.signupPrompt {
+  text-align: center;
+  font-size: var(--typography-sizes-body-small);
+  color: var(--colors-text-secondary);
+  margin-top: var(--spacing-medium);
+}
+
+.signupLink {
+  color: var(--colors-text-accent);
+  text-decoration: none;
+  font-weight: var(--typography-font-weight-medium);
+}
+
+.signupLink:hover {
+  text-decoration: underline;
+}
+
+// Responsive adjustments
+@media (max-width: 480px) { // $tablet breakpoint
+  .loginForm {
+    padding: var(--spacing-large);
+    max-width: 100%;
+  }
+
+  .formTitle {
+    font-size: var(--typography-sizes-heading-h3); // Slightly smaller title on mobile
+  }
+}

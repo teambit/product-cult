@@ -1,0 +1,66 @@
+---
+labels: ['product-hunt', 'harmony', 'platform']
+description: 'A Product Hunt Harmony platform.'
+---
+
+The Product Hunt platform composition. Composes the Product Hunt platform features into a unified and executable platform.
+
+## Run the platform
+
+Run the Product Hunt platform by running the following commands:
+
+```bash
+bit use product-hunt
+```
+Run the platform:
+```bash
+bit run product-hunt
+```
+Your platform is now listening to url shown in the command output.
+
+## Compose aspects
+
+You can create and compose new Aspects to the Product Hunt platform by adding them to the `aspects` property in `product-hunt.bit-app.ts`:
+
+```ts
+// Example of importing a new aspect
+// import { YourNewFeatureAspect } from '@your-scope/your-new-feature';
+export const ProductHunt = HarmonyPlatform.from({
+  name: 'product-hunt',
+  aspects: [
+    // ... other configured aspects
+    // your new platform feature.
+    // YourNewFeatureAspect,
+  ],
+});
+```
+
+## Rendering Panels
+
+Product Hunt can render panels on the homepage or dashboard to display information. Here's how:
+
+### Example 1: Rendering a News Panel
+
+Display the latest news related to product launches.
+
+```jsx
+// Assuming you have a NewsPanel component
+<NewsPanel newsItems={[{ title: 'New Product Released', content: 'Details about the latest product' }]} />
+```
+
+### Example 2: Rendering a Product List
+
+Showcase a list of featured products.
+
+```jsx
+// Assuming you have a ProductList component
+<ProductList products={[{ name: 'Awesome Product', description: 'Check out this amazing product!' }]} />
+```
+
+### Example 3: Rendering a Search Bar
+
+Integrate a search bar for users to find products easily.
+
+```jsx
+// Assuming you have a SearchBar component
+<SearchBar onSearch={(query) => console.log('Searching for:', query)} />

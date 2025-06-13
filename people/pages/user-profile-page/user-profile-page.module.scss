@@ -1,0 +1,224 @@
+.userProfilePage {
+  // Overall page container, managed by PageLayout for max-width etc.
+}
+
+.stateContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+  padding: var(--spacing-large);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+}
+
+.errorTitle,
+.notFoundTitle {
+  color: var(--colors-status-negative-default);
+  margin-bottom: var(--spacing-medium);
+}
+
+.profileOverview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  padding: var(--spacing-x-large);
+  background: var(--effects-gradients-subtle-surface, var(--colors-surface-primary));
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-large);
+  margin-bottom: var(--spacing-x-large);
+  align-items: center;
+  text-align: center;
+
+  @media (min-width: 768px) { // Replaced $tablet with 768px
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.avatarColumn {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-medium);
+}
+
+.avatar {
+  border: 4px solid var(--colors-surface-background);
+  box-shadow: var(--effects-shadows-primary);
+}
+
+.detailsColumn {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+}
+
+.userName {
+  font-size: var(--typography-sizes-display-small);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-x-small);
+  line-height: var(--typography-line-height-condensed);
+}
+
+.userBio {
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+  line-height: var(--typography-line-height-relaxed);
+  max-width: 60ch; // Improve readability of bio
+}
+
+.userInfoItem {
+  font-size: var(--typography-sizes-body-medium);
+  color: var(--colors-text-secondary);
+  margin-bottom: var(--spacing-xx-small);
+
+  strong {
+    color: var(--colors-text-primary);
+    font-weight: var(--typography-font-weight-medium);
+  }
+
+  a {
+    color: var(--colors-text-accent);
+    &:hover {
+      color: var(--colors-primary-hover);
+    }
+  }
+}
+
+.additionalInfo {
+  margin-top: var(--spacing-small);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x-small);
+}
+
+.socialLinks {
+  margin-top: var(--spacing-medium);
+}
+
+.socialLinksTitle {
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-small);
+  font-weight: var(--typography-font-weight-semi-bold);
+}
+
+.socialLinksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-medium);
+}
+
+.socialLinkItem {
+  font-size: var(--typography-sizes-body-medium);
+  color: var(--colors-text-accent);
+  text-decoration: none;
+  padding: var(--spacing-xx-small) 0;
+
+  &:hover {
+    color: var(--colors-primary-hover);
+    text-decoration: underline;
+  }
+}
+
+.profileActions {
+  flex-shrink: 0;
+  margin-top: var(--spacing-medium);
+
+  @media (min-width: 768px) { // Replaced $tablet with 768px
+    margin-top: 0;
+    margin-left: var(--spacing-large); // Pushes to the far right if detailsColumn grows
+  }
+}
+
+.tabsNav {
+  display: flex;
+  gap: var(--spacing-small);
+  margin-bottom: var(--spacing-large);
+  border-bottom: 1px solid var(--colors-border-subtle);
+  padding-bottom: var(--spacing-medium);
+  flex-wrap: wrap;
+}
+
+.tabButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-x-small);
+  padding: var(--spacing-small) var(--spacing-medium);
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-button-medium);
+  font-weight: var(--typography-font-weight-semi-bold);
+  color: var(--colors-text-secondary);
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: var(--borders-radius-small) var(--borders-radius-small) 0 0;
+  cursor: var(--interactions-cursor-pointer);
+  transition: color var(--interactions-transitions-duration-fast) ease-in-out,
+    border-color var(--interactions-transitions-duration-fast) ease-in-out;
+
+  &:hover {
+    color: var(--colors-text-primary);
+  }
+
+  &:focus-visible {
+    outline: var(--borders-focus-width) var(--borders-focus-style) var(--colors-border-focus);
+    outline-offset: 2px;
+  }
+}
+
+.activeTab {
+  color: var(--colors-primary-default);
+  border-bottom-color: var(--colors-primary-default);
+  font-weight: var(--typography-font-weight-bold);
+}
+
+.tabIcon {
+  width: var(--sizes-icon-medium);
+  height: var(--sizes-icon-medium);
+  // color is inherited via currentColor from button
+}
+
+.tabLabel {
+  line-height: 1;
+}
+
+.tabContent {
+  padding-top: var(--spacing-medium);
+  // Styles for the container of the active tab's content
+}
+
+// Responsive adjustments
+@media (max-width: 599px) { // Replaced $mobile with 599px
+  .profileOverview {
+    padding: var(--spacing-medium);
+    gap: var(--spacing-medium);
+  }
+
+  .userName {
+    font-size: var(--typography-sizes-heading-h2); // Adjust for smaller screens
+  }
+
+  .userBio {
+    font-size: var(--typography-sizes-body-medium);
+  }
+
+  .tabsNav {
+    gap: var(--spacing-x-small);
+  }
+
+  .tabButton {
+    padding: var(--spacing-small);
+    font-size: var(--typography-sizes-button-small);
+  }
+}

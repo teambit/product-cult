@@ -1,0 +1,54 @@
+---
+description: Provides UI controls for filtering content by type and sorting by relevance or date.
+labels: ['search', 'filters', 'ui']
+---
+
+The `SearchFilters` component allows users to refine search results by selecting a content type and a sorting option. It's useful in applications where users need to filter and sort through large amounts of data.
+
+## Basic Usage
+
+The following example demonstrates the basic usage of the `SearchFilters` component with default content types and sort options. When filters are applied, the selected values are displayed.
+
+```jsx
+<SearchFilters
+  onFiltersApplied={(filters) => {
+    // eslint-disable-next-line no-console
+    console.log(filters);
+  }}
+/>
+```
+## Initial Filters
+You can set initial filter values using the `initialFilters` prop. This is useful when you want to persist filter selections or set default filter values.
+```jsx
+<SearchFilters
+  initialFilters={{ contentType: 'products', sortBy: 'date_desc' }}
+  onFiltersApplied={(filters) => {
+    // eslint-disable-next-line no-console
+    console.log(filters);
+  }}
+/>
+```
+## Customization
+The `SearchFilters` component can be customized by providing your own content types and sort options, as well as custom labels and button text.
+```jsx
+const customContentTypes = [
+  { value: 'all', label: 'Everything' },
+  { value: 'apps', label: 'Applications' },
+  { value: 'tools', label: 'Developer Tools' },
+];
+const customSortOptions = [
+  { value: 'trending', label: 'Trending Now' },
+  { value: 'upvotes_high', label: 'Most Upvoted' },
+];
+<SearchFilters
+  title="Refine Results"
+  contentTypeLabel="Show"
+  sortByLabel="Sort by"
+  availableContentTypes={customContentTypes}
+  availableSortOptions={customSortOptions}
+  applyButtonText="Apply"
+  onFiltersApplied={(filters) => {
+    // eslint-disable-next-line no-console
+    console.log(filters);
+  }}
+/>

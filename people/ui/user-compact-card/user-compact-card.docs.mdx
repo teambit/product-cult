@@ -1,0 +1,54 @@
+---
+description: A compact user card component with avatar, name, and optional description.
+labels: ['user', 'card', 'compact', 'profile']
+---
+
+## Basic User Card
+
+This example demonstrates the basic usage of the `UserCompactCard` component with a user's name, bio, and avatar.
+
+```jsx
+<UserCompactCard
+  user={{
+    toObject: () => ({
+      name: 'Alex Johnson',
+      bio: 'Product enthusiast & tech explorer. Loves to build and share.',
+      imageUrl: "https://images.unsplash.com/photo-1652477633088-da74a0225dfc?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwxfDF8fG9yYW5nZXwxNzQ5NTk4NjE3fDA&ixlib=rb-4.1.0",
+      userId: 'user1',
+      createdAt: new Date().toISOString(),
+    }),
+  }}
+/>
+```
+## Interactive User Card with Long Bio
+This example shows an interactive `UserCompactCard` with a longer bio and a click handler. Clicking the card triggers an alert.
+```jsx
+<UserCompactCard
+  user={{
+    toObject: () => ({
+      name: 'Samantha Miller-Smithsonian The Third',
+      bio: 'Passionate innovator dedicated to crafting user-centric digital experiences. Always on the lookout for the next big thing in AI and SaaS. Let\'s connect and build something amazing together! My current focus is on democratizing access to advanced technology.',
+      imageUrl: "https://images.unsplash.com/photo-1652477631519-fcd55def4e18?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwyfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwxfDF8fG9yYW5nZXwxNzQ5NTk4NjE3fDA&ixlib=rb-4.1.0",
+      userId: 'user2',
+      createdAt: new Date().toISOString(),
+    }),
+  }}
+  onClick={(user) => alert(`Clicked on user: ${user.toObject().name}`)}
+  avatarSize="xlarge"
+/>
+```
+## User Card Without Description
+This example demonstrates a `UserCompactCard` without a description. The component gracefully handles missing data.
+```jsx
+<UserCompactCard
+  user={{
+    toObject: () => ({
+      name: 'Ken Adams',
+      bio: '', // Empty bio
+      imageUrl: "https://images.unsplash.com/photo-1606274741559-d322810275c4?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwzfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwxfDF8fG9yYW5nZXwxNzQ5NTk4NjE3fDA&ixlib=rb-4.1.0",
+      userId: 'user3',
+      createdAt: new Date().toISOString(),
+    }),
+  }}
+  avatarSize="medium"
+/>

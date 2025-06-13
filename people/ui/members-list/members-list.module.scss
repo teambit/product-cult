@@ -1,0 +1,36 @@
+.membersListContainer {
+  padding: var(--spacing-large);
+  box-sizing: border-box;
+}
+
+.emptyListContainer {
+  // Styles for when the list is empty, e.g., min-height or a placeholder message (though message is better in JSX).
+  // For now, it will be a padded empty area.
+}
+
+.memberItem {
+  flex-basis: 280px; 
+  flex-grow: 1;
+  max-width: 100%; 
+  display: flex;
+}
+
+@media (max-width: var(--layout-breakpoints-laptop)) {
+  .membersListContainer {
+    padding: var(--spacing-medium);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .membersListContainer {
+    padding: var(--spacing-small);
+  }
+  // On tablets, flex-basis: 280px and flex-wrap will adjust columns.
+  // UserCard's internal responsive styles will also apply.
+}
+
+@media (max-width: 480px) { // Specific mobile breakpoint as per guidelines
+  .memberItem {
+    flex-basis: 100%; // Each card item takes full width for a single-column layout.
+  }
+}

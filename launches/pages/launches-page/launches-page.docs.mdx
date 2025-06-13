@@ -1,0 +1,79 @@
+---
+description: Displays a list of upcoming and past launches.
+labels: ['launches', 'page', 'product']
+---
+
+The `LaunchesPage` component displays a list of upcoming and past launches, separating them into distinct sections. It provides a clear overview of ongoing and future product releases.
+
+## Usage
+
+Here's how to use the `LaunchesPage` component:
+
+```jsx
+<LaunchesPage launches={launchesData} />
+```
+
+## Examples
+
+### Basic Usage
+
+This example shows the `LaunchesPage` component displaying both upcoming and past launches.
+
+```jsx
+const launchesData = [
+  {
+    id: 'launch-1',
+    productId: 'prod-1',
+    name: 'Awesome Product',
+    tagline: 'The future is here!',
+    description: 'A revolutionary product that will change your life.',
+    launchDate: new Date(new Date().setDate(new Date().getDate() + 1)).toISOString(),
+    status: 'upcoming',
+    submittedBy: 'user-1',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 'launch-2',
+    productId: 'prod-2',
+    name: 'Amazing Service',
+    tagline: 'Making life easier.',
+    description: 'An innovative service designed to simplify your daily tasks.',
+    launchDate: new Date(new Date().setDate(new Date().getDate() - 1)).toISOString(),
+    status: 'live',
+    submittedBy: 'user-2',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+];
+<LaunchesPage launches={launchesData} />
+```
+
+### Upcoming Launches Only
+
+This example demonstrates the `LaunchesPage` component displaying only upcoming launches.
+
+```jsx
+const launchesData = [
+  {
+    id: 'launch-1',
+    productId: 'prod-1',
+    name: 'Awesome Product',
+    tagline: 'The future is here!',
+    description: 'A revolutionary product that will change your life.',
+    launchDate: new Date(new Date().setDate(new Date().getDate() + 1)).toISOString(),
+    status: 'upcoming',
+    submittedBy: 'user-1',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+];
+<LaunchesPage launches={launchesData} />
+```
+
+### No Launches
+
+This example showcases the `LaunchesPage` component when there are no launches available.
+
+```jsx
+<LaunchesPage launches={[]} />

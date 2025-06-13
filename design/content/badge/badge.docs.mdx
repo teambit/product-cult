@@ -1,0 +1,40 @@
+---
+description: A versatile and visually distinct badge component for displaying statuses, labels, or categories.
+labels: ['badge', 'ui', 'status']
+---
+
+The `Badge` component is a versatile element for displaying statuses, labels, or categories. It supports different variants, sizes, colors, and an optional icon.
+
+## Usage
+
+### Basic Badge
+
+A simple badge with a label.
+
+```jsx
+<Badge label="New" />
+```
+
+
+### Badge Variants
+
+Badges can be displayed in filled, outlined, or ghost variants to match different UI styles.
+
+```jsx
+<><Badge label="Filled" variant="filled" color="primary" />
+<Badge label="Outlined" variant="outlined" color="secondary" />
+<Badge label="Ghost" variant="ghost" color="neutral" /></>
+```
+
+
+### Badge with Icon
+
+Displaying a badge with an icon enhances visual recognition.
+
+```jsx
+const StarIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{ width: '1em', height: '1em'}}>
+    <path d="M12,17.27L18.18,21L17,14.64L22,9.73L14.81,8.63L12,2L9.19,8.63L2,9.73L7,14.64L5.82,21L12,17.27Z"/>
+  </svg>
+);
+<Badge label="Featured" icon={StarIcon} color="success" />

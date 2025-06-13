@@ -1,0 +1,52 @@
+---
+description: A data entity for a forum post. Includes properties such as content, author, creation date, topic ID, and user ID.
+labels: ['forum', 'entity']
+---
+
+## Get started
+
+The `ForumPost` entity is used to represent individual posts within a forum.
+It includes details such as the content of the post, the author, and the creation date.
+It supports serialization and deserialization, making it suitable for both backend and frontend use.
+
+```ts
+const post = ForumPost.from({
+  topicId: 'topic123',
+  content: 'Hello everyone!',
+  userId: 'user456'
+});
+```
+
+## Creating a Forum Post
+
+Use the `ForumPost.from()` method to create a new forum post.
+This method accepts a plain object containing the post's data.
+
+```ts
+const newPost = ForumPost.from({
+  topicId: 'general-discussion',
+  content: 'What are your thoughts on the new feature?',
+  userId: 'user789'
+});
+console.log(newPost);
+```
+
+## Mock Data
+
+Use the `mockForumPost` and `mockForumPosts` functions to generate mock data for development and testing.
+
+```ts
+const singlePost = mockForumPost();
+console.log(singlePost);
+const multiplePosts = mockForumPosts();
+console.log(multiplePosts);
+```
+
+## Serializing a Forum Post
+
+Use the `toObject()` method to serialize a `ForumPost` instance into a plain JavaScript object.
+
+```ts
+const post = mockForumPost();
+const plainObject = post.toObject();
+console.log(plainObject);

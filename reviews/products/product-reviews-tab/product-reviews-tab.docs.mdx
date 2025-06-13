@@ -1,0 +1,44 @@
+---
+description: A composite component for displaying product reviews in a tab format.
+labels: ['product reviews', 'tab', 'composite component']
+---
+
+The `ProductReviewsTab` component is designed to display reviews for a specific product. It fetches and presents the reviews, handling loading and error states gracefully.
+
+## Component Usage
+
+Use the component by providing a `productId` to fetch and display reviews:
+
+```jsx
+<ProductReviewsTab productId="example-product" />
+```
+
+### With Mock Data
+
+You can also provide mock data for testing or development purposes:
+
+```jsx
+const mockReviews = [
+  {
+    id: '1',
+    productId: 'test-product',
+    userId: 'test-user',
+    rating: 5,
+    comment: 'Great product!',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    status: 'approved',
+  },
+];
+<ProductReviewsTab productId="test-product" mockReviewsData={mockReviews} />
+```
+
+### Handling Empty States and Errors
+
+The component automatically handles loading, error, and empty review list scenarios:
+
+```jsx
+<ProductReviewsTab productId="another-product" />
+```
+
+In the above example, the component will display a loading state while fetching reviews, an error message if fetching fails, or an empty state if there are no reviews for the specified product ID.

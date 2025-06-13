@@ -1,0 +1,76 @@
+---
+description: Displays a list of reviews, with optional filtering and loading/error states.
+labels: ['reviews', 'page', 'list']
+---
+
+The `ReviewsPage` component fetches and displays a list of reviews, optionally filtered by product or user. It handles loading and error states gracefully.
+
+## Usage
+
+### Basic Usage
+
+Displays all reviews. This example shows how to render the `ReviewsPage` with mock data.
+
+```jsx
+<ReviewsPage mockReviews={[
+  {
+    id: 'rev-001',
+    productId: 'prod-alpha-123',
+    userId: 'user-sara-lee-456',
+    rating: 5,
+    comment: 'Absolutely love this product!',
+    createdAt: '2024-07-15T10:30:00.000Z',
+    updatedAt: '2024-07-15T11:00:00.000Z',
+    status: 'approved',
+  },
+  {
+    id: 'rev-002',
+    productId: 'prod-beta-456',
+    userId: 'user-mike-chen-789',
+    rating: 3,
+    comment: "It's a decent product.",
+    createdAt: '2024-06-20T14:00:00.000Z',
+    updatedAt: '2024-06-21T09:15:00.000Z',
+    status: 'approved',
+  },
+]} />
+```
+
+### Filtering Reviews by Product
+
+This example demonstrates how to filter reviews by a specific product ID.
+
+```jsx
+<ReviewsPage
+  productId="prod-alpha-123"
+  mockReviews={[
+    {
+      id: 'rev-001',
+      productId: 'prod-alpha-123',
+      userId: 'user-sara-lee-456',
+      rating: 5,
+      comment: 'Absolutely love this product!',
+      createdAt: '2024-07-15T10:30:00.000Z',
+      updatedAt: '2024-07-15T11:00:00.000Z',
+      status: 'approved',
+    },
+    {
+      id: 'rev-002',
+      productId: 'prod-beta-456',
+      userId: 'user-mike-chen-789',
+      rating: 3,
+      comment: "It's a decent product.",
+      createdAt: '2024-06-20T14:00:00.000Z',
+      updatedAt: '2024-06-21T09:15:00.000Z',
+      status: 'approved',
+    },
+  ]}
+/>
+```
+
+### Handling Empty State
+
+This example shows how the component handles the case when there are no reviews to display.
+
+```jsx
+<ReviewsPage mockReviews={[]} />

@@ -1,0 +1,108 @@
+.productCategoryList {
+  // Flex container styles are mostly handled by the Flex component props
+  padding: var(--spacing-x-small) 0; // Minimal vertical padding for the container itself
+  // The 'gap' prop on Flex handles spacing between items
+}
+
+.categoryLink {
+  display: inline-flex; // Use inline-flex for better alignment of potential internal content
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-small) var(--spacing-medium); // Generous padding for a clickable feel
+  color: var(--colors-text-accent);
+  background-color: var(--colors-surface-secondary);
+  border: 1px solid var(--colors-border-subtle);
+  border-radius: var(--borders-radius-pill); // Pill shape for a modern tag/button look
+  text-decoration: none;
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-button-medium); // Slightly larger, more prominent text
+  font-weight: var(--typography-font-weight-semi-bold);
+  line-height: var(--typography-line-height-condensed); // Ensure text fits well
+  cursor: var(--interactions-cursor-pointer);
+  transition: background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              border-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+              transform var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-spring), // Springy transform
+              box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+  box-sizing: border-box;
+
+
+  &:hover {
+    background-color: var(--colors-primary-default);
+    color: var(--colors-text-inverse) !important; // Ensure override Link's default text color
+    border-color: var(--colors-primary-hover);
+    text-decoration: none;
+    transform: translateY(-3px) scale(1.03); // More pronounced lift and slight scale
+    box-shadow: var(--effects-shadows-medium); // Enhanced shadow on hover
+  }
+
+  &:active {
+    background-color: var(--colors-primary-active);
+    color: var(--colors-text-inverse) !important;
+    transform: translateY(-1px) scale(1.01); // Subtle press effect
+    box-shadow: var(--effects-shadows-inset); // Inset shadow for pressed feel
+  }
+
+  &:focus-visible {
+    outline: none; // Remove default outline
+    box-shadow: 0 0 0 var(--borders-focus-width) var(--colors-surface-background), // Inner shadow for background
+                  0 0 0 calc(var(--borders-focus-width) + 2px) var(--colors-border-focus); // Outer focus ring
+    border-color: var(--colors-border-focus); // Match border color with focus ring
+  }
+}
+
+// Common container for messages
+.messageContainer {
+  font-family: var(--typography-font-family);
+  padding: var(--spacing-large); // Ample padding for messages
+  text-align: center;
+  width: 100%;
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large); // More rounded corners for message boxes
+  box-shadow: var(--effects-shadows-small); // Subtle shadow for depth
+  margin: var(--spacing-medium) 0;
+  box-sizing: border-box;
+}
+
+.loadingMessage {
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-large);
+  font-style: italic;
+}
+
+.errorMessage {
+  color: var(--colors-status-negative-default);
+  background-color: var(--colors-status-negative-subtle);
+  border: 1px solid var(--colors-status-negative-default);
+  font-size: var(--typography-sizes-body-large);
+  font-weight: var(--typography-font-weight-medium);
+}
+
+.noCategoriesMessage {
+  color: var(--colors-text-secondary);
+  font-size: var(--typography-sizes-body-large);
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .categoryLink {
+    font-size: var(--typography-sizes-button-small);
+    padding: var(--spacing-x-small) var(--spacing-small);
+  }
+
+  .productCategoryList {
+    gap: var(--spacing-x-small); // Tighter gap on smaller screens
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .categoryLink {
+    width: calc(50% - (var(--spacing-xx-small) / 2)); // Two items per row on mobile
+    justify-content: center; // Center text if link takes more width
+    margin-bottom: var(--spacing-x-small); // Add margin if they stack weirdly due to calc
+  }
+  .productCategoryList {
+     gap: var(--spacing-xx-small); // Even tighter
+     // Consider justify-content: space-around or space-between if items don't fill rows
+  }
+}

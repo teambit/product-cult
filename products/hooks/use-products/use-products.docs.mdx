@@ -1,0 +1,90 @@
+---
+description: React hooks for fetching, listing, creating, updating, and deleting product data using GraphQL.
+labels: ['hook', 'react', 'graphql', 'product']
+---
+
+## Usage
+
+These hooks provide a convenient way to interact with product data in your React components. They abstract the complexities of GraphQL queries and mutations, offering a simple and intuitive API.
+
+### Listing Products
+
+The `useListProducts` hook fetches a list of products based on specified options such as limit, offset, category ID, and search term.
+
+```tsx
+const ProductList = () => {
+  const { products, loading, error } = useListProducts({ categoryId: 'electronics', limit: 10 });
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  return (
+    <ul>
+      {products?.map(product => (
+        <li key={product.id}>{product.name} - {product.price}</li>
+      ))}
+    </ul>
+  );
+};
+```
+
+This example demonstrates how to use the `useListProducts` hook to display a list of products. It shows the loading and error states.
+
+### Creating a Product
+
+The `useCreateProduct` hook provides a mutation function to create a new product.
+
+```tsx
+const CreateProductForm = () => {
+  const [createProduct, { loading, error }] = useCreateProduct();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await createProduct({
+        name: 'New Product',
+        description: 'A brand new product',
+        price: 99.99,
+        categoryId: 'new-arrivals'
+      });
+    } catch (err) {
+      console.error("Failed to create product", err);
+    }
+  };
+  return (
+    <form onSubmit={handleSubmit}>
+      <button type="submit" disabled={loading}>
+        {loading ? 'Creating...' : 'Create Product'}
+      </button>
+      {error && <p>Error: {error.message}</p>}
+    </form>
+  );
+};
+```
+
+This example shows how to use the `useCreateProduct` hook to create a new product and display the status of the mutation.
+
+### Deleting a Product
+
+The `useDeleteProduct` hook provides a mutation function to delete an existing product.
+
+```tsx
+const DeleteProductButton = ({ productId }) => {
+  const [deleteProduct, { loading, error }] = useDeleteProduct();
+  const handleDelete = async () => {
+    try {
+      await deleteProduct({ id: productId });
+      alert('Product deleted successfully!');
+    } catch (err) {
+      console.error("Failed to delete product", err);
+    }
+  };
+  return (
+    <>
+      <button onClick={handleDelete} disabled={loading}>
+        {loading ? 'Deleting...' : 'Delete Product'}
+      </button>
+      {error && <p>Error: {error.message}</p>}
+    </>
+  );
+};
+```
+
+This example demonstrates deleting an existing product using the `useDeleteProduct` hook. It handles the deletion process and displays the current status.

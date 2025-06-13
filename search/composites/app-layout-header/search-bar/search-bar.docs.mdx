@@ -1,0 +1,97 @@
+---
+description: A composite search bar component for application layouts, enabling users to input queries and navigate to search results.
+labels: ['search', 'input', 'navigation', 'header', 'form', 'ui']
+---
+
+The `SearchBar` component provides a user-friendly interface for initiating searches within the application. It consists of a text input for the search query and a button to trigger the search action, which navigates to a dedicated search results page (`/search`).
+
+## Basic Usage
+
+Integrate the `SearchBar` into your application, typically within a header or a prominent search area. It handles query input and navigation automatically.
+
+```tsx
+function AppHeaderSearch() {
+  return (
+    <MemoryRouter initialEntries={['/']}>
+      <MockProvider>
+        <div style={{ padding: 'var(--spacing-medium)', backgroundColor: 'var(--colors-surface-secondary)', borderRadius: 'var(--borders-radius-medium)' }}>
+          <SearchBar />
+          
+          <Routes>
+            <Route path="/search" element={
+              <div style={{
+                marginTop: 'var(--spacing-medium)',
+                padding: 'var(--spacing-small)',
+                border: '1px dashed var(--colors-border-focus)',
+                color: 'var(--colors-text-primary)',
+                backgroundColor: 'var(--colors-surface-primary)'
+              }}>
+                Navigated to Search Page! The search query would be in the URL (e.g., /search?q=your_query).
+              </div>
+            } />
+             <Route path="/" element={<div />} />
+          </Routes>
+        </div>
+      </MockProvider>
+    </MemoryRouter>
+  );
+}
+```
+## Features
+-   **Responsive Text Input**: Allows users to type their search queries, adapting to different screen sizes.
+-   **Iconic Search Button**: A clear call-to-action button with a search icon to initiate the search.
+-   **Enter Key Submission**: Pressing the 'Enter' key within the input field also triggers the search.
+-   **Programmatic Navigation**: Automatically navigates to `/search?q=<encoded_query>` upon submission.
+-   **Customizable Appearance**: Supports `className` and `style` props for applying custom styles to the root container.
+-   **Optional Pre-Search Callback**: The `onSearch` prop allows execution of custom logic (like logging or analytics) with the query string *before* navigation occurs.
+-   **Initial Query Value**: Can be pre-filled using the `initialQuery` prop.
+-   **Custom Placeholder**: The `placeholder` prop allows customization of the input field's placeholder text.
+-   **Accessibility**: Includes appropriate `role` and `aria-label` attributes for better screen reader support.
+## Props
+The `SearchBar` component accepts the following props:
+| Prop           | Type                         | Default                               | Description                                                                                       |
+|----------------|------------------------------|---------------------------------------|---------------------------------------------------------------------------------------------------|
+| `className`    | `string`                     | `undefined`                           | Optional CSS class name to apply to the root `div` element of the search bar.                     |
+| `style`        | `React.CSSProperties`        | `undefined`                           | Optional inline styles to apply to the root `div` element.                                        |
+| `onSearch`     | `(query: string) => void`    | `undefined`                           | Optional callback function that is executed with the search query string when a search is initiated. |
+| `initialQuery` | `string`                     | `''` (empty string)                   | Optional string to pre-fill the search input field with an initial value.                         |
+| `placeholder`  | `string`                     | `'Search products, news, and more...'` | Optional placeholder text to display in the search input field when it is empty.                   |
+## Example with Initial Query, Custom Placeholder, and Callback
+This example demonstrates how to use `initialQuery` to pre-fill the search bar, `placeholder` for custom hint text, and `onSearch` for a custom action before navigation.
+```tsx
+function AdvancedSearchBarUsage() {
+  const handleCustomSearchAction = (query: string) => {
+    alert(`Search initiated for: "${query}". Custom action performed. Navigation will follow.`);
+  };
+  return (
+    <MemoryRouter initialEntries={['/']}>
+      <MockProvider>
+        <div style={{ padding: 'var(--spacing-medium)', backgroundColor: 'var(--colors-surface-secondary)', borderRadius: 'var(--borders-radius-medium)' }}>
+          <SearchBar
+            initialQuery="innovative AI tools"
+            placeholder="Discover the next big thing..."
+            onSearch={handleCustomSearchAction}
+          />
+          
+          <Routes>
+             <Route path="/search" element={
+              <div style={{
+                marginTop: 'var(--spacing-medium)',
+                padding: 'var(--spacing-small)',
+                border: '1px dashed var(--colors-border-focus)',
+                color: 'var(--colors-text-primary)',
+                backgroundColor: 'var(--colors-surface-primary)'
+              }}>
+                Navigated to Search Page! Check for an alert from the custom callback.
+              </div>
+            } />
+            <Route path="/" element={<div />} />
+          </Routes>
+        </div>
+      </MockProvider>
+    </MemoryRouter>
+  );
+}
+```
+The `SearchBar` is designed for seamless integration into various parts of an application, providing a consistent and efficient search experience.
+Its styling is themeable through CSS custom properties and can be further customized using the `className` prop.

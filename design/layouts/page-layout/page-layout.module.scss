@@ -1,0 +1,47 @@
+.pageLayout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures layout takes at least full viewport height */
+  background-color: var(--colors-surface-background); /* Base background for the page */
+  color: var(--colors-text-primary); /* Default text color */
+  font-family: var(--typography-font-family); /* Default font family */
+  box-sizing: border-box; /* Ensures padding/border don't cause overflow */
+}
+
+.headerSlot {
+  width: 100%;
+  /* Headers might have their own background/shadow from the component passed into this slot */
+  /* Using a z-index from theme tokens in case the header component is designed to be sticky */
+  z-index: var(--interactions-z-index-sticky); 
+  flex-shrink: 0; /* Prevent header from shrinking if content is too large */
+}
+
+.contentSlot {
+  flex-grow: 1; /* Allows content area to expand and fill available vertical space */
+  width: 100%;
+  max-width: var(--layout-max-page-width); /* Defines the maximum width for the main content */
+  margin-left: auto; /* Centers the content area horizontally */
+  margin-right: auto; /* Centers the content area horizontally */
+  padding: var(--layout-container-padding); /* Consistent padding around the content */
+  box-sizing: border-box; /* Ensures padding doesn't expand beyond max-width */
+}
+
+.footerSlot {
+  width: 100%;
+  /* Footers might have their own background/shadow from the component passed into this slot */
+  flex-shrink: 0; /* Prevent footer from shrinking */
+  margin-top: auto; /* Pushes footer to the bottom if content is short */
+}
+
+/* Responsive adjustments for content padding */
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .contentSlot {
+    padding: var(--spacing-medium); /* Adjust padding for tablet screens */
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .contentSlot {
+    padding: var(--spacing-small); /* Adjust padding for mobile screens */
+  }
+}

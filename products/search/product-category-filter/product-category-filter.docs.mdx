@@ -1,0 +1,57 @@
+---
+description: A filter component for selecting product categories.
+labels: ['product', 'category', 'filter']
+---
+
+The `ProductCategoryFilter` component allows users to filter products by category. It fetches categories and displays them in a select list.
+
+## Basic Usage
+
+This example demonstrates the basic usage of the `ProductCategoryFilter` component. It displays a list of product categories and allows the user to select one.
+
+```jsx
+<MockProvider>
+  <div style={{ maxWidth: '350px' }}>
+    <ProductCategoryFilter
+      mockCategoriesData={[
+        new ProductCategory('cat-id-1', 'Tech & Gadgets', 'Latest in technology and electronic gadgets.'),
+        new ProductCategory('cat-id-2', 'Software Solutions', 'Applications and platforms for various needs.'),
+      ]}
+      selectedCategoryId={undefined}
+      onCategoryChange={(categoryId) => console.log('Selected category:', categoryId)}
+      label="Filter by Category"
+      placeholder="All Categories"
+    />
+  </div>
+</MockProvider>
+```
+## With Initial Selection
+This example shows how to pre-select a category in the filter.
+```jsx
+<MockProvider>
+  <div style={{ maxWidth: '350px' }}>
+    <ProductCategoryFilter
+      mockCategoriesData={[
+        new ProductCategory('cat-id-1', 'Tech & Gadgets', 'Latest in technology and electronic gadgets.'),
+        new ProductCategory('cat-id-2', 'Software Solutions', 'Applications and platforms for various needs.'),
+      ]}
+      selectedCategoryId="cat-id-2"
+      onCategoryChange={(categoryId) => console.log('Selected category:', categoryId)}
+      label="Filter by Category"
+    />
+  </div>
+</MockProvider>
+```
+## Loading State
+This example demonstrates the loading state of the `ProductCategoryFilter` component. While the categories are being fetched, the component displays a loading message.
+```jsx
+<MockProvider>
+  <div style={{ maxWidth: '350px' }}>
+    <ProductCategoryFilter
+      selectedCategoryId={undefined}
+      onCategoryChange={(categoryId) => console.log('Selected category:', categoryId)}
+      label="Filter by Category"
+      placeholder="Loading..."
+    />
+  </div>
+</MockProvider>

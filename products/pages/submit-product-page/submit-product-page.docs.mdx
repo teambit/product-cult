@@ -1,0 +1,46 @@
+---
+description: A form for users to submit new products to the platform.
+labels: ['form', 'product', 'submission']
+---
+
+The `SubmitProductPage` component provides a user interface for submitting new products, including fields for product name, description, image URL, category ID, and price.
+
+## Usage
+
+Here's how to use the `SubmitProductPage` component in your application.
+
+```jsx
+<SubmitProductPage />
+```
+## Basic Submission Form
+This example demonstrates the basic usage of the `SubmitProductPage` component, rendering a form with fields for product details.
+```jsx
+<MockProvider>
+  <SubmitProductPage />
+</MockProvider>
+```
+## Styling the Form
+You can pass a `className` prop to customize the appearance of the `SubmitProductPage` component. This example shows how to change the title color, form border, and submit button style.
+```jsx
+<MockProvider>
+  <style>{`
+    .custom-submit-page-style .pageTitle {
+      color: var(--colors-text-accent);
+    }
+    .custom-submit-page-style .form {
+      border: 2px solid var(--colors-primary-default);
+    }
+    .custom-submit-page-style .submitButton {
+      background-image: var(--effects-gradients-primary);
+      font-weight: var(--typography-font-weight-bold);
+    }
+  `}</style>
+  <SubmitProductPage className="custom-submit-page-style" />
+</MockProvider>
+```
+## Handling Form Submission
+The component handles form submission, validation, and displays success or error messages based on the outcome of the submission attempt.
+```jsx
+<MockProvider>
+  <SubmitProductPage />
+</MockProvider>

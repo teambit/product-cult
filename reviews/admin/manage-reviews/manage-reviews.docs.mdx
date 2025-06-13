@@ -1,0 +1,53 @@
+---
+description: An admin page for managing user reviews, including moderation actions.
+labels: ['admin', 'reviews', 'moderation']
+---
+
+The `ManageReviewsPage` component provides an interface for administrators to moderate user-submitted reviews. It displays a list of reviews and allows for actions such as approving, rejecting, or deleting them.
+
+## Basic Usage
+
+This example demonstrates how to render the `ManageReviewsPage` with mock data for demonstration purposes. In a real application, the review data would be fetched from an API.
+
+```js
+<ManageReviewsPage mockReviewsData={[
+  {
+    id: '1',
+    productId: 'prod1',
+    userId: 'user1',
+    rating: 5,
+    comment: 'Great product!',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    status: 'pending',
+  },
+]} />
+```
+
+## Handling No Reviews
+
+This example shows the `ManageReviewsPage` displaying a message when there are no reviews to moderate. This is useful for informing the administrator that no action is required at the moment.
+
+```js
+<ManageReviewsPage mockReviewsData={[]} />
+```
+
+## Displaying Pending Reviews
+
+This example filters and displays only reviews that are in a 'pending' state, allowing administrators to focus on reviews that require immediate attention.
+
+```js
+const pendingReviews = [
+  {
+    id: '2',
+    productId: 'prod2',
+    userId: 'user2',
+    rating: 3,
+    comment: 'Not bad, but could be better.',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    status: 'pending',
+  },
+];
+
+<ManageReviewsPage mockReviewsData={pendingReviews} />

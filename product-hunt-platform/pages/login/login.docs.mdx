@@ -1,0 +1,43 @@
+---
+description: A login page for the Product Hunt platform, centered with a flex layout and redirects authenticated users.
+labels: ['login', 'form', 'authentication']
+---
+
+The `Login` component provides a user interface for authenticating users on the Product Hunt platform. It includes fields for email and password, along with a submit button. The component redirects to the homepage if the user is already authenticated.
+
+## Basic Usage
+
+This example demonstrates the basic usage of the `Login` component. It renders a login form with email and password fields.
+
+```jsx
+<MockProvider>
+  <Login />
+</MockProvider>
+```
+
+## Interactive Login Form
+
+This example shows the `Login` form with interaction feedback. It uses callbacks for `onLoginSuccess` and `onLoginError` to display alerts when these events are triggered.
+
+```jsx
+<MockProvider>
+  <Login
+    onLoginSuccess={() => alert('Login Success!')}
+    onLoginError={(error) => alert(`Login Error: ${error}`)}
+  />
+</MockProvider>
+```
+
+## Styled Login Form
+
+This example showcases the `Login` form with custom styling applied via props. The `className` and `style` props are used to modify the appearance of the component.
+
+```jsx
+<MockProvider>
+  <Login
+    className="custom-login-page-container"
+    style={{ border: '2px dashed var(--colors-primary-default)', borderRadius: 'var(--borders-radius-pill)', padding: 'var(--spacing-small)' }}
+    onLoginSuccess={() => alert('Login Success (Styled)!')}
+    onLoginError={(errorMessage) => alert(`Login Error (Styled): ${errorMessage}`)}
+  />
+</MockProvider>

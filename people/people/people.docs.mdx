@@ -1,0 +1,85 @@
+---
+description: Manage user profiles, integrate profile pages, and extend profiles with custom tabs and actions.
+labels: ['people', 'profiles', 'users', 'extendable']
+---
+
+The People aspect provides APIs for managing user profiles, integrating user profile pages into your platform, and extending profiles with custom tabs and actions. It allows you to create a rich and customizable user experience around profiles.
+
+## User Profile Integration
+
+The People aspect integrates user profiles into your platform, providing a consistent and centralized way to manage user information and display it in a user-friendly format.
+
+### Displaying a User Profile
+
+Use the `<UserProfilePage />` component to display a user's profile. The component automatically fetches and displays the user's information, along with any registered tabs, cards, and actions.
+
+```jsx
+<UserProfilePage userId="user123" />
+```
+
+## Extending User Profiles
+
+The People aspect allows you to extend user profiles with custom tabs and actions, providing a flexible way to add additional functionality and information to the profile page.
+
+### Adding a Custom Tab
+
+Use the `registerUserProfileTab` method to register a custom tab for user profiles. This allows you to add additional information or functionality to the profile page.
+
+```javascript
+// Define the tab content component
+const MyCustomTabContent = () => (
+  <div>
+    <h2>Custom Tab Content</h2>
+    <p>This is the content of my custom tab.</p>
+  </div>
+);
+
+// Register the tab
+// This would typically be done in your aspect's browser runtime configuration
+people.registerUserProfileTab([
+  {
+    name: 'my-custom-tab',
+    label: 'My Custom Tab',
+    component: MyCustomTabContent,
+  },
+]);
+```
+
+### Adding a User Action
+
+Use the `registerUserProfileAction` method to register a custom action for user profiles. This allows you to add buttons or other interactive elements to the profile page, enabling users to perform actions related to the profile.
+
+```javascript
+// Define the action component
+const MyCustomAction = ({ userId }) => (
+  <button onClick={() => alert(`Custom action for user ${userId}`)}>
+    Perform Action
+  </button>
+);
+
+// Register the action
+// This would typically be done in your aspect's browser runtime configuration
+people.registerUserProfileAction([
+  {
+    name: 'my-custom-action',
+    component: MyCustomAction,
+  },
+]);
+```
+
+## Displaying Members List
+
+Show all members in a list using `MembersList` component, this component is used to render list of existing users.
+
+```jsx
+// Example of a component that fetches and displays members
+function MembersDisplayComponent() {
+  // Get list of users
+  const { userProfiles, loading, error } = useListUserProfiles();
+
+  if (loading) return <div>Loading members...</div>;
+  if (error) return <div>Error loading members: {error.message}</div>;
+  if (!userProfiles || userProfiles.length === 0) return <div>No members found.</div>;
+
+  return <MembersList members={userProfiles} />;
+}

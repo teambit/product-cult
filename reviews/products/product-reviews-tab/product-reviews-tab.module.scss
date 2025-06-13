@@ -1,0 +1,55 @@
+.productReviewsTab {
+  box-sizing: border-box;
+  padding: var(--spacing-large);
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-medium);
+  display: flex;
+  flex-direction: column;
+  min-height: 250px; // Provides a minimum area, especially for loading/error states
+  width: 100%;
+  color: var(--colors-text-primary);
+  font-family: var(--typography-font-family);
+  transition:
+    background-color var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-ease-in-out),
+    box-shadow var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-ease-in-out);
+}
+
+.loadingState,
+.errorState {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; // Ensures the message centers within the min-height
+  text-align: center;
+  padding: var(--spacing-xlarge);
+  font-size: var(--typography-sizes-body-large);
+  line-height: var(--typography-line-height-relaxed);
+  color: var(--colors-text-secondary);
+}
+
+.errorState {
+  color: var(--colors-status-negative-default); // Use a distinct color for error messages
+}
+
+// Responsive adjustments
+@media (max-width: 768px) { // $tablet breakpoint roughly
+  .productReviewsTab {
+    padding: var(--spacing-medium);
+    min-height: 200px;
+  }
+
+  .loadingState,
+  .errorState {
+    padding: var(--spacing-large);
+    font-size: var(--typography-sizes-body-default);
+  }
+}
+
+@media (max-width: 480px) { // $mobile breakpoint roughly
+  .productReviewsTab {
+    padding: var(--spacing-small);
+    border-radius: var(--borders-radius-medium); // Slightly smaller radius on mobile
+  }
+}

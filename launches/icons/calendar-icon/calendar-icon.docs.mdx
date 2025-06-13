@@ -1,0 +1,33 @@
+---
+description: Renders a standard calendar SVG icon using the base Icon component.
+labels: ['icon', 'calendar', 'ui']
+---
+
+The `CalendarIcon` component displays a calendar icon. It supports customization of size, color, and title.
+
+## Basic Usage
+
+This example demonstrates the default `CalendarIcon` with no additional properties.
+
+```jsx
+<CalendarIcon title="Default Calendar Icon" />
+```
+
+## Size and Color Customization
+
+This example shows how to customize the size and color of the `CalendarIcon`.
+
+```jsx
+<CalendarIcon size={32} color="red" title="Custom Calendar Icon" />
+```
+
+## Clickable Calendar Icon
+
+This example demonstrates how to make the `CalendarIcon` clickable by adding an `onClick` handler.
+
+```jsx
+<CalendarIcon
+  onClick={() => alert('Calendar icon clicked!')}
+  title="Clickable Calendar Icon"
+  style={{ cursor: 'pointer' }}
+/>

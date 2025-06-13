@@ -1,0 +1,54 @@
+---
+description: Displays an image with responsive behavior and configurable loading strategies.
+labels: ['image', 'ui', 'media']
+---
+
+The `Image` component is designed to display images in a visually appealing manner, ensuring responsiveness and offering control over loading strategies.
+
+## Component Usage
+
+Use the `Image` component to display images with various configurations.
+
+```jsx
+<Image src="image-url.jpg" alt="Description of the image" />
+```
+
+## Examples
+
+### Responsive Image
+
+This example demonstrates a basic responsive image that scales to fit its container.
+
+```jsx
+<div style={{ width: '50%' }}>
+  <Image src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFzaGJvYXJkJTIwdWl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="Dashboard UI" />
+</div>
+```
+
+### Fixed Size Image
+
+This example shows how to create an image with fixed dimensions.
+
+```jsx
+<Image
+  src="https://images.unsplash.com/photo-1617289746955-a58c1799a6f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2R1Y3QlMjBsYXVuY2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+  alt="Product Launch"
+  width="300px"
+  height={200}
+/>
+```
+
+### Image with Object Fit
+
+This example demonstrates the use of the `objectFit` property to control how the image fits within its container.
+
+```jsx
+<div style={{ width: '200px', height: '150px', border: '1px solid #ccc' }}>
+  <Image
+    src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+    alt="Cosmetic Product"
+    width="100%"
+    height="100%"
+    objectFit="cover"
+  />
+</div>

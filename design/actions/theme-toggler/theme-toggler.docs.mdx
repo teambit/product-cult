@@ -1,0 +1,49 @@
+---
+description: A theme toggler component for switching between light and dark themes.
+labels: ['theme', 'toggler', 'ui']
+---
+
+A component that allows users to toggle between light and dark themes, enhancing user experience by providing a visually comfortable interface in various lighting conditions.
+
+## Basic Usage
+
+This example demonstrates the basic implementation of the `ThemeToggler` component within an `InfinityTheme` provider. It shows the default sun/moon icons used to switch between themes.
+
+```jsx
+<InfinityTheme initialTheme="light">
+  <ThemeToggler />
+</InfinityTheme>
+```
+
+## Initialized in Dark Mode
+
+Here, the `InfinityTheme` is initialized in dark mode. The `ThemeToggler` will display the sun icon, allowing users to switch to light mode.
+
+```jsx
+<InfinityTheme initialTheme="dark">
+  <ThemeToggler />
+</InfinityTheme>
+```
+
+## Custom Icons
+
+This example showcases the use of custom icons for the `ThemeToggler`. The `sunIcon` and `moonIcon` props are used to replace the default icons with custom SVG components.
+
+```jsx
+// Custom Star icon for sun replacement
+const CustomStarIcon = ({ size = 24, className, stroke = "currentColor", strokeWidth = "1.5", fill = "currentColor", ...rest }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={fill} stroke={stroke} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={className} {...rest}>
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+  </svg>
+);
+
+// Custom Heart icon for moon replacement
+const CustomHeartIcon = ({ size = 24, className, stroke = "currentColor", strokeWidth = "1.5", fill="currentColor", ...rest }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={fill} stroke={stroke} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={className} {...rest}>
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+  </svg>
+);
+
+<InfinityTheme initialTheme="light">
+  <ThemeToggler sunIcon={CustomStarIcon} moonIcon={CustomHeartIcon} />
+</InfinityTheme>

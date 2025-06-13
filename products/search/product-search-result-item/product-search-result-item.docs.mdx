@@ -1,0 +1,58 @@
+---
+description: A composite component for displaying product search results with name, description, and image.
+labels: ['product', 'search', 'item', 'ui']
+---
+
+## Component Usage
+
+The `ProductSearchResultItem` component displays a single product item within a list of search results. It includes an image, title, and description, linking to the product's detail page.
+
+## Basic Example
+
+This example shows a basic usage of the `ProductSearchResultItem` component with a search result object.
+
+```jsx
+<ProductSearchResultItem
+  searchResult={{
+    id: "prod-app-1",
+    title: "AI Powered Code Assistant Pro",
+    description: "Revolutionize your development workflow with our AI-powered code assistant.",
+    type: "product",
+    data: { id: "ai-code-assist-pro-001", category: "Developer Tools", price: "29.99/month" },
+    imageUrl: "https://example.com/image.jpg",
+  }}
+/>
+```
+
+## Product Item Without Image
+
+This example demonstrates how the `ProductSearchResultItem` handles cases where the image URL is not provided.
+
+```jsx
+<ProductSearchResultItem
+  searchResult={{
+    id: "prod-gadget-2",
+    title: "Stealth Mode Smart Ring v2",
+    description: "The next generation sleek smart ring that tracks your activity, sleep, and notifications discreetly.",
+    type: "product",
+    data: { id: "smart-ring-stealth-v2-789", category: "Wearables", releaseDate: "Q1 2025" },
+    imageUrl: undefined,
+  }}
+/>
+```
+
+## Long Text and Truncation
+
+This example tests how the component handles long text for both the title and description, ensuring proper truncation.
+
+```jsx
+<ProductSearchResultItem
+  searchResult={{
+    id: "prod-platform-3",
+    title: "The Ultimate Next-Generation Collaborative Productivity Platform for Modern Distributed Teams: Enhancing Workflow Efficiency and Streamlining Global Communication Across All Enterprise Verticals Using Advanced AI and Secure Cloud Technologies",
+    description: "This cutting-edge, fully-featured platform offers a comprehensive and intuitive suite of tools meticulously designed to foster seamless collaboration, agile project management, and crystal-clear real-time communication for distributed teams of any size, anywhere in the world. It seamlessly integrates with your existing enterprise workflows and provides deep, actionable analytics to consistently optimize team performance and project outcomes. Discover the future of remote work and achieve unparalleled global team synergy with this all-in-one, highly scalable solution that dynamically adapts to your organization's unique operational needs and scales effortlessly as your business grows, supporting up to 100,000 active users concurrently.",
+    type: "product",
+    data: { id: "collab-suite-ultra-XYZ", category: "Productivity Software", targetAudience: "Global Enterprises & SMBs" },
+    imageUrl: "https://example.com/image.jpg",
+  }}
+/>

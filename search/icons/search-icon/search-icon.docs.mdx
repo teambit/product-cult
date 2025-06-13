@@ -1,0 +1,28 @@
+---
+description: Renders a universally recognizable search (magnifying glass) SVG icon.
+labels: ['icon', 'search', 'ui']
+---
+
+The `SearchIcon` component renders a standard search or magnifying glass icon.
+It inherits styling and accessibility features from the base `Icon` component, such as `size`, `color`, and `title`.
+
+## Basic Search Icon
+
+A simple example demonstrating the default search icon.
+
+```jsx
+<SearchIcon />
+```
+## Customizing the Search Icon
+This example shows how to customize the search icon's title and size.
+```jsx
+<SearchIcon title="Find Products" size={32} />
+```
+## Interactive Search Icon
+This example demonstrates how to make the search icon interactive with an onClick handler and custom styling.
+```jsx
+<SearchIcon
+  onClick={() => alert('Search icon clicked!')}
+  style={{ cursor: 'pointer' }}
+  title="Clickable Search Icon"
+/>

@@ -1,0 +1,30 @@
+---
+description: A component for displaying user avatars with image, initials, and fallback support.
+labels: ['avatar', 'ui', 'image']
+---
+
+The Avatar component is used to represent users or entities with a profile picture or initials. It supports different sizes, shapes, and fallback mechanisms.
+
+## Basic Usage
+
+Displaying an avatar with an image source and alt text:
+
+```jsx
+<Avatar src="https://example.com/user.jpg" alt="John Doe" />
+```
+## Avatar with Initials
+When an image source is not available, the component can display initials derived from the `alt` prop or provided via the `initials` prop:
+```jsx
+<Avatar initials="JD" alt="John Doe" />
+```
+If only `alt` is provided, the component will extract the first letters of the first two words:
+```jsx
+<Avatar alt="John Doe" />
+```
+## Avatar Sizes and Shapes
+The Avatar component supports different sizes and shapes:
+```jsx
+<Avatar size="small" shape="circle" alt="Small Circle" />
+<Avatar size="medium" shape="square" alt="Medium Square" />
+<Avatar size="large" shape="circle" alt="Large Circle" />
+<Avatar size="xlarge" shape="square" alt="XLarge Square" />

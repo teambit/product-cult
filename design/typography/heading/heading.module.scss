@@ -1,0 +1,44 @@
+.headingBase {
+  font-family: var(--typography-font-family);
+  color: var(--colors-text-primary);
+  margin-top: 0; /* Reset default browser margins */
+  margin-bottom: var(--spacing-medium); /* Default bottom margin, can be overridden by specific levels */
+  line-height: var(--typography-line-height-heading); /* Consistent line height for headings */
+  /* font-weight is set per specific heading level class */
+}
+
+.h1 {
+  font-size: var(--typography-sizes-heading-h1);
+  font-weight: var(--typography-font-weight-bold);
+  /* Example of specific margin for H1 if needed: 
+  margin-bottom: var(--spacing-large); */
+}
+
+.h2 {
+  font-size: var(--typography-sizes-heading-h2);
+  font-weight: var(--typography-font-weight-bold);
+}
+
+.h3 {
+  font-size: var(--typography-sizes-heading-h3);
+  font-weight: var(--typography-font-weight-semi-bold);
+}
+
+.h4 {
+  font-size: var(--typography-sizes-heading-h4);
+  font-weight: var(--typography-font-weight-semi-bold);
+}
+
+.h5 {
+  font-size: var(--typography-sizes-heading-h5);
+  font-weight: var(--typography-font-weight-medium);
+  /* Optionally, smaller headings can use secondary text color for less emphasis */
+  /* color: var(--colors-text-secondary); */
+}
+
+.h6 {
+  font-size: var(--typography-sizes-heading-h6);
+  font-weight: var(--typography-font-weight-regular);
+  color: var(--colors-text-secondary); /* H6 often uses secondary color for subtlety */
+  margin-bottom: var(--spacing-small); /* Smaller headings might have less bottom margin */
+}
