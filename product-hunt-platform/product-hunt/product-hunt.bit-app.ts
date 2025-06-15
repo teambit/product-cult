@@ -17,13 +17,13 @@ import { LaunchesAspect } from '@infinity/launches.launches';
 /**
  * Compose the Product Hunt platform.
  */
-export const ProductHunt = HarmonyPlatform.from({
-  name: 'product-hunt',
+export const ProductCult = HarmonyPlatform.from({
+  name: 'product-cult',
   platform: [SymphonyPlatformAspect, {
-    name: 'Product Hunt',
+    name: 'Product Cult',
     slogan: 'The place to discover your next favorite things.',
-    domain: 'product-hunt.teambit.games',
-    logo: 'https://static.bit.dev/extensions-icons/product-hunt.svg', // Placeholder or actual logo
+    domain: 'product-cult.teambit.games',
+    logo: 'https://static.bit.dev/extensions-icons/product-cult.svg', // Placeholder or actual logo
   }],
 
   runtimes: [
@@ -45,4 +45,4 @@ export const ProductHunt = HarmonyPlatform.from({
   ],
 });
 
-export default ProductHunt;
+export default ProductCult;

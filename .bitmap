@@ -663,7 +663,7 @@
     "product-hunt": {
         "name": "product-hunt",
         "scope": "infinity.product-hunt-platform",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "mainFile": "index.ts",
         "rootDir": "product-hunt-platform/product-hunt"
     },
