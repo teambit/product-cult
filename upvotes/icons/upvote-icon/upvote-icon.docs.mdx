@@ -1,0 +1,39 @@
+---
+description: UpvoteIcon displays a directional arrow icon, typically used to represent an "upvote" action.
+labels: ['icon', 'ui', 'action']
+---
+
+`UpvoteIcon` is a component that provides a visual representation of an upvote action. It includes `isActive` state.
+
+## Default and Active States
+
+This example demonstrates the `UpvoteIcon` in both its default (inactive) and active states. The active state is visually distinct, typically using a theme's primary color to indicate that the item has been upvoted.
+
+```jsx
+<div style={{ display: 'flex', gap: 'var(--spacing-medium)' }}>
+  <UpvoteIcon />
+  <UpvoteIcon isActive={true} />
+</div>
+```
+## Different Sizes
+The `UpvoteIcon` component can be rendered in different sizes, using either pixel values or relative units like `em`. This allows the icon to be adapted to various contexts and screen sizes.
+```jsx
+<div style={{ display: 'flex', gap: 'var(--spacing-medium)' }}>
+  <UpvoteIcon size={16} />
+  <UpvoteIcon size={24} />
+  <UpvoteIcon size={32} />
+  <UpvoteIcon size="2em" />
+</div>
+```
+## Interactive Upvote Icon
+This example shows how to use the `UpvoteIcon` in an interactive scenario where clicking the icon toggles the upvote status and updates a vote count.
+```jsx
+<>
+  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-small)' }}>
+    <UpvoteIcon isActive={true} onClick={() => {}} size={28} />
+    <span>42</span>
+  </div>
+  <div>
+    Click the icon to toggle upvote status.
+  </div>
+</>

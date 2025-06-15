@@ -1,0 +1,87 @@
+---
+description: A React Hook for managing upvote counts, user's vote status, and triggering upvote/downvote actions.
+labels: ['hook', 'react', 'upvote', 'vote']
+---
+
+The `useUpvote` hook provides a comprehensive solution for managing upvotes in your application. It allows you to fetch upvote counts, check a user's vote status, and trigger upvote/downvote actions using GraphQL mutations.
+
+## Usage
+
+### Basic Usage
+
+This example demonstrates how to use the `useUpvote` hook to display the upvote count and allow users to upvote or downvote an item.
+
+```tsx
+const UpvoteComponent = () => {
+  const [itemId, setItemId] = React.useState('test-item');
+  const [itemType, setItemType] = React.useState('product');
+  const { count, hasUpvoted, upvote, downvote, loadingCount, loadingStatus, loadingAction } = useUpvote({
+    itemId,
+    itemType,
+  });
+  if (loadingCount || loadingStatus) {
+    return <p>Loading...</p>;
+  }
+  return (
+    <div>
+      <p>Upvotes: {count}</p>
+      <button onClick={hasUpvoted ? downvote : upvote} disabled={loadingAction}>
+        {hasUpvoted ? 'Downvote' : 'Upvote'}
+      </button>
+    </div>
+  );
+};
+```
+
+This example shows a basic implementation of an upvote component using the `useUpvote` hook. It displays the current upvote count and provides a button for users to upvote or downvote the item. The button's text changes based on the user's current vote status, and the button is disabled while an action is in progress.
+
+### Initial Values
+
+This example shows how to provide initial values to the hook. It can be useful for SSR to help display the initial state immediately.
+
+```tsx
+const UpvoteComponentWithInitialValues = () => {
+  const [itemId, setItemId] = React.useState('test-item');
+  const [itemType, setItemType] = React.useState('product');
+  const { count, hasUpvoted, upvote, downvote, loadingCount, loadingStatus, loadingAction } = useUpvote({
+    itemId,
+    itemType,
+    initialCount: 10,
+    initialHasUpvoted: true,
+  });
+  if (loadingCount || loadingStatus) {
+    return <p>Loading...</p>;
+  }
+  return (
+    <div>
+      <p>Upvotes: {count}</p>
+      <button onClick={hasUpvoted ? downvote : upvote} disabled={loadingAction}>
+        {hasUpvoted ? 'Downvote' : 'Upvote'}
+      </button>
+    </div>
+  );
+};
+```
+
+### Handling Errors
+
+This example demonstrates how to handle errors that may occur during upvote or downvote actions.
+
+```tsx
+const UpvoteComponentWithErrorHandling = () => {
+  const [itemId, setItemId] = React.useState('test-item');
+  const [itemType, setItemType] = React.useState('product');
+  const { count, hasUpvoted, upvote, downvote, loadingAction, errorAction } = useUpvote({
+    itemId,
+    itemType,
+  });
+  return (
+    <div>
+      <p>Upvotes: {count}</p>
+      {errorAction && <p>Error: {errorAction.message}</p>}
+      <button onClick={hasUpvoted ? downvote : upvote} disabled={loadingAction}>
+        {hasUpvoted ? 'Downvote' : 'Upvote'}
+      </button>
+    </div>
+  );
+};

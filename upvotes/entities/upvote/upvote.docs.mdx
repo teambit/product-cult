@@ -1,0 +1,66 @@
+---
+description: Represents an upvote entity for items like products or launches.
+labels: ['upvote', 'entity']
+---
+
+The `Upvote` component represents a user's vote on a specific item, such as a product or launch. It includes details like the user ID, item ID, item type, and the timestamp of the vote.
+
+## Get started
+
+Install and use the component in your code:
+
+```ts
+const upvote = Upvote.from({
+  id: 'unique-upvote-id',
+  userId: 'user123',
+  itemId: 'product456',
+  itemType: 'product',
+  createdAt: new Date().toISOString(),
+});
+```
+
+## Mock data
+
+You can use mock data for development and testing purposes using the `mockUpvote` and `mockUpvotes` APIs.
+
+```ts
+const singleUpvote = mockUpvote();
+console.log(singleUpvote);
+
+const multipleUpvotes = mockUpvotes();
+console.log(multipleUpvotes);
+```
+
+## Usage examples
+
+### Displaying Upvote Information
+
+This example demonstrates how to create and display basic upvote information.
+
+```ts
+const upvote = Upvote.from({
+    id: 'upvote-001',
+    userId: 'user-001',
+    itemId: 'product-001',
+    itemType: 'product',
+    createdAt: new Date().toISOString()
+});
+console.log(upvote.toObject());
+```
+
+### Mock Upvote Example
+
+Shows how to generate a mock upvote using the `mockUpvote` function. This is useful for generating test data or populating a UI with placeholder data.
+
+```ts
+const mock = mockUpvote();
+console.log(mock.toObject());
+```
+
+### Mock Upvotes Example
+
+Shows how to generate an array of mock upvotes using the `mockUpvotes` function.  This is useful for generating lists of upvotes for testing or demonstration purposes.
+
+```ts
+const mocks = mockUpvotes();
+mocks.forEach(upvote => console.log(upvote.toObject()));

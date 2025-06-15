@@ -1,0 +1,85 @@
+.upvoteButton {
+  // Inherits display: inline-flex, align-items: center from the base Button component.
+  // Sets a gap between the icon and the count text.
+  gap: var(--spacing-x-small);
+
+  // Custom padding for a more compact upvote button.
+  // Base Button component has padding: 0 var(--spacing-medium).
+  padding: var(--spacing-xx-small) var(--spacing-small);
+
+  // Allows the button's height to adjust to its content (icon + text + padding).
+  // Base Button component has a fixed height: var(--sizes-button-height-medium).
+  height: auto;
+
+  // Ensures a minimum tappable height, aligning with small button standards.
+  min-height: var(--sizes-button-height-small);
+  background-color: var(--colors-text-inverse) !important;
+
+  // Smooth transition for background or border changes not covered by the base Button.
+  transition:
+    background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out),
+    border-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+
+  &:hover {
+    span {
+      color: var(--colors-primary-default) !important;
+    }
+  }
+
+  &:active {
+    background-color: var(--colors-text-inverse) !important;
+  }
+
+  &:disabled {
+    background-color: var(--colors-text-inverse) !important;
+  }
+}
+
+// Style adjustments when the button is active (item is upvoted by user)
+// This complements the UpvoteIcon's isActive state styling.
+// For secondary buttons, active state is typically handled by hover/active pseudo-classes
+// and the icon's own active color. This class can be used for more specific overrides if needed.
+// .upvoteButton.isActive {
+//   // Example: Slightly change border or background if desired beyond icon color change.
+//   // border-color: var(--colors-primary-active);
+// }
+
+.icon {
+  // Ensures the icon is perfectly centered, especially if its internal SVG has unusual alignment.
+  display: flex;
+  align-items: center;
+  // Color and transitions are handled by the UpvoteIcon component itself based on its isActive prop.
+}
+
+.count {
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-small);
+  font-weight: var(--typography-font-weight-medium);
+  line-height: 1; // Prevents extra vertical spacing from the line height.
+  color: inherit; // Inherits color from the parent Button component, which changes on hover/active.
+                  // For secondary buttons, this means it will use --colors-primary-default initially,
+                  // and --colors-text-inverse on hover/active when background changes.
+  user-select: none; // Prevents text selection on the count number.
+}
+
+// Responsive adjustments for smaller screens to maintain usability and aesthetics.
+@media (max-width: var(--tablet)) { // --tablet is typically around 480px-768px
+  .upvoteButton {
+    gap: var(--spacing-xx-small);
+    padding: var(--spacing-xx-small) var(--spacing-x-small);
+    // Optionally reduce min-height further if space is very constrained.
+    // min-height: calc(var(--sizes-button-height-small) * 0.85);
+  }
+
+  .count {
+    font-size: var(--typography-sizes-body-x-small);
+  }
+
+  // The icon size is controlled by a prop, so direct CSS scaling here for the icon
+  // itself would conflict unless that prop also changes responsively.
+  // For a CSS-only approach to icon scaling on mobile (if prop isn't dynamic):
+  // .icon svg {
+  //   width: 16px !important; // Example fixed smaller size
+  //   height: 16px !important;
+  // }
+}

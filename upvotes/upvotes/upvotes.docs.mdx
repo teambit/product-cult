@@ -1,0 +1,58 @@
+---
+description: API for submitting, retrieving, and managing upvotes for products and launches.
+labels: ['upvotes', 'feature', 'graphql']
+---
+
+The Upvotes aspect provides functionality for users to upvote items such as products and launches. It includes APIs for creating, deleting, listing, and counting upvotes, as well as checking a user's upvote status.
+
+## Usage Examples
+
+### Displaying an Upvote Button
+
+This example demonstrates how to display an upvote button for a specific product. This assumes you have a component that consumes the `UpvoteButton` slot.
+
+```jsx
+// Implement your UI component to render the button here
+function ProductUpvoteButton({ itemId, itemType, size }) {
+  // Consume the UpvoteButton slot to retrieve the appropriate button configuration
+  return (
+    <button onClick={() => alert('Upvote clicked for item: ' + itemId)}>
+      Upvote ({itemId} - {itemType})
+    </button>
+  );
+}
+<ProductUpvoteButton itemId="product-123" itemType="product" size={24} />
+```
+### Displaying the Upvote Count
+This example demonstrates how to display the number of upvotes for a specific launch. This assumes you have a component that consumes the `UpvoteCount` slot.
+```jsx
+// Implement your UI component to render the count here
+function LaunchUpvoteCount({ itemId, itemType }) {
+  // Consume the UpvoteCount slot to retrieve the current count
+  const upvoteCount = 150; // Replace with actual count from your data source
+  return (
+    <span>
+      {upvoteCount} Upvotes for launch {itemId} ({itemType})
+    </span>
+  );
+}
+<LaunchUpvoteCount itemId="launch-456" itemType="launch" />
+```
+### Displaying a List of User Upvoted Products
+This example demonstrates how to display a list of products that a user has upvoted. This assumes you have a component that consumes the `UserUpvotedItemsList` slot.
+```jsx
+function UserUpvotedProducts({ userId, itemType }) {
+  // Consume the UserUpvotedItemsListSlot to retrieve the list of items
+  const upvotedProducts = [
+    { id: 'product-1', name: 'Awesome Product 1' },
+    { id: 'product-2', name: 'Incredible Product 2' },
+  ]; // Replace with actual data from your data source
+  return (
+    <ul>
+      {upvotedProducts.map((product) => (
+        <li key={product.id}>{product.name}</li>
+      ))}
+    </ul>
+  );
+}
+<UserUpvotedProducts userId="user-789" itemType="product" />

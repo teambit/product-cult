@@ -1,0 +1,34 @@
+---
+description: A UI component to display the numerical count of upvotes for an item.
+labels: ['upvote', 'count', 'ui']
+---
+
+`UpvoteCount` is a component that displays the number of upvotes for a given item. It fetches the upvote count using a GraphQL query and renders it using a Paragraph component.
+
+## Basic Usage
+
+This example demonstrates the basic usage of the `UpvoteCount` component.
+
+```jsx
+<UpvoteCount itemId="product-alpha" itemType="product" />
+```
+
+## Upvote Count with Prefix and Suffix
+
+This example demonstrates how to use the `prefix` and `suffix` props to add text before and after the upvote count.
+
+```jsx
+<UpvoteCount
+  itemId="launch-beta"
+  itemType="launch"
+  prefix="Total Upvotes: "
+  suffix="! Keep 'em coming! 🚀"
+/>
+```
+
+## Upvote Count Loading State
+
+This example demonstrates the loading state of the `UpvoteCount` component.
+
+```jsx
+<UpvoteCount itemId="loading-item-gamma" itemType="product" prefix="Loading votes: " />

@@ -1,0 +1,18 @@
+.upvoteCount {
+  // Base styles for the upvote count component.
+  // The Paragraph component itself will handle most text styling based on the theme.
+  // This class can be used for layout adjustments if needed, e.g., display properties.
+}
+
+.loadingState {
+  // Optional: Styles for when the count is loading.
+  // For example, change text color to indicate a pending state.
+  // color: var(--colors-text-secondary);
+  // opacity: var(--effects-opacity-semi-opaque);
+}
+
+.errorState {
+  // Optional: Styles for when there's an error fetching the count.
+  // For example, use a status color to indicate an error.
+  // color: var(--colors-status-negative-default);
+}

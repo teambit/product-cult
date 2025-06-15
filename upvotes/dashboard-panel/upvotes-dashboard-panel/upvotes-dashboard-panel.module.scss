@@ -1,0 +1,151 @@
+.upvotesDashboardPanel {
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  padding: var(--spacing-large);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--effects-shadows-medium);
+  color: var(--colors-text-primary);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; // Ensures padding and border don't add to width/height
+  transition: transform var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-ease-in-out),
+              box-shadow var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-ease-in-out);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--panel-background-image);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1; // Subtle background image, adjust as needed
+    z-index: 0;
+    transition: opacity var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-ease-in-out);
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--effects-shadows-large); // Enhanced shadow on hover for "wow"
+    &::before {
+      opacity: 0.15; // Slightly more visible image on hover
+    }
+  }
+}
+
+.panelContent {
+  position: relative;
+  z-index: 1; // Ensures content is above the ::before pseudo-element
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; // Pushes title to top, stats to center/bottom
+}
+
+.panelTitle {
+  font-size: var(--typography-sizes-heading-h4);
+  font-weight: var(--typography-font-weight-semi-bold);
+  color: var(--colors-text-primary);
+  margin: 0 0 var(--spacing-medium) 0; // Adjusted margin
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.countSection {
+  text-align: center;
+  margin: auto 0; // Vertically centers the count section if there's space
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.countValue {
+  display: block;
+  font-size: var(--typography-sizes-display-medium);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--colors-primary-default);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-xx-small);
+  transition: color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+
+  .upvotesDashboardPanel:hover & {
+    color: var(--colors-primary-hover); // Change color on panel hover
+  }
+}
+
+.countLabel {
+  display: block;
+  font-size: var(--typography-sizes-body-default);
+  color: var(--colors-text-secondary);
+}
+
+.userStatus {
+  font-size: var(--typography-sizes-body-small);
+  font-weight: var(--typography-font-weight-medium);
+  color: var(--colors-text-primary);
+  text-align: center;
+  margin-top: var(--spacing-small); // Reduced margin from count section
+  padding: var(--spacing-x-small) var(--spacing-medium);
+  background-color: var(--colors-surface-secondary);
+  border: 1px solid var(--colors-border-subtle);
+  border-radius: var(--borders-radius-pill);
+  align-self: center;
+  max-width: fit-content;
+  box-shadow: var(--effects-shadows-xs);
+}
+
+.loadingIndicator,
+.errorIndicator {
+  text-align: center;
+  padding: var(--spacing-large);
+  font-size: var(--typography-sizes-body-large);
+  color: var(--colors-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1; // Take available space
+  min-height: 100px; // Ensure some space for the message
+}
+
+.errorIndicator {
+  color: var(--colors-status-negative-default);
+  font-weight: var(--typography-font-weight-medium);
+}
+
+// Responsive adjustments
+@media (max-width: var(--layout-breakpoints-tablet)) {
+  .upvotesDashboardPanel {
+    padding: var(--spacing-medium);
+    min-height: 200px;
+  }
+
+  .panelTitle {
+    font-size: var(--typography-sizes-heading-h5);
+  }
+
+  .countValue {
+    font-size: var(--typography-sizes-display-small);
+  }
+
+  .countLabel {
+    font-size: var(--typography-sizes-body-small);
+  }
+
+  .userStatus {
+    font-size: var(--typography-sizes-body-x-small);
+    padding: var(--spacing-xx-small) var(--spacing-small);
+  }
+}
+
+@media (max-width: var(--layout-breakpoints-mobile)) {
+  .upvotesDashboardPanel {
+    min-height: 180px;
+  }
+  .countValue {
+    font-size: var(--typography-sizes-heading-h1); // Make it still prominent on mobile
+  }
+}

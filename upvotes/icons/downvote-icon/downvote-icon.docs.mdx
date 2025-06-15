@@ -1,0 +1,53 @@
+---
+description: A Downvote icon component with active and inactive states.
+labels: ['icon', 'vote', 'downvote']
+---
+
+The `DownvoteIcon` component renders a down arrow icon, often used to indicate disapproval or disagreement.
+It can be styled and customized with different sizes and active states.
+
+## Basic Downvote Icon
+
+The basic `DownvoteIcon` displays a static downvote icon.
+The `isActive` prop determines whether the icon is filled (active) or outlined (inactive).
+
+```jsx
+<DownvoteIcon />
+```
+
+## Active and Inactive States
+
+The `isActive` prop is used to toggle the visual state of the icon.
+
+```jsx
+<DownvoteIcon isActive={true} />
+```
+
+```jsx
+<DownvoteIcon isActive={false} />
+```
+
+## Downvote Icon Sizes
+
+The size of the `DownvoteIcon` can be adjusted using the `size` prop.
+You can use numbers or relative units, such as `em`.
+
+```jsx
+<DownvoteIcon size={16} />
+```
+
+```jsx
+<DownvoteIcon size={32} />
+```
+
+```jsx
+<DownvoteIcon size="2em" />
+```
+
+## Clickable Downvote Icon
+
+The `onClick` prop enables the icon to be clickable, triggering an action when pressed.
+This example demonstrates toggling the active state on click.
+
+```jsx
+<DownvoteIcon onClick={() => alert('Downvote clicked!')} />

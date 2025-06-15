@@ -1,0 +1,43 @@
+---
+description: An interactive button for users to upvote or downvote items.
+labels: ['upvote', 'button', 'interactive']
+---
+
+The `UpvoteButton` component allows users to express their appreciation for items by upvoting them. It displays the current upvote count and reflects the user's vote status with an icon.
+
+## Usage
+
+Here are a few examples of how to use the `UpvoteButton` component.
+
+### Default State
+
+This example demonstrates the button in its default state, where the user has not yet upvoted the item.
+
+```jsx
+<UpvoteButton itemId="product-123" itemType="product" initialCount={42} />
+```
+
+### Initially Upvoted
+
+This example shows the button in a state where the user has already upvoted the item.
+
+```jsx
+<UpvoteButton
+  itemId="product-456"
+  itemType="product"
+  initialCount={99}
+  initialHasUpvoted={true}
+/>
+```
+
+### Custom Styling
+
+This example demonstrates how to use CSS classes to customize the appearance of the button.
+
+```jsx
+<UpvoteButton
+  itemId="product-789"
+  itemType="product"
+  initialCount={123}
+  className="custom-upvote-button"
+/>

@@ -1,0 +1,16 @@
+.upvoteIcon {
+  cursor: var(--interactions-cursor-pointer);
+  // The fill color is dynamically set via the 'color' prop in the UpvoteIcon component,
+  // which is then passed to the underlying Icon component.
+  // Transitions related to color changes will depend on the Icon component's implementation
+  // or if the CSS variable used for the color prop is itself transitioned.
+}
+
+.active {
+  // This class is applied when the UpvoteIcon's isActive prop is true.
+  // It can be used for additional styling specific to the active state,
+  // beyond the color change handled in the component logic.
+  // For example, you could add a subtle transform or animation here:
+  // transform: scale(1.05); 
+  // transition: transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-ease-in-out);
+}

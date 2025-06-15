@@ -1,0 +1,37 @@
+---
+description: A dashboard panel component that displays a summary of upvotes for a specific item.
+labels: ['dashboard', 'upvotes', 'panel']
+---
+
+A dashboard panel component that displays a summary of upvotes for a specific item.
+It fetches upvote data using the useUpvote hook and presents it in a concise, visually appealing, and informative manner.
+
+## Usage
+
+### Basic Panel
+
+This example demonstrates the basic usage of the `UpvotesDashboardPanel` component.
+
+```jsx
+<UpvotesDashboardPanel itemId="product-123" itemType="product" />
+```
+
+### Custom Title
+
+This example shows how to customize the title of the `UpvotesDashboardPanel`.
+
+```jsx
+<UpvotesDashboardPanel itemId="article-456" itemType="article" title="Article Upvotes" />
+```
+
+### Custom Background Image
+
+This example demonstrates how to customize the background image of the `UpvotesDashboardPanel`.
+
+```jsx
+<UpvotesDashboardPanel
+  itemId="launch-789"
+  itemType="launch"
+  title="Launch Upvotes"
+  backgroundImageUrl="https://images.unsplash.com/photo-1604434218929-a5531054e25f?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwyfHxncm93dGglMjBzdGF0aXN0aWNzJTIwZGFzaGJvYXJkfGVufDF8MHx8b3JhbmdlfDE3NDk4MjMxNjJ8MA&ixlib=rb-4.1.0"
+/>

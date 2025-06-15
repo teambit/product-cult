@@ -1,0 +1,38 @@
+---
+description: Displays a list of items the user has upvoted, with options to remove upvotes.
+labels: ['upvotes', 'user interface', 'list']
+---
+
+## Basic Usage
+
+The `UserUpvotesPage` component displays a list of items that a user has upvoted. It fetches the upvotes data and presents them in a user-friendly format.
+
+```jsx
+<UserUpvotesPage initialUserUpvotes={[
+    { id: '1', itemId: 'product-1', itemType: 'Product', createdAt: new Date().toISOString() },
+    { id: '2', itemId: 'launch-1', itemType: 'Launch', createdAt: new Date().toISOString() },
+  ]} />
+```
+
+## Empty State
+
+When the user has not upvoted any items, the component renders an empty state with a message and a suggestion to explore available items.
+
+```jsx
+<UserUpvotesPage initialUserUpvotes={[]} />
+```
+
+## Handling Many Upvotes
+
+The component efficiently displays a large number of upvoted items, using a grid layout that adapts to different screen sizes.
+
+```jsx
+const manyUpvotes = Array.from({ length: 10 }, (_, i) => ({
+  id: String(i),
+  itemId: `item-${i}`,
+  itemType: i % 2 === 0 ? 'Product' : 'Launch',
+  createdAt: new Date().toISOString(),
+}));
+
+// Render the component with the generated data
+<UserUpvotesPage initialUserUpvotes={manyUpvotes} />
