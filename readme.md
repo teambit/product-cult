@@ -40,7 +40,7 @@ Follow these steps to get the Product Cult platform running on your local machin
 
 ### Prerequisites
 
-Make sure you have [Bit](https://bit.dev/docs/getting-started/installing-bit/installing-bit) installed globally on your system.
+Make sure you have [Bit](https://bit.dev/docs/getting-started/installing-bit/installing-bit) and [MongoDB](https://www.mongodb.com/docs/manual/installation/) installed globally on your system.
 
 ### Installation & Setup
 
@@ -75,4 +75,3 @@ bit start
 ## 📂 Project Structure
 
 The directory structure is organized by components. This makes the codebase more modular, scalable, and easier to maintain. Enable, add or disable application features in the [application shell](https://github.com/teambit/product-cult/blob/main/product-hunt-platform/product-hunt/product-hunt.bit-app.ts).
-
