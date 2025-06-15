@@ -59,8 +59,8 @@ export class ReviewModel {
 
 export const reviewsModelMock = [
   {
-    id: 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11',
-    productId: '3',
+    id: 'a0eebc99-9c0b-4ef228-bb444d-680a11',
+    productId: '1',
     userId: 'userABC',
     rating: 4.5,
     comment: 'Great product, really enjoyed using it!',
@@ -69,9 +69,29 @@ export const reviewsModelMock = [
     updatedAt: new Date(),
   },
   {
+    id: 'a0eebc99-9c0b-4ef45-b46d-0a11',
+    productId: '5',
+    userId: 'userABC',
+    rating: 4.5,
+    comment: 'To the moon!',
+    status: 'approved',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11',
+    productId: '5',
+    userId: 'userABC',
+    rating: 4.5,
+    comment: 'Using this to support over 1M users. Highly recommended!',
+    status: 'approved',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
     id: 'b1cdef00-9c0b-4ef8-bb6d-6bb9bd380a12',
     productId: '2',
-    userId: 'userXYZ',
+    userId: '4',
     rating: 2.0,
     comment: 'Disappointing quality, expected more.',
     status: 'pending',
@@ -80,8 +100,8 @@ export const reviewsModelMock = [
   },
   {
     id: 'c2def111-9c0b-4ef8-bb6d-6bb9bd380a13',
-    productId: '1',
-    userId: 'userABC',
+    productId: '3',
+    userId: '5',
     rating: 5.0,
     comment: 'Absolutely love this! Highly recommend.',
     status: 'approved',

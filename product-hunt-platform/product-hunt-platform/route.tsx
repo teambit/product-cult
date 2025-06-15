@@ -16,6 +16,11 @@ export interface Route {
    * The React component to render when this route is matched.
    */
   component: ComponentType;
+
+  /**
+   * If true, the path will only match if the path is exactly the route's path.
+   */
+  exact?: boolean;
 }
 
 export type RouteSlot = SlotRegistry<Route[]>;

@@ -82,10 +82,10 @@ export function UserProductsTab({
   mockProducts,
 }: UserProductsTabProps): React.JSX.Element {
   const listProductVariables: ListProductsOptions = {
-    categoryId: DEFAULT_CATEGORY_ID,
+    // categoryId: DEFAULT_CATEGORY_ID,
     // Assuming the backend search functionality supports filtering by submitterUserId.
     // The format 'field:value' is a common convention.
-    search: `submitterUserId:${userId}`,
+    userId,
   };
 
   if (limit !== undefined) {

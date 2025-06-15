@@ -108,9 +108,9 @@ export class PeopleBrowser {
 
     // Register default user profile tabs
     people.registerUserProfileTab([
-      { name: 'products', label: 'Products', component: ProductsTabContent },
-      { name: 'activity', label: 'Activity', component: ActivityTabContent },
-      { name: 'settings', label: 'Settings', component: SettingsTabContent },
+      // { name: 'products', label: 'Products', component: ProductsTabContent },
+      // { name: 'activity', label: 'Activity', component: ActivityTabContent },
+      // { name: 'settings', label: 'Settings', component: SettingsTabContent },
     ]);
 
     symphonyPlatform.registerRoute([
@@ -173,7 +173,7 @@ export class PeopleBrowser {
     ]);
 
     const FeaturedMembersSectionComponent = () => {
-      const { userProfiles, loading, error } = useListUserProfiles({ variables: { limit: 6 } });
+      const { userProfiles, loading, error } = useListUserProfiles({ variables: { limit: 8 } });
       if (loading) return <div>Loading featured members...</div>;
       if (error) return <div>Error loading featured members: {(error as Error).message}</div>;
       if (!userProfiles || userProfiles.length === 0) return null; // Don't render if no members

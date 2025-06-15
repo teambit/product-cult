@@ -14,7 +14,13 @@ export type ListProductsOptions = {
   /**
    * The ID of the category to filter products by.
    */
-  categoryId: string;
+  categoryId?: string;
+
+  /**
+   * submitter id.
+   */
+  userId?: string;
+
   /**
    * Optional. A search term to filter products by name or description.
    */

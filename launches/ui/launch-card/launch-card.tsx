@@ -27,12 +27,13 @@ export function LaunchCard({
   viewLaunchText = DEFAULT_VIEW_LAUNCH_TEXT,
 }: LaunchCardProps): React.JSX.Element {
   const resolvedImageAlt = imageAlt || launch.name || DEFAULT_IMAGE_ALT_FALLBACK;
+  const image = launch.imageUrl || imageUrl;
 
   return (
     <Card
       className={classNames(styles.launchCard, className)}
       style={style}
-      image={imageUrl}
+      image={image}
       imageAlt={resolvedImageAlt}
       interactive
     >

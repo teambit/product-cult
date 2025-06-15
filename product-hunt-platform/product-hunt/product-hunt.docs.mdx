@@ -1,66 +1,31 @@
 ---
-labels: ['product-hunt', 'harmony', 'platform']
-description: 'A Product Hunt Harmony platform.'
+description: 'The Product Cult platform.'
+labels: ['product-cult', 'harmony', 'platform', 'nodejs', 'react', 'graphql', 'mongodb']
 ---
 
-The Product Hunt platform composition. Composes the Product Hunt platform features into a unified and executable platform.
+The Product Cult platform composition. Composes Product Cult platform features into a unified and executable platform.
 
 ## Run the platform
-
-Run the Product Hunt platform by running the following commands:
+To run the Product Cult platform, execute the following commands:
 
 ```bash
-bit use product-hunt
+bit use product-cult
 ```
-Run the platform:
+Then, start the platform:
 ```bash
-bit run product-hunt
+bit run product-cult
 ```
-Your platform is now listening to url shown in the command output.
-
+The platform will start and provide a URL in the command output.
 ## Compose aspects
-
-You can create and compose new Aspects to the Product Hunt platform by adding them to the `aspects` property in `product-hunt.bit-app.ts`:
-
+To add new features, you can compose additional aspects to the Product Cult platform by modifying the `aspects` array in `product-cult.bit-app.ts`.
 ```ts
-// Example of importing a new aspect
-// import { YourNewFeatureAspect } from '@your-scope/your-new-feature';
+// Example: import { AnotherFeatureAspect } from '@your-scope/another-feature';
 export const ProductHunt = HarmonyPlatform.from({
-  name: 'product-hunt',
+  name: 'product-cult',
   aspects: [
-    // ... other configured aspects
+    ProductHuntPlatformAspect,
+    UpvotesAspect,
     // your new platform feature.
-    // YourNewFeatureAspect,
+    // AnotherFeatureAspect,
   ],
 });
-```
-
-## Rendering Panels
-
-Product Hunt can render panels on the homepage or dashboard to display information. Here's how:
-
-### Example 1: Rendering a News Panel
-
-Display the latest news related to product launches.
-
-```jsx
-// Assuming you have a NewsPanel component
-<NewsPanel newsItems={[{ title: 'New Product Released', content: 'Details about the latest product' }]} />
-```
-
-### Example 2: Rendering a Product List
-
-Showcase a list of featured products.
-
-```jsx
-// Assuming you have a ProductList component
-<ProductList products={[{ name: 'Awesome Product', description: 'Check out this amazing product!' }]} />
-```
-
-### Example 3: Rendering a Search Bar
-
-Integrate a search bar for users to find products easily.
-
-```jsx
-// Assuming you have a SearchBar component
-<SearchBar onSearch={(query) => console.log('Searching for:', query)} />

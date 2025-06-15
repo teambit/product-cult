@@ -178,24 +178,24 @@ export class ForumsBrowser {
       },
     ]);
 
-    productHuntPlatform.registerHeaderLink([
-      {
-        name: 'create-topic-header-link',
-        label: 'New Topic',
-        href: '/forums/create',
-        icon: ForumTopicIcon,
-        authenticated: true, // HeaderLink supports authenticated
-        weight: 20,
-      },
-    ]);
+    // productHuntPlatform.registerHeaderLink([
+    //   {
+    //     name: 'create-topic-header-link',
+    //     label: 'New Topic',
+    //     href: '/forums/create',
+    //     icon: ForumTopicIcon,
+    //     authenticated: true, // HeaderLink supports authenticated
+    //     weight: 20,
+    //   },
+    // ]);
 
-    productHuntPlatform.registerHomepageSection([
-      {
-        name: 'recent-forum-topics',
-        component: () => <ForumTopicList forumId="general-discussion" limit={5} />, // Example, 'general-discussion' might need to be a valid existing forumId
-        weight: 30,
-      },
-    ]);
+    // productHuntPlatform.registerHomepageSection([
+    //   {
+    //     name: 'recent-forum-topics',
+    //     component: () => <ForumTopicList forumId="general-discussion" limit={5} />, // Example, 'general-discussion' might need to be a valid existing forumId
+    //     weight: 30,
+    //   },
+    // ]);
 
     const userBarMenuItem: UserBarMenuItem = {
       name: 'create-new-topic-user-bar',

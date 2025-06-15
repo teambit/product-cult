@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { PageLayout, PageLayoutProps } from '@infinity/design.layouts.page-layout';
-import { TextInput, TextInputProps } from '@infinity/design.inputs.text-input';
+import { PageLayout } from '@infinity/design.layouts.page-layout';
+import { TextInput } from '@infinity/design.inputs.text-input';
 import { Button } from '@infinity/design.actions.button';
 import { useCreateLaunch, type CreateLaunchVariables } from '@infinity/launches.hooks.use-launches';
 import classNames from 'classnames';
@@ -18,7 +18,7 @@ export type SubmitLaunchPageProps = {
   // style?: React.CSSProperties; 
 };
 
-const ROCKET_IMAGE_URL = `https://images.unsplash.com/photo-1700508317396-e343a69ac72f?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwxfHxyb2NrZXQlMjBsYXVuY2h8ZW58MXwwfHxvcmFuZ2V8MTc0OTU5Nzk2N3ww&ixlib=rb-4.1.0&q=80&w=1200`;
+const ROCKET_IMAGE_URL = `https://storage.googleapis.com/static.bit.dev/product-cult/launch.png`;
 
 /**
  * SubmitLaunchPage is a dedicated page for users to submit new product launches.

@@ -18,57 +18,53 @@ The Product Hunt Platform Aspect provides a foundation for creating a community-
 
 ## Examples
 
-### Basic Usage
+### Registering Header Links
 
-This example demonstrates how to register a header link and a user bar menu item to the platform.
+This example demonstrates how to register header links in the Product Hunt platform, allowing users to navigate to different sections of the application.
 
 ```tsx
-function registerPlatformItems(productHuntPlatform: ProductHuntPlatformBrowser) {
+function registerHeaderLinks(productHuntPlatform: ProductHuntPlatformBrowser) {
   productHuntPlatform.registerHeaderLink([
-    { name: 'my-custom-link', label: 'Custom Link', href: '/custom-link' }
-  ]);
-  productHuntPlatform.registerUserBarMenuItem([
-    { name: 'logout', label: 'Logout', href: '/logout' }
+    { name: 'products', label: 'Products', href: '/products' },
+    { name: 'launches', label: 'Launches', href: '/launches' },
+    { name: 'forums', label: 'Forums', href: '/forums' },
   ]);
 }
 ```
-
-### Registering a Homepage Section
-
-This example showcases how to register a custom homepage section to display featured products or announcements.
-
+### Adding a User Bar Menu Item
+This example shows how to add a user bar menu item to the Product Hunt platform, providing quick access to user-related functionalities.
 ```tsx
-interface Props {
-  title: string;
+function addUserBarMenuItem(productHuntPlatform: ProductHuntPlatformBrowser) {
+  productHuntPlatform.registerUserBarMenuItem([
+    { name: 'profile', label: 'My Profile', href: '/profile' },
+    { name: 'settings', label: 'Settings', href: '/settings' },
+  ]);
 }
-
-function MyCustomSection({ title }: Props) {
+```
+### Creating a Homepage Section
+This example demonstrates how to create a custom homepage section in the Product Hunt platform to display featured products or announcements.
+```tsx
+interface FeaturedProductsProps {
+  products: { id: string; name: string }[];
+}
+function FeaturedProducts({ products }: FeaturedProductsProps) {
   return (
     <div>
-      <h1>{title}</h1>
-      <p>This is a custom section on the homepage.</p>
+      <h2>Featured Products</h2>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>{product.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }
-
-function registerHomepageSection(productHuntPlatform: ProductHuntPlatformBrowser) {
+function addHomepageSection(productHuntPlatform: ProductHuntPlatformBrowser) {
   productHuntPlatform.registerHomepageSection([
     {
-      name: 'custom-section',
-      component: (props: Props) => <MyCustomSection {...props} title="Welcome!" />,
-      weight: 10,
-    }
+      name: 'featured-products',
+      component: (props: FeaturedProductsProps) => <FeaturedProducts {...props} products={[{ id: '1', name: 'Awesome App' }]} />,
+      weight: 20,
+    },
   ]);
-}
-```
-
-### Customizing the Theme
-
-This example explains how to customize the platform's theme using the Symphony Platform.
-
-```tsx
-function registerTheme(symphonyPlatform: SymphonyPlatformBrowser) {
-  symphonyPlatform.registerTheme((props) => {
-    return <MyCustomTheme {...props} />;
-  });
 }

@@ -1,11 +1,17 @@
 import type React from 'react';
-import { LaunchDeploySection } from './launch-deploy-section.js';
 import type { Launch } from '@infinity/launches.entities.launch';
+import { LaunchDeploySection } from './launch-deploy-section.js';
+import { LaunchActionType } from './launch-action-type.js';
 
 /**
  * Defines the properties for the LaunchDetailsPage component.
  */
 export type LaunchDetailsPageProps = {
+  /**
+   * actions
+   */
+  actions?: LaunchActionType[];
+
   /**
    * Optional CSS class name for custom styling of the component's root element.
    * This allows for overriding or extending the default styles.

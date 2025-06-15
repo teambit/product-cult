@@ -39,7 +39,7 @@ export function Signup({ className, style }: SignupProps): React.JSX.Element {
 
   useEffect(() => {
     if (auth.user && !auth.loading) {
-      navigate('/');
+      window.location.href = '/';
     }
   }, [auth.user, auth.loading, navigate]);
 

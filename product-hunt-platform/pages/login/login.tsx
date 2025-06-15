@@ -46,7 +46,7 @@ export function Login({ className, style, onLoginSuccess, onLoginError }: LoginP
   useEffect(() => {
     // Redirect if user is already authenticated and initial auth loading is complete
     if (auth.user && !auth.loading) {
-      navigate('/');
+      window.location.href = '/';
     }
   }, [auth.user, auth.loading, navigate]);
 

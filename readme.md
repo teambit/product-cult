@@ -14,7 +14,7 @@ Browse the components on the [Bit Cloud example organization](https://bit.cloud/
 
 * **[Design system](https://bit.cloud/infinity/design):** Browse the [platform design system components](https://bit.cloud/infinity/design/~components). Each as standalone reusable package.
 * **[User Authentication](https://bit.cloud/infinity/products):** Secure sign-up and login to enable voting and submissions.
-* **[Real-Time Voting](https://bit.cloud/infinity/voting):** Cast your vote for product ideas and see the results update instantly.
+* **[Real-Time Voting](https://bit.cloud/infinity/upvotes):** Cast your vote for product ideas and see the results update instantly.
 * **[Product Submissions](https://bit.cloud/infinity/products):** Submit your own innovative product ideas for the community to vote on.
 * **[Community Discussions](https://bit.cloud/infinity/forums):** Engage in threaded discussions on each product page.
 * **[User Profiles](https://bit.cloud/infinity/people):** Manage your profile and track your submissions and voting history.

@@ -1,5 +1,6 @@
 import type { SlotRegistry } from '@bitdev/harmony.harmony';
-import type { ProductActionProps } from '@infinity/launches.products.track-launch-button';
+import { Launch } from '@infinity/launches.entities.launch';
+// import type { ProductActionProps } from '@infinity/launches.products.track-launch-button';
 
 export interface LaunchAction {
   /**
@@ -9,7 +10,7 @@ export interface LaunchAction {
   /**
    * The React component to render for the launch action.
    */
-  component: React.ComponentType<ProductActionProps>;
+  component: React.ComponentType<{ launch: Launch }>;
 }
 
 export type LaunchActionSlot = SlotRegistry<LaunchAction[]>;

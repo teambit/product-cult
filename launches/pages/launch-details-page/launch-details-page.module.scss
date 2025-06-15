@@ -246,3 +246,10 @@
     font-size: var(--typography-sizes-body-small);
   }
 }
+
+.actions {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 100 !important;
+}

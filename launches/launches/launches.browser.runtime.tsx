@@ -138,11 +138,17 @@ export class LaunchesBrowser {
     symphonyPlatform.registerRoute([
       {
         path: '/launches',
-        component: () => <LaunchesPage />,
+        component: () => {
+          const actions = launches.listLaunchActions();
+          return <LaunchesPage />
+        },
       },
       {
         path: '/launches/:launchId',
-        component: () => <LaunchDetailsPage />,
+        component: () => {
+          const actions = launches.listLaunchActions();
+          return <LaunchDetailsPage actions={actions} />;
+        },
       },
       {
         path: '/submit-launch',

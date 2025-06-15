@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 import { Card } from '@infinity/design.content.card';
 import { Avatar, type AvatarSize } from '@infinity/design.content.avatar';
@@ -64,6 +65,7 @@ export function UserCard({
   avatarSize = DEFAULT_AVATAR_SIZE,
   nameHeadingLevel = DEFAULT_NAME_HEADING_LEVEL,
 }: UserCardProps): React.JSX.Element {
+  const navigate = useNavigate();
   const handleAvatarClick = () => {
     if (onAvatarClick) {
       onAvatarClick(userProfile.userId);
@@ -84,7 +86,7 @@ export function UserCard({
       className={classNames(styles.userCardRoot, className)}
       style={style}
     >
-      <div className={styles.contentLayout}>
+      <div className={styles.contentLayout} onClick={() => navigate(`/profile/${userProfile.userId}`)}>
         <div
           className={classNames(
             styles.avatarWrapper,

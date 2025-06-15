@@ -20,6 +20,11 @@ export type ListProductsOptions = {
    * Search term for product names or descriptions.
    */
   search?: string;
+
+  /**
+   * submitter id.
+   */
+  userId?: string;
 };
 
 /**

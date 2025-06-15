@@ -64,7 +64,7 @@ export function UpcomingLaunchesSection({
   style,
 }: UpcomingLaunchesSectionProps): React.JSX.Element {
   const { data, loading } = useListLaunches({
-    limit: 1
+    limit: 2
   });
   const launches = data?.listLaunches || baseLaunches;
 

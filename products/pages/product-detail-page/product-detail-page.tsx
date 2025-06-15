@@ -141,11 +141,13 @@ export function ProductDetailPage({
           </div>
         </div>
       </div>
-      {tabs?.map((tab) => {
-        const Component = tab.component;
-        if (!Component) return null;
-        return <Component productId={productId} />;
-      })}
+      <div className={styles.featureSections}>
+        {tabs?.map((tab) => {
+          const Component = tab.component;
+          if (!Component) return null;
+          return <Component productId={productId} />;
+        })}
+      </div>
     </PageLayout>
   );
 }

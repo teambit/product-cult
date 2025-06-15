@@ -9,6 +9,7 @@ import { useListForumTopics, type UseListForumTopicsOptions } from '@infinity/fo
 import { useGetUserProfile } from '@infinity/people.hooks.use-user-profile';
 
 import styles from './forum-topic-list.module.scss';
+import { useGetForum } from '@infinity/forums.hooks.use-forums';
 
 const DEFAULT_TOPIC_LIMIT = 10;
 
@@ -126,6 +127,12 @@ export function ForumTopicList({
     listOptions.mockData = mockTopics;
   }
 
+  const { forum } = useGetForum({
+    queryOptions: {
+      id: forumId
+    }
+  });
+
   const { topics, loading, error } = useListForumTopics(listOptions);
 
   if (loading) {
@@ -141,10 +148,19 @@ export function ForumTopicList({
   }
 
   return (
-    <div className={classNames(styles.forumTopicList, className)} style={style}>
-      {topics.map((topic) => (
-        <ForumTopicItem key={topic.id} topic={topic} />
-      ))}
+    <div>
+      <div className={styles.pageHeaderImageContainer}>
+         <img
+            src={forum?.imageUrl}
+            alt="A rocket soaring upwards, symbolizing a new launch"
+            className={styles.headerImage}
+          />
+      </div>
+      <div className={classNames(styles.forumTopicList, className)} style={style}>
+        {topics.map((topic) => (
+          <ForumTopicItem key={topic.id} topic={topic} />
+        ))}
+      </div>
     </div>
   );
 }

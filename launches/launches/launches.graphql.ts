@@ -15,6 +15,7 @@ export function launchesGqlSchema(launchesMain: LaunchesNode): GqlSchema {
         launchDate: String!
         status: String!
         submittedBy: String!
+        imageUrl: String
         createdAt: String
         updatedAt: String
       }

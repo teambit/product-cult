@@ -1,10 +1,12 @@
 .launchListGrid {
-  display: grid;
+  // display: grid;
+  display: flex;
   gap: var(--spacing-medium);
   padding: var(--spacing-medium);
   // Default for mobile (up to tablet breakpoint)
   // Ensures cards take full width on very small screens.
-  grid-template-columns: 1fr;
+  // grid-template-columns: 1fr;
+  flex-wrap: wrap;
   box-sizing: border-box;
 }
 

@@ -52,4 +52,9 @@ export type PlainLaunch = {
    * Timestamp of when the launch was last updated, in ISO 8601 format.
    */
   updatedAt: string;
+
+  /**
+   * image url
+   */
+  imageUrl?: string;
 };

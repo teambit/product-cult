@@ -38,6 +38,11 @@ export class ProductRepository {
     if (options?.categoryId) {
       query.categoryId = options.categoryId;
     }
+
+    if (options?.userId) {
+      query.submitterUserId = options.userId;
+    }
+
     if (options?.search) {
       query.$or = [
         { name: { $regex: options.search, $options: 'i' } },
@@ -50,6 +55,7 @@ export class ProductRepository {
       .skip(options?.offset || 0)
       .limit(options?.limit || 0)
       .sort({ createdAt: -1 });
+
     return products.map((product) => product.toObject());
   }
 

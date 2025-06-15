@@ -126,7 +126,7 @@ export class ProductsBrowser {
         name: 'products-header-link',
         label: 'Products',
         href: '/products',
-        weight: 30,
+        weight: -10,
       },
       // {
       //   name: 'submit-product-header-link',

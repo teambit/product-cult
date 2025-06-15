@@ -1,24 +1,22 @@
 import React, { ComponentType } from 'react';
-import { useLocation } from 'react-router-dom';
 import { SymphonyPlatformAspect, type SymphonyPlatformBrowser, type TopLevelSlot } from '@bitdev/symphony.symphony-platform';
 import type { ProductHuntPlatformConfig } from './product-hunt-platform-config.js';
-import { NavigationItem, NavigationItemSlot } from './navigation-item.js';
-import { HeaderLink, HeaderLinkSlot } from './header-link.js';
-import { HomepageSection, HomepageSectionSlot } from './homepage-section.js';
-import { UserBarMenuItem, UserBarMenuItemSlot } from './user-bar-menu-item.js';
-import { AppLayoutHeader, AppLayoutHeaderSlot } from './app-layout-header.js';
-import { AppLayoutFooter, AppLayoutFooterSlot } from './app-layout-footer.js';
+import { type NavigationItem, type NavigationItemSlot } from './navigation-item.js';
+import { type HeaderLink, type HeaderLinkSlot } from './header-link.js';
+import { type HomepageSection, type HomepageSectionSlot } from './homepage-section.js';
+import { type UserBarMenuItem, type UserBarMenuItemSlot } from './user-bar-menu-item.js';
+import { type AppLayoutHeader, type AppLayoutHeaderSlot } from './app-layout-header.js';
+import { type AppLayoutFooter, type AppLayoutFooterSlot } from './app-layout-footer.js';
 import { InfinityTheme } from '@infinity/design.infinity-theme';
 import { Header } from '@infinity/product-hunt-platform.layout.header';
 import { ThemeToggler } from '@infinity/design.actions.theme-toggler';
 import { UserBar } from '@infinity/product-hunt-platform.composites.user-bar';
-// AuthProvider class removed as it's not a JSX component
 import { Home } from '@infinity/product-hunt-platform.pages.home';
 import { Login } from '@infinity/product-hunt-platform.pages.login';
 import { Signup } from '@infinity/product-hunt-platform.pages.signup';
 import { NotFoundPage } from '@infinity/product-hunt-platform.pages.not-found-page';
 import { ProtectedRoute } from '@infinity/product-hunt-platform.ui.protected-route';
-import type { Route } from '@bitdev/symphony.frontends.route';
+import type { Route as SymphonyRoute } from '@bitdev/symphony.frontends.route';
 import { useAuth } from '@infinity/product-hunt-platform.hooks.use-auth';
 
 export class ProductHuntPlatformBrowser {
@@ -31,7 +29,7 @@ export class ProductHuntPlatformBrowser {
     private appLayoutHeaderSlot: AppLayoutHeaderSlot,
     private appLayoutFooterSlot: AppLayoutFooterSlot,
     private symphonyPlatform: SymphonyPlatformBrowser,
-    private topLevelComponentsSlot: TopLevelSlot // Added from template to handle AuthProvider
+    private topLevelComponentsSlot: TopLevelSlot
   ) {}
 
   /**
@@ -45,7 +43,7 @@ export class ProductHuntPlatformBrowser {
   /**
    * list all navigation item.
    */
-  listNavigationItems() {
+  listNavigationItems(): NavigationItem[] {
     return this.navigationItemSlot.flatValues();
   }
 
@@ -60,8 +58,10 @@ export class ProductHuntPlatformBrowser {
   /**
    * list all header link.
    */
-  listHeaderLinks() {
-    return this.headerLinkSlot.flatValues();
+  listHeaderLinks(): HeaderLink[] {
+    // If HeaderLinkSlot is SlotRegistry<HeaderLink[]>, sortByWeight() returns HeaderLink[][].
+    // .flat() is used to flatten it to HeaderLink[]
+    return this.headerLinkSlot.sortByWeight().flat();
   }
 
   /**
@@ -75,7 +75,7 @@ export class ProductHuntPlatformBrowser {
   /**
    * list all homepage section.
    */
-  listHomepageSections() {
+  listHomepageSections(): HomepageSection[] {
     return this.homepageSectionSlot.flatValues();
   }
 
@@ -90,7 +90,7 @@ export class ProductHuntPlatformBrowser {
   /**
    * list all user bar-menu-item.
    */
-  listUserBarMenuItems() {
+  listUserBarMenuItems(): UserBarMenuItem[] {
     return this.userBarMenuItemSlot.flatValues();
   }
 
@@ -105,7 +105,7 @@ export class ProductHuntPlatformBrowser {
   /**
    * list all app layout-header.
    */
-  listAppLayoutHeaders() {
+  listAppLayoutHeaders(): AppLayoutHeader[] {
     return this.appLayoutHeaderSlot.flatValues();
   }
 
@@ -120,14 +120,14 @@ export class ProductHuntPlatformBrowser {
   /**
    * list all app layout-footer.
    */
-  listAppLayoutFooters() {
+  listAppLayoutFooters(): AppLayoutFooter[] {
     return this.appLayoutFooterSlot.flatValues();
   }
 
   /**
    * register new routes to the platform.
    */
-  registerRoute(routes: Route[]) {
+  registerRoute(routes: SymphonyRoute[]) {
     this.symphonyPlatform.registerRoute(routes);
     return this;
   }
@@ -143,10 +143,7 @@ export class ProductHuntPlatformBrowser {
 
     // Register primary header links for the platform
     productHuntPlatform.registerHeaderLink([
-      { name: 'home', label: 'Home', href: '/' },
-      // { name: 'products', label: 'Products', href: '/products' },
       { name: 'launches', label: 'Launches', href: '/launches' },
-      // { name: 'news', label: 'News', href: '/news' },
       { name: 'forums', label: 'Forums', href: '/forums' },
     ]);
 
@@ -176,7 +173,6 @@ export class ProductHuntPlatformBrowser {
     productHuntPlatform.registerRoute([
       { path: '/', component: () => {
         const sections = productHuntPlatform.listHomepageSections();
-
         return <Home sections={sections} />;
       }},
       { path: '/login', component: Login },
@@ -205,23 +201,13 @@ export class ProductHuntPlatformBrowser {
         position: 'top',
         component: () => {
           const { user } = useAuth(); // Use useAuth hook within the component
-          const location = useLocation();
-          // Filter header links based on authentication status
           const headerLinks = productHuntPlatform.listHeaderLinks()
             .filter(link => link.authenticated === undefined || link.authenticated === !!user);
 
-          // Prepare action components for the header
           const actions: ComponentType<any>[] = [];
-
-          // Conditionally add UserBar or login/signup actions
-          if (user) {
-            actions.push(() => <UserBar menuItems={productHuntPlatform.listUserBarMenuItems()} />);
-          } else if (!location.pathname.startsWith('/login') && !location.pathname.startsWith('/signup')) {
-            actions.push(
-              () => <a href="/login" style={{ padding: '8px 12px', border: '1px solid var(--colors-border-default)', borderRadius: '6px', textDecoration: 'none', color: 'var(--colors-text-primary)' }}>Login</a>,
-              () => <a href="/signup" style={{ padding: '8px 12px', backgroundColor: 'var(--colors-primary-default)', borderRadius: '6px', textDecoration: 'none', color: 'var(--colors-text-inverse)' }}>Sign Up</a>
-            );
-          }
+          actions.push(
+            () => <UserBar className="userBar" menuItems={productHuntPlatform.listUserBarMenuItems()} /> // Added className
+          );
 
           return (
             <Header
@@ -231,8 +217,6 @@ export class ProductHuntPlatformBrowser {
           );
         }
       },
-      // AppLayoutFooterSlot is an API for others to register their footers,
-      // not necessarily for this aspect to enforce a global footer via registerLayoutEntry 'bottom'.
     ]);
 
     return productHuntPlatform;

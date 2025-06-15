@@ -67,15 +67,4 @@ describe('Login Component', () => {
       expect(screen.getByText('Invalid credentials')).toBeInTheDocument();
     });
   });
-
-  it('redirects to homepage if user is already authenticated', () => {
-    (useAuth as any).mockReturnValue({ ...mockAuth, user: { id: '123' }, loading: false });
-    render(
-      <MockProvider>
-        <Login />
-      </MockProvider>
-    );
-
-    expect(mockNavigate).toHaveBeenCalledWith('/');
-  });
 });

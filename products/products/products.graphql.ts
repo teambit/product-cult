@@ -83,6 +83,7 @@ export function productsGqlSchema(productsNode: ProductsNode): GqlSchema {
         offset: Int
         categoryId: String
         search: String
+        userId: String
       }
 
       input CreateProductOptionsInput {

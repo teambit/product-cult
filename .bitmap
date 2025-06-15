@@ -26,28 +26,28 @@
     "admin/create-launch": {
         "name": "admin/create-launch",
         "scope": "infinity.launches",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "launches/admin/create-launch"
     },
     "admin/create-product": {
         "name": "admin/create-product",
         "scope": "infinity.products",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "products/admin/create-product"
     },
     "admin/edit-launch": {
         "name": "admin/edit-launch",
         "scope": "infinity.launches",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "launches/admin/edit-launch"
     },
     "admin/edit-product": {
         "name": "admin/edit-product",
         "scope": "infinity.products",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "products/admin/edit-product"
     },
@@ -89,7 +89,7 @@
     "composites/user-bar": {
         "name": "composites/user-bar",
         "scope": "infinity.product-hunt-platform",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "product-hunt-platform/composites/user-bar"
     },
@@ -135,6 +135,13 @@
         "mainFile": "index.ts",
         "rootDir": "design/content/logo"
     },
+    "dashboard-panel/upvotes-dashboard-panel": {
+        "name": "dashboard-panel/upvotes-dashboard-panel",
+        "scope": "infinity.upvotes",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "upvotes/dashboard-panel/upvotes-dashboard-panel"
+    },
     "entities/forum": {
         "name": "entities/forum",
         "scope": "infinity.forums",
@@ -159,7 +166,7 @@
     "entities/launch": {
         "name": "entities/launch",
         "scope": "infinity.launches",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "launches/entities/launch"
     },
@@ -205,6 +212,13 @@
         "mainFile": "index.ts",
         "rootDir": "search/entities/search-result"
     },
+    "entities/upvote": {
+        "name": "entities/upvote",
+        "scope": "infinity.upvotes",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "upvotes/entities/upvote"
+    },
     "entities/user": {
         "name": "entities/user",
         "scope": "infinity.product-hunt-platform",
@@ -229,21 +243,21 @@
     "forums": {
         "name": "forums",
         "scope": "infinity.forums",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "forums/forums"
     },
     "homepage-section/featured-products": {
         "name": "homepage-section/featured-products",
         "scope": "infinity.products",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "products/homepage-section/featured-products"
     },
     "homepage-section/upcoming-launches-section": {
         "name": "homepage-section/upcoming-launches-section",
         "scope": "infinity.launches",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "launches/homepage-section/upcoming-launches-section"
     },
@@ -278,7 +292,7 @@
     "hooks/use-launches": {
         "name": "hooks/use-launches",
         "scope": "infinity.launches",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "launches/hooks/use-launches"
     },
@@ -292,7 +306,7 @@
     "hooks/use-products": {
         "name": "hooks/use-products",
         "scope": "infinity.products",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "products/hooks/use-products"
     },
@@ -310,6 +324,13 @@
         "mainFile": "index.ts",
         "rootDir": "search/hooks/use-search"
     },
+    "hooks/use-upvote": {
+        "name": "hooks/use-upvote",
+        "scope": "infinity.upvotes",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "upvotes/hooks/use-upvote"
+    },
     "hooks/use-user-profile": {
         "name": "hooks/use-user-profile",
         "scope": "infinity.people",
@@ -323,6 +344,13 @@
         "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "launches/icons/calendar-icon"
+    },
+    "icons/downvote-icon": {
+        "name": "icons/downvote-icon",
+        "scope": "infinity.upvotes",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "upvotes/icons/downvote-icon"
     },
     "icons/forum-icon": {
         "name": "icons/forum-icon",
@@ -366,6 +394,13 @@
         "mainFile": "index.ts",
         "rootDir": "search/icons/search-icon"
     },
+    "icons/upvote-icon": {
+        "name": "icons/upvote-icon",
+        "scope": "infinity.upvotes",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "upvotes/icons/upvote-icon"
+    },
     "icons/user-icon": {
         "name": "icons/user-icon",
         "scope": "infinity.people",
@@ -397,14 +432,14 @@
     "launches": {
         "name": "launches",
         "scope": "infinity.launches",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "launches/launches"
     },
     "layout/header": {
         "name": "layout/header",
         "scope": "infinity.product-hunt-platform",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "product-hunt-platform/layout/header"
     },
@@ -481,35 +516,35 @@
     "pages/forums-page": {
         "name": "pages/forums-page",
         "scope": "infinity.forums",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "forums/pages/forums-page"
     },
     "pages/home": {
         "name": "pages/home",
         "scope": "infinity.product-hunt-platform",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "product-hunt-platform/pages/home"
     },
     "pages/launch-details-page": {
         "name": "pages/launch-details-page",
         "scope": "infinity.launches",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "launches/pages/launch-details-page"
     },
     "pages/launches-page": {
         "name": "pages/launches-page",
         "scope": "infinity.launches",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "launches/pages/launches-page"
     },
     "pages/login": {
         "name": "pages/login",
         "scope": "infinity.product-hunt-platform",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "product-hunt-platform/pages/login"
     },
@@ -523,7 +558,7 @@
     "pages/product-detail-page": {
         "name": "pages/product-detail-page",
         "scope": "infinity.products",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "products/pages/product-detail-page"
     },
@@ -537,7 +572,7 @@
     "pages/products-page": {
         "name": "pages/products-page",
         "scope": "infinity.products",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "products/pages/products-page"
     },
@@ -558,14 +593,14 @@
     "pages/signup": {
         "name": "pages/signup",
         "scope": "infinity.product-hunt-platform",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "product-hunt-platform/pages/signup"
     },
     "pages/submit-launch-page": {
         "name": "pages/submit-launch-page",
         "scope": "infinity.launches",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "launches/pages/submit-launch-page"
     },
@@ -579,14 +614,21 @@
     "pages/user-profile-page": {
         "name": "pages/user-profile-page",
         "scope": "infinity.people",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "people/pages/user-profile-page"
+    },
+    "pages/user-upvotes-page": {
+        "name": "pages/user-upvotes-page",
+        "scope": "infinity.upvotes",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "upvotes/pages/user-upvotes-page"
     },
     "people": {
         "name": "people",
         "scope": "infinity.people",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "people/people"
     },
@@ -600,14 +642,14 @@
     "people/user-launches-tab": {
         "name": "people/user-launches-tab",
         "scope": "infinity.launches",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "launches/people/user-launches-tab"
     },
     "people/user-products-tab": {
         "name": "people/user-products-tab",
         "scope": "infinity.products",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "products/people/user-products-tab"
     },
@@ -621,21 +663,21 @@
     "product-hunt": {
         "name": "product-hunt",
         "scope": "infinity.product-hunt-platform",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "product-hunt-platform/product-hunt"
     },
     "product-hunt-platform": {
         "name": "product-hunt-platform",
         "scope": "infinity.product-hunt-platform",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "product-hunt-platform/product-hunt-platform"
     },
     "products": {
         "name": "products",
         "scope": "infinity.products",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "products/products"
     },
@@ -649,7 +691,7 @@
     "products/launch-info-tab": {
         "name": "products/launch-info-tab",
         "scope": "infinity.launches",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "launches/products/launch-info-tab"
     },
@@ -677,14 +719,14 @@
     "reviews": {
         "name": "reviews",
         "scope": "infinity.reviews",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "reviews/reviews"
     },
     "search": {
         "name": "search",
         "scope": "infinity.search",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "search/search"
     },
@@ -705,7 +747,7 @@
     "search/product-search-type": {
         "name": "search/product-search-type",
         "scope": "infinity.products",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "products/search/product-search-type"
     },
@@ -733,7 +775,7 @@
     "ui/forum-list": {
         "name": "ui/forum-list",
         "scope": "infinity.forums",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "forums/ui/forum-list"
     },
@@ -754,28 +796,28 @@
     "ui/forum-topic-list": {
         "name": "ui/forum-topic-list",
         "scope": "infinity.forums",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "forums/ui/forum-topic-list"
     },
     "ui/launch-card": {
         "name": "ui/launch-card",
         "scope": "infinity.launches",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "launches/ui/launch-card"
     },
     "ui/launch-countdown": {
         "name": "ui/launch-countdown",
         "scope": "infinity.launches",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "launches/ui/launch-countdown"
     },
     "ui/launch-list": {
         "name": "ui/launch-list",
         "scope": "infinity.launches",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "launches/ui/launch-list"
     },
@@ -789,7 +831,7 @@
     "ui/members-list": {
         "name": "ui/members-list",
         "scope": "infinity.people",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "people/ui/members-list"
     },
@@ -810,7 +852,7 @@
     "ui/product-list": {
         "name": "ui/product-list",
         "scope": "infinity.products",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "products/ui/product-list"
     },
@@ -849,10 +891,24 @@
         "mainFile": "index.ts",
         "rootDir": "search/ui/search-results-list"
     },
+    "ui/upvote-button": {
+        "name": "ui/upvote-button",
+        "scope": "infinity.upvotes",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "upvotes/ui/upvote-button"
+    },
+    "ui/upvote-count": {
+        "name": "ui/upvote-count",
+        "scope": "infinity.upvotes",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "upvotes/ui/upvote-count"
+    },
     "ui/user-card": {
         "name": "ui/user-card",
         "scope": "infinity.people",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "people/ui/user-card"
     },
@@ -862,6 +918,13 @@
         "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "people/ui/user-compact-card"
+    },
+    "upvotes": {
+        "name": "upvotes",
+        "scope": "infinity.upvotes",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "upvotes/upvotes"
     },
     "$schema-version": "17.0.0"
 }

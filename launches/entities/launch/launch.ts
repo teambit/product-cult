@@ -60,7 +60,12 @@ export class Launch {
     /**
      * Optional unique identifier. If not provided, a new UUID will be generated.
      */
-    id?: string
+    id?: string,
+
+    /**
+     * image url
+     */
+    readonly imageUrl?: string,
   ) {
     this.id = id || uuidv4();
   }
@@ -81,6 +86,7 @@ export class Launch {
       submittedBy: this.submittedBy,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt,
+      imageUrl: this.imageUrl,
     };
   }
 
@@ -100,7 +106,8 @@ export class Launch {
       plainLaunch.submittedBy,
       plainLaunch.createdAt,
       plainLaunch.updatedAt,
-      plainLaunch.id
+      plainLaunch.id,
+      plainLaunch.imageUrl
     );
   }
 }

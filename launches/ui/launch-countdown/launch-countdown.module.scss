@@ -9,7 +9,7 @@
   font-family: var(--typography-font-family);
   color: var(--colors-text-primary);
   text-align: center;
-  box-shadow: var(--effects-shadows-medium);
+  // box-shadow: var(--effects-shadows-medium);
   width: 100%;
   max-width: 600px; 
   margin: 0 auto;
@@ -29,9 +29,9 @@
   display: flex;
   justify-content: center;
   align-items: baseline;
-  gap: var(--spacing-small);
+  // gap: var(--spacing-small);
   width: 100%;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
 }
 
 .timeSegment {
@@ -47,7 +47,7 @@
 }
 
 .digit {
-  font-size: var(--typography-sizes-display-small);
+  font-size: var(--typography-sizes-body-medium);
   font-weight: var(--typography-font-weight-bold);
   color: var(--colors-text-accent);
   line-height: 1.1;
@@ -56,7 +56,7 @@
 }
 
 .label {
-  font-size: var(--typography-sizes-body-small);
+  font-size: var(--typography-sizes-body-x-small);
   font-weight: var(--typography-font-weight-regular);
   color: var(--colors-text-secondary);
   text-transform: uppercase;

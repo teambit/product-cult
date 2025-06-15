@@ -111,12 +111,12 @@ export function UserBar(props: UserBarProps): React.JSX.Element | null {
         <div className={styles.loggedOutActions}>
           <Button
             appearance="primary"
-            href="/submit-product"
+            href="/signup"
             className={styles.getStartedButton}
           >
             Get started
           </Button>
-          <Button appearance="tertiary" href="/" className={styles.loginLink}>
+          <Button appearance="tertiary" href="/login" className={styles.loginLink}>
             Login
           </Button>
         </div>

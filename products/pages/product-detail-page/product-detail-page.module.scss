@@ -106,3 +106,9 @@
     max-width: 100%; // Details section takes full width.
   }
 }
+
+.featureSections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+}

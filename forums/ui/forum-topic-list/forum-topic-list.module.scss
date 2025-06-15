@@ -15,6 +15,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-small);
+  margin: auto;
+  width: 80%;
 }
 
 .topicItem:hover {
@@ -96,4 +98,17 @@
     align-items: flex-end;
     text-align: right; /* Align text to the right for meta info on larger screens */
   }
+}
+
+.pageHeaderImageContainer {
+  width: 100%;
+  max-height: 350px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--spacing-large);
+  background: var(--effects-gradients-subtle-surface); // Subtle gradient background
+  border-bottom: var(--borders-default-width) var(--borders-default-style) var(--colors-border-subtle);
+  box-sizing: border-box; // Added to ensure border doesn't cause overflow with width: 100%
 }

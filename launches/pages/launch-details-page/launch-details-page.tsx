@@ -23,7 +23,7 @@ const HERO_IMAGE_URL = "https://images.unsplash.com/photo-1700508317396-e343a69a
  * presents details such as name, tagline, description, launch date, a countdown,
  * and tracking options.
  */
-export function LaunchDetailsPage({ className, style, mockLaunchData, sections }: LaunchDetailsPageProps): React.JSX.Element {
+export function LaunchDetailsPage({ className, style, mockLaunchData, sections, actions }: LaunchDetailsPageProps): React.JSX.Element {
   const { launchId } = useParams<{ launchId: string }>();
   const queryVariables = launchId ? { id: launchId } : { id: mockLaunchData!.id }; // Hook requires an ID.
   
@@ -88,10 +88,16 @@ export function LaunchDetailsPage({ className, style, mockLaunchData, sections }
 
   return (
     <PageLayout title={`${launch.name} - Launch Details`} className={classNames(styles.launchDetailsPage, className)}>
-      <header className={styles.heroSection} style={{ backgroundImage: `url(${HERO_IMAGE_URL})` }}>
+      <header className={styles.heroSection} style={{ backgroundImage: `url(${launch.imageUrl || HERO_IMAGE_URL})` }}>
         <div className={styles.heroOverlay}>
           <Heading level={1} className={styles.launchNameHero}>{launch.name}</Heading>
           {launch.tagline && <Paragraph className={styles.taglineHero}>{launch.tagline}</Paragraph>}
+        </div>
+        <div className={styles.actions}>
+        {actions?.length ? actions.map((action) => {
+            const Component = action.component;
+            return <Component launch={launch} />;
+          }): null}
         </div>
       </header>
 

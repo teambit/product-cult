@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-medium);
+  max-width: 395px;
   // The Card component itself provides background, border, shadow.
   // We can enhance or override if needed.
   // Example: Add a subtle gradient overlay or specific border highlight for "wow" effect

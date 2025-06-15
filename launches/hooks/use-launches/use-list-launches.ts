@@ -9,6 +9,7 @@ const LIST_LAUNCHES_QUERY = gql`
       id
       productId
       name
+      imageUrl
       tagline
       description
       launchDate

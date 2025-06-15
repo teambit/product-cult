@@ -77,6 +77,7 @@ export function ForumList({
       className={classNames(styles.forumListContainer, className)}
       style={style}
     >
+      <div>
       {forums.map((forum) => (
         <Link
           key={forum.id}
@@ -102,6 +103,7 @@ export function ForumList({
           </article>
         </Link>
       ))}
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@
   border-bottom: var(--borders-default-width) var(--borders-default-style) var(--colors-border-subtle);
   height: 64px;
   background-color: var(--colors-surface-background);
+  overflow: hidden;
   box-sizing: border-box;
   width: 100%;
   position: sticky;

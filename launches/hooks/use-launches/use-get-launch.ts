@@ -12,6 +12,7 @@ const GET_LAUNCH_QUERY = gql`
       tagline
       description
       launchDate
+      imageUrl
       status
       submittedBy
       createdAt

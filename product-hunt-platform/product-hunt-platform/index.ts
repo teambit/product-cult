@@ -9,7 +9,10 @@ export type { HomepageSection, HomepageSectionSlot } from './homepage-section.js
 export type { UserBarMenuItem, UserBarMenuItemSlot } from './user-bar-menu-item.js';
 export type { AppLayoutHeader, AppLayoutHeaderSlot } from './app-layout-header.js';
 export type { AppLayoutFooter, AppLayoutFooterSlot } from './app-layout-footer.js';
-export type { Route } from './route.js';
+export type { CreateAction, CreateActionSlot } from './create-action.js';
+export type { AuthRoute, AuthRouteSlot } from './auth-route.js';
+export type { Route, RouteSlot } from './route.js';
+export type { DashboardPanel, DashboardPanelSlot } from './dashboard-panel.js';
 export type {
   CreateUserOptions,
   LoginUserOptions,

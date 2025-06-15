@@ -3,8 +3,8 @@ import { KubernetesAspect } from '@bitdev/symphony.deployers.kubernetes';
 import { NodeJSRuntime } from '@bitdev/harmony.runtimes.nodejs-runtime';
 import { BrowserRuntime } from '@bitdev/harmony.runtimes.browser-runtime';
 import { SymphonyPlatformAspect } from '@bitdev/symphony.symphony-platform';
-
 import { ProductHuntPlatformAspect } from '@infinity/product-hunt-platform.product-hunt-platform';
+import { UpvotesAspect } from '@infinity/upvotes.upvotes';
 import { PeopleAspect } from '@infinity/people.people';
 import { SearchAspect } from '@infinity/search.search';
 import { ProductsAspect } from '@infinity/products.products';
@@ -15,15 +15,15 @@ import { ReviewsAspect } from '@infinity/reviews.reviews';
 import { LaunchesAspect } from '@infinity/launches.launches';
 
 /**
-  * Compose the product-hunt platform.
-  */
+ * Compose the Product Hunt platform.
+ */
 export const ProductHunt = HarmonyPlatform.from({
   name: 'product-hunt',
   platform: [SymphonyPlatformAspect, {
     name: 'Product Hunt',
-    slogan: 'Discover your next favorite thing',
+    slogan: 'The place to discover your next favorite things.',
     domain: 'product-hunt.teambit.games',
-    logo: 'https://static.bit.dev/extensions-icons/product-hunt.svg',
+    logo: 'https://static.bit.dev/extensions-icons/product-hunt.svg', // Placeholder or actual logo
   }],
 
   runtimes: [
@@ -32,8 +32,8 @@ export const ProductHunt = HarmonyPlatform.from({
   ],
 
   aspects: [
-    // Feature aspects composed into the platform
     ProductHuntPlatformAspect,
+    UpvotesAspect,
     PeopleAspect,
     SearchAspect,
     ProductsAspect,

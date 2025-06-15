@@ -26,7 +26,7 @@ export type HomeProps = {
   heroTitleUnauthenticated?: string;
   /**
    * Subtitle for the hero section when the user is not authenticated.
-   * @default 'Join Product Hunt to find and share the latest innovations in tech, connect with makers, and be the first to explore groundbreaking products.'
+   * @default 'Join Product Cult to find and share the latest innovations in tech, connect with makers, and be the first to explore groundbreaking products.'
    */
   heroSubtitleUnauthenticated?: string;
   /**
@@ -101,7 +101,7 @@ export type HomeProps = {
 
 const DEFAULT_HERO_TITLE_UNAUTHENTICATED = 'Discover Tomorrow’s Tech, Today.';
 const DEFAULT_HERO_SUBTITLE_UNAUTHENTICATED =
-  'Join Product Hunt to find and share the latest innovations in tech, connect with makers, and be the first to explore groundbreaking products.';
+  'Join Product Cult to find and share the latest innovations in tech, connect with makers, and be the first to explore groundbreaking products.';
 const DEFAULT_HERO_CTA_TEXT_UNAUTHENTICATED = 'Explore Products';
 const DEFAULT_HERO_CTA_LINK_UNAUTHENTICATED = '/products';
 const DEFAULT_HERO_BACKGROUND_IMAGE_URL =

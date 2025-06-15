@@ -168,11 +168,11 @@ export function UserProfilePage({
             <Paragraph className={styles.userInfoItem}>
               Joined: {new Date(userProfile.createdAt).toLocaleDateString()}
             </Paragraph>
-            {userProfile.email && (
+            {/* {userProfile.email && (
                <Paragraph className={styles.userInfoItem}>
                 Contact: <Link href={`mailto:${userProfile.email}`}>{userProfile.email}</Link>
               </Paragraph>
-            )}
+            )} */}
           </div>
           {userProfile.socialMediaLinks &&
             Object.keys(userProfile.socialMediaLinks).length > 0 && (
@@ -229,7 +229,7 @@ export function UserProfilePage({
 
       {ActiveTabContentComponent && (
         <main className={styles.tabContent}>
-          <ActiveTabContentComponent />
+          <ActiveTabContentComponent userId={userProfile.userId} />
         </main>
       )}
     </PageLayout>
