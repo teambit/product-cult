@@ -1,4 +1,6 @@
 .homePage {
+  margin: auto;
+  max-width: 1500px;
   padding: var(--spacing-large);
   min-height: calc(100vh - 120px); // Assuming header/footer might take up to 120px
   display: flex;

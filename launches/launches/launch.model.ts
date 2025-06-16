@@ -57,8 +57,8 @@ export const mockLaunchModels: Partial<LaunchModel>[] = [
     tagline: 'Returning human spaceflight to the United States.',
     imageUrl: 'https://storage.googleapis.com/static.bit.dev/product-cult/launches%20-%20SpaceX%20Demo-2%20Mission.jpeg',
     description: 'The first crewed test flight of the SpaceX Dragon 2 capsule, launching American astronauts to the ISS from U.S. soil for the first time since 2011.',
-    launchDate: '2020-05-30T19:22:00Z',
-    status: 'archived',
+    launchDate: '2025-08-30T19:22:00Z',
+    status: 'upcoming',
     submittedBy: '6',
   },
   {

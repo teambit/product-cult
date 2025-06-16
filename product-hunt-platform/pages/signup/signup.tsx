@@ -53,7 +53,7 @@ export function Signup({ className, style }: SignupProps): React.JSX.Element {
     try {
       const newUser = await auth.signup(options);
       if (newUser) {
-        navigate('/');
+        window.location.href = '/';
       } else {
         setSignupError('Signup failed. Please check your details and try again.');
       }

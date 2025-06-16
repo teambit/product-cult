@@ -80,19 +80,19 @@ export class UpvotesBrowser {
       }
     ]);
 
-    productHuntPlatform.registerHomepageSection([
-      {
-        name: 'upvotes-dashboard-panel',
-        component: () => (
-          <UpvotesDashboardPanel
-            itemId="featured-product-today"
-            itemType="product"
-            title="Featured Upvote Insights"
-          />
-        ),
-        weight: 50
-      }
-    ]);
+    // productHuntPlatform.registerHomepageSection([
+    //   {
+    //     name: 'upvotes-dashboard-panel',
+    //     component: () => (
+    //       <UpvotesDashboardPanel
+    //         itemId="featured-product-today"
+    //         itemType="product"
+    //         title="Featured Upvote Insights"
+    //       />
+    //     ),
+    //     weight: 50
+    //   }
+    // ]);
 
     launches.registerLaunchAction([
       {

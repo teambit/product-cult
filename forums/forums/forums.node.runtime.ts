@@ -270,7 +270,7 @@ export class ForumsNode {
     await this.search.indexContent({
       type: 'forum-post',
       id: post.id,
-      data: { ...post.toObject(), type: 'forum-post', topicTitle: topic?.title }
+      data: { ...post.toObject(), type: 'forum-post', title: topic?.title, description: post.content }
     });
     return post;
   }

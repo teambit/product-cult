@@ -6,7 +6,7 @@ import { Heading } from '@infinity/design.typography.heading';
 import { Button } from '@infinity/design.actions.button';
 import { ForumPostItem } from '@infinity/forums.ui.forum-post-item';
 import { useGetForumTopic } from '@infinity/forums.hooks.use-forum-topics';
-import { useListForumPosts } from '@infinity/forums.hooks.use-forum-posts';
+import { useListForumPosts, useCreateForumPost } from '@infinity/forums.hooks.use-forum-posts';
 import type { ForumTopic } from '@infinity/forums.entities.forum-topic';
 import type { ForumPost } from '@infinity/forums.entities.forum-post';
 
@@ -60,6 +60,7 @@ export function ForumTopicPage({
     loading: topicLoading,
     error: topicError,
   } = useGetForumTopic({ id: topicId, mockData: mockTopic });
+  const [createPost, { loading }] = useCreateForumPost();
 
   const {
     posts,
@@ -94,7 +95,11 @@ export function ForumTopicPage({
       });
       
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await createPost({
+        topicId: topic.id,
+        content: newPostContent,
+      });
+
       setNewPostContent('');
       // Simulate refetch after successful post. In a real scenario,
       // this might be triggered by cache update policies or explicitly called.

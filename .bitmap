@@ -243,7 +243,7 @@
     "forums": {
         "name": "forums",
         "scope": "infinity.forums",
-        "version": "0.0.4",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "forums/forums"
     },
@@ -271,7 +271,7 @@
     "hooks/use-forum-posts": {
         "name": "hooks/use-forum-posts",
         "scope": "infinity.forums",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "forums/hooks/use-forum-posts"
     },
@@ -432,7 +432,7 @@
     "launches": {
         "name": "launches",
         "scope": "infinity.launches",
-        "version": "0.0.4",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "launches/launches"
     },
@@ -509,7 +509,7 @@
     "pages/forum-topic-page": {
         "name": "pages/forum-topic-page",
         "scope": "infinity.forums",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "forums/pages/forum-topic-page"
     },
@@ -523,7 +523,7 @@
     "pages/home": {
         "name": "pages/home",
         "scope": "infinity.product-hunt-platform",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "product-hunt-platform/pages/home"
     },
@@ -558,7 +558,7 @@
     "pages/product-detail-page": {
         "name": "pages/product-detail-page",
         "scope": "infinity.products",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "products/pages/product-detail-page"
     },
@@ -586,14 +586,14 @@
     "pages/search-page": {
         "name": "pages/search-page",
         "scope": "infinity.search",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "search/pages/search-page"
     },
     "pages/signup": {
         "name": "pages/signup",
         "scope": "infinity.product-hunt-platform",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "product-hunt-platform/pages/signup"
     },
@@ -628,7 +628,7 @@
     "people": {
         "name": "people",
         "scope": "infinity.people",
-        "version": "0.0.4",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "people/people"
     },
@@ -663,21 +663,21 @@
     "product-hunt": {
         "name": "product-hunt",
         "scope": "infinity.product-hunt-platform",
-        "version": "0.0.5",
+        "version": "0.0.9",
         "mainFile": "index.ts",
         "rootDir": "product-hunt-platform/product-hunt"
     },
     "product-hunt-platform": {
         "name": "product-hunt-platform",
         "scope": "infinity.product-hunt-platform",
-        "version": "0.0.4",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "product-hunt-platform/product-hunt-platform"
     },
     "products": {
         "name": "products",
         "scope": "infinity.products",
-        "version": "0.0.4",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "products/products"
     },
@@ -719,14 +719,14 @@
     "reviews": {
         "name": "reviews",
         "scope": "infinity.reviews",
-        "version": "0.0.4",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "reviews/reviews"
     },
     "search": {
         "name": "search",
         "scope": "infinity.search",
-        "version": "0.0.4",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "search/search"
     },
@@ -747,7 +747,7 @@
     "search/product-search-type": {
         "name": "search/product-search-type",
         "scope": "infinity.products",
-        "version": "0.0.4",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "products/search/product-search-type"
     },
@@ -831,7 +831,7 @@
     "ui/members-list": {
         "name": "ui/members-list",
         "scope": "infinity.people",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "people/ui/members-list"
     },
@@ -887,7 +887,7 @@
     "ui/search-results-list": {
         "name": "ui/search-results-list",
         "scope": "infinity.search",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "search/ui/search-results-list"
     },
@@ -922,7 +922,7 @@
     "upvotes": {
         "name": "upvotes",
         "scope": "infinity.upvotes",
-        "version": "0.0.1",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "upvotes/upvotes"
     },

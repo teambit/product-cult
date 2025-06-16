@@ -1,8 +1,13 @@
+
 .searchResultsList {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
+  margin-top: 24px;
+  // display: grid;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: var(--spacing-large); // Consistent gap between cards
   grid-template-columns: 1fr; // Mobile first: 1 column
   box-sizing: border-box;
@@ -19,6 +24,7 @@
   height: 100%; // Make cards in a row have the same height if grid rows auto-adjust
   display: flex;
   flex-direction: column;
+  max-width: 380px;
 
   // Overriding Card's internal body padding if needed, or ensure content flows well
   // The Card component has its own padding, so this might not be necessary

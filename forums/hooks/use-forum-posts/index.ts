@@ -1,4 +1,5 @@
 export { useListForumPosts } from './use-list-forum-posts.js';
+export { useCreateForumPost } from './use-create-forum-post.js';
 export type { UseListForumPostsResult, UseListForumPostsOptions } from './use-list-forum-posts.js';
 export { useForumPost } from './use-forum-post.js';
 export type { UseForumPostResult, UseForumPostOptions } from './use-forum-post.js';
